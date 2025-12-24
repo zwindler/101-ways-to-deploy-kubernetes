@@ -90,6 +90,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) | Oracle Cloud Infrastructure | [Website](https://www.oracle.com/fr/cloud/cloud-native/container-engine-kubernetes/) | Not applicable | | [[ref]](#oracle-cloud-infrastructure-container-engine-for-kubernetes-oke) |
 | Redhat Openshift cloud | Redhat | [Website](https://www.redhat.com/fr/technologies/cloud-computing/openshift/openshift-cloud-services) | Not applicable | Openshift | |
 | SKS | Exoscale | [Website](https://community.exoscale.com/documentation/sks/overview/) | Not applicable | | [[ref]](#sks) |
+| UpCloud Managed Kubernetes (UKS) | UpCloud | [Website](https://upcloud.com/products/managed-kubernetes) | Not applicable | | |
 | VKE | Vultr | [Website](https://www.vultr.com/kubernetes/) | Not applicable | | |
 
 ---
@@ -105,6 +106,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | KubeClipper | | [GitHub](https://github.com/kubeclipper/kubeclipper) | Apache 2.0 | | |
 | Kubermatic Kubernetes Platform | Kubermatic | [GitHub](https://github.com/kubermatic/kubermatic) | Apache 2.0 | | [[ref]](#kubermatic-kubernetes-platform) |
 | Omni | SideroLabs | [Website](https://www.siderolabs.com/platform/saas-for-kubernetes/) | BUSL 1.1 | Talos Linux | [[ref]](#omni) |
+| Palette | Spectro Cloud | [Website](https://www.spectrocloud.com/product/palette/) | No | | |
+| Platform9 | Platform9 | [Website](https://platform9.com/) | No | | |
+| Portainer | Portainer.io | [Website](https://www.portainer.io/) | Zlib (CE) / No (BE) | | |
+| Rafay | Rafay Systems | [Website](https://rafay.co/) | No | | |
 | Rancher | Rancher | [GitHub](https://github.com/rancher/rancher) | Apache 2.0 | | [[ref]](#rancher) |
 | Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | No | | |
 
