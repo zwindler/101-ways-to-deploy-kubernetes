@@ -108,7 +108,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | Omni | SideroLabs | [Website](https://www.siderolabs.com/platform/saas-for-kubernetes/) | BUSL 1.1 | Talos Linux | [[ref]](#omni) |
 | Palette | Spectro Cloud | [Website](https://www.spectrocloud.com/product/palette/) | No | | |
 | Platform9 | Platform9 | [Website](https://platform9.com/) | No | | |
-| Portainer | Portainer.io | [Website](https://www.portainer.io/) | CE (Community Edition) | | |
+| Portainer | Portainer.io | [Website](https://www.portainer.io/) | Zlib (CE) / No (BE) | | |
 | Rafay | Rafay Systems | [Website](https://rafay.co/) | No | | |
 | Rancher | Rancher | [GitHub](https://github.com/rancher/rancher) | Apache 2.0 | | [[ref]](#rancher) |
 | Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | No | | |
