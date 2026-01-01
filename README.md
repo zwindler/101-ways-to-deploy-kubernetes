@@ -106,7 +106,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | KubeClipper | | [GitHub](https://github.com/kubeclipper/kubeclipper) | Apache 2.0 | kubeadm | |
 | Kubermatic Kubernetes Platform | Kubermatic | [GitHub](https://github.com/kubermatic/kubermatic) | Apache 2.0 | | [[ref]](#kubermatic-kubernetes-platform) |
 | Omni | SideroLabs | [Website](https://www.siderolabs.com/platform/saas-for-kubernetes/) | BUSL 1.1 | Talos Linux | [[ref]](#omni) |
-| Palette | Spectro Cloud | [Website](https://www.spectrocloud.com/product/palette/) | ❌ | | |
+| Palette | Spectro Cloud | [Website](https://www.spectrocloud.com/product/palette/) | ❌ | Cluster API | |
 | Platform9 | Platform9 | [Website](https://platform9.com/) | ❌ | | |
 | Portainer | Portainer.io | [Website](https://www.portainer.io/) | Zlib (CE) / ❌ (BE) | | |
 | Rafay | Rafay Systems | [Website](https://rafay.co/) | ❌ | | |
