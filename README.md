@@ -14,7 +14,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | colima | | [GitHub](https://github.com/abiosoft/colima) | Apache 2.0 | lima-vm | [[ref]](#colima) |
 | crc (openshift 4 on a desktop) | Openshift | [GitHub](https://github.com/crc-org/crc) | Apache 2.0 | OpenShift | [[ref]](#crc-openshift-4-on-a-desktop) |
 | Desktop-Kubernetes | | [GitHub](https://github.com/aceeric/desktop-kubernetes) | Apache 2.0 | | [[ref]](#desktop-kubernetes) |
-| Docker desktop | Docker (Mirantis) | [Website](https://www.docker.com/products/docker-desktop/) | No | kubeadm, kind | [[ref]](#docker-desktop) |
+| Docker desktop | Docker (Mirantis) | [Website](https://www.docker.com/products/docker-desktop/) | ❌ | kubeadm, kind | [[ref]](#docker-desktop) |
 | k3d | Rancher | [GitHub](https://github.com/k3d-io/k3d) | Apache 2.0 | k3s | [[ref]](#k3d) |
 | kind | | [GitHub](https://github.com/kubernetes-sigs/kind) | Apache 2.0 | kubeadm | [[ref]](#kind) |
 | kubefire | | [GitHub](https://github.com/innobead/kubefire) | Apache 2.0 | kubeadm, k3s, rke2, k0s | [[ref]](#kubefire) |
@@ -24,7 +24,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | Minishift | Redhat | [GitHub](https://github.com/minishift/minishift) | Apache 2.0 | OpenShift | [[ref]](#minishift) |
 | mykube | | [GitHub](https://github.com/guyst16/mykube) | Apache 2.0 | kubeadm | |
 | Oracle Cloud Native Environment | Oracle | [GitHub](https://github.com/oracle-cne/ocne) | Apache 2.0 | | |
-| Orbstack | | [Website](https://orbstack.dev/) | No | | [[ref]](#orbstack) |
+| Orbstack | | [Website](https://orbstack.dev/) | ❌ | | [[ref]](#orbstack) |
 | Rancher Desktop | Rancher | [GitHub](https://github.com/rancher-sandbox/rancher-desktop) | Apache 2.0 | LimaVM and k3s | [[ref]](#rancher-desktop) |
 
 ---
@@ -106,12 +106,12 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | KubeClipper | | [GitHub](https://github.com/kubeclipper/kubeclipper) | Apache 2.0 | | |
 | Kubermatic Kubernetes Platform | Kubermatic | [GitHub](https://github.com/kubermatic/kubermatic) | Apache 2.0 | | [[ref]](#kubermatic-kubernetes-platform) |
 | Omni | SideroLabs | [Website](https://www.siderolabs.com/platform/saas-for-kubernetes/) | BUSL 1.1 | Talos Linux | [[ref]](#omni) |
-| Palette | Spectro Cloud | [Website](https://www.spectrocloud.com/product/palette/) | No | | |
-| Platform9 | Platform9 | [Website](https://platform9.com/) | No | | |
-| Portainer | Portainer.io | [Website](https://www.portainer.io/) | Zlib (CE) / No (BE) | | |
-| Rafay | Rafay Systems | [Website](https://rafay.co/) | No | | |
+| Palette | Spectro Cloud | [Website](https://www.spectrocloud.com/product/palette/) | ❌ | | |
+| Platform9 | Platform9 | [Website](https://platform9.com/) | ❌ | | |
+| Portainer | Portainer.io | [Website](https://www.portainer.io/) | Zlib (CE) / ❌ (BE) | | |
+| Rafay | Rafay Systems | [Website](https://rafay.co/) | ❌ | | |
 | Rancher | Rancher | [GitHub](https://github.com/rancher/rancher) | Apache 2.0 | | [[ref]](#rancher) |
-| Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | No | | |
+| Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | ❌ | | |
 
 ---
 
@@ -153,8 +153,8 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | KubeSolo | portainer.io | [GitHub](https://github.com/portainer/kubesolo) | Apache 2.0 | k3s | |
 | Kurl | ReplicatedHQ | [GitHub](https://github.com/replicatedhq/kurl) | Apache 2.0 | Kubeadm | [[ref]](#kurl) |
 | Magnum | OpenStack | [GitHub](https://github.com/openstack/magnum) | Apache 2.0 | | [[ref]](#magnum) |
-| MKE (Mirantis Kubernetes Engine) | Mirantis | [Website](https://docs.mirantis.com/mke4k/latest/) | No | k0s | |
-| NKP (Nutanix Kubernetes Platform) | Nutanix | [Website](https://www.nutanix.com/products/kubernetes-management-platform) | No | | |
+| MKE (Mirantis Kubernetes Engine) | Mirantis | [Website](https://docs.mirantis.com/mke4k/latest/) | ❌ | k0s | |
+| NKP (Nutanix Kubernetes Platform) | Nutanix | [Website](https://www.nutanix.com/products/kubernetes-management-platform) | ❌ | | |
 | OKD (open source openshift) | Redhat | [GitHub](https://github.com/okd-project/okd) | Apache 2.0 | OpenShift | [[ref]](#okd-open-source-openshift) |
 | OneKE | OpenNebula | [GitHub](https://github.com/OpenNebula/one-apps) | Apache 2.0 | rke2 | [[ref]](#oneke) |
 | RKE2 | Rancher | [GitHub](https://github.com/rancher/rke2) | Apache 2.0 | | |
