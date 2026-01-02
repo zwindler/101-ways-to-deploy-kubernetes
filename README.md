@@ -34,15 +34,15 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
 | aks-engine (abandoned) | Azure | [GitHub](https://github.com/Azure/aks-engine) | Apache 2.0 | | |
-| Alvistack Ansible | Alvistack | ansible-collection-kubernetes | Apache 2.0 | kubeadm | |
+| Alvistack Ansible | Alvistack | [GitHub](https://github.com/alvistack/ansible-collection-kubernetes) | Apache 2.0 | kubeadm | |
 | Alvistack Vagrant-kubernetes | Alvistack | [GitHub](https://github.com/alvistack/vagrant-kubernetes) | Apache 2.0 | kubeadm | [[ref]](#alvistack-vagrant-kubernetes) |
 | Crossplane | | [GitHub](https://github.com/crossplane/crossplane) | Apache 2.0 | | [[ref]](#crossplane) |
-| Kube-hetzner | Hetzner | [GitHub](https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner) | MIT | Terraform / OpenTofu | |
+| Kube-hetzner | Hetzner | [GitHub](https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner) | MIT | Terraform / OpenTofu | [[ref]](#kube-hetzner) |
 | Kubernetes ClusterAPI | | [GitHub](https://github.com/kubernetes-sigs/cluster-api) | Apache 2.0 | | [[ref]](#kubernetes-clusterapi) |
 | Kubespray | | [GitHub](https://github.com/kubernetes-sigs/kubespray) | Apache 2.0 | kubeadm | [[ref]](#kubespray) |
 | OpenTofu | | [GitHub](https://github.com/opentofu/opentofu) | MPL 2.0 | | [[ref]](#opentofu) |
 | Pulumi | | [GitHub](https://github.com/pulumi/pulumi) | Apache 2.0 | | [[ref]](#pulumi) |
-| Puppet | | [Puppet Forge](https://forge.puppet.com/modules/puppetlabs/kubernetes/readme) | Apache 2.0 | Terraform / OpenTofu | |
+| Puppet | | [Puppet Forge](https://forge.puppet.com/modules/puppetlabs/kubernetes/readme) | Apache 2.0 | Terraform / OpenTofu | [[ref]](#puppet) |
 | typhoon | | [GitHub](https://github.com/poseidon/typhoon) | MIT | Terraform / OpenTofu | [[ref]](#typhoon) |
 
 ---
@@ -102,16 +102,16 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | Gardener | | [GitHub](https://github.com/gardener/gardener) | Apache 2.0 | | [[ref]](#gardener) |
 | hypershift | redhat | [GitHub](https://github.com/openshift/hypershift) | Apache 2.0 | Openshift/OKD | |
 | k0rdent | Mirantis | [GitHub](https://github.com/k0rdent/kcm) | Apache 2.0 | k0smotron and cluster API | |
-| Kamaji | Clastix | [GitHub](https://github.com/clastix/kamaji) | Apache 2.0 | kubeadm and Cluster API | |
+| Kamaji | Clastix | [GitHub](https://github.com/clastix/kamaji) | Apache 2.0 | kubeadm and Cluster API | [[ref]](#kamaji) |
 | KubeClipper | | [GitHub](https://github.com/kubeclipper/kubeclipper) | Apache 2.0 | kubeadm | |
 | Kubermatic Kubernetes Platform | Kubermatic | [GitHub](https://github.com/kubermatic/kubermatic) | Apache 2.0 | | [[ref]](#kubermatic-kubernetes-platform) |
 | Omni | SideroLabs | [Website](https://www.siderolabs.com/platform/saas-for-kubernetes/) | BUSL 1.1 | Talos Linux | [[ref]](#omni) |
 | Palette | Spectro Cloud | [Website](https://www.spectrocloud.com/product/palette/) | ❌ | Cluster API | |
-| Platform9 | Platform9 | [Website](https://platform9.com/) | ❌ | | |
+| Platform9 | Platform9 | [Website](https://platform9.com/) | ❌ | | [[ref]](#platform9) |
 | Portainer | Portainer.io | [Website](https://www.portainer.io/) | Zlib (CE) / ❌ (BE) | | |
 | Rafay | Rafay Systems | [Website](https://rafay.co/) | ❌ | | |
 | Rancher | Rancher | [GitHub](https://github.com/rancher/rancher) | Apache 2.0 | | [[ref]](#rancher) |
-| Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | ❌ | | |
+| Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | ❌ | | [[ref]](#tanzu) |
 
 ---
 
@@ -134,7 +134,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
-| EKS Anywhere | AWS | [GitHub](https://github.com/aws/eks-anywhere) | Apache 2.0 | EKS | |
+| EKS Anywhere | AWS | [GitHub](https://github.com/aws/eks-anywhere) | Apache 2.0 | EKS | [[ref]](#eks-anywhere) |
 | Harvester | Rancher | [GitHub](https://github.com/harvester/harvester) | Apache 2.0 | | [[ref]](#harvester) |
 | Hepto | | [Forge Tedomum](https://forge.tedomum.net/acides/hepto) | Apache 2.0 | | |
 | Juju | Canonical | [GitHub](https://github.com/juju/juju) | Apache 2.0 | | |
@@ -151,14 +151,14 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | KubeKey | | [GitHub](https://github.com/kubesphere/kubekey) | Apache 2.0 | kubeadm / k3s | [[ref]](#kubekey) |
 | KubeMarine | | [GitHub](https://github.com/Netcracker/KubeMarine) | Apache 2.0 | Kubeadm | [[ref]](#kubemarine) |
 | KubeOne | Kubermatic | [GitHub](https://github.com/kubermatic/kubeone) | Apache 2.0 | Kubeadm / ClusterAPI | [[ref]](#kubeone) |
-| KubeSolo | portainer.io | [GitHub](https://github.com/portainer/kubesolo) | Apache 2.0 | k3s | |
+| KubeSolo | portainer.io | [GitHub](https://github.com/portainer/kubesolo) | Apache 2.0 | k3s | [[ref]](#kubesolo) |
 | Kurl | ReplicatedHQ | [GitHub](https://github.com/replicatedhq/kurl) | Apache 2.0 | Kubeadm | [[ref]](#kurl) |
 | Magnum | OpenStack | [GitHub](https://github.com/openstack/magnum) | Apache 2.0 | Cluster API | [[ref]](#magnum) |
 | MKE (Mirantis Kubernetes Engine) | Mirantis | [Website](https://docs.mirantis.com/mke4k/latest/) | ❌ | k0s | |
 | NKP (Nutanix Kubernetes Platform) | Nutanix | [Website](https://www.nutanix.com/products/kubernetes-management-platform) | ❌ | | |
 | OKD (open source openshift) | Redhat | [GitHub](https://github.com/okd-project/okd) | Apache 2.0 | OpenShift | [[ref]](#okd-open-source-openshift) |
 | OneKE | OpenNebula | [GitHub](https://github.com/OpenNebula/one-apps) | Apache 2.0 | rke2 | [[ref]](#oneke) |
-| RKE2 | Rancher | [GitHub](https://github.com/rancher/rke2) | Apache 2.0 | k3s and RKE | |
+| RKE2 | Rancher | [GitHub](https://github.com/rancher/rke2) | Apache 2.0 | k3s and RKE | [[ref]](#rke2) |
 | SIGHUP | | [GitHub](https://github.com/sighupio/distribution) | BSD 3-Clause | | |
 | TALM | Cosystack | [GitHub](https://github.com/cozystack/talm) | Apache 2.0 | Talos Linux | |
 | tarook | | [GitHub](https://github.com/alasca-association/tarook) | Apache 2.0 | Terraform / Opentofu | |
@@ -235,6 +235,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 18 (EKS)
 
+### EKS Anywhere
+
+- [EN] [EKS Anywhere Cluster Tutorial [Deploy Cluster in 7 Steps]](https://devopscube.com/eks-anywhere-cluster/)
+
 ### elemental (ex k3os)
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 40 (elemental)
@@ -249,6 +253,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [EN] [How To Setup Kubernetes Cluster On Google Cloud (GKE)](https://devopscube.com/setup-kubernetes-cluster-google-cloud/)
 - [EN] [Day 10 – Kubernetes with Google Kubernetes Engine (GKE) Step-by-Step](https://blogs.curiositytech.in/day-10-kubernetes-with-google-kubernetes-engine-gke-step-by-step/)
+
+### Kamaji
+
+- [EN] [Setup a minimal Kamaji for development](https://github.com/koraakdas/k8-cluster-with-kamaji/blob/master/docs/getting-started-with-kamaji.md)
 
 ### Harvester
 
@@ -347,6 +355,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 25 (KubeOne)
 
+### KubeSolo
+
+- [EN] [KubeSolo New Kubernetes Edge Distro by Portainer](https://www.virtualizationhowto.com/2025/06/kubesolo-new-kubernetes-edge-distro-by-portainer/)
+
 ### Kubermatic Kubernetes Platform
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 44 (Kubermatic Kubernetes Platform)
@@ -354,6 +366,8 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### Kubernetes ClusterAPI
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 33 (Kubernetes ClusterAPI)
+- [EN] [Cluster API Quickstart: A Step-by-Step Guide](https://www.plural.sh/blog/cluster-api-quickstart-guide/)
+- [EN] [Getting Started with Kubernetes Cluster API](https://sesamedisk.com/getting-started-with-kubernetes-cluster-api-a-comprehensive-guide/)
 
 ### Kubernetes the hard way w/ Terraform (AWS)
 
@@ -363,6 +377,14 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 32 (Kubespray)
 - [FR] [Installer Kubernetes avec Kubespray (Ansible)](https://blog.zwindler.fr/2017/12/05/installer-kubernetes-kubespray-ansible/)
+- [EN] [How to Install Kubernetes Cluster Using Kubespray](https://itsfoss.gitlab.io/post/how-to-install-kubernetes-cluster-using-kubespray/)
+- [EN] [How to deploy Kubernetes using Kubespray](https://upcloud.com/resources/tutorials/deploy-kubernetes-using-kubespray/)
+- [EN] [How to Deploy a Kubernetes Cluster Using Kubespray](https://www.densify.com/kubernetes-tools/kubespray/)
+
+### Kube-hetzner
+
+- [EN] [Getting Started with Kube-Hetzner](https://deepwiki.com/kube-hetzner/terraform-hcloud-kube-hetzner/1.1-getting-started)
+- [EN] [Kubernetes cluster on Hetzner using k3s and Terraform](https://bogoyavlensky.com/blog/kubernetes-hetzner/)
 
 ### Kurl
 
@@ -421,6 +443,8 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### OpenTofu
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 34 (OpenTofu)
+- [EN] [How to Deploy Applications in Kubernetes using OpenTofu](https://www.itwonderlab.com/kubernetes-with-opentofu/)
+- [EN] [OpenTofu Tutorial: Getting Started & Examples](https://spacelift.io/blog/opentofu-tutorial)
 
 ### Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE)
 
@@ -431,6 +455,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 5 (Orbstack)
 - [EN] [Running Containers Natively on Mac with Orbstack](https://www.corpit.org/running-containers-natively-on-mac-with-orbstack/)
 
+### Platform9
+
+- [EN] [Get your First Container Up on Kubernetes Using Platform9 (HackerNoon)](https://hackernoon.com/get-your-first-container-up-on-kubernetes-using-the-free-version-of-platform9-managed-kubernetes-p65u32u9)
+
 ### Play with k8s
 
 - [EN] [Getting Started with Kubernetes on Play with Kubernetes Platform in 5 Minutes](https://dockerlabs.collabnix.com/kubernetes/beginners/getting-started-on-pwk.html)
@@ -438,6 +466,13 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### Pulumi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 36 (Pulumi)
+- [EN] [Create a Kubernetes Deployment with Pulumi](https://www.pulumi.com/guides/how-to/kubernetes-deployment/)
+- [EN] [Infrastructure as Code (IaC) on OVHcloud - Pulumi](https://blog.ovhcloud.com/infrastructure-as-code-iac-on-ovhcloud-part-1-terraform-opentofu/)
+
+### Puppet
+
+- [EN] [Puppet and Kubernetes - DEV Community Tutorial](https://dev.to/betadots/puppet-and-kubernetes-182e)
+- [EN] [Puppet & Kubernetes Configuration Management Guide](https://betanet.net/view-post/puppet-and-kubernetes-a-comprehensive-guide)
 
 ### Rancher
 
@@ -456,6 +491,11 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 - [FR] [Kubernetes avec RancherOS et RKE - Partie 2](https://blog.zwindler.fr/2020/11/30/kubernetes-avec-rancheros-et-rke-partie-2/)
 - [EN] [Install Kubernetes with Rancher RKE (Step-by-Step)](https://computingforgeeks.com/install-kubernetes-production-cluster-using-rancher-rke/)
 
+### RKE2
+
+- [EN] [Rancher Kubernetes: A Quick Installation Guide for RKE2](https://devtron.ai/blog/rancher-kubernetes-a-quick-installation-guide-for-rke2/)
+- [EN] [Installing Kubernetes Rancher with RKE2, Helm and Cert Manager](https://christalks.dev/post/installing-kubernetes-rancher-with-rke2-helm-and-cert-manager-6e2e39c5)
+
 ### SKS
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 15 (SKS)
@@ -472,6 +512,11 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### typhoon
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 35 (typhoon)
+
+### Tanzu
+
+- [EN] [Step-by-Step Guide: Running Kubernetes Applications in a VMware Environment](https://vmwareblogs.co.in/2025/07/29/step-by-step-guide-running-kubernetes-applications-in-a-vmware-environment/)
+- [EN] [Quick-Start Guide to Using VMware Tanzu Mission Control](https://blogs.vmware.com/tanzu/quick-start-guide-to-vmware-tanzu-mission-control-vsphere-tanzu-services/)
 
 ### vcluster
 
