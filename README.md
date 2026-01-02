@@ -154,7 +154,7 @@ Educational resources, playgrounds, and unique deployment methods that don't fit
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
 | By hand, using containers | | [GitHub](https://github.com/kubernetes/registry.k8s.io) | Apache 2.0 | | |
-| By hand, using binaries | | [GitHub](https://github.com/kubernetes/kubernetes) | Apache 2.0 | | |
+| By hand, using binaries | | [GitHub](https://github.com/kubernetes/kubernetes) | Apache 2.0 | | [[ref]](#by-hand-using-binaries) |
 | Devops playgrounds | | [Website](https://labs.iximiuz.com/playgrounds) | ☁️ N/A | | [[ref]](#devops-playgrounds) |
 | Kubernetes the hard way | | [GitHub](https://github.com/kelseyhightower/kubernetes-the-hard-way) | Apache 2.0 | | |
 | Kubernetes the hard way w/ Terraform (GCP) | | [GitHub](https://github.com/aidanSoles/kubernetes-the-hard-way-terraform) | Apache 2.0 | Terraform / OpenTofu | |
@@ -225,7 +225,7 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 ### By hand, using binaries
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 50 (By hand, using binaries)
-- [FR] [Démystifions Kubernetes](https://github.com/zwindler/demystifions-kubernetes/blob/main/README.md)
+- [EN] [Démystifions Kubernetes](https://github.com/zwindler/demystifions-kubernetes/blob/main/README.md)
 
 ### canonical kubernetes (snap)
 
