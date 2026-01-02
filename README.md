@@ -45,7 +45,7 @@ Tools for running Kubernetes on local development machines (laptops, workstation
 | Minishift | Redhat | [GitHub](https://github.com/minishift/minishift) | Apache 2.0 | OpenShift | [[ref]](#minishift) |
 | mykube | | [GitHub](https://github.com/guyst16/mykube) | Apache 2.0 | kubeadm | |
 | Oracle Cloud Native Environment | Oracle | [GitHub](https://github.com/oracle-cne/ocne) | Apache 2.0 | | |
-| Orbstack | | [Website](https://orbstack.dev/) | ❌ | | [[ref]](#orbstack) |
+| Orbstack | Orbital Stack | [Website](https://orbstack.dev/) | ❌ | | [[ref]](#orbstack) |
 | Rancher Desktop | Rancher | [GitHub](https://github.com/rancher-sandbox/rancher-desktop) | Apache 2.0 | LimaVM and k3s | [[ref]](#rancher-desktop) |
 
 ---
@@ -60,12 +60,12 @@ Tools and frameworks that use code to automate the deployment of Kubernetes clus
 | Alvistack Ansible | Alvistack | [GitHub](https://github.com/alvistack/ansible-collection-kubernetes) | Apache 2.0 | kubeadm | |
 | Alvistack Vagrant-kubernetes | Alvistack | [GitHub](https://github.com/alvistack/vagrant-kubernetes) | Apache 2.0 | kubeadm | [[ref]](#alvistack-vagrant-kubernetes) |
 | Crossplane | | [GitHub](https://github.com/crossplane/crossplane) | Apache 2.0 | | [[ref]](#crossplane) |
-| Kube-hetzner | Hetzner | [GitHub](https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner) | MIT | Terraform / OpenTofu | [[ref]](#kube-hetzner) |
+| Kube-hetzner | | [GitHub](https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner) | MIT | Terraform / OpenTofu | [[ref]](#kube-hetzner) |
 | Kubernetes ClusterAPI | | [GitHub](https://github.com/kubernetes-sigs/cluster-api) | Apache 2.0 | | [[ref]](#kubernetes-clusterapi) |
 | Kubespray | | [GitHub](https://github.com/kubernetes-sigs/kubespray) | Apache 2.0 | kubeadm | [[ref]](#kubespray) |
 | OpenTofu | | [GitHub](https://github.com/opentofu/opentofu) | MPL 2.0 | | [[ref]](#opentofu) |
-| Pulumi | | [GitHub](https://github.com/pulumi/pulumi) | Apache 2.0 | | [[ref]](#pulumi) |
-| Puppet | | [Puppet Forge](https://forge.puppet.com/modules/puppetlabs/kubernetes/readme) | Apache 2.0 | Terraform / OpenTofu | [[ref]](#puppet) |
+| Pulumi | Pulumi Services | [GitHub](https://github.com/pulumi/pulumi) | Apache 2.0 | | [[ref]](#pulumi) |
+| Puppet | Perforce Software | [Puppet Forge](https://forge.puppet.com/modules/puppetlabs/kubernetes/readme) | Apache 2.0 | Terraform / OpenTofu | [[ref]](#puppet) |
 | typhoon | | [GitHub](https://github.com/poseidon/typhoon) | MIT | Terraform / OpenTofu | [[ref]](#typhoon) |
 
 ---
@@ -102,17 +102,17 @@ Cloud provider or third-party managed Kubernetes services where the control plan
 |------|---------------------|-----|-------------|----------|---------------------|
 | AKS | Azure | [Website](https://azure.microsoft.com/fr-fr/products/kubernetes-service) | ☁️ N/A | | [[ref]](#aks) |
 | Alibaba Cloud Container Service for Kubernetes (ACK) | Alibaba Cloud | [Website](https://www.alibabacloud.com/fr/product/kubernetes) | ☁️ N/A | | |
-| Civo | | [Website](https://www.civo.com/) | ☁️ N/A | k3s or Talos Linux | [[ref]](#civo) |
+| Civo | Civo | [Website](https://www.civo.com/) | ☁️ N/A | k3s or Talos Linux | [[ref]](#civo) |
 | Clever Kubernetes Engine (CKE) | Clever Cloud | [Website](https://www.clever-cloud.com/product/kubernetes/) | ☁️ N/A | | |
 | DOKS | Digital Ocean | [Website](https://www.digitalocean.com/products/kubernetes/) | ☁️ N/A | | [[ref]](#doks) |
 | EKS | AWS | [Website](https://aws.amazon.com/fr/eks/) | ☁️ N/A | | [[ref]](#eks) |
 | GKE | Google Cloud Platform | [Website](https://cloud.google.com/kubernetes-engine?hl=fr) | ☁️ N/A | | [[ref]](#gke) |
-| Gridscale Managed Kubernetes (GSK) | | [Website](https://gridscale.io/en/products/kubernetes/) | ☁️ N/A | | |
+| Gridscale Managed Kubernetes (GSK) | Gridscale | [Website](https://gridscale.io/en/products/kubernetes/) | ☁️ N/A | | |
 | IBM Cloud (IKS) | IBM Cloud | [Website](https://www.ibm.com/cloud/container-service/) | ☁️ N/A | | [[ref]](#ibm-cloud-iks) |
 | IONOS Kubernetes Service | IONOS | [Website](https://cloud.ionos.com/managed/kubernetes) | ☁️ N/A | | |
 | Kapsule | Scaleway | [Website](https://www.scaleway.com/en/kubernetes-kapsule/) | ☁️ N/A | | [[ref]](#kapsule) |
 | Kosmos | Scaleway | [Website](https://www.scaleway.com/fr/kubernetes-kosmos/) | ☁️ N/A | | [[ref]](#kosmos) |
-| LeafCloud | | [Website](https://www.leaf.cloud/) | ☁️ N/A | Gardener | |
+| LeafCloud | LeafCloud | [Website](https://www.leaf.cloud/) | ☁️ N/A | Gardener | |
 | Linode Kubernetes Engine (LKE) | Linode | [Website](https://www.linode.com/docs/kubernetes/) | ☁️ N/A | | [[ref]](#linode-kubernetes-engine-lke) |
 | MetaKube | SysEleven | [Website](https://www.syseleven.de/en/) | ☁️ N/A | | |
 | MKS | OVHcloud | [Website](https://www.ovhcloud.com/fr/public-cloud/kubernetes/) | ☁️ N/A | | [[ref]](#mks) |
@@ -154,7 +154,7 @@ Educational resources, playgrounds, and unique deployment methods that don't fit
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
 | By hand, using containers | | [GitHub](https://github.com/kubernetes/registry.k8s.io) | Apache 2.0 | | |
-| By hand, using binaries | | [GitHub](https://github.com/kubernetes/kubernetes) | Apache 2.0 | | |
+| By hand, using binaries | | [GitHub](https://github.com/kubernetes/kubernetes) | Apache 2.0 | | [[ref]](#by-hand-using-binaries) |
 | Devops playgrounds | | [Website](https://labs.iximiuz.com/playgrounds) | ☁️ N/A | | [[ref]](#devops-playgrounds) |
 | Kubernetes the hard way | | [GitHub](https://github.com/kelseyhightower/kubernetes-the-hard-way) | Apache 2.0 | | |
 | Kubernetes the hard way w/ Terraform (GCP) | | [GitHub](https://github.com/aidanSoles/kubernetes-the-hard-way-terraform) | Apache 2.0 | Terraform / OpenTofu | |
@@ -184,7 +184,7 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 | kubeadm w/ CLI | | [GitHub](https://github.com/kubernetes/kubernetes) | Apache 2.0 | | [[ref]](#kubeadm-w-cli) |
 | kubeadm w/ ClusterConfiguration | | [GitHub](https://github.com/kubernetes/kubernetes) | Apache 2.0 | | [[ref]](#kubeadm-w-clusterconfiguration) |
 | Kubean | | [GitHub](https://github.com/kubean-io/kubean) | Apache 2.0 | Kubespray | |
-| KubeKey | | [GitHub](https://github.com/kubesphere/kubekey) | Apache 2.0 | kubeadm / k3s | [[ref]](#kubekey) |
+| KubeKey | KubeSphere | [GitHub](https://github.com/kubesphere/kubekey) | Apache 2.0 | kubeadm / k3s | [[ref]](#kubekey) |
 | KubeMarine | | [GitHub](https://github.com/Netcracker/KubeMarine) | Apache 2.0 | Kubeadm | [[ref]](#kubemarine) |
 | KubeOne | Kubermatic | [GitHub](https://github.com/kubermatic/kubeone) | Apache 2.0 | Kubeadm / ClusterAPI | [[ref]](#kubeone) |
 | KubeSolo | portainer.io | [GitHub](https://github.com/portainer/kubesolo) | Apache 2.0 | k3s | [[ref]](#kubesolo) |
@@ -225,7 +225,7 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 ### By hand, using binaries
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 50 (By hand, using binaries)
-- [FR] [Démystifions Kubernetes](https://github.com/zwindler/demystifions-kubernetes)
+- [EN] [Démystifions Kubernetes](https://github.com/zwindler/demystifions-kubernetes/blob/main/README.md)
 
 ### canonical kubernetes (snap)
 
@@ -421,6 +421,7 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 
 - [EN] [Getting Started with Kube-Hetzner](https://deepwiki.com/kube-hetzner/terraform-hcloud-kube-hetzner/1.1-getting-started)
 - [EN] [Kubernetes cluster on Hetzner using k3s and Terraform](https://bogoyavlensky.com/blog/kubernetes-hetzner/)
+- [EN] [Cheap self-hosted Kubernetes on Hetzner Cloud](https://blog.qstars.nl/posts/cheap-self-hosted-kubernetes-on-hetzner-cloud/)
 
 ### Kurl
 
