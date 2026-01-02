@@ -75,23 +75,23 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | Alibaba Cloud Container Service for Kubernetes (ACK) | Alibaba Cloud | [Website](https://www.alibabacloud.com/fr/product/kubernetes) | Not applicable | | |
 | Civo | | [Website](https://www.civo.com/) | Not applicable | k3s or Talos Linux | [[ref]](#civo) |
 | Clever Kubernetes Engine (CKE) | Clever Cloud | [Website](https://www.clever-cloud.com/product/kubernetes/) | Not applicable | | |
-| DOKS | Digital Ocean | [Website](https://www.digitalocean.com/products/kubernetes/) | Not applicable | | |
+| DOKS | Digital Ocean | [Website](https://www.digitalocean.com/products/kubernetes/) | Not applicable | | [[ref]](#doks) |
 | EKS | AWS | [Website](https://aws.amazon.com/fr/eks/) | Not applicable | | [[ref]](#eks) |
-| GKE | Google Cloud Platform | [Website](https://cloud.google.com/kubernetes-engine?hl=fr) | Not applicable | | |
+| GKE | Google Cloud Platform | [Website](https://cloud.google.com/kubernetes-engine?hl=fr) | Not applicable | | [[ref]](#gke) |
 | Gridscale Managed Kubernetes (GSK) | | [Website](https://gridscale.io/en/products/kubernetes/) | Not applicable | | |
-| IBM Cloud (IKS) | IBM Cloud | [Website](https://www.ibm.com/cloud/container-service/) | Not applicable | | |
+| IBM Cloud (IKS) | IBM Cloud | [Website](https://www.ibm.com/cloud/container-service/) | Not applicable | | [[ref]](#ibm-cloud-iks) |
 | IONOS Kubernetes Service | IONOS | [Website](https://cloud.ionos.com/managed/kubernetes) | Not applicable | | |
 | Kapsule | Scaleway | [Website](https://www.scaleway.com/en/kubernetes-kapsule/) | Not applicable | | [[ref]](#kapsule) |
 | Kosmos | Scaleway | [Website](https://www.scaleway.com/fr/kubernetes-kosmos/) | Not applicable | | [[ref]](#kosmos) |
 | LeafCloud | | [Website](https://www.leaf.cloud/) | Not applicable | Gardener | |
-| Linode Kubernetes Engine (LKE) | Linode | [Website](https://www.linode.com/docs/kubernetes/) | Not applicable | | |
+| Linode Kubernetes Engine (LKE) | Linode | [Website](https://www.linode.com/docs/kubernetes/) | Not applicable | | [[ref]](#linode-kubernetes-engine-lke) |
 | MetaKube | SysEleven | [Website](https://www.syseleven.de/en/) | Not applicable | | |
 | MKS | OVHcloud | [Website](https://www.ovhcloud.com/fr/public-cloud/kubernetes/) | Not applicable | | [[ref]](#mks) |
 | Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) | Oracle Cloud Infrastructure | [Website](https://www.oracle.com/fr/cloud/cloud-native/container-engine-kubernetes/) | Not applicable | | [[ref]](#oracle-cloud-infrastructure-container-engine-for-kubernetes-oke) |
-| Redhat Openshift cloud | Redhat | [Website](https://www.redhat.com/fr/technologies/cloud-computing/openshift/openshift-cloud-services) | Not applicable | Openshift | |
+| Redhat Openshift cloud | Redhat | [Website](https://www.redhat.com/fr/technologies/cloud-computing/openshift/openshift-cloud-services) | Not applicable | Openshift | [[ref]](#redhat-openshift-cloud) |
 | SKS | Exoscale | [Website](https://community.exoscale.com/documentation/sks/overview/) | Not applicable | | [[ref]](#sks) |
 | UpCloud Managed Kubernetes (UKS) | UpCloud | [Website](https://upcloud.com/products/managed-kubernetes) | Not applicable | | |
-| VKE | Vultr | [Website](https://www.vultr.com/kubernetes/) | Not applicable | | |
+| VKE | Vultr | [Website](https://www.vultr.com/kubernetes/) | Not applicable | | [[ref]](#vke) |
 
 ---
 
@@ -227,6 +227,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 3 (Docker desktop)
 - [EN] [Kubernetes on Docker Desktop in 2 Minutes](https://collabnix.com/kubernetes-on-docker-desktop-in-2-minutes/)
 
+### DOKS
+
+- [EN] [Getting Started with Kubernetes on DigitalOcean: A Beginner's Guide](https://k8s-ops.net/posts/getting-started-with-kubernetes-digitalocean/)
+
 ### EKS
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 18 (EKS)
@@ -245,6 +249,11 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 45 (Gardener)
 
+### GKE
+
+- [EN] [How To Setup Kubernetes Cluster On Google Cloud (GKE)](https://devopscube.com/setup-kubernetes-cluster-google-cloud/)
+- [EN] [Day 10 – Kubernetes with Google Kubernetes Engine (GKE) Step-by-Step](https://blogs.curiositytech.in/day-10-kubernetes-with-google-kubernetes-engine-gke-step-by-step/)
+
 ### Kamaji
 
 - [EN] [Setup a minimal Kamaji for development](https://github.com/koraakdas/k8-cluster-with-kamaji/blob/master/docs/getting-started-with-kamaji.md)
@@ -253,6 +262,11 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 48 (Harvester)
 - [FR] [Test Rancher Labs Harvester HCI](https://blog.zwindler.fr/2023/01/24/test-rancher-labs-harvester-hci/)
+
+### IBM Cloud (IKS)
+
+- [EN] [IBM Kubernetes Service (IKS) - Cluster Creation and App Deployment](https://blog.keture.com/blog/iks)
+- [EN] [Deep Dive and Deploy onto IBM Cloud Kubernetes Service](https://dev.to/ibmdeveloper/deep-dive-and-deploy-onto-ibm-cloud-kubernetes-service-3j51)
 
 ### k0s
 
@@ -385,6 +399,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 8 (lima-vm)
 - [EN] [Mac - how to use kubernetes with Lima-VM](https://infoheap.com/mac-use-kubernetes-with-lima-vm/)
 
+### Linode Kubernetes Engine (LKE)
+
+- [EN] [Managing clusters with the Linode CLI](https://notes.kodekloud.com/docs/Linode-Kubernetes-Engine/Working-with-Linode/Managing-clusters-with-the-Linode-CLI)
+
 ### Magnum
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 31 (Magnum)
@@ -464,6 +482,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 4 (Rancher Desktop)
 
+### Redhat Openshift cloud
+
+- [EN] [A Practical OpenShift Tutorial for Developers](https://trilio.io/openshift-tutorial/)
+
 ### RKE (abandoned)
 
 - [FR] [Kubernetes avec RancherOS et RKE - Partie 2](https://blog.zwindler.fr/2020/11/30/kubernetes-avec-rancheros-et-rke-partie-2/)
@@ -501,6 +523,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 46 (vcluster)
 - [EN] [vCluster: The Complete Guide to Virtual Kubernetes Clusters](https://collabnix.com/vcluster-the-complete-guide-to-virtual-kubernetes-clusters-in-2025/)
 - [EN] [Build On Weekly vcluster demo](https://hackmd.io/@KNFb-hAMT7-2CZWxFt822g/SJaRSHa0q)
+
+### VKE
+
+- [EN] [Vultr Kubernetes Engine (VKE) Reference Guide](https://blog.cobrasoft.org/vultr-kubernetes-engine-vke-reference-guide/)
 
 ---
 
