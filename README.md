@@ -100,18 +100,18 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
 | Gardener | | [GitHub](https://github.com/gardener/gardener) | Apache 2.0 | | [[ref]](#gardener) |
-| hypershift | redhat | [GitHub](https://github.com/openshift/hypershift) | Apache 2.0 | Openshift/OKD | |
-| k0rdent | Mirantis | [GitHub](https://github.com/k0rdent/kcm) | Apache 2.0 | k0smotron and cluster API | |
-| Kamaji | Clastix | [GitHub](https://github.com/clastix/kamaji) | Apache 2.0 | kubeadm and Cluster API | |
-| KubeClipper | | [GitHub](https://github.com/kubeclipper/kubeclipper) | Apache 2.0 | kubeadm | |
+| hypershift | redhat | [GitHub](https://github.com/openshift/hypershift) | Apache 2.0 | Openshift/OKD | [[ref]](#hypershift) |
+| k0rdent | Mirantis | [GitHub](https://github.com/k0rdent/kcm) | Apache 2.0 | k0smotron and cluster API | [[ref]](#k0rdent) |
+| Kamaji | Clastix | [GitHub](https://github.com/clastix/kamaji) | Apache 2.0 | kubeadm and Cluster API | [[ref]](#kamaji) |
+| KubeClipper | | [GitHub](https://github.com/kubeclipper/kubeclipper) | Apache 2.0 | kubeadm | [[ref]](#kubeclipper) |
 | Kubermatic Kubernetes Platform | Kubermatic | [GitHub](https://github.com/kubermatic/kubermatic) | Apache 2.0 | | [[ref]](#kubermatic-kubernetes-platform) |
 | Omni | SideroLabs | [Website](https://www.siderolabs.com/platform/saas-for-kubernetes/) | BUSL 1.1 | Talos Linux | [[ref]](#omni) |
-| Palette | Spectro Cloud | [Website](https://www.spectrocloud.com/product/palette/) | ❌ | Cluster API | |
-| Platform9 | Platform9 | [Website](https://platform9.com/) | ❌ | | |
-| Portainer | Portainer.io | [Website](https://www.portainer.io/) | Zlib (CE) / ❌ (BE) | | |
-| Rafay | Rafay Systems | [Website](https://rafay.co/) | ❌ | | |
+| Palette | Spectro Cloud | [Website](https://www.spectrocloud.com/product/palette/) | ❌ | Cluster API | [[ref]](#palette) |
+| Platform9 | Platform9 | [Website](https://platform9.com/) | ❌ | | [[ref]](#platform9) |
+| Portainer | Portainer.io | [Website](https://www.portainer.io/) | Zlib (CE) / ❌ (BE) | | [[ref]](#portainer) |
+| Rafay | Rafay Systems | [Website](https://rafay.co/) | ❌ | | [[ref]](#rafay) |
 | Rancher | Rancher | [GitHub](https://github.com/rancher/rancher) | Apache 2.0 | | [[ref]](#rancher) |
-| Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | ❌ | | |
+| Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | ❌ | | [[ref]](#tanzu) |
 
 ---
 
@@ -240,6 +240,26 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### Gardener
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 45 (Gardener)
+
+### hypershift
+
+- [EN] [CLI Installation and Usage - openshift/hypershift](https://deepwiki.com/openshift/hypershift/4.1-cli-installation-and-usage)
+- [EN] [OpenShift on Hyper-V](https://www.kecklers.com/series/openshiftonhyperv/)
+- [EN] [Red Hat OpenShift Tutorials](https://developer.ibm.com/components/redhat-openshift/tutorials/)
+
+### k0rdent
+
+- [EN] [k0rdent Demos - Deployment Instructions](https://github.com/k0rdent/demos/blob/main/documentation/2-general-setup-deploy-k0rdent.md)
+- [EN] [Getting Started with k0rdent - Multi-cluster Kubernetes Management](https://www.classcentral.com/course/youtube-introducing-open-source-k0rdent-accelerated-application-delivery-for-platform-engineers-432522)
+
+### Kamaji
+
+- [EN] [Setup a minimal Kamaji for development](https://github.com/koraakdas/k8-cluster-with-kamaji/blob/master/docs/getting-started-with-kamaji.md)
+- [EN] [Kamaji: getting started on Kind - YouTube](https://www.youtube.com/watch?v=hDTvnOyUmo4)
+
+### KubeClipper
+
+- [EN] [Create clusters tutorial](https://kubeclipper.io/en/docs/tutorials/create-clusters/)
 
 ### Harvester
 
@@ -413,13 +433,36 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 5 (Orbstack)
 - [EN] [Running Containers Natively on Mac with Orbstack](https://www.corpit.org/running-containers-natively-on-mac-with-orbstack/)
 
+### Palette
+
+- [EN] [Build a Production-Ready Kubernetes Cluster with Spectro Cloud Palette - No-Code Tutorial](https://www.youtube.com/watch?v=6PwiEEKtIhk)
+- [EN] [Painting with a Full Palette: K8s Makeover with Spectro Cloud](https://www.terasky.com/resources/painting-with-a-full-palette-k8s-makeover-with-spectro-cloud/)
+- [EN] [Painting with Palette Workshop](https://www.paintingwithpalette.com/)
+
+### Platform9
+
+- [EN] [Get your First Container Up on Kubernetes Using Platform9 Managed Kubernetes](https://dev.to/kpemmaraju/get-your-first-container-up-on-k8s-using-the-free-version-of-platform9-managed-kubernetes-3d5m)
+- [EN] [Get your First Container Up on Kubernetes Using Platform9 (HackerNoon)](https://hackernoon.com/get-your-first-container-up-on-kubernetes-using-the-free-version-of-platform9-managed-kubernetes-p65u32u9)
+
 ### Play with k8s
 
 - [EN] [Getting Started with Kubernetes on Play with Kubernetes Platform in 5 Minutes](https://dockerlabs.collabnix.com/kubernetes/beginners/getting-started-on-pwk.html)
 
+### Portainer
+
+- [EN] [How to Get Started Managing a Kubernetes Cluster With Portainer](https://www.howtogeek.com/devops/how-to-get-started-managing-a-kubernetes-cluster-with-portainer/)
+- [EN] [The Simplest Way to Learn Kubernetes! Step-by-Step with Portainer](https://www.youtube.com/watch?v=zSEi7MpU370)
+- [EN] [How to manage applications on Kubernetes using Portainer](https://www.youtube.com/watch?v=jhzmCgY4ark)
+
 ### Pulumi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 36 (Pulumi)
+
+### Rafay
+
+- [EN] [Learn Kubernetes 101 - Part 3 - Using Deployments](https://docs.rafay.co/learn/quickstart/kubernetes/deployments/)
+- [EN] [Simplifying Multi-Cloud Kubernetes with MinIO and Rafay](https://blog.min.io/kubernetes-with-minio-and-rafay/)
+- [EN] [RafaySystems - Getting Started Training](https://github.com/RafaySystems/get-started-training)
 
 ### Rancher
 
@@ -450,6 +493,12 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### typhoon
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 35 (typhoon)
+
+### Tanzu
+
+- [EN] [How to Install Kubernetes with VMware Tanzu Kubernetes Grid - YouTube](https://www.youtube.com/watch?v=p8XvgtA7ieY)
+- [EN] [Step-by-Step Guide: Running Kubernetes Applications in a VMware Environment](https://vmwareblogs.co.in/2025/07/29/step-by-step-guide-running-kubernetes-applications-in-a-vmware-environment/)
+- [EN] [Quick-Start Guide to Using VMware Tanzu Mission Control](https://blogs.vmware.com/tanzu/quick-start-guide-to-vmware-tanzu-mission-control-vsphere-tanzu-services/)
 
 ### vcluster
 
