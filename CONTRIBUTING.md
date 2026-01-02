@@ -20,6 +20,8 @@ This repository is a comprehensive list of **ways to deploy Kubernetes clusters*
 - **Kubernetes-specific Operating Systems**: OS distributions specifically designed to run Kubernetes
 - **Learning Resources**: Tutorials and guides specifically about deploying Kubernetes (like "Kubernetes the Hard Way")
 
+**Note on Open Source vs Closed Source**: While the heart of the cloud native ecosystem is open source, **both open source and closed source (proprietary) tools are accepted** in this list. What matters is whether the tool helps deploy Kubernetes clusters, not its licensing model.
+
 ### ❌ Not Accepted
 
 - **PaaS Offerings Running ON Kubernetes**: Platforms (in the sense of Heroku-like platforms), or any service that uses Kubernetes internally but doesn't help you deploy Kubernetes itself
