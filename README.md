@@ -12,6 +12,8 @@ Want to add a tool or resource to this list? Please read our [Contributing Guide
 
 ## Desktop
 
+Tools for running Kubernetes on local development machines (laptops, workstations). These are typically single-node or small clusters for development and testing.
+
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
 | canonical kubernetes (snap) | Canonical | [GitHub](https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner) | Apache 2.0 | | [[ref]](#canonical-kubernetes-snap) |
@@ -35,6 +37,8 @@ Want to add a tool or resource to this list? Please read our [Contributing Guide
 
 ## IaC (Infrastructure as Code)
 
+Tools and frameworks that use code to automate the deployment of Kubernetes clusters across various infrastructure providers.
+
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
 | aks-engine (abandoned) | Azure | [GitHub](https://github.com/Azure/aks-engine) | Apache 2.0 | | |
@@ -53,6 +57,8 @@ Want to add a tool or resource to this list? Please read our [Contributing Guide
 
 ## Kubernetes in Kubernetes
 
+Solutions that run Kubernetes clusters inside existing Kubernetes clusters (virtual clusters, nested clusters).
+
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
 | k3k | Rancher | [GitHub](https://github.com/rancher/k3k) | Apache 2.0 | k3s | [[ref]](#k3k) |
@@ -61,6 +67,8 @@ Want to add a tool or resource to this list? Please read our [Contributing Guide
 ---
 
 ## Kubernetes OS
+
+Operating systems specifically designed to run Kubernetes, often immutable or container-optimized.
 
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
@@ -72,6 +80,8 @@ Want to add a tool or resource to this list? Please read our [Contributing Guide
 ---
 
 ## Managed
+
+Cloud provider or third-party managed Kubernetes services where the control plane is managed for you.
 
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
@@ -101,6 +111,8 @@ Want to add a tool or resource to this list? Please read our [Contributing Guide
 
 ## Management Platform
 
+Platforms that help you deploy and manage multiple Kubernetes clusters across different infrastructures.
+
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
 | Gardener | | [GitHub](https://github.com/gardener/gardener) | Apache 2.0 | | [[ref]](#gardener) |
@@ -122,6 +134,8 @@ Want to add a tool or resource to this list? Please read our [Contributing Guide
 
 ## Other
 
+Educational resources, playgrounds, and unique deployment methods that don't fit other categories.
+
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
 | By hand, using containers | | [GitHub](https://github.com/kubernetes/registry.k8s.io) | Apache 2.0 | | |
@@ -136,6 +150,8 @@ Want to add a tool or resource to this list? Please read our [Contributing Guide
 ---
 
 ## Selfhosted
+
+Tools for deploying production-grade Kubernetes clusters on your own infrastructure with full control.
 
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
