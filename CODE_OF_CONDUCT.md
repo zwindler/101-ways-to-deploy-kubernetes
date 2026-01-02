@@ -70,7 +70,7 @@ Examples of unacceptable behavior include but are not limited to:
 * Stalking or following someone without their consent
 * Unwelcome physical contact
 * Unwelcome sexual or romantic attention or advances
-* Using CNCF projects or community spaces for political campaigning or promotion of political causes 
+* Using CNCF projects or community spaces for political campaigning or promotion of political causes
   that are unrelated to the advancement of cloud native technology. To clarify, this policy does not restrict individuals' personal attire, including attire that expresses personal beliefs or aspects of identity.
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
