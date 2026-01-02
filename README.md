@@ -4,6 +4,10 @@ A comprehensive list of ways to deploy Kubernetes, organized by deployment type.
 
 This repository is based on the original work [@zwindler](https://github.com/zwindler) did in a [Google Sheet file](https://docs.google.com/spreadsheets/d/1zjOLU8MblsN8VPwUyHNDFbBQ7EihHM2joD2Q9Tv2DiI/edit?usp=sharing)
 
+## Contributing
+
+Want to add a tool or resource to this list? Please read our [Contributing Guidelines](CONTRIBUTING.md) to understand what belongs in this list and how to contribute effectively.
+
 ---
 
 ## Desktop
@@ -71,27 +75,27 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
-| AKS | Azure | [Website](https://azure.microsoft.com/fr-fr/products/kubernetes-service) | Not applicable | | [[ref]](#aks) |
-| Alibaba Cloud Container Service for Kubernetes (ACK) | Alibaba Cloud | [Website](https://www.alibabacloud.com/fr/product/kubernetes) | Not applicable | | |
-| Civo | | [Website](https://www.civo.com/) | Not applicable | k3s or Talos Linux | [[ref]](#civo) |
-| Clever Kubernetes Engine (CKE) | Clever Cloud | [Website](https://www.clever-cloud.com/product/kubernetes/) | Not applicable | | |
-| DOKS | Digital Ocean | [Website](https://www.digitalocean.com/products/kubernetes/) | Not applicable | | [[ref]](#doks) |
-| EKS | AWS | [Website](https://aws.amazon.com/fr/eks/) | Not applicable | | [[ref]](#eks) |
-| GKE | Google Cloud Platform | [Website](https://cloud.google.com/kubernetes-engine?hl=fr) | Not applicable | | [[ref]](#gke) |
-| Gridscale Managed Kubernetes (GSK) | | [Website](https://gridscale.io/en/products/kubernetes/) | Not applicable | | |
-| IBM Cloud (IKS) | IBM Cloud | [Website](https://www.ibm.com/cloud/container-service/) | Not applicable | | [[ref]](#ibm-cloud-iks) |
-| IONOS Kubernetes Service | IONOS | [Website](https://cloud.ionos.com/managed/kubernetes) | Not applicable | | |
-| Kapsule | Scaleway | [Website](https://www.scaleway.com/en/kubernetes-kapsule/) | Not applicable | | [[ref]](#kapsule) |
-| Kosmos | Scaleway | [Website](https://www.scaleway.com/fr/kubernetes-kosmos/) | Not applicable | | [[ref]](#kosmos) |
-| LeafCloud | | [Website](https://www.leaf.cloud/) | Not applicable | Gardener | |
-| Linode Kubernetes Engine (LKE) | Linode | [Website](https://www.linode.com/docs/kubernetes/) | Not applicable | | [[ref]](#linode-kubernetes-engine-lke) |
-| MetaKube | SysEleven | [Website](https://www.syseleven.de/en/) | Not applicable | | |
-| MKS | OVHcloud | [Website](https://www.ovhcloud.com/fr/public-cloud/kubernetes/) | Not applicable | | [[ref]](#mks) |
-| Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) | Oracle Cloud Infrastructure | [Website](https://www.oracle.com/fr/cloud/cloud-native/container-engine-kubernetes/) | Not applicable | | [[ref]](#oracle-cloud-infrastructure-container-engine-for-kubernetes-oke) |
-| Redhat Openshift cloud | Redhat | [Website](https://www.redhat.com/fr/technologies/cloud-computing/openshift/openshift-cloud-services) | Not applicable | Openshift | [[ref]](#redhat-openshift-cloud) |
-| SKS | Exoscale | [Website](https://community.exoscale.com/documentation/sks/overview/) | Not applicable | | [[ref]](#sks) |
-| UpCloud Managed Kubernetes (UKS) | UpCloud | [Website](https://upcloud.com/products/managed-kubernetes) | Not applicable | | |
-| VKE | Vultr | [Website](https://www.vultr.com/kubernetes/) | Not applicable | | [[ref]](#vke) |
+| AKS | Azure | [Website](https://azure.microsoft.com/fr-fr/products/kubernetes-service) | ☁️ N/A | | [[ref]](#aks) |
+| Alibaba Cloud Container Service for Kubernetes (ACK) | Alibaba Cloud | [Website](https://www.alibabacloud.com/fr/product/kubernetes) | ☁️ N/A | | |
+| Civo | | [Website](https://www.civo.com/) | ☁️ N/A | k3s or Talos Linux | [[ref]](#civo) |
+| Clever Kubernetes Engine (CKE) | Clever Cloud | [Website](https://www.clever-cloud.com/product/kubernetes/) | ☁️ N/A | | |
+| DOKS | Digital Ocean | [Website](https://www.digitalocean.com/products/kubernetes/) | ☁️ N/A | | [[ref]](#doks) |
+| EKS | AWS | [Website](https://aws.amazon.com/fr/eks/) | ☁️ N/A | | [[ref]](#eks) |
+| GKE | Google Cloud Platform | [Website](https://cloud.google.com/kubernetes-engine?hl=fr) | ☁️ N/A | | [[ref]](#gke) |
+| Gridscale Managed Kubernetes (GSK) | | [Website](https://gridscale.io/en/products/kubernetes/) | ☁️ N/A | | |
+| IBM Cloud (IKS) | IBM Cloud | [Website](https://www.ibm.com/cloud/container-service/) | ☁️ N/A | | [[ref]](#ibm-cloud-iks) |
+| IONOS Kubernetes Service | IONOS | [Website](https://cloud.ionos.com/managed/kubernetes) | ☁️ N/A | | |
+| Kapsule | Scaleway | [Website](https://www.scaleway.com/en/kubernetes-kapsule/) | ☁️ N/A | | [[ref]](#kapsule) |
+| Kosmos | Scaleway | [Website](https://www.scaleway.com/fr/kubernetes-kosmos/) | ☁️ N/A | | [[ref]](#kosmos) |
+| LeafCloud | | [Website](https://www.leaf.cloud/) | ☁️ N/A | Gardener | |
+| Linode Kubernetes Engine (LKE) | Linode | [Website](https://www.linode.com/docs/kubernetes/) | ☁️ N/A | | [[ref]](#linode-kubernetes-engine-lke) |
+| MetaKube | SysEleven | [Website](https://www.syseleven.de/en/) | ☁️ N/A | | |
+| MKS | OVHcloud | [Website](https://www.ovhcloud.com/fr/public-cloud/kubernetes/) | ☁️ N/A | | [[ref]](#mks) |
+| Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) | Oracle Cloud Infrastructure | [Website](https://www.oracle.com/fr/cloud/cloud-native/container-engine-kubernetes/) | ☁️ N/A | | [[ref]](#oracle-cloud-infrastructure-container-engine-for-kubernetes-oke) |
+| Redhat Openshift cloud | Redhat | [Website](https://www.redhat.com/fr/technologies/cloud-computing/openshift/openshift-cloud-services) | ☁️ N/A | Openshift | [[ref]](#redhat-openshift-cloud) |
+| SKS | Exoscale | [Website](https://community.exoscale.com/documentation/sks/overview/) | ☁️ N/A | | [[ref]](#sks) |
+| UpCloud Managed Kubernetes (UKS) | UpCloud | [Website](https://upcloud.com/products/managed-kubernetes) | ☁️ N/A | | |
+| VKE | Vultr | [Website](https://www.vultr.com/kubernetes/) | ☁️ N/A | | [[ref]](#vke) |
 
 ---
 
@@ -111,7 +115,8 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | Portainer | Portainer.io | [Website](https://www.portainer.io/) | Zlib (CE) / ❌ (BE) | | |
 | Rafay | Rafay Systems | [Website](https://rafay.co/) | ❌ | | |
 | Rancher | Rancher | [GitHub](https://github.com/rancher/rancher) | Apache 2.0 | | [[ref]](#rancher) |
-| Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | ❌ | | [[ref]](#tanzu) |
+| Tanzu Kubernetes Grid | VMware | [Website](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/index.html) | ❌ | | |
+| Tanzu Mission Control | VMware | [Website](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-mission-control/1-4.html) | ❌ | | |
 
 ---
 
@@ -121,7 +126,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 |------|---------------------|-----|-------------|----------|---------------------|
 | By hand, using containers | | [GitHub](https://github.com/kubernetes/registry.k8s.io) | Apache 2.0 | | |
 | By hand, using binaries | | [GitHub](https://github.com/kubernetes/kubernetes) | Apache 2.0 | | |
-| Devops playgrounds | | [Website](https://labs.iximiuz.com/playgrounds) | Not applicable | | [[ref]](#devops-playgrounds) |
+| Devops playgrounds | | [Website](https://labs.iximiuz.com/playgrounds) | ☁️ N/A | | [[ref]](#devops-playgrounds) |
 | Kubernetes the hard way | | [GitHub](https://github.com/kelseyhightower/kubernetes-the-hard-way) | Apache 2.0 | | |
 | Kubernetes the hard way w/ Terraform (GCP) | | [GitHub](https://github.com/aidanSoles/kubernetes-the-hard-way-terraform) | Apache 2.0 | Terraform / OpenTofu | |
 | Kubernetes the hard way w/ Terraform (AWS) | | [GitHub](https://github.com/escarti/kubernetes-the-hard-way-tf-aws) | Apache 2.0 | Terraform / OpenTofu | [[ref]](#kubernetes-the-hard-way-w-terraform-aws) |
