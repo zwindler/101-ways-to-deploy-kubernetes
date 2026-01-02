@@ -116,7 +116,7 @@ Want to add a tool or resource to this list? Please read our [Contributing Guide
 | Rafay | Rafay Systems | [Website](https://rafay.co/) | ❌ | | |
 | Rancher | Rancher | [GitHub](https://github.com/rancher/rancher) | Apache 2.0 | | [[ref]](#rancher) |
 | Tanzu Kubernetes Grid | VMware | [Website](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/index.html) | ❌ | | |
-| Tanzu Mission Control | VMware | [Website](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-mission-control/1-4/tanzu-mission-control-documentation/tanzumc-concepts-GUID-E2B5BE05-596E-4999-9B21-1CDB875A1BBF.html) | ❌ | | |
+| Tanzu Mission Control | VMware | [Website](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-mission-control/1-4.html) | ❌ | | |
 
 ---
 
