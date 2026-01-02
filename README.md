@@ -134,7 +134,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
-| EKS Anywhere | AWS | [GitHub](https://github.com/aws/eks-anywhere) | Apache 2.0 | EKS | |
+| EKS Anywhere | AWS | [GitHub](https://github.com/aws/eks-anywhere) | Apache 2.0 | EKS | [[ref]](#eks-anywhere) |
 | Harvester | Rancher | [GitHub](https://github.com/harvester/harvester) | Apache 2.0 | | [[ref]](#harvester) |
 | Hepto | | [Forge Tedomum](https://forge.tedomum.net/acides/hepto) | Apache 2.0 | | |
 | Juju | Canonical | [GitHub](https://github.com/juju/juju) | Apache 2.0 | | |
@@ -151,14 +151,14 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | KubeKey | | [GitHub](https://github.com/kubesphere/kubekey) | Apache 2.0 | kubeadm / k3s | [[ref]](#kubekey) |
 | KubeMarine | | [GitHub](https://github.com/Netcracker/KubeMarine) | Apache 2.0 | Kubeadm | [[ref]](#kubemarine) |
 | KubeOne | Kubermatic | [GitHub](https://github.com/kubermatic/kubeone) | Apache 2.0 | Kubeadm / ClusterAPI | [[ref]](#kubeone) |
-| KubeSolo | portainer.io | [GitHub](https://github.com/portainer/kubesolo) | Apache 2.0 | k3s | |
+| KubeSolo | portainer.io | [GitHub](https://github.com/portainer/kubesolo) | Apache 2.0 | k3s | [[ref]](#kubesolo) |
 | Kurl | ReplicatedHQ | [GitHub](https://github.com/replicatedhq/kurl) | Apache 2.0 | Kubeadm | [[ref]](#kurl) |
 | Magnum | OpenStack | [GitHub](https://github.com/openstack/magnum) | Apache 2.0 | Cluster API | [[ref]](#magnum) |
 | MKE (Mirantis Kubernetes Engine) | Mirantis | [Website](https://docs.mirantis.com/mke4k/latest/) | ❌ | k0s | |
 | NKP (Nutanix Kubernetes Platform) | Nutanix | [Website](https://www.nutanix.com/products/kubernetes-management-platform) | ❌ | | |
 | OKD (open source openshift) | Redhat | [GitHub](https://github.com/okd-project/okd) | Apache 2.0 | OpenShift | [[ref]](#okd-open-source-openshift) |
 | OneKE | OpenNebula | [GitHub](https://github.com/OpenNebula/one-apps) | Apache 2.0 | rke2 | [[ref]](#oneke) |
-| RKE2 | Rancher | [GitHub](https://github.com/rancher/rke2) | Apache 2.0 | k3s and RKE | |
+| RKE2 | Rancher | [GitHub](https://github.com/rancher/rke2) | Apache 2.0 | k3s and RKE | [[ref]](#rke2) |
 | SIGHUP | | [GitHub](https://github.com/sighupio/distribution) | BSD 3-Clause | | |
 | TALM | Cosystack | [GitHub](https://github.com/cozystack/talm) | Apache 2.0 | Talos Linux | |
 | tarook | | [GitHub](https://github.com/alasca-association/tarook) | Apache 2.0 | Terraform / Opentofu | |
@@ -230,6 +230,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### EKS
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 18 (EKS)
+
+### EKS Anywhere
+
+- [EN] [EKS Anywhere Cluster Tutorial [Deploy Cluster in 7 Steps]](https://devopscube.com/eks-anywhere-cluster/)
 
 ### elemental (ex k3os)
 
@@ -336,6 +340,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### KubeOne
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 25 (KubeOne)
+
+### KubeSolo
+
+- [EN] [KubeSolo New Kubernetes Edge Distro by Portainer](https://www.virtualizationhowto.com/2025/06/kubesolo-new-kubernetes-edge-distro-by-portainer/)
 
 ### Kubermatic Kubernetes Platform
 
@@ -460,6 +468,11 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] [Kubernetes avec RancherOS et RKE - Partie 2](https://blog.zwindler.fr/2020/11/30/kubernetes-avec-rancheros-et-rke-partie-2/)
 - [EN] [Install Kubernetes with Rancher RKE (Step-by-Step)](https://computingforgeeks.com/install-kubernetes-production-cluster-using-rancher-rke/)
+
+### RKE2
+
+- [EN] [Rancher Kubernetes: A Quick Installation Guide for RKE2](https://devtron.ai/blog/rancher-kubernetes-a-quick-installation-guide-for-rke2/)
+- [EN] [Installing Kubernetes Rancher with RKE2, Helm and Cert Manager](https://christalks.dev/post/installing-kubernetes-rancher-with-rke2-helm-and-cert-manager-6e2e39c5)
 
 ### SKS
 
