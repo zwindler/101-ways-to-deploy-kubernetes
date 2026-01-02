@@ -102,16 +102,16 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | Gardener | | [GitHub](https://github.com/gardener/gardener) | Apache 2.0 | | [[ref]](#gardener) |
 | hypershift | redhat | [GitHub](https://github.com/openshift/hypershift) | Apache 2.0 | Openshift/OKD | |
 | k0rdent | Mirantis | [GitHub](https://github.com/k0rdent/kcm) | Apache 2.0 | k0smotron and cluster API | |
-| Kamaji | Clastix | [GitHub](https://github.com/clastix/kamaji) | Apache 2.0 | kubeadm and Cluster API | |
+| Kamaji | Clastix | [GitHub](https://github.com/clastix/kamaji) | Apache 2.0 | kubeadm and Cluster API | [[ref]](#kamaji) |
 | KubeClipper | | [GitHub](https://github.com/kubeclipper/kubeclipper) | Apache 2.0 | kubeadm | |
 | Kubermatic Kubernetes Platform | Kubermatic | [GitHub](https://github.com/kubermatic/kubermatic) | Apache 2.0 | | [[ref]](#kubermatic-kubernetes-platform) |
 | Omni | SideroLabs | [Website](https://www.siderolabs.com/platform/saas-for-kubernetes/) | BUSL 1.1 | Talos Linux | [[ref]](#omni) |
 | Palette | Spectro Cloud | [Website](https://www.spectrocloud.com/product/palette/) | ❌ | Cluster API | |
-| Platform9 | Platform9 | [Website](https://platform9.com/) | ❌ | | |
+| Platform9 | Platform9 | [Website](https://platform9.com/) | ❌ | | [[ref]](#platform9) |
 | Portainer | Portainer.io | [Website](https://www.portainer.io/) | Zlib (CE) / ❌ (BE) | | |
 | Rafay | Rafay Systems | [Website](https://rafay.co/) | ❌ | | |
 | Rancher | Rancher | [GitHub](https://github.com/rancher/rancher) | Apache 2.0 | | [[ref]](#rancher) |
-| Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | ❌ | | |
+| Tanzu | VMware | [Website](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) | ❌ | | [[ref]](#tanzu) |
 
 ---
 
@@ -240,6 +240,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### Gardener
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 45 (Gardener)
+
+### Kamaji
+
+- [EN] [Setup a minimal Kamaji for development](https://github.com/koraakdas/k8-cluster-with-kamaji/blob/master/docs/getting-started-with-kamaji.md)
 
 ### Harvester
 
@@ -425,6 +429,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 5 (Orbstack)
 - [EN] [Running Containers Natively on Mac with Orbstack](https://www.corpit.org/running-containers-natively-on-mac-with-orbstack/)
 
+### Platform9
+
+- [EN] [Get your First Container Up on Kubernetes Using Platform9 (HackerNoon)](https://hackernoon.com/get-your-first-container-up-on-kubernetes-using-the-free-version-of-platform9-managed-kubernetes-p65u32u9)
+
 ### Play with k8s
 
 - [EN] [Getting Started with Kubernetes on Play with Kubernetes Platform in 5 Minutes](https://dockerlabs.collabnix.com/kubernetes/beginners/getting-started-on-pwk.html)
@@ -469,6 +477,11 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### typhoon
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 35 (typhoon)
+
+### Tanzu
+
+- [EN] [Step-by-Step Guide: Running Kubernetes Applications in a VMware Environment](https://vmwareblogs.co.in/2025/07/29/step-by-step-guide-running-kubernetes-applications-in-a-vmware-environment/)
+- [EN] [Quick-Start Guide to Using VMware Tanzu Mission Control](https://blogs.vmware.com/tanzu/quick-start-guide-to-vmware-tanzu-mission-control-vsphere-tanzu-services/)
 
 ### vcluster
 
