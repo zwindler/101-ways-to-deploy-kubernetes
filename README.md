@@ -119,13 +119,13 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
-| By hand, using containers | | [GitHub](https://github.com/kubernetes/registry.k8s.io) | Apache 2.0 | | |
+| By hand, using containers | | [GitHub](https://github.com/kubernetes/registry.k8s.io) | Apache 2.0 | | [[ref]](#by-hand-using-containers) |
 | By hand, using binaries | | [GitHub](https://github.com/kubernetes/kubernetes) | Apache 2.0 | | [[ref]](#by-hand-using-binaries) |
-| Devops playgrounds | | [Website](https://labs.iximiuz.com/playgrounds) | Not applicable | | |
-| Kubernetes the hard way | | [GitHub](https://github.com/kelseyhightower/kubernetes-the-hard-way) | Apache 2.0 | | |
-| Kubernetes the hard way w/ Terraform | | [GitHub](https://github.com/aidanSoles/kubernetes-the-hard-way-terraform) | Apache 2.0 | Terraform / OpenTofu | |
+| Devops playgrounds | | [Website](https://labs.iximiuz.com/playgrounds) | Not applicable | | [[ref]](#devops-playgrounds) |
+| Kubernetes the hard way | | [GitHub](https://github.com/kelseyhightower/kubernetes-the-hard-way) | Apache 2.0 | | [[ref]](#kubernetes-the-hard-way) |
+| Kubernetes the hard way w/ Terraform | | [GitHub](https://github.com/aidanSoles/kubernetes-the-hard-way-terraform) | Apache 2.0 | Terraform / OpenTofu | [[ref]](#kubernetes-the-hard-way-w-terraform) |
 | KwoK | | [GitHub](https://github.com/kubernetes-sigs/kwok) | Apache 2.0 | | [[ref]](#kwok) |
-| Play with k8s | | [GitHub](https://github.com/play-with-docker/play-with-k8s) | Apache 2.0 | | |
+| Play with k8s | | [GitHub](https://github.com/play-with-docker/play-with-k8s) | Apache 2.0 | | [[ref]](#play-with-k8s) |
 
 ---
 
@@ -185,10 +185,15 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 11 (Alvistack Vagrant-kubernetes)
 
+### By hand, using containers
+
+- [EN] [Deep Dive into Kubernetes: Setting Up Clusters and Components by Hand](https://knowledge.businesscompassllc.com/deep-dive-into-kubernetes-setting-up-clusters-and-components-by-hand/)
+
 ### By hand, using binaries
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 50 (By hand, using binaries)
 - [FR] [Démystifions Kubernetes](https://github.com/zwindler/demystifions-kubernetes)
+- [EN] [How to Install Kubernetes Manually?](https://www.learnitguide.net/2023/04/how-to-install-kubernetes-manually.html)
 
 ### canonical kubernetes (snap)
 
@@ -216,6 +221,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### Desktop-Kubernetes
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 10 (Desktop-Kubernetes)
+
+### Devops playgrounds
+
+- [EN] [Server-Side Playgrounds Reimagined: Build, Boot, and Network Your Own VMs](https://iximiuz.com/en/posts/iximiuz-labs-playgrounds-2.0/)
 
 ### Docker desktop
 
@@ -329,6 +338,14 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 33 (Kubernetes ClusterAPI)
 
+### Kubernetes the hard way
+
+- [EN] [Mastering Kubernetes: A Deep Dive into Building a Cluster "The Hard Way"](https://techwhale.in/mastering-kubernetes-a-deep-dive-into-building-a-cluster-the-hard-way/)
+
+### Kubernetes the hard way w/ Terraform
+
+- [EN] [Kubernetes The Hard Way on AWS with Packer and Terraform](https://andygolubev.com/articles/kubernetes-the-hard-way-on-aws-with-packer-and-terraform/)
+
 ### Kubespray
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 32 (Kubespray)
@@ -341,6 +358,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### KwoK
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 49 (KwoK)
+- [EN] [Introducing KWOK: Kubernetes WithOut Kubelet](https://www.kubernetes.dev/blog/2023/03/01/introducing-kwok/)
 
 ### lima-vm
 
@@ -396,6 +414,10 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 5 (Orbstack)
 - [EN] [Running Containers Natively on Mac with Orbstack](https://www.corpit.org/running-containers-natively-on-mac-with-orbstack/)
+
+### Play with k8s
+
+- [EN] [Getting Started with Kubernetes on Play with Kubernetes Platform in 5 Minutes](https://dockerlabs.collabnix.com/kubernetes/beginners/getting-started-on-pwk.html)
 
 ### Pulumi
 
