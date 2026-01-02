@@ -34,7 +34,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
 | aks-engine (abandoned) | Azure | [GitHub](https://github.com/Azure/aks-engine) | Apache 2.0 | | |
-| Alvistack Ansible | Alvistack | [GitHub](https://github.com/alvistack/ansible-collection-kubernetes) | Apache 2.0 | kubeadm | [[ref]](#alvistack-ansible) |
+| Alvistack Ansible | Alvistack | [GitHub](https://github.com/alvistack/ansible-collection-kubernetes) | Apache 2.0 | kubeadm | |
 | Alvistack Vagrant-kubernetes | Alvistack | [GitHub](https://github.com/alvistack/vagrant-kubernetes) | Apache 2.0 | kubeadm | [[ref]](#alvistack-vagrant-kubernetes) |
 | Crossplane | | [GitHub](https://github.com/crossplane/crossplane) | Apache 2.0 | | [[ref]](#crossplane) |
 | Kube-hetzner | Hetzner | [GitHub](https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner) | MIT | Terraform / OpenTofu | [[ref]](#kube-hetzner) |
@@ -181,10 +181,6 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### AKS
 
 - [FR] [J'ai testé pour vous AKS, la plateforme Kubernetes managée d'Azure](https://blog.zwindler.fr/2018/12/18/jai-teste-pour-vous-aks-la-plateforme-kubernetes-managee-dazure/)
-
-### Alvistack Ansible
-
-- [EN] [A Guide to Setup a Kubernetes Cluster Using Ansible](https://tecadmin.net/setup-kubernetes-cluster-using-ansible/)
 
 ### Alvistack Vagrant-kubernetes
 
@@ -437,7 +433,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 36 (Pulumi)
 - [EN] [Create a Kubernetes Deployment with Pulumi](https://www.pulumi.com/guides/how-to/kubernetes-deployment/)
-- [EN] [Pulumi Tutorial: Automate Kubernetes Deployments](https://travis.media/blog/pulumi-tutorial-automate-kubernetes-operations/)
+- [EN] [Infrastructure as Code (IaC) on OVHcloud - Pulumi](https://blog.ovhcloud.com/infrastructure-as-code-iac-on-ovhcloud-part-1-terraform-opentofu/)
 
 ### Puppet
 
@@ -473,8 +469,6 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ### typhoon
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 35 (typhoon)
-- [EN] [Terraform Kubernetes Deployment Tutorial](https://softstrix.com/terraform-kubernetes-deployment/)
-- [EN] [Using Terraform with Kubernetes: A Practical Guide](https://www.slingacademy.com/article/using-terraform-with-kubernetes-a-practical-guide/)
 
 ### vcluster
 
