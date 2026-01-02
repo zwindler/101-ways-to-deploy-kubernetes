@@ -137,7 +137,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | EKS Anywhere | AWS | [GitHub](https://github.com/aws/eks-anywhere) | Apache 2.0 | EKS | [[ref]](#eks-anywhere) |
 | Harvester | Rancher | [GitHub](https://github.com/harvester/harvester) | Apache 2.0 | | [[ref]](#harvester) |
 | Hepto | | [Forge Tedomum](https://forge.tedomum.net/acides/hepto) | Apache 2.0 | | |
-| Juju | Canonical | [GitHub](https://github.com/juju/juju) | Apache 2.0 | | [[ref]](#juju) |
+| Juju | Canonical | [GitHub](https://github.com/juju/juju) | Apache 2.0 | | |
 | k0s | Mirantis | [GitHub](https://github.com/k0sproject/k0s) | Apache 2.0 | | [[ref]](#k0s) |
 | k0smotron | Mirantis | [GitHub](https://github.com/k0sproject/k0smotron) | Apache 2.0 | k0s and clusterAPI | [[ref]](#k0smotron) |
 | k3s | Rancher | [GitHub](https://github.com/k3s-io/k3s) | Apache 2.0 | | [[ref]](#k3s) |
@@ -159,8 +159,8 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 | OKD (open source openshift) | Redhat | [GitHub](https://github.com/okd-project/okd) | Apache 2.0 | OpenShift | [[ref]](#okd-open-source-openshift) |
 | OneKE | OpenNebula | [GitHub](https://github.com/OpenNebula/one-apps) | Apache 2.0 | rke2 | [[ref]](#oneke) |
 | RKE2 | Rancher | [GitHub](https://github.com/rancher/rke2) | Apache 2.0 | k3s and RKE | [[ref]](#rke2) |
-| SIGHUP | | [GitHub](https://github.com/sighupio/distribution) | BSD 3-Clause | | [[ref]](#sighup) |
-| TALM | Cosystack | [GitHub](https://github.com/cozystack/talm) | Apache 2.0 | Talos Linux | [[ref]](#talm) |
+| SIGHUP | | [GitHub](https://github.com/sighupio/distribution) | BSD 3-Clause | | |
+| TALM | Cosystack | [GitHub](https://github.com/cozystack/talm) | Apache 2.0 | Talos Linux | |
 | tarook | | [GitHub](https://github.com/alasca-association/tarook) | Apache 2.0 | Terraform / Opentofu | |
 | Welkin | Elastisys | [GitHub](https://github.com/elastisys/welkin) | Apache 2.0 | Cluster API | |
 
@@ -293,10 +293,6 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 - [EN] [Livin' Kubernetes on the (Immutable) Edge with Kairos Project](https://www.spectrocloud.com/blog/livin-kubernetes-on-the-immutable-edge-with-kairos-project)
 - [EN] [Kairos: The immutable Linux meta-distribution for edge Kubernetes](https://cloudification.io/cloud-blog/kairos-the-immutable-linux-meta-distribution-for-edge-kubernetes/)
 - [EN] [Building secure Kubernetes Edge images with Kairos and k0s](https://www.cncf.io/blog/2025/03/25/building-secure-kubernetes-edge-images-with-kairos-and-k0s/)
-
-### Juju
-
-- [EN] [How to Deploy Kubernetes with Juju](https://cloud.garr.it/support/kb/juju/deploy_kubernetes_with_juju/)
 
 ### Kapsule
 
@@ -456,10 +452,6 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 15 (SKS)
 - [FR] [Test de SKS, le Kubernetes managé chez Exoscale](https://blog.zwindler.fr/2021/05/03/test-de-sks-le-kubernetes-manage-chez-exoscale/)
 
-### SIGHUP
-
-- [EN] [Getting started guides to deploy the Kubernetes Fury Distribution](https://github.com/sighupio/fury-getting-started)
-
 ### Talos Linux
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 38 (Talos Linux)
@@ -467,10 +459,6 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 - [EN] [Set Up Talos Linux on Your Machine](https://thenewstack.io/set-up-talos-linux-on-your-machine/)
 - [EN] [Setting Up a k8s Cluster on Talos Linux](https://hostkey.com/blog/102-setting-up-a-k8s-cluster-on-talos-linux/)
 - [EN] [Kubernetes Homelab Series Part 1 - Talos Linux & Proxmox](https://blog.dalydays.com/post/kubernetes-homelab-series-part-1-talos-linux-proxmox/)
-
-### TALM
-
-- [EN] [Use Talm to bootstrap a Cozystack cluster](https://cozystack.io/docs/install/kubernetes/talm/)
 
 ### typhoon
 
