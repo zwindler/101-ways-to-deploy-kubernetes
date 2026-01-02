@@ -15,7 +15,7 @@ This repository is a comprehensive list of **ways to deploy Kubernetes clusters*
 - **Infrastructure as Code Tools**: Tools that automate Kubernetes cluster deployment (Terraform, Ansible, Pulumi, etc.)
 - **Managed Kubernetes Services**: Cloud provider services that provide managed Kubernetes clusters (EKS, AKS, GKE, etc.)
 - **Desktop/Local Development Tools**: Tools for running Kubernetes locally for development purposes
-- **Self-hosted Solutions**: Tools for deploying production Kubernetes clusters on your own infrastructure
+- **Selfhosted Solutions**: Tools for deploying production Kubernetes clusters on your own infrastructure
 - **Management Platforms**: Multi-cluster management platforms that help deploy and manage multiple Kubernetes clusters
 - **Kubernetes-specific Operating Systems**: OS distributions specifically designed to run Kubernetes
 - **Learning Resources**: Tutorials and guides specifically about deploying Kubernetes (like "Kubernetes the Hard Way")
