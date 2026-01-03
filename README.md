@@ -503,7 +503,6 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 
 ### Podman Desktop
 
-- [EN] [Running a Kubernetes cluster - Podman Desktop](https://podman-desktop.io/tutorial/running-a-kubernetes-cluster)
 - [EN] [Working with Kubernetes in Podman Desktop - Red Hat Developer](https://developers.redhat.com/articles/2023/11/06/working-kubernetes-podman-desktop)
 
 ### Pulumi
