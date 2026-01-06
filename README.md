@@ -42,7 +42,7 @@ Tools for running Kubernetes on local development machines (laptops, workstation
 | lima-vm | | [GitHub](https://github.com/lima-vm/lima/blob/master/examples/k8s.yaml) | Apache 2.0 | kubeadm, k3s, rke2 | [[ref]](#lima-vm) |
 | microk8s | Canonical | [GitHub](https://github.com/canonical/microk8s) | Apache 2.0 | | [[ref]](#microk8s) |
 | Minikube | | [GitHub](https://github.com/kubernetes/minikube) | Apache 2.0 | kubeadm | [[ref]](#minikube) |
-| Minishift | Redhat | [GitHub](https://github.com/minishift/minishift) | Apache 2.0 | OpenShift | [[ref]](#minishift) |
+| Minishift (abandoned) | Redhat | [GitHub](https://github.com/minishift/minishift) | Apache 2.0 | OpenShift | [[ref]](#minishift) |
 | mykube | | [GitHub](https://github.com/guyst16/mykube) | Apache 2.0 | kubeadm | |
 | Oracle Cloud Native Environment | Oracle | [GitHub](https://github.com/oracle-cne/ocne) | Apache 2.0 | | |
 | Orbstack | Orbital Stack | [Website](https://orbstack.dev/) | ❌ | | [[ref]](#orbstack) |
@@ -61,7 +61,9 @@ Tools and frameworks that use code to automate the deployment of Kubernetes clus
 | Alvistack Ansible | Alvistack | [GitHub](https://github.com/alvistack/ansible-collection-kubernetes) | Apache 2.0 | kubeadm | |
 | Alvistack Vagrant-kubernetes | Alvistack | [GitHub](https://github.com/alvistack/vagrant-kubernetes) | Apache 2.0 | kubeadm | [[ref]](#alvistack-vagrant-kubernetes) |
 | Crossplane | | [GitHub](https://github.com/crossplane/crossplane) | Apache 2.0 | | [[ref]](#crossplane) |
+| Cybozu Kubernetes Engine (CKE) | Cybozu | [GitHub](https://github.com/cybozu-go/cke) | Apache 2.0 | | |
 | Kube-hetzner | | [GitHub](https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner) | MIT | Terraform / OpenTofu | [[ref]](#kube-hetzner) |
+| Kubeasz (Chinese documentation only) | EaszLab | [GitHub](https://github.com/easzlab/kubeasz) | MIT | |  |
 | Kubernetes ClusterAPI | | [GitHub](https://github.com/kubernetes-sigs/cluster-api) | Apache 2.0 | | [[ref]](#kubernetes-clusterapi) |
 | Kubespray | | [GitHub](https://github.com/kubernetes-sigs/kubespray) | Apache 2.0 | kubeadm | [[ref]](#kubespray) |
 | OpenTofu | | [GitHub](https://github.com/opentofu/opentofu) | MPL 2.0 | | [[ref]](#opentofu) |
@@ -105,8 +107,11 @@ Cloud provider or third-party managed Kubernetes services where the control plan
 | Alibaba Cloud Container Service for Kubernetes (ACK) | Alibaba Cloud | [Website](https://www.alibabacloud.com/fr/product/kubernetes) | ☁️ N/A | | |
 | Civo | Civo | [Website](https://www.civo.com/) | ☁️ N/A | k3s or Talos Linux | [[ref]](#civo) |
 | Clever Kubernetes Engine (CKE) | Clever Cloud | [Website](https://www.clever-cloud.com/product/kubernetes/) | ☁️ N/A | | |
+| CoreWeave Kubernetes Service (CKS) | CoreWeave | [Website](https://www.coreweave.com/products/coreweave-kubernetes-service) | ☁️ N/A | | |
 | DOKS | Digital Ocean | [Website](https://www.digitalocean.com/products/kubernetes/) | ☁️ N/A | | [[ref]](#doks) |
+| Elastx Private Kubernetes | Elastx | [Website](https://elastx.se/en/kubernetes/) | ☁️ N/A | | |
 | EKS | AWS | [Website](https://aws.amazon.com/fr/eks/) | ☁️ N/A | | [[ref]](#eks) |
+| Gcore Managed Kubernetes | Gcore | [Website](https://gcore.com/cloud/managed-kubernetes) | ☁️ N/A | | |
 | GKE | Google Cloud Platform | [Website](https://cloud.google.com/kubernetes-engine?hl=fr) | ☁️ N/A | | [[ref]](#gke) |
 | Gridscale Managed Kubernetes (GSK) | Gridscale | [Website](https://gridscale.io/en/products/kubernetes/) | ☁️ N/A | | |
 | IBM Cloud (IKS) | IBM Cloud | [Website](https://www.ibm.com/cloud/container-service/) | ☁️ N/A | | [[ref]](#ibm-cloud-iks) |
@@ -115,13 +120,19 @@ Cloud provider or third-party managed Kubernetes services where the control plan
 | Kosmos | Scaleway | [Website](https://www.scaleway.com/fr/kubernetes-kosmos/) | ☁️ N/A | | [[ref]](#kosmos) |
 | LeafCloud | LeafCloud | [Website](https://www.leaf.cloud/) | ☁️ N/A | Gardener | |
 | Linode Kubernetes Engine (LKE) | Linode | [Website](https://www.linode.com/docs/kubernetes/) | ☁️ N/A | | [[ref]](#linode-kubernetes-engine-lke) |
+| Metal Stack Cloud Kubernetes | Metal Stack | [Website](https://www.metalstack.cloud/) | ☁️ N/A | | |
 | MetaKube | SysEleven | [Website](https://www.syseleven.de/en/) | ☁️ N/A | | |
 | MKS | OVHcloud | [Website](https://www.ovhcloud.com/fr/public-cloud/kubernetes/) | ☁️ N/A | | [[ref]](#mks) |
+| Orka | MacStadium | [Website](https://www.macstadium.com/orka) | ☁️ N/A | | |
 | Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) | Oracle Cloud Infrastructure | [Website](https://www.oracle.com/fr/cloud/cloud-native/container-engine-kubernetes/) | ☁️ N/A | | [[ref]](#oracle-cloud-infrastructure-container-engine-for-kubernetes-oke) |
 | Redhat Openshift cloud | Redhat | [Website](https://www.redhat.com/fr/technologies/cloud-computing/openshift/openshift-cloud-services) | ☁️ N/A | Openshift | [[ref]](#redhat-openshift-cloud) |
 | SKS | Exoscale | [Website](https://community.exoscale.com/documentation/sks/overview/) | ☁️ N/A | | [[ref]](#sks) |
+| STACKIT Kubernetes Engine (SKE) | STACKIT | [Website](https://stackit.com/en/products/runtime/stackit-kubernetes-engine) | ☁️ N/A | | |
+| StarlingX | | [Website](https://www.starlingx.io/) | ☁️ N/A | | |
+| Tencent Kubernetes Engine (TKE) | Tencent Cloud | [Website](https://www.tencentcloud.com/products/tke) | ☁️ N/A | | |
 | UpCloud Managed Kubernetes (UKS) | UpCloud | [Website](https://upcloud.com/products/managed-kubernetes) | ☁️ N/A | | |
 | VKE | Vultr | [Website](https://www.vultr.com/kubernetes/) | ☁️ N/A | | [[ref]](#vke) |
+| Volcengine Kubernetes Engine (VKE) | ByteDance | [Website](https://www.volcengine.com/product/vke) | ☁️ N/A | | |
 
 ---
 
@@ -171,6 +182,7 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
+| Constellation (abandoned) | Edgeless Systems | [GitHub](https://github.com/edgelesssys/constellation) | AGPL 3.0 | Confidential VMs | |
 | EKS Anywhere | AWS | [GitHub](https://github.com/aws/eks-anywhere) | Apache 2.0 | EKS | [[ref]](#eks-anywhere) |
 | Harvester | Rancher | [GitHub](https://github.com/harvester/harvester) | Apache 2.0 | | [[ref]](#harvester) |
 | Hepto | | [Forge Tedomum](https://forge.tedomum.net/acides/hepto) | Apache 2.0 | | |
@@ -195,6 +207,7 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 | NKP (Nutanix Kubernetes Platform) | Nutanix | [Website](https://www.nutanix.com/products/kubernetes-management-platform) | ❌ | | |
 | OKD (open source openshift) | Redhat | [GitHub](https://github.com/okd-project/okd) | Apache 2.0 | OpenShift | [[ref]](#okd-open-source-openshift) |
 | OneKE | OpenNebula | [GitHub](https://github.com/OpenNebula/one-apps) | Apache 2.0 | rke2 | [[ref]](#oneke) |
+| Red Hat Build of Microshift | Red Hat | [GitHub](https://github.com/openshift/microshift) | Apache 2.0 | OpenShift | |
 | RKE2 | Rancher | [GitHub](https://github.com/rancher/rke2) | Apache 2.0 | k3s and RKE | [[ref]](#rke2) |
 | SIGHUP | | [GitHub](https://github.com/sighupio/distribution) | BSD 3-Clause | | |
 | TALM | Cosystack | [GitHub](https://github.com/cozystack/talm) | Apache 2.0 | Talos Linux | |
