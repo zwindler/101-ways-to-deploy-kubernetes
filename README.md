@@ -42,7 +42,7 @@ Tools for running Kubernetes on local development machines (laptops, workstation
 | lima-vm | | [GitHub](https://github.com/lima-vm/lima/blob/master/examples/k8s.yaml) | Apache 2.0 | kubeadm, k3s, rke2 | [[ref]](#lima-vm) |
 | microk8s | Canonical | [GitHub](https://github.com/canonical/microk8s) | Apache 2.0 | | [[ref]](#microk8s) |
 | Minikube | | [GitHub](https://github.com/kubernetes/minikube) | Apache 2.0 | kubeadm | [[ref]](#minikube) |
-| Minishift | Redhat | [GitHub](https://github.com/minishift/minishift) | Apache 2.0 | OpenShift | [[ref]](#minishift) |
+| Minishift (abandoned) | Redhat | [GitHub](https://github.com/minishift/minishift) | Apache 2.0 | OpenShift | [[ref]](#minishift) |
 | mykube | | [GitHub](https://github.com/guyst16/mykube) | Apache 2.0 | kubeadm | |
 | Oracle Cloud Native Environment | Oracle | [GitHub](https://github.com/oracle-cne/ocne) | Apache 2.0 | | |
 | Orbstack | Orbital Stack | [Website](https://orbstack.dev/) | ❌ | | [[ref]](#orbstack) |
@@ -63,7 +63,7 @@ Tools and frameworks that use code to automate the deployment of Kubernetes clus
 | Crossplane | | [GitHub](https://github.com/crossplane/crossplane) | Apache 2.0 | | [[ref]](#crossplane) |
 | Cybozu Kubernetes Engine (CKE) | Cybozu | [GitHub](https://github.com/cybozu-go/cke) | Apache 2.0 | | |
 | Kube-hetzner | | [GitHub](https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner) | MIT | Terraform / OpenTofu | [[ref]](#kube-hetzner) |
-| Kubeasz | EaszLab | [GitHub](https://github.com/easzlab/kubeasz) | MIT | Ansible | |
+| Kubeasz | EaszLab | [GitHub](https://github.com/easzlab/kubeasz) | MIT | Ansible | Chinese documentation only |
 | Kubernetes ClusterAPI | | [GitHub](https://github.com/kubernetes-sigs/cluster-api) | Apache 2.0 | | [[ref]](#kubernetes-clusterapi) |
 | Kubespray | | [GitHub](https://github.com/kubernetes-sigs/kubespray) | Apache 2.0 | kubeadm | [[ref]](#kubespray) |
 | OpenTofu | | [GitHub](https://github.com/opentofu/opentofu) | MPL 2.0 | | [[ref]](#opentofu) |
@@ -183,8 +183,7 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 
 | Name | Publisher / Project | URL | Open source | Based on | External References |
 |------|---------------------|-----|-------------|----------|---------------------|
-| Constellation | Edgeless Systems | [GitHub](https://github.com/edgelesssys/constellation) | AGPL 3.0 | Confidential VMs | |
-| Cozystack | Cozystack | [GitHub](https://github.com/cozystack/cozystack) | Apache 2.0 | Talos Linux, Kamaji | |
+| Constellation (abandoned) | Edgeless Systems | [GitHub](https://github.com/edgelesssys/constellation) | AGPL 3.0 | Confidential VMs | |
 | EKS Anywhere | AWS | [GitHub](https://github.com/aws/eks-anywhere) | Apache 2.0 | EKS | [[ref]](#eks-anywhere) |
 | Harvester | Rancher | [GitHub](https://github.com/harvester/harvester) | Apache 2.0 | | [[ref]](#harvester) |
 | Hepto | | [Forge Tedomum](https://forge.tedomum.net/acides/hepto) | Apache 2.0 | | |
@@ -209,7 +208,6 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 | NKP (Nutanix Kubernetes Platform) | Nutanix | [Website](https://www.nutanix.com/products/kubernetes-management-platform) | ❌ | | |
 | OKD (open source openshift) | Redhat | [GitHub](https://github.com/okd-project/okd) | Apache 2.0 | OpenShift | [[ref]](#okd-open-source-openshift) |
 | OneKE | OpenNebula | [GitHub](https://github.com/OpenNebula/one-apps) | Apache 2.0 | rke2 | [[ref]](#oneke) |
-| Plural | Plural | [GitHub](https://github.com/pluralsh/plural) | Apache 2.0 | Terraform, Helm | |
 | Red Hat Build of Microshift | Red Hat | [GitHub](https://github.com/openshift/microshift) | Apache 2.0 | OpenShift | |
 | RKE2 | Rancher | [GitHub](https://github.com/rancher/rke2) | Apache 2.0 | k3s and RKE | [[ref]](#rke2) |
 | SIGHUP | | [GitHub](https://github.com/sighupio/distribution) | BSD 3-Clause | | |
