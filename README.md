@@ -109,6 +109,7 @@ Cloud provider or third-party managed Kubernetes services where the control plan
 | Clever Kubernetes Engine (CKE) | Clever Cloud | [Website](https://www.clever-cloud.com/product/kubernetes/) | ☁️ N/A | | |
 | CoreWeave Kubernetes Service (CKS) | CoreWeave | [Website](https://www.coreweave.com/products/coreweave-kubernetes-service) | ☁️ N/A | | |
 | DOKS | Digital Ocean | [Website](https://www.digitalocean.com/products/kubernetes/) | ☁️ N/A | | [[ref]](#doks) |
+| Elastx Private Kubernetes | Elastx | [Website](https://elastx.se/en/kubernetes/) | ☁️ N/A | | |
 | EKS | AWS | [Website](https://aws.amazon.com/fr/eks/) | ☁️ N/A | | [[ref]](#eks) |
 | Gcore Managed Kubernetes | Gcore | [Website](https://gcore.com/cloud/managed-kubernetes) | ☁️ N/A | | |
 | GKE | Google Cloud Platform | [Website](https://cloud.google.com/kubernetes-engine?hl=fr) | ☁️ N/A | | [[ref]](#gke) |
@@ -118,7 +119,9 @@ Cloud provider or third-party managed Kubernetes services where the control plan
 | Kapsule | Scaleway | [Website](https://www.scaleway.com/en/kubernetes-kapsule/) | ☁️ N/A | | [[ref]](#kapsule) |
 | Kosmos | Scaleway | [Website](https://www.scaleway.com/fr/kubernetes-kosmos/) | ☁️ N/A | | [[ref]](#kosmos) |
 | LeafCloud | LeafCloud | [Website](https://www.leaf.cloud/) | ☁️ N/A | Gardener | |
+| Leaseweb Managed Kubernetes | Leaseweb | [Website](https://www.leaseweb.com/cloud/kubernetes) | ☁️ N/A | | |
 | Linode Kubernetes Engine (LKE) | Linode | [Website](https://www.linode.com/docs/kubernetes/) | ☁️ N/A | | [[ref]](#linode-kubernetes-engine-lke) |
+| Metal Stack Cloud Kubernetes | Metal Stack | [Website](https://www.metalstack.cloud/) | ☁️ N/A | | |
 | MetaKube | SysEleven | [Website](https://www.syseleven.de/en/) | ☁️ N/A | | |
 | MKS | OVHcloud | [Website](https://www.ovhcloud.com/fr/public-cloud/kubernetes/) | ☁️ N/A | | [[ref]](#mks) |
 | Orka | MacStadium | [Website](https://www.macstadium.com/orka) | ☁️ N/A | | |
@@ -127,8 +130,10 @@ Cloud provider or third-party managed Kubernetes services where the control plan
 | SKS | Exoscale | [Website](https://community.exoscale.com/documentation/sks/overview/) | ☁️ N/A | | [[ref]](#sks) |
 | STACKIT Kubernetes Engine (SKE) | STACKIT | [Website](https://www.stackit.de/en/product/stackit-kubernetes-engine/) | ☁️ N/A | | |
 | StarlingX | OpenStack | [Website](https://www.starlingx.io/) | ☁️ N/A | OpenStack + Kubernetes | |
+| Tencent Kubernetes Engine (TKE) | Tencent Cloud | [Website](https://www.tencentcloud.com/products/tke) | ☁️ N/A | | |
 | UpCloud Managed Kubernetes (UKS) | UpCloud | [Website](https://upcloud.com/products/managed-kubernetes) | ☁️ N/A | | |
 | VKE | Vultr | [Website](https://www.vultr.com/kubernetes/) | ☁️ N/A | | [[ref]](#vke) |
+| Volcengine Kubernetes Engine (VKE) | ByteDance | [Website](https://www.volcengine.com/products/kubernetes-engine) | ☁️ N/A | | |
 
 ---
 
