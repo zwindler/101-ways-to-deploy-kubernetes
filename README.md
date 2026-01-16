@@ -6,7 +6,6 @@ Note: this repository is based on the original work [@zwindler](https://github.c
 
 ## Table of Contents
 
-- [Contributing](#contributing)
 - [Desktop](#desktop)
 - [IaC (Infrastructure as Code)](#iac-infrastructure-as-code)
 - [Kubernetes in Kubernetes](#kubernetes-in-kubernetes)
@@ -16,8 +15,6 @@ Note: this repository is based on the original work [@zwindler](https://github.c
 - [Other](#other)
 - [Selfhosted](#selfhosted)
 - [Other Useful Projects](#other-useful-projects)
-- [References](#references)
-- [License](#license)
 
 ## Contributing
 
