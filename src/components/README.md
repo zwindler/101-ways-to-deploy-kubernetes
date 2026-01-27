@@ -171,8 +171,10 @@ import SolutionCard from "../components/SolutionCard.astro";
 import { readFileSync } from 'fs';
 import yaml from 'yaml';
 
+// Adjust path based on your file location
+// From src/pages/, use: '../../data/solutions.yaml'
 const solutionsData = yaml.parse(
-  readFileSync('./data/solutions.yaml', 'utf8')
+  readFileSync('../../data/solutions.yaml', 'utf8')
 );
 ---
 
@@ -202,9 +204,9 @@ The component uses Tailwind CSS classes and can be customized by:
 
 ## Dependencies
 
-- **Astro**: Framework for component rendering
-- **Tailwind CSS**: Utility-first CSS framework for styling
-- No runtime JavaScript dependencies (pure HTML/CSS output)
+- **Astro**: Framework for component rendering (build-time)
+- **Tailwind CSS**: Utility-first CSS framework for styling (build-time)
+- **Note**: While the component requires Tailwind CSS to be configured in your project's build system, there are no runtime JavaScript dependencies. The component outputs pure HTML/CSS.
 
 ## License
 

@@ -48,6 +48,17 @@ const remainingTags = (solution.tags?.length || 0) - visibleTags.length;
 >
   <!-- Header Section -->
   <div class="p-6 flex items-start gap-4 relative">
+    <!-- Status Badge (top right corner, only if not active) -->
+    {
+      solution.status && solution.status !== "active" && (
+        <div
+          class={`absolute top-2 right-2 px-3 py-1 rounded-full text-xs font-medium ${statusColors[solution.status]}`}
+        >
+          {solution.status.charAt(0).toUpperCase() + solution.status.slice(1)}
+        </div>
+      )
+    }
+
     <!-- Logo Placeholder -->
     <div
       class="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 flex items-center justify-center text-white font-bold text-2xl flex-shrink-0"
@@ -91,17 +102,6 @@ const remainingTags = (solution.tags?.length || 0) - visibleTags.length;
         </div>
       )
     }
-
-    <!-- Status Badge (top right, only if not active) -->
-    {
-      solution.status && solution.status !== "active" && (
-        <div
-          class={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium ${statusColors[solution.status]}`}
-        >
-          {solution.status.charAt(0).toUpperCase() + solution.status.slice(1)}
-        </div>
-      )
-    }
   </div>
 
   <!-- Description Section -->
@@ -119,7 +119,7 @@ const remainingTags = (solution.tags?.length || 0) - visibleTags.length;
   {
     solution.based_on && solution.based_on.length > 0 && (
       <div class="px-6 pb-4">
-        <p class="text-xs text-gray-500 dark:text-gray-500 mb-2">Based on:</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Based on:</p>
         <div class="flex flex-wrap gap-2">
           {solution.based_on.map((tech) => (
             <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-medium">
