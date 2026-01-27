@@ -1,0 +1,178 @@
+---
+// Demo page to showcase the SolutionCard component
+import SolutionCard from "../components/SolutionCard.astro";
+
+const demoSolutions = [
+  {
+    name: "k3s",
+    category: "Selfhosted",
+    publisher: "Rancher",
+    url: "https://github.com/k3s-io/k3s",
+    description: "Lightweight Kubernetes distribution for IoT and edge computing",
+    license: "Apache 2.0",
+    open_source: true,
+    based_on: [],
+    tags: ["production", "lightweight", "edge", "iot"],
+    status: "active" as const,
+    references: [
+      {
+        title: "K3S et Cilium",
+        language: "fr",
+        url: "#",
+        type: "article",
+      },
+      {
+        title: "K3s Guide",
+        language: "en",
+        url: "#",
+        type: "tutorial",
+      },
+    ],
+  },
+  {
+    name: "Docker Desktop",
+    category: "Desktop",
+    publisher: "Docker (Mirantis)",
+    url: "https://www.docker.com/products/docker-desktop/",
+    description: "Docker Desktop includes a standalone Kubernetes server and client",
+    license: "proprietary",
+    open_source: false,
+    based_on: ["kubeadm", "kind"],
+    tags: ["local", "development", "gui"],
+    status: "active" as const,
+    references: [],
+  },
+  {
+    name: "Minishift",
+    category: "Desktop",
+    publisher: "Red Hat",
+    url: "https://github.com/minishift/minishift",
+    description: "Run OpenShift locally",
+    license: "Apache 2.0",
+    open_source: true,
+    based_on: ["OpenShift"],
+    tags: ["local", "development", "openshift"],
+    status: "abandoned" as const,
+    references: [],
+  },
+  {
+    name: "kops",
+    category: "IaC",
+    publisher: "Kubernetes SIG",
+    url: "https://github.com/kubernetes/kops",
+    description:
+      "Production-grade Kubernetes deployment automation on AWS, GCE, and more",
+    license: "Apache 2.0",
+    open_source: true,
+    based_on: [],
+    tags: ["production", "cloud", "automation", "aws", "gce", "azure", "digitalocean"],
+    status: "deprecated" as const,
+    references: [
+      {
+        title: "kops Tutorial",
+        language: "en",
+        url: "#",
+        type: "tutorial",
+      },
+      {
+        title: "kops Best Practices",
+        language: "en",
+        url: "#",
+        type: "article",
+      },
+      {
+        title: "kops Documentation",
+        language: "en",
+        url: "#",
+        type: "documentation",
+      },
+    ],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SolutionCard Component Demo</title>
+    <!-- 
+      NOTE: This demo uses Tailwind CDN for simplicity.
+      In production, use a proper Tailwind CSS setup with your build system.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Enable dark mode support
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100 dark:bg-gray-900 min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+      <!-- Header -->
+      <div class="mb-12 text-center">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          SolutionCard Component Demo
+        </h1>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">
+          Showcasing different states and configurations of the SolutionCard component
+        </p>
+        <!-- Dark Mode Toggle -->
+        <button
+          id="darkModeToggle"
+          class="px-4 py-2 bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-900 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors"
+        >
+          Toggle Dark Mode
+        </button>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          demoSolutions.map((solution) => (
+            <SolutionCard solution={solution} />
+          ))
+        }
+      </div>
+
+      <!-- Legend -->
+      <div class="mt-12 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Component Features
+        </h2>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+          <li>✅ Modern card design with rounded corners and shadows</li>
+          <li>✅ Hover effects with smooth transitions</li>
+          <li>✅ Dark mode support for all elements</li>
+          <li>✅ Status badges (Deprecated/Abandoned)</li>
+          <li>✅ Open Source badge for OSS projects</li>
+          <li>✅ Based On section with purple pills</li>
+          <li>✅ Tags section with limit of 4 visible tags</li>
+          <li>✅ Footer with license, references count, and link</li>
+          <li>✅ GitHub vs external link icon detection</li>
+          <li>✅ Responsive grid layout</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      // Dark mode toggle functionality
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const html = document.documentElement;
+
+      darkModeToggle?.addEventListener("click", () => {
+        html.classList.toggle("dark");
+      });
+
+      // Initialize dark mode based on system preference
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        html.classList.add("dark");
+      }
+    </script>
+  </body>
+</html>
