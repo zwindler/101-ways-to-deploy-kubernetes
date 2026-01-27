@@ -4,6 +4,33 @@ A comprehensive list of ways to deploy Kubernetes, organized by deployment type.
 
 Note: this repository is based on the original work [@zwindler](https://github.com/zwindler) did in a [Google Sheet file](https://docs.google.com/spreadsheets/d/1zjOLU8MblsN8VPwUyHNDFbBQ7EihHM2joD2Q9Tv2DiI/edit?usp=sharing)
 
+## 🚀 Website
+
+This repository also powers a static website built with Astro + TailwindCSS that showcases all deployment solutions in a beautiful, searchable interface.
+
+### Development Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm preview
+```
+
+The site will be available at `http://localhost:4321`
+
+### Tech Stack
+- **Astro 5.x** - Static site generator
+- **TailwindCSS 3.x** - Utility-first CSS framework
+- **TypeScript** - Type safety
+
 ## Table of Contents
 
 - [Desktop](#desktop)
