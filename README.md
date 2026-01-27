@@ -358,6 +358,7 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 - [EN] [Livin' Kubernetes on the (Immutable) Edge with Kairos Project](https://www.spectrocloud.com/blog/livin-kubernetes-on-the-immutable-edge-with-kairos-project)
 - [EN] [Kairos: The immutable Linux meta-distribution for edge Kubernetes](https://cloudification.io/cloud-blog/kairos-the-immutable-linux-meta-distribution-for-edge-kubernetes/)
 - [EN] [Building secure Kubernetes Edge images with Kairos and k0s](https://www.cncf.io/blog/2025/03/25/building-secure-kubernetes-edge-images-with-kairos-and-k0s/)
+- [EN] [Testing Kairos as an OS for K8s Cluster](https://medium.com/@vadimzharov/testing-kairos-as-an-os-for-k8s-cluster-050a4af53c3d)
 
 ### Kapsule
 
@@ -557,6 +558,7 @@ Tools for deploying production-grade Kubernetes clusters on your own infrastruct
 
 - [FR] ["Kubernetes - 50 solutions pour les postes de développement et les clusters de production"](https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/) - Chapter 38 (Talos Linux)
 - [FR] [Talos Linux](https://une-tasse-de.cafe/blog/talos/)
+- [EN] [Talos Linux](https://a-cup-of.coffee/blog/talos/)
 - [EN] [Set Up Talos Linux on Your Machine](https://thenewstack.io/set-up-talos-linux-on-your-machine/)
 - [EN] [Setting Up a k8s Cluster on Talos Linux](https://hostkey.com/blog/102-setting-up-a-k8s-cluster-on-talos-linux/)
 - [EN] [Kubernetes Homelab Series Part 1 - Talos Linux & Proxmox](https://blog.dalydays.com/post/kubernetes-homelab-series-part-1-talos-linux-proxmox/)
