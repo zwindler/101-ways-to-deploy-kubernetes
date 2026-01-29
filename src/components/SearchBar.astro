@@ -113,4 +113,14 @@ const { placeholder = "Search solutions...", totalCount = 0 } = Astro.props;
       solutionText.textContent = e.detail.count === 1 ? 'solution' : 'solutions';
     }
   }) as EventListener);
+  
+  // Listen for filters-reset event to clear the search input
+  window.addEventListener('filters-reset', () => {
+    if (searchInput) {
+      searchInput.value = '';
+      if (clearButton) {
+        clearButton.classList.add('hidden');
+      }
+    }
+  });
 </script>

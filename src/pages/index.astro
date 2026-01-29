@@ -205,11 +205,13 @@ const cloudProviders = [...new Set(solutions.flatMap(s => s.cloud_providers || [
   const iconLight = document.getElementById('theme-icon-light');
   const iconDark = document.getElementById('theme-icon-dark');
   
-  // Check for saved preference or system preference
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    html.classList.add('dark');
+  // Update icon visibility based on current theme (already set in head)
+  if (html.classList.contains('dark')) {
     iconLight?.classList.remove('hidden');
     iconDark?.classList.add('hidden');
+  } else {
+    iconLight?.classList.add('hidden');
+    iconDark?.classList.remove('hidden');
   }
   
   toggle?.addEventListener('click', () => {

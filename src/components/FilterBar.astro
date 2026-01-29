@@ -225,6 +225,11 @@ const { categories, cloudProviders } = Astro.props;
     updateCloudProviderVisibility();
   }
 
+  // Listen for filters-reset event from outside (e.g., reset button in page)
+  window.addEventListener('filters-reset', () => {
+    clearAllFilters();
+  });
+
   // Run on page load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initFilterBar);
