@@ -37,9 +37,9 @@
   const html = document.documentElement;
 
   // Check for saved preference or system preference
-  function getThemePreference() {
+  function getThemePreference(): string {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
+      return localStorage.getItem('theme') as string;
     }
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
