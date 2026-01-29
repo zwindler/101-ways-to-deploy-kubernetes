@@ -42,8 +42,8 @@ const firstLetter = solution.name.charAt(0).toUpperCase();
 const visibleTags = solution.tags?.slice(0, 4) || [];
 const remainingTags = (solution.tags?.length || 0) - visibleTags.length;
 
-// Generate unique ID for this card
-const cardId = `card-${solution.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
+// Generate unique ID for this card (using URL to ensure uniqueness)
+const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
 ---
 
 <div
@@ -259,6 +259,9 @@ const cardId = `card-${solution.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()
   id={`modal-${cardId}`}
   class="modal-overlay fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4"
   style="backdrop-filter: blur(4px);"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby={`modal-title-${cardId}`}
 >
   <div class="modal-content bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0">
     <!-- Modal Header -->
@@ -273,7 +276,7 @@ const cardId = `card-${solution.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()
         
         <!-- Name and Category -->
         <div class="flex-1 min-w-0">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          <h2 id={`modal-title-${cardId}`} class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             {solution.name}
           </h2>
           {solution.publisher && (
@@ -291,6 +294,7 @@ const cardId = `card-${solution.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()
       <button 
         class="modal-close flex-shrink-0 ml-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
         aria-label="Close modal"
+        type="button"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -469,25 +473,42 @@ const cardId = `card-${solution.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()
   const modal = document.getElementById(`modal-${cardId}`);
   const modalContent = modal?.querySelector('.modal-content');
   const closeBtn = modal?.querySelector('.modal-close');
+  
+  // Store the element that opened the modal for focus restoration
+  let triggerElement = null;
+  
+  // Store original body overflow
+  let originalBodyOverflow = '';
 
   // Open modal on card click
   card?.addEventListener('click', (e) => {
-    // Don't open modal if clicking on the external link
+    // Don't open modal if clicking on the external link in footer
     const target = e.target;
-    if (target && target.closest && target.closest('a[href]')) {
+    if (target && target.closest && target.closest('.btn-press')) {
       return;
     }
     
-    if (modal && modalContent) {
+    if (modal && modalContent && closeBtn) {
+      // Store trigger element for focus restoration
+      triggerElement = card;
+      
+      // Store original overflow
+      originalBodyOverflow = document.body.style.overflow;
+      
       modal.classList.remove('hidden');
       modal.classList.add('flex');
       document.body.style.overflow = 'hidden';
       
-      // Trigger animation
-      setTimeout(() => {
-        modalContent.classList.remove('scale-95', 'opacity-0');
-        modalContent.classList.add('scale-100', 'opacity-100');
-      }, 10);
+      // Trigger animation using requestAnimationFrame
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          modalContent.classList.remove('scale-95', 'opacity-0');
+          modalContent.classList.add('scale-100', 'opacity-100');
+        });
+      });
+      
+      // Focus the close button for accessibility
+      closeBtn.focus();
     }
   });
 
@@ -500,13 +521,25 @@ const cardId = `card-${solution.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()
       setTimeout(() => {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
-        document.body.style.overflow = '';
+        // Restore original overflow
+        document.body.style.overflow = originalBodyOverflow;
+        
+        // Restore focus to trigger element
+        if (triggerElement) {
+          triggerElement.focus();
+        }
       }, 300);
     }
   };
 
-  // Close button
+  // Close button - handle both click and keyboard
   closeBtn?.addEventListener('click', closeModal);
+  closeBtn?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      closeModal();
+    }
+  });
 
   // Close on overlay click
   modal?.addEventListener('click', (e) => {
@@ -515,12 +548,22 @@ const cardId = `card-${solution.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()
     }
   });
 
-  // Close on escape key
-  document.addEventListener('keydown', (e) => {
+  // Close on escape key - only for this modal
+  const handleEscape = (e) => {
     if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
       closeModal();
     }
-  });
+  };
+  
+  document.addEventListener('keydown', handleEscape);
+  
+  // Cleanup: Remove event listener when component is removed
+  // This prevents memory leaks in SPAs
+  if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('beforeunload', () => {
+      document.removeEventListener('keydown', handleEscape);
+    });
+  }
 </script>
 
 <style>
