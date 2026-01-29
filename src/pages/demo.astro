@@ -1,8 +1,9 @@
 ---
-// Demo page to showcase the SolutionCard component with FilterBar
+// Demo page to showcase the SolutionCard component with FilterBar and SearchBar
 import Layout from "../layouts/Layout.astro";
 import SolutionCard from "../components/SolutionCard.astro";
 import FilterBar from "../components/FilterBar.astro";
+import SearchBar from "../components/SearchBar.astro";
 import { readFileSync } from "node:fs";
 import { load } from "js-yaml";
 import { join } from "node:path";
@@ -66,6 +67,9 @@ const cloudProviders = [
       <!-- Filter Bar -->
       <FilterBar categories={categories} cloudProviders={cloudProviders} />
 
+      <!-- Search Bar -->
+      <SearchBar totalCount={allSolutions.length} />
+
       <!-- Cards Grid -->
       <div
         id="solutions-grid"
@@ -106,16 +110,31 @@ const cloudProviders = [
         <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Features
         </h2>
-        <div class="grid md:grid-cols-2 gap-4">
+        <div class="grid md:grid-cols-3 gap-4">
+          <div>
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+              SearchBar Component
+            </h3>
+            <ul class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+              <li>✅ Real-time search</li>
+              <li>✅ Debounced input (150ms)</li>
+              <li>✅ Clear button</li>
+              <li>✅ Results counter</li>
+              <li>✅ Keyboard shortcuts (/ to focus)</li>
+              <li>✅ Search across all fields</li>
+              <li>✅ Works with FilterBar</li>
+              <li>✅ Dark mode support</li>
+            </ul>
+          </div>
           <div>
             <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
               FilterBar Component
             </h3>
             <ul class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
               <li>✅ Category filter pills</li>
-              <li>✅ Cloud provider dropdown (Managed/IaC only)</li>
+              <li>✅ Cloud provider dropdown</li>
               <li>✅ Open source filter toggle</li>
-              <li>✅ Status checkboxes (Active/Deprecated/Abandoned)</li>
+              <li>✅ Status checkboxes</li>
               <li>✅ Clear all filters button</li>
               <li>✅ Real-time filtering</li>
               <li>✅ Dark mode support</li>
@@ -159,55 +178,85 @@ const cloudProviders = [
       }
 
       // Filter solutions based on filter state
-      document.addEventListener("filter-change", (event: Event) => {
-        const customEvent = event as CustomEvent;
-        const filterState = customEvent.detail;
+      let currentSearchQuery = "";
+      let currentFilterState = {
+        category: "all",
+        cloudProvider: "",
+        openSourceOnly: false,
+        statuses: ["active", "deprecated", "abandoned"]
+      };
 
-        console.log("Filter state changed:", filterState);
-
+      function applyCombinedFilters() {
         // Get all solution cards
         const solutionsGrid = document.getElementById("solutions-grid");
         const noResults = document.getElementById("no-results");
         if (!solutionsGrid) return;
 
         const cards = Array.from(solutionsGrid.children) as HTMLElement[];
+        const solutions = JSON.parse(
+          document.getElementById("solutions-data")?.textContent || "[]"
+        );
         let visibleCount = 0;
 
-        cards.forEach((card) => {
+        cards.forEach((card, index) => {
+          const solution = solutions[index];
+          if (!solution) return;
+
           // Extract solution data from card (stored in data attributes)
-          const solution = {
+          const solutionData = {
             category: card.dataset.category || "",
             cloudProviders: (card.dataset.cloudProviders || "").split(",").filter(Boolean),
             openSource: card.dataset.openSource === "true",
             status: card.dataset.status || "active",
+            name: solution.name || "",
+            publisher: solution.publisher || "",
+            description: solution.description || "",
+            tags: solution.tags || [],
+            based_on: solution.based_on || [],
           };
 
-          // Apply filters
+          // Apply filter bar filters
           let visible = true;
 
           // Category filter
-          if (filterState.category !== "all" && solution.category !== filterState.category) {
+          if (currentFilterState.category !== "all" && solutionData.category !== currentFilterState.category) {
             visible = false;
           }
 
           // Cloud provider filter (only for Managed/IaC)
           if (
-            filterState.cloudProvider &&
-            (filterState.category === "Managed" || filterState.category === "IaC")
+            currentFilterState.cloudProvider &&
+            (currentFilterState.category === "Managed" || currentFilterState.category === "IaC")
           ) {
-            if (!solution.cloudProviders.includes(filterState.cloudProvider)) {
+            if (!solutionData.cloudProviders.includes(currentFilterState.cloudProvider)) {
               visible = false;
             }
           }
 
           // Open source filter
-          if (filterState.openSourceOnly && !solution.openSource) {
+          if (currentFilterState.openSourceOnly && !solutionData.openSource) {
             visible = false;
           }
 
           // Status filter
-          if (filterState.statuses.length > 0 && !filterState.statuses.includes(solution.status)) {
+          if (currentFilterState.statuses.length > 0 && !currentFilterState.statuses.includes(solutionData.status)) {
             visible = false;
+          }
+
+          // Apply search filter
+          if (visible && currentSearchQuery) {
+            const searchableText = [
+              solutionData.name,
+              solutionData.category,
+              solutionData.publisher,
+              solutionData.description,
+              ...(solutionData.tags || []),
+              ...(solutionData.based_on || []),
+            ].filter(Boolean).join(' ').toLowerCase();
+            
+            if (!searchableText.includes(currentSearchQuery)) {
+              visible = false;
+            }
           }
 
           // Show/hide card
@@ -227,7 +276,26 @@ const cloudProviders = [
             noResults.classList.add("hidden");
           }
         }
+
+        // Update search counter
+        window.dispatchEvent(new CustomEvent('solutions-count-update', {
+          detail: { count: visibleCount }
+        }));
+      }
+
+      document.addEventListener("filter-change", (event: Event) => {
+        const customEvent = event as CustomEvent;
+        currentFilterState = customEvent.detail;
+        console.log("Filter state changed:", currentFilterState);
+        applyCombinedFilters();
       });
+
+      // Listen for search-change event from SearchBar
+      window.addEventListener('search-change', ((event: CustomEvent) => {
+        currentSearchQuery = event.detail.query;
+        console.log("Search query changed:", currentSearchQuery);
+        applyCombinedFilters();
+      }) as EventListener);
 
       // Add data attributes to solution cards for filtering
       window.addEventListener("DOMContentLoaded", () => {
