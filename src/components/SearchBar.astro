@@ -3,10 +3,9 @@
 
 interface Props {
   placeholder?: string;
-  totalCount?: number;
 }
 
-const { placeholder = "Search solutions...", totalCount = 0 } = Astro.props;
+const { placeholder = "Search solutions..." } = Astro.props;
 ---
 
 <div class="search-container w-full max-w-2xl mx-auto mb-6">
@@ -25,7 +24,6 @@ const { placeholder = "Search solutions...", totalCount = 0 } = Astro.props;
       placeholder={placeholder}
       autocomplete="off"
       aria-label="Search solutions"
-      aria-describedby="search-results-count"
       class="w-full pl-12 pr-12 py-3 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow"
     />
     
@@ -40,17 +38,11 @@ const { placeholder = "Search solutions...", totalCount = 0 } = Astro.props;
       </svg>
     </button>
   </div>
-  
-  <!-- Results counter -->
-  <div id="search-results-count" class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2 transition-opacity" role="status" aria-live="polite">
-    <span id="visible-count">{totalCount}</span> <span id="solution-text">solution{totalCount === 1 ? '' : 's'}</span> found
-  </div>
 </div>
 
 <script>
   const searchInput = document.getElementById('search-input') as HTMLInputElement;
   const clearButton = document.getElementById('search-clear');
-  const resultsCount = document.getElementById('visible-count');
   
   let debounceTimer: ReturnType<typeof setTimeout>;
   
@@ -101,18 +93,6 @@ const { placeholder = "Search solutions...", totalCount = 0 } = Astro.props;
       searchInput?.blur();
     }
   });
-  
-  // Listen for count updates from the page
-  window.addEventListener('solutions-count-update', ((e: CustomEvent) => {
-    if (resultsCount) {
-      resultsCount.textContent = e.detail.count.toString();
-    }
-    // Update plural form
-    const solutionText = document.getElementById('solution-text');
-    if (solutionText) {
-      solutionText.textContent = e.detail.count === 1 ? 'solution' : 'solutions';
-    }
-  }) as EventListener);
   
   // Listen for filters-reset event to clear the search input
   window.addEventListener('filters-reset', () => {
