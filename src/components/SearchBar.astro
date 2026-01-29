@@ -1,0 +1,100 @@
+---
+// SearchBar.astro - A reusable search component for filtering Kubernetes deployment solutions
+
+interface Props {
+  placeholder?: string;
+  totalCount?: number;
+}
+
+const { placeholder = "Search solutions...", totalCount = 0 } = Astro.props;
+---
+
+<div class="search-container w-full max-w-2xl mx-auto mb-6">
+  <div class="relative">
+    <!-- Search icon -->
+    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+      <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+    
+    <!-- Input -->
+    <input
+      type="text"
+      id="search-input"
+      placeholder={placeholder}
+      class="w-full pl-12 pr-12 py-3 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow"
+    />
+    
+    <!-- Clear button -->
+    <button
+      id="search-clear"
+      class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hidden"
+      aria-label="Clear search"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Results counter -->
+  <div id="search-results-count" class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2 transition-opacity">
+    <span id="visible-count">{totalCount}</span> solutions found
+  </div>
+</div>
+
+<script>
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const clearButton = document.getElementById('search-clear');
+  const resultsCount = document.getElementById('visible-count');
+  
+  let debounceTimer: number;
+  
+  searchInput?.addEventListener('input', (e) => {
+    const query = (e.target as HTMLInputElement).value.trim().toLowerCase();
+    
+    // Show/hide clear button
+    if (clearButton) {
+      clearButton.classList.toggle('hidden', query.length === 0);
+    }
+    
+    // Debounce the search
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      // Dispatch custom event with search query
+      window.dispatchEvent(new CustomEvent('search-change', {
+        detail: { query }
+      }));
+    }, 150);
+  });
+  
+  clearButton?.addEventListener('click', () => {
+    if (searchInput) {
+      searchInput.value = '';
+      searchInput.focus();
+      clearButton.classList.add('hidden');
+      window.dispatchEvent(new CustomEvent('search-change', {
+        detail: { query: '' }
+      }));
+    }
+  });
+  
+  // Keyboard shortcut: "/" to focus search
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== searchInput) {
+      e.preventDefault();
+      searchInput?.focus();
+    }
+    if (e.key === 'Escape' && document.activeElement === searchInput) {
+      searchInput?.blur();
+    }
+  });
+  
+  // Listen for count updates from the page
+  window.addEventListener('solutions-count-update', ((e: CustomEvent) => {
+    if (resultsCount) {
+      resultsCount.textContent = e.detail.count.toString();
+    }
+  }) as EventListener);
+</script>

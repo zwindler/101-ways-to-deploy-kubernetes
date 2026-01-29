@@ -1,6 +1,7 @@
 ---
 // Demo page to showcase the SolutionCard component
 import SolutionCard from "../components/SolutionCard.astro";
+import SearchBar from "../components/SearchBar.astro";
 
 const demoSolutions = [
   {
@@ -102,7 +103,7 @@ const demoSolutions = [
       In production, use a proper Tailwind CSS setup with your build system.
     -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+    <script is:inline>
       // Enable dark mode support
       tailwind.config = {
         darkMode: "class",
@@ -128,11 +129,16 @@ const demoSolutions = [
         </button>
       </div>
 
+      <!-- SearchBar Component -->
+      <SearchBar totalCount={demoSolutions.length} />
+
       <!-- Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="solutions-grid">
         {
           demoSolutions.map((solution) => (
-            <SolutionCard solution={solution} />
+            <div class="solution-card" data-solution={JSON.stringify(solution)}>
+              <SolutionCard solution={solution} />
+            </div>
           ))
         }
       </div>
@@ -157,7 +163,7 @@ const demoSolutions = [
       </div>
     </div>
 
-    <script>
+    <script is:inline>
       // Dark mode toggle functionality
       const darkModeToggle = document.getElementById("darkModeToggle");
       const html = document.documentElement;
@@ -173,6 +179,49 @@ const demoSolutions = [
       ) {
         html.classList.add("dark");
       }
+
+      // Search functionality
+      function matchesSolution(solution, query) {
+        if (!query) return true;
+        
+        const searchableText = [
+          solution.name,
+          solution.publisher,
+          solution.description,
+          ...(solution.tags || []),
+          ...(solution.based_on || []),
+        ].filter(Boolean).join(' ').toLowerCase();
+        
+        return searchableText.includes(query);
+      }
+
+      // Listen for search-change event from SearchBar
+      window.addEventListener('search-change', (e) => {
+        const query = e.detail.query;
+        const solutionCards = document.querySelectorAll('.solution-card');
+        
+        let visibleCount = 0;
+        
+        solutionCards.forEach((card) => {
+          const solutionData = card.getAttribute('data-solution');
+          if (solutionData) {
+            const solution = JSON.parse(solutionData);
+            const matches = matchesSolution(solution, query);
+            
+            if (matches) {
+              card.style.display = '';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+        
+        // Dispatch count update event
+        window.dispatchEvent(new CustomEvent('solutions-count-update', {
+          detail: { count: visibleCount }
+        }));
+      });
     </script>
   </body>
 </html>
