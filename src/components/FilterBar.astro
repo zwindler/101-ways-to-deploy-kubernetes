@@ -1,0 +1,245 @@
+---
+// FilterBar.astro - Interactive filter bar for Kubernetes deployment solutions
+
+interface Props {
+  categories: string[];
+  cloudProviders: string[];
+}
+
+const { categories, cloudProviders } = Astro.props;
+---
+
+<div
+  id="filter-bar"
+  class="filter-bar sticky top-0 z-10 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-6"
+>
+  <!-- Category filters -->
+  <div class="flex flex-wrap gap-2 mb-3">
+    <button class="filter-pill active" data-category="all">All</button>
+    {
+      categories.map((cat) => (
+        <button class="filter-pill" data-category={cat}>
+          {cat}
+        </button>
+      ))
+    }
+  </div>
+
+  <!-- Secondary filters row -->
+  <div class="flex flex-wrap items-center gap-4">
+    <!-- Cloud provider dropdown -->
+    <div id="cloud-provider-container" class="hidden">
+      <select
+        id="cloud-provider-filter"
+        class="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+      >
+        <option value="">All providers</option>
+        {
+          cloudProviders.map((provider) => (
+            <option value={provider}>{provider.toUpperCase()}</option>
+          ))
+        }
+      </select>
+    </div>
+
+    <!-- Open source toggle -->
+    <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
+      <input
+        type="checkbox"
+        id="oss-filter"
+        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+      />
+      <span>Open Source only</span>
+    </label>
+
+    <!-- Status checkboxes -->
+    <div class="flex items-center gap-3">
+      <span class="text-sm text-gray-500 dark:text-gray-400">Status:</span>
+      <label class="flex items-center gap-1 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
+        <input
+          type="checkbox"
+          checked
+          data-status="active"
+          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+        />
+        <span>Active</span>
+      </label>
+      <label class="flex items-center gap-1 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
+        <input
+          type="checkbox"
+          data-status="deprecated"
+          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+        />
+        <span>Deprecated</span>
+      </label>
+      <label class="flex items-center gap-1 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
+        <input
+          type="checkbox"
+          data-status="abandoned"
+          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+        />
+        <span>Abandoned</span>
+      </label>
+    </div>
+
+    <!-- Clear button -->
+    <button
+      id="clear-filters"
+      class="text-sm text-blue-600 dark:text-blue-400 hover:underline hidden ml-auto"
+    >
+      Clear all
+    </button>
+  </div>
+</div>
+
+<script>
+  // Client-side JavaScript for filtering logic
+  
+  interface FilterState {
+    category: string;
+    cloudProvider: string;
+    openSourceOnly: boolean;
+    statuses: string[];
+  }
+
+  // Get filter state
+  function getFilterState(): FilterState {
+    const activeCategoryBtn = document.querySelector('.filter-pill.active');
+    const category = activeCategoryBtn?.getAttribute('data-category') || 'all';
+    
+    const cloudProviderSelect = document.getElementById('cloud-provider-filter') as HTMLSelectElement | null;
+    const cloudProvider = cloudProviderSelect?.value || '';
+    
+    const ossCheckbox = document.getElementById('oss-filter') as HTMLInputElement | null;
+    const openSourceOnly = ossCheckbox?.checked || false;
+    
+    const statusCheckboxes = document.querySelectorAll('[data-status]:checked');
+    const statuses = Array.from(statusCheckboxes).map(
+      (cb) => (cb as HTMLElement).getAttribute('data-status') || ''
+    ).filter(Boolean);
+    
+    return { category, cloudProvider, openSourceOnly, statuses };
+  }
+
+  // Emit filter change event
+  function emitFilterChange() {
+    const filterState = getFilterState();
+    const event = new CustomEvent('filter-change', {
+      detail: filterState,
+      bubbles: true,
+    });
+    document.dispatchEvent(event);
+    updateClearButtonVisibility();
+    updateCloudProviderVisibility();
+  }
+
+  // Update clear button visibility
+  function updateClearButtonVisibility() {
+    const clearBtn = document.getElementById('clear-filters');
+    if (!clearBtn) return;
+    
+    const filterState = getFilterState();
+    const hasActiveFilters = 
+      filterState.category !== 'all' ||
+      filterState.cloudProvider !== '' ||
+      filterState.openSourceOnly ||
+      !(filterState.statuses.length === 1 && filterState.statuses[0] === 'active');
+    
+    clearBtn.classList.toggle('hidden', !hasActiveFilters);
+  }
+
+  // Update cloud provider dropdown visibility
+  function updateCloudProviderVisibility() {
+    const filterState = getFilterState();
+    const container = document.getElementById('cloud-provider-container');
+    if (!container) return;
+    
+    const showCloudProvider = filterState.category === 'Managed' || filterState.category === 'IaC';
+    container.classList.toggle('hidden', !showCloudProvider);
+  }
+
+  // Clear all filters
+  function clearAllFilters() {
+    // Reset category to "all"
+    document.querySelectorAll('.filter-pill').forEach((btn) => {
+      btn.classList.remove('active');
+      if (btn.getAttribute('data-category') === 'all') {
+        btn.classList.add('active');
+      }
+    });
+    
+    // Reset cloud provider
+    const cloudProviderSelect = document.getElementById('cloud-provider-filter') as HTMLSelectElement | null;
+    if (cloudProviderSelect) cloudProviderSelect.value = '';
+    
+    // Reset open source checkbox
+    const ossCheckbox = document.getElementById('oss-filter') as HTMLInputElement | null;
+    if (ossCheckbox) ossCheckbox.checked = false;
+    
+    // Reset status checkboxes - only active checked
+    document.querySelectorAll('[data-status]').forEach((cb) => {
+      const checkbox = cb as HTMLInputElement;
+      const status = cb.getAttribute('data-status');
+      checkbox.checked = status === 'active';
+    });
+    
+    emitFilterChange();
+  }
+
+  // Initialize event listeners
+  function initFilterBar() {
+    // Category pills
+    document.querySelectorAll('.filter-pill').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLElement;
+        
+        // Toggle active state
+        document.querySelectorAll('.filter-pill').forEach((b) => {
+          b.classList.remove('active');
+        });
+        target.classList.add('active');
+        
+        emitFilterChange();
+      });
+    });
+    
+    // Cloud provider dropdown
+    const cloudProviderSelect = document.getElementById('cloud-provider-filter');
+    cloudProviderSelect?.addEventListener('change', emitFilterChange);
+    
+    // Open source checkbox
+    const ossCheckbox = document.getElementById('oss-filter');
+    ossCheckbox?.addEventListener('change', emitFilterChange);
+    
+    // Status checkboxes
+    document.querySelectorAll('[data-status]').forEach((cb) => {
+      cb.addEventListener('change', emitFilterChange);
+    });
+    
+    // Clear button
+    const clearBtn = document.getElementById('clear-filters');
+    clearBtn?.addEventListener('click', clearAllFilters);
+    
+    // Initial state
+    updateClearButtonVisibility();
+    updateCloudProviderVisibility();
+  }
+
+  // Run on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFilterBar);
+  } else {
+    initFilterBar();
+  }
+</script>
+
+<style>
+  .filter-pill {
+    @apply px-3 py-1.5 rounded-full text-sm font-medium transition-colors;
+    @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+    @apply dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600;
+  }
+  .filter-pill.active {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+</style>
