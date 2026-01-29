@@ -199,8 +199,11 @@ const cloudProviders = [...new Set(solutions.flatMap(s => s.cloud_providers || [
     const cards = document.querySelectorAll('.solution-item');
     cards.forEach((card, index) => {
       const el = card as HTMLElement;
-      el.style.opacity = '0';
-      el.style.animation = `fadeInUp 0.5s ease-out ${index * 50}ms forwards`;
+      // Only animate first 15 cards for better performance with large lists
+      if (index < 15) {
+        el.style.opacity = '0';
+        el.style.animation = `fadeInUp 0.5s ease-out ${index * 50}ms forwards`;
+      }
     });
   });
 </script>

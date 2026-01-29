@@ -4,13 +4,13 @@
 
 <button
   id="theme-toggle"
-  class="relative p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200"
+  class="relative p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 group"
   aria-label="Toggle dark mode"
 >
   <!-- Sun icon (shown in dark mode) -->
   <svg
     id="sun-icon"
-    class="w-5 h-5 text-yellow-500 hidden dark:block transition-transform duration-300 hover:rotate-12"
+    class="w-5 h-5 text-yellow-500 hidden dark:block transition-transform duration-300 group-hover:rotate-12"
     fill="currentColor"
     viewBox="0 0 20 20"
   >
@@ -24,7 +24,7 @@
   <!-- Moon icon (shown in light mode) -->
   <svg
     id="moon-icon"
-    class="w-5 h-5 text-gray-700 block dark:hidden transition-transform duration-300 hover:-rotate-12"
+    class="w-5 h-5 text-gray-700 block dark:hidden transition-transform duration-300 group-hover:-rotate-12"
     fill="currentColor"
     viewBox="0 0 20 20"
   >
@@ -36,38 +36,27 @@
   const themeToggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
 
-  // Check for saved preference or system preference
-  function getThemePreference(): string {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme') as string;
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-
-  // Apply theme
-  function applyTheme(theme: string) {
-    if (theme === 'dark') {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }
-
-  // Initialize
-  applyTheme(getThemePreference());
-
   // Toggle handler
   themeToggle?.addEventListener('click', () => {
     const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    applyTheme(newTheme);
+    
+    if (newTheme === 'dark') {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+    localStorage.setItem('theme', newTheme);
   });
 
   // Listen for system preference changes
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     if (!localStorage.getItem('theme')) {
-      applyTheme(e.matches ? 'dark' : 'light');
+      if (e.matches) {
+        html.classList.add('dark');
+      } else {
+        html.classList.remove('dark');
+      }
     }
   });
 </script>
