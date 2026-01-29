@@ -986,6 +986,10 @@ solutions:
     url: https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/
     type: book
     description: Chapter 42 (Omni)
+  - title: Sidero Omni - Talos Linux on Oracle Cloud Free Tier
+    language: en
+    url: https://blog.zwindler.fr/en/2025/01/04/sidero-omni-talos-linux-on-oracle-cloud-free-tier/
+    type: tutorial
 - name: Palette
   category: ManagementPlatform
   url: https://www.spectrocloud.com/product/palette/
@@ -1250,6 +1254,10 @@ solutions:
     language: fr
     url: https://blog.zwindler.fr/2025/09/19/test-k8e/
     type: article
+  - title: I tested for you k8e - Kubernetes Easy Engine
+    language: en
+    url: https://blog.zwindler.fr/en/2025/09/19/i-tested-for-you-k8e-kubernetes-easy-engine/
+    type: tutorial
 - name: K8S The Easy way
   category: Selfhosted
   url: https://github.com/darxkies/k8s-tew
@@ -1261,6 +1269,10 @@ solutions:
     language: fr
     url: https://blog.zwindler.fr/2025/05/26/test-k8s-tew/
     type: article
+  - title: I tested for you K8S The Easier Way (k8s-tew)
+    language: en
+    url: https://blog.zwindler.fr/en/2025/05/26/i-tested-for-you-k8s-the-easier-way-k8s-tew/
+    type: tutorial
 - name: Kops
   category: Selfhosted
   url: https://github.com/kubernetes/kops
