@@ -45,7 +45,15 @@ The site will be available at `http://localhost:4321`
 
 ## Contributing
 
-Want to add a tool or resource to this list? Please read our [Contributing Guidelines](CONTRIBUTING.md) to understand what belongs in this list and how to contribute effectively.
+Want to add a solution or improve the site? Check out our [Contributing Guidelines](CONTRIBUTING.md)!
+
+We welcome contributions of:
+- **New Kubernetes deployment solutions** - Add tools you've used or discovered
+- **References and documentation** - Share tutorials, articles, and guides
+- **Updates to existing entries** - Fix outdated information or broken links
+- **Site improvements** - Enhance the UI, add features, or improve documentation
+
+All contributions are reviewed and must follow our [schema guidelines](data/schema.yaml).
 
 ---
 
