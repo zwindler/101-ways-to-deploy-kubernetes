@@ -1,59 +1,223 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SearchBar from '../components/SearchBar.astro';
+import FilterBar from '../components/FilterBar.astro';
+import SolutionCard from '../components/SolutionCard.astro';
+import yaml from 'js-yaml';
+import fs from 'fs';
+import path from 'path';
+
+// Load solutions data
+const solutionsFile = fs.readFileSync(path.join(process.cwd(), 'data/solutions.yaml'), 'utf8');
+const data = yaml.load(solutionsFile) as { solutions: any[] };
+const solutions = data.solutions;
+
+// Extract unique categories and cloud providers for filters
+const categories = [...new Set(solutions.map(s => s.category))].sort();
+const cloudProviders = [...new Set(solutions.flatMap(s => s.cloud_providers || []))].sort();
 ---
 
 <Layout title="101 Ways to Deploy Kubernetes">
-  <main class="min-h-screen flex items-center justify-center px-4">
-    <div class="text-center max-w-4xl mx-auto">
-      <!-- Hero Section -->
-      <div class="mb-8">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-k8s-blue to-blue-600 bg-clip-text text-transparent">
-          101 Ways to Deploy Kubernetes
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8">
-          A comprehensive collection of Kubernetes deployment solutions
+  <main class="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 px-4 relative">
+      <div class="max-w-6xl mx-auto text-center">
+        <div class="flex justify-between items-start mb-4">
+          <div class="flex-1"></div>
+          <h1 class="flex-1 text-4xl md:text-5xl font-bold">
+            101 Ways to Deploy Kubernetes
+          </h1>
+          <div class="flex-1 flex justify-end">
+            <button id="theme-toggle" class="p-2 rounded-lg bg-blue-700 hover:bg-blue-600 transition-colors" aria-label="Toggle dark mode">
+              <svg id="theme-icon-light" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+              </svg>
+              <svg id="theme-icon-dark" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <p class="text-xl text-blue-100 mb-8">
+          A comprehensive list of {solutions.length} ways to deploy Kubernetes
         </p>
+        
+        <!-- Search Bar -->
+        <SearchBar totalCount={solutions.length} />
       </div>
-
-      <!-- Under Construction Notice -->
-      <div class="bg-gradient-to-r from-k8s-blue to-blue-600 text-white rounded-2xl p-8 shadow-2xl">
-        <div class="flex items-center justify-center mb-4">
-          <svg class="w-16 h-16" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" stroke="white" stroke-width="3" fill="none"/>
-            <circle cx="50" cy="50" r="15" fill="white"/>
-            <path d="M50 35 L50 45 M50 55 L50 65 M35 50 L45 50 M55 50 L65 50" stroke="#326CE5" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h2 class="text-3xl font-bold mb-3">🚧 Site Under Construction 🚧</h2>
-        <p class="text-lg opacity-90">
-          Solutions coming soon! We're building something amazing.
+    </header>
+    
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 py-8">
+      <!-- Filter Bar -->
+      <FilterBar categories={categories} cloudProviders={cloudProviders} />
+      
+      <!-- Results count -->
+      <div class="mb-6 text-gray-600 dark:text-gray-400">
+        <span id="results-count">{solutions.length}</span> solutions
+      </div>
+      
+      <!-- Solutions Grid -->
+      <div id="solutions-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {solutions.map((solution) => (
+          <div class="solution-item" 
+               data-category={solution.category}
+               data-name={solution.name.toLowerCase()}
+               data-publisher={solution.publisher?.toLowerCase() || ''}
+               data-description={solution.description?.toLowerCase() || ''}
+               data-tags={solution.tags?.join(' ').toLowerCase() || ''}
+               data-based-on={solution.based_on?.join(' ').toLowerCase() || ''}
+               data-cloud-providers={solution.cloud_providers?.join(' ').toLowerCase() || ''}
+               data-open-source={solution.open_source ? 'true' : 'false'}
+               data-status={solution.status || 'active'}>
+            <SolutionCard solution={solution} />
+          </div>
+        ))}
+      </div>
+      
+      <!-- No results message -->
+      <div id="no-results" class="hidden text-center py-12">
+        <p class="text-gray-500 dark:text-gray-400 text-lg">
+          No solutions match your search criteria.
         </p>
-      </div>
-
-      <!-- Features Preview -->
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
-          <div class="text-4xl mb-3">📦</div>
-          <h3 class="font-semibold mb-2">Cloud Platforms</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            AWS, Azure, GCP and more
-          </p>
-        </div>
-        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
-          <div class="text-4xl mb-3">🛠️</div>
-          <h3 class="font-semibold mb-2">Tools & Solutions</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            From simple to enterprise-grade
-          </p>
-        </div>
-        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
-          <div class="text-4xl mb-3">🎯</div>
-          <h3 class="font-semibold mb-2">Find Your Fit</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            Filter by complexity and use case
-          </p>
-        </div>
+        <button id="reset-filters" class="mt-4 text-blue-600 hover:underline">
+          Clear all filters
+        </button>
       </div>
     </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 py-8 mt-12">
+      <div class="max-w-6xl mx-auto px-4 text-center text-gray-600 dark:text-gray-400">
+        <p>
+          Created by <a href="https://github.com/zwindler" class="text-blue-600 hover:underline">@zwindler</a>
+        </p>
+        <p class="mt-2 text-sm">
+          Licensed under CC BY-SA 4.0 • 
+          <a href="https://github.com/zwindler/101-ways-to-deploy-kubernetes" class="hover:underline">Contribute on GitHub</a>
+        </p>
+      </div>
+    </footer>
   </main>
 </Layout>
+
+<script>
+  let currentSearch = '';
+  let currentFilters = {
+    category: 'all',
+    cloudProvider: '',
+    openSourceOnly: false,
+    statuses: ['active']
+  };
+
+  function filterSolutions() {
+    const items = document.querySelectorAll('.solution-item');
+    let visibleCount = 0;
+
+    items.forEach((item) => {
+      const el = item as HTMLElement;
+      let visible = true;
+
+      // Search filter
+      if (currentSearch) {
+        const searchableText = [
+          el.dataset.name,
+          el.dataset.publisher,
+          el.dataset.description,
+          el.dataset.tags,
+          el.dataset.basedOn,
+        ].join(' ');
+        visible = searchableText.includes(currentSearch);
+      }
+
+      // Category filter
+      if (visible && currentFilters.category !== 'all') {
+        visible = el.dataset.category === currentFilters.category;
+      }
+
+      // Cloud provider filter
+      if (visible && currentFilters.cloudProvider) {
+        visible = el.dataset.cloudProviders?.includes(currentFilters.cloudProvider) || false;
+      }
+
+      // Open source filter
+      if (visible && currentFilters.openSourceOnly) {
+        visible = el.dataset.openSource === 'true';
+      }
+
+      // Status filter
+      if (visible && currentFilters.statuses.length > 0) {
+        visible = currentFilters.statuses.includes(el.dataset.status || 'active');
+      }
+
+      el.style.display = visible ? '' : 'none';
+      if (visible) visibleCount++;
+    });
+
+    // Update count
+    const countEl = document.getElementById('results-count');
+    if (countEl) countEl.textContent = visibleCount.toString();
+
+    // Show/hide no results message
+    const noResults = document.getElementById('no-results');
+    const grid = document.getElementById('solutions-grid');
+    if (noResults && grid) {
+      noResults.classList.toggle('hidden', visibleCount > 0);
+      grid.classList.toggle('hidden', visibleCount === 0);
+    }
+
+    // Dispatch count update for SearchBar
+    window.dispatchEvent(new CustomEvent('solutions-count-update', {
+      detail: { count: visibleCount }
+    }));
+  }
+
+  // Listen for search changes
+  window.addEventListener('search-change', ((e: CustomEvent) => {
+    currentSearch = e.detail.query;
+    filterSolutions();
+  }) as EventListener);
+
+  // Listen for filter changes
+  window.addEventListener('filter-change', ((e: CustomEvent) => {
+    currentFilters = { ...currentFilters, ...e.detail };
+    filterSolutions();
+  }) as EventListener);
+
+  // Reset filters button
+  document.getElementById('reset-filters')?.addEventListener('click', () => {
+    currentSearch = '';
+    currentFilters = {
+      category: 'all',
+      cloudProvider: '',
+      openSourceOnly: false,
+      statuses: ['active']
+    };
+    // Dispatch reset events
+    window.dispatchEvent(new CustomEvent('filters-reset'));
+    filterSolutions();
+  });
+</script>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+  const iconLight = document.getElementById('theme-icon-light');
+  const iconDark = document.getElementById('theme-icon-dark');
+  
+  // Check for saved preference or system preference
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    html.classList.add('dark');
+    iconLight?.classList.remove('hidden');
+    iconDark?.classList.add('hidden');
+  }
+  
+  toggle?.addEventListener('click', () => {
+    html.classList.toggle('dark');
+    localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+    
+    // Toggle icons
+    iconLight?.classList.toggle('hidden');
+    iconDark?.classList.toggle('hidden');
+  });
+</script>
