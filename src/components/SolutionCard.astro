@@ -6,6 +6,7 @@ interface Props {
     name: string;
     category: string;
     url: string;
+    icon_url?: string;
     publisher?: string;
     description?: string;
     license?: string;
@@ -60,11 +61,22 @@ const remainingTags = (solution.tags?.length || 0) - visibleTags.length;
     }
 
     <!-- Logo Placeholder -->
-    <div
-      class="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 flex items-center justify-center text-white font-bold text-2xl flex-shrink-0"
-    >
-      {firstLetter}
-    </div>
+    {solution.icon_url ? (
+      <div class="w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0 bg-white dark:bg-gray-700 p-2">
+        <img 
+          src={solution.icon_url} 
+          alt={`${solution.name} logo`}
+          class="w-full h-full object-contain"
+          loading="lazy"
+        />
+      </div>
+    ) : (
+      <div
+        class="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 flex items-center justify-center text-white font-bold text-2xl flex-shrink-0"
+      >
+        {firstLetter}
+      </div>
+    )}
 
     <!-- Name and Publisher -->
     <div class="flex-1 min-w-0">
