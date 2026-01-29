@@ -1,6 +1,6 @@
 # Contributing to 101 Ways to Deploy Kubernetes
 
-Thank you for your interest in contributing to this project! This guide will help you understand what belongs in this list and how to contribute effectively.
+Thank you for your interest in contributing! This project aims to be the most comprehensive list of ways to deploy Kubernetes.
 
 ## What This Project Is About
 
@@ -30,103 +30,63 @@ This repository is a comprehensive list of **ways to deploy Kubernetes clusters*
 - **Container Runtimes**: Docker, containerd, CRI-O (unless they include a complete Kubernetes deployment method)
 - **General Infrastructure Tools**: Generic IaC tools without **specific** Kubernetes deployment examples or modules
 
-## Category Definitions
-
-Understanding which category your contribution belongs to:
-
-### Desktop
-Tools for running Kubernetes on local development machines (laptops, workstations). These are typically single-node or small clusters for development and testing.
-
-**Examples**: Minikube, kind, Docker Desktop, Rancher Desktop
-
-### IaC (Infrastructure as Code)
-Tools and frameworks that use code to automate the deployment of Kubernetes clusters across various infrastructure providers.
-
-**Examples**: Kubespray (Ansible), Terraform modules, Pulumi, Crossplane, Cluster API
-
-### Kubernetes in Kubernetes
-Solutions that run Kubernetes clusters inside existing Kubernetes clusters (virtual clusters, nested clusters).
-
-**Examples**: vcluster, k3k
-
-### Kubernetes OS
-Operating systems specifically designed to run Kubernetes, often immutable or container-optimized.
-
-**Examples**: Talos Linux, Kairos Linux, Flatcar (when used for K8s)
-
-### Managed
-Cloud provider or third-party managed Kubernetes services where the control plane is managed for you.
-
-**Examples**: EKS, AKS, GKE, Civo, Scaleway Kapsule
-
-### Management Platform
-Platforms that help you deploy and manage multiple Kubernetes clusters across different infrastructures.
-
-**Examples**: Rancher, Gardener, Kubermatic, Tanzu Kubernetes Grid
-
-### Selfhosted
-Tools for deploying production-grade Kubernetes clusters on your own infrastructure with full control.
-
-**Examples**: kubeadm, k3s, k0s, RKE2, Kops
-
-### Other
-Educational resources, playgrounds, and unique deployment methods that don't fit other categories.
-
-**Examples**: Kubernetes the Hard Way, Play with K8s, manual deployment tutorials
-
-### Other Useful Projects
-Related projects that complement Kubernetes deployment but aren't deployment tools themselves (autoscalers, OS distributions, edge computing frameworks).
-
-**Examples**: Karpenter, Flatcar, KubeEdge
-
 ## How to Contribute
 
-### Adding a New Tool
+### Adding a New Solution
 
-1. **Verify it belongs**: Ensure your contribution fits the "What Belongs" criteria above
-2. **Choose the right category**: Use the category definitions to determine where it belongs
-3. **Gather required information**:
-   - Name of the tool/service
-   - Publisher/Project name (if applicable)
-   - URL (GitHub repo for open source, official website for commercial)
-   - License information (specific license for open source, ❌ for proprietary, "☁️ N/A" for managed services)
-   - "Based on" information (what underlying technology it uses, if applicable)
-   - External references (blog posts, tutorials, documentation)
+1. **Fork the repository** and create a new branch
+2. **Edit `data/solutions.yaml`** and add your solution
+3. **Submit a Pull Request** with a clear description
 
-4. **Follow the table format**:
-   ```markdown
-   | Name | Publisher / Project | URL | Open source | Based on | External References |
-   |------|---------------------|-----|-------------|----------|---------------------|
-   | Tool Name | Publisher | [GitHub](url) or [Website](url) | Apache 2.0 / MIT / ❌ | Base technology | [[ref]](#anchor) |
-   ```
+### Solution Schema
 
-5. **Add external references**: If you have blog posts, tutorials, or documentation, add them to the References section at the bottom of the README with the appropriate anchor
+Each solution should follow this structure:
 
-### Adding External References
-
-External references should be:
-- **Written content only**: Tutorials, guides, or blog posts that explain **how to deploy Kubernetes using the tool** with specific commands, steps, or configuration examples (such as command-line examples, YAML configuration files, or step-by-step setup procedures)
-- Case studies or real-world deployment examples
-- In any language (mark with [EN], [FR], etc.)
-- ❌ NOT official documentation (these are already available with the tool link)
-- ❌ NOT high-level overviews or marketing content without practical deployment instructions
-- ❌ NOT videos (written content is easier to review and reference)
-
-Format:
-```markdown
-### Tool Name
-
-- [EN] [Article Title](url)
-- [FR] [Titre de l'article](url)
+```yaml
+- name: "Solution Name"  # REQUIRED
+  category: "Desktop"  # REQUIRED - See categories below
+  url: "https://github.com/org/repo"  # REQUIRED
+  publisher: "Company Name"  # Optional
+  description: "Short description of the solution"  # Optional
+  license: "Apache 2.0"  # Optional - See license types below
+  open_source: true  # Optional - true or false
+  based_on:  # Optional - underlying technologies
+    - "kubeadm"
+    - "k3s"
+  tags:  # Optional - for filtering
+    - "production"
+    - "lightweight"
+  cloud_providers:  # Optional - for Managed/IaC solutions
+    - "aws"
+    - "gcp"
+  status: "active"  # Optional - active, deprecated, or abandoned (default: active)
+  references:  # Optional - external resources
+    - title: "Getting Started Guide"
+      description: "Step-by-step tutorial"
+      language: "en"
+      url: "https://example.com/guide"
+      type: "tutorial"
 ```
 
-### Modifying Existing Entries
+**License Types:**
+- Open source: `Apache 2.0`, `MIT`, `MPL 2.0`, `AGPL 3.0`, `BSD 3-Clause`, `BUSL 1.1`, `Zlib`
+- Proprietary: `proprietary`
+- Cloud managed services: `cloud`
 
-- **Updating URLs**: If a project has moved or changed URLs
-- **Correcting information**: License changes, publisher updates, etc.
-- **Adding references**: New tutorials or guides for existing tools
+### Categories
 
-### Category Placement Guidelines
+| Category | Description |
+|----------|-------------|
+| `Desktop` | Local development tools |
+| `IaC` | Infrastructure as Code tools |
+| `KubernetesInKubernetes` | Virtual/nested clusters |
+| `KubernetesOS` | Immutable OS for Kubernetes |
+| `Managed` | Cloud managed services |
+| `ManagementPlatform` | Multi-cluster platforms |
+| `Other` | Playgrounds, education |
+| `Selfhosted` | On-premise deployment tools |
+
+#### Choosing the Right Category
 
 If you're unsure about category placement:
 
@@ -141,21 +101,92 @@ If you're unsure about category placement:
    - Managed: Service provides the cluster (you're a customer)
    - Management Platform: You install it to manage your own clusters
 
-## Pull Request Guidelines
+### Reference Types
 
-1. **One tool per PR**: Makes review easier and faster
-2. **Clear description**: Explain what the tool does and why it belongs
-3. **Test your markdown**: Ensure tables render correctly
-4. **Alphabetical order**: New entries should maintain alphabetical order within their category (if the category is already sorted)
-5. **Complete information**: Fill in all columns, use "N/A" or leave empty if not applicable
+| Type | Description |
+|------|-------------|
+| `article` | Blog post or news article |
+| `book` | Book or book chapter |
+| `video` | YouTube, conference talk recording |
+| `tutorial` | Step-by-step guide |
+| `documentation` | Official docs |
+| `talk` | Conference presentation slides |
+
+### Languages (ISO 639-1)
+
+Supported language codes: `en`, `fr`, `de`, `es`, `zh`, `ja`, `pt`, `ko`, `it`, `ru`, `nl`, `pl`, `tr`, `ar`, `hi`
+
+Use standard ISO 639-1 two-letter language codes for references.
+
+## Development Setup
+
+### Prerequisites
+- Node.js 20+
+- npm
+
+### Local Development
+
+```bash
+# Clone your fork
+git clone https://github.com/YOUR_USERNAME/101-ways-to-deploy-kubernetes.git
+cd 101-ways-to-deploy-kubernetes
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Project Structure
+
+```
+├── data/
+│   ├── schema.yaml        # Schema documentation
+│   └── solutions.yaml     # All solutions data
+├── src/
+│   ├── components/        # Astro components
+│   ├── layouts/           # Page layouts
+│   ├── pages/             # Site pages
+│   └── styles/            # Global styles
+├── public/                # Static assets
+└── .github/
+    └── workflows/         # CI/CD pipelines
+```
+
+## Guidelines
+
+### Do's
+- ✅ Add solutions you have personal experience with
+- ✅ Include references to tutorials or documentation
+- ✅ Mark abandoned/deprecated projects appropriately
+- ✅ Use English for all content
+- ✅ Test your changes locally before submitting
+
+### Don'ts
+- ❌ Add duplicate solutions
+- ❌ Add solutions without a working URL
+- ❌ Add promotional content
+- ❌ Remove existing solutions without discussion
+
+## Pull Request Process
+
+1. Ensure your changes follow the schema
+2. Test locally with `npm run build`
+3. Update descriptions if needed
+4. Submit PR with clear title and description
+5. Wait for review
 
 ## Questions?
 
-If you're unsure whether your contribution fits or which category to use:
-1. Check existing similar entries for guidance
-2. Open an issue to discuss before creating a PR
-3. Tag @zwindler in your issue for guidance
+Open an issue or start a discussion on GitHub!
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the same [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en) license as the project.
+By contributing, you agree that your contributions will be licensed under CC BY-SA 4.0.
