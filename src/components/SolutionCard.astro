@@ -62,11 +62,14 @@ const remainingTags = (solution.tags?.length || 0) - visibleTags.length;
 
     <!-- Logo Placeholder -->
     {solution.icon_url ? (
-      <div class="w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0 bg-white dark:bg-gray-700 p-2">
+      <div 
+        class="w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0 bg-white dark:bg-gray-700 p-2 icon-container"
+        data-fallback-letter={firstLetter}
+      >
         <img 
           src={solution.icon_url} 
           alt={`${solution.name} logo`}
-          class="w-full h-full object-contain"
+          class="w-full h-full object-contain icon-image"
           loading="lazy"
         />
       </div>
@@ -271,3 +274,20 @@ const remainingTags = (solution.tags?.length || 0) - visibleTags.length;
     overflow: hidden;
   }
 </style>
+
+<script>
+  // Handle icon loading errors by falling back to letter placeholder
+  document.addEventListener('DOMContentLoaded', () => {
+    const iconImages = document.querySelectorAll('.icon-container .icon-image');
+    iconImages.forEach((img) => {
+      img.addEventListener('error', function(this: HTMLImageElement) {
+        const container = this.parentElement as HTMLElement;
+        const fallbackLetter = container.getAttribute('data-fallback-letter') || '?';
+        
+        // Replace container content with fallback placeholder
+        container.className = 'w-16 h-16 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 flex items-center justify-center text-white font-bold text-2xl flex-shrink-0';
+        container.innerHTML = fallbackLetter;
+      });
+    });
+  });
+</script>
