@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SearchBar from '../components/SearchBar.astro';
 import FilterBar from '../components/FilterBar.astro';
 import SolutionCard from '../components/SolutionCard.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 import yaml from 'js-yaml';
 import fs from 'fs';
 import path from 'path';
@@ -28,14 +29,7 @@ const cloudProviders = [...new Set(solutions.flatMap(s => s.cloud_providers || [
             101 Ways to Deploy Kubernetes
           </h1>
           <div class="flex-1 flex justify-end">
-            <button id="theme-toggle" class="p-2 rounded-lg bg-blue-700 hover:bg-blue-600 transition-colors" aria-label="Toggle dark mode">
-              <svg id="theme-icon-light" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
-              </svg>
-              <svg id="theme-icon-dark" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-              </svg>
-            </button>
+            <ThemeToggle />
           </div>
         </div>
         <p class="text-xl text-blue-100 mb-8">
@@ -200,26 +194,16 @@ const cloudProviders = [...new Set(solutions.flatMap(s => s.cloud_providers || [
 </script>
 
 <script>
-  const toggle = document.getElementById('theme-toggle');
-  const html = document.documentElement;
-  const iconLight = document.getElementById('theme-icon-light');
-  const iconDark = document.getElementById('theme-icon-dark');
-  
-  // Update icon visibility based on current theme (already set in head)
-  if (html.classList.contains('dark')) {
-    iconLight?.classList.remove('hidden');
-    iconDark?.classList.add('hidden');
-  } else {
-    iconLight?.classList.add('hidden');
-    iconDark?.classList.remove('hidden');
-  }
-  
-  toggle?.addEventListener('click', () => {
-    html.classList.toggle('dark');
-    localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
-    
-    // Toggle icons
-    iconLight?.classList.toggle('hidden');
-    iconDark?.classList.toggle('hidden');
+  // Staggered fade-in animation for solution cards on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.solution-item');
+    cards.forEach((card, index) => {
+      const el = card as HTMLElement;
+      // Only animate first 15 cards for better performance with large lists
+      if (index < 15) {
+        el.style.opacity = '0';
+        el.style.animation = `fadeInUp 0.5s ease-out ${index * 50}ms forwards`;
+      }
+    });
   });
 </script>

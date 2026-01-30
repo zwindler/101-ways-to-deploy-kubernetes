@@ -7,3 +7,151 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
+
+/* Smooth page transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent flash on page load */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Animation utilities */
+@layer utilities {
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  /* Fade in up animation */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  /* Staggered animation delay utilities */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+
+  /* Scale on hover */
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-[1.02];
+  }
+
+  /* Lift on hover (shadow + translate) */
+  .hover-lift {
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Glow effect on hover */
+  .hover-glow {
+    @apply transition-shadow duration-300;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Pulse animation for loading states */
+  .animate-pulse-subtle {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Card hover effects */
+.solution-card {
+  @apply transition-all duration-300 ease-out;
+}
+
+.solution-card:hover {
+  @apply -translate-y-1 shadow-xl;
+}
+
+/* Button press effect */
+.btn-press {
+  @apply transition-transform duration-100 active:scale-95;
+}
+
+/* Focus ring animation */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-shadow;
+}
+
+/* Smooth color transitions for dark mode */
+body, 
+.bg-transition {
+  @apply transition-colors duration-300;
+}
+
+/* Filter pill animations */
+.filter-pill {
+  @apply transition-all duration-200 ease-out;
+}
+
+.filter-pill:hover {
+  @apply -translate-y-0.5;
+}
+
+.filter-pill.active {
+  @apply scale-105;
+}
+
+/* Search input focus animation */
+.search-input {
+  @apply transition-all duration-200;
+}
+
+.search-input:focus {
+  @apply ring-4 ring-blue-500/20;
+}
+
+/* Skeleton loading animation */
+.skeleton {
+  @apply bg-gray-200 dark:bg-gray-700 animate-pulse rounded;
+}
+
+/* Counter animation */
+.counter-animate {
+  @apply transition-all duration-300;
+}
+
+/* Tooltip animation */
+.tooltip {
+  @apply opacity-0 invisible transition-all duration-200;
+}
+
+.tooltip-trigger:hover .tooltip {
+  @apply opacity-100 visible;
+}
