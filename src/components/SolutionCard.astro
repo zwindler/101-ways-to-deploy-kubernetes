@@ -257,13 +257,13 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
 <!-- Modal for expanded card view -->
 <div 
   id={`modal-${cardId}`}
-  class="modal-overlay fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4"
-  style="backdrop-filter: blur(4px);"
+  class="modal-overlay fixed inset-0 bg-black bg-opacity-60 z-50 hidden items-center justify-center p-4"
+  style="backdrop-filter: blur(8px);"
   role="dialog"
   aria-modal="true"
   aria-labelledby={`modal-title-${cardId}`}
 >
-  <div class="modal-content bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0">
+  <div class="modal-content bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[85vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0">
     <!-- Modal Header -->
     <div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6 flex items-start justify-between z-10">
       <div class="flex items-start gap-4 flex-1 min-w-0">
