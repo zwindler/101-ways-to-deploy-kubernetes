@@ -449,7 +449,7 @@ solutions:
   license: Apache 2.0
   open_source: true
   based_on:
-  - Terraform / OpenTofu
+  - kubeadm
   status: active
   references:
   - title: Puppet and Kubernetes - DEV Community Tutorial
@@ -1140,8 +1140,6 @@ solutions:
   publisher: Edgeless Systems
   license: AGPL 3.0
   open_source: true
-  based_on:
-  - Confidential VMs
   status: abandoned
 - name: EKS Anywhere
   category: Selfhosted
