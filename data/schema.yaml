@@ -26,6 +26,11 @@ solution:
   
   # ===== OPTIONAL FIELDS =====
   
+  icon_url: string
+  # URL to an external icon/logo image (PNG, SVG, JPEG)
+  # Example: "https://example.com/logo.svg"
+  # Note: Only use URLs from trusted sources (official websites, CDNs, reputable image hosts)
+  
   publisher: string
   # Publisher, company, or project organization
   # Example: "Rancher", "AWS", "Canonical", "SideroLabs"
@@ -100,6 +105,7 @@ example_solution:
   category: "KubernetesOS"
   publisher: "SideroLabs"
   url: "https://github.com/siderolabs/talos"
+  icon_url: "https://www.talos.dev/images/logo.svg"
   description: "Secure, immutable, and minimal Linux OS designed for Kubernetes"
   license: "MPL 2.0"
   open_source: true

@@ -46,6 +46,7 @@ Each solution should follow this structure:
 - name: "Solution Name"  # REQUIRED
   category: "Desktop"  # REQUIRED - See categories below
   url: "https://github.com/org/repo"  # REQUIRED
+  icon_url: "https://example.com/logo.svg"  # Optional - URL to icon/logo
   publisher: "Company Name"  # Optional
   description: "Short description of the solution"  # Optional
   license: "Apache 2.0"  # Optional - See license types below
