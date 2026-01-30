@@ -114,6 +114,7 @@ example_solution:
     - "immutable"
     - "secure"
     - "api-driven"
+  # abandoned: false  # Optional - set to true if no longer maintained (default: false)
   references:
     - title: "Kubernetes - 50 solutions pour les postes de développement et les clusters de production"
       description: "Chapter 38 (Talos Linux)"
