@@ -39,14 +39,12 @@ To run the website locally:
 # Install dependencies
 npm install
 
-# Start development server
+# Start development server (available at http://localhost:4321)
 npm run dev
 
 # Build for production
 npm run build
 ```
-
-The site will be available at `http://localhost:4321`
 
 ## License
 
