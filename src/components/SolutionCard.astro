@@ -257,8 +257,8 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
 <!-- Modal for expanded card view -->
 <div 
   id={`modal-${cardId}`}
-  class="modal-overlay fixed inset-0 bg-black bg-opacity-60 z-50 hidden items-center justify-center p-4"
-  style="backdrop-filter: blur(8px);"
+  class="modal-overlay fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center p-4"
+  style="backdrop-filter: blur(8px); z-index: 9999;"
   role="dialog"
   aria-modal="true"
   aria-labelledby={`modal-title-${cardId}`}
@@ -468,101 +468,119 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
 </div>
 
 <script define:vars={{ cardId }}>
-  // Get elements
-  const card = document.querySelector(`[data-card-id="${cardId}"]`);
-  const modal = document.getElementById(`modal-${cardId}`);
-  const modalContent = modal?.querySelector('.modal-content');
-  const closeBtn = modal?.querySelector('.modal-close');
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initModal);
+  } else {
+    initModal();
+  }
   
-  // Store the element that opened the modal for focus restoration
-  let triggerElement = null;
-  
-  // Store original body overflow
-  let originalBodyOverflow = '';
-
-  // Open modal on card click
-  card?.addEventListener('click', (e) => {
-    // Don't open modal if clicking on the external link in footer
-    const target = e.target;
-    if (target && target.closest && target.closest('.btn-press')) {
-      return;
-    }
+  function initModal() {
+    // Get elements
+    const card = document.querySelector(`[data-card-id="${cardId}"]`);
+    const modal = document.getElementById(`modal-${cardId}`);
+    const modalContent = modal?.querySelector('.modal-content');
+    const closeBtn = modal?.querySelector('.modal-close');
     
-    if (modal && modalContent && closeBtn) {
-      // Store trigger element for focus restoration
-      triggerElement = card;
-      
-      // Store original overflow
-      originalBodyOverflow = document.body.style.overflow;
-      
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-      
-      // Trigger animation using requestAnimationFrame
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          modalContent.classList.remove('scale-95', 'opacity-0');
-          modalContent.classList.add('scale-100', 'opacity-100');
-        });
-      });
-      
-      // Focus the close button for accessibility
-      closeBtn.focus();
-    }
-  });
+    // Store the element that opened the modal for focus restoration
+    let triggerElement = null;
+    
+    // Store original body overflow
+    let originalBodyOverflow = '';
+    
+    // Store original parent for cleanup
+    let originalParent = null;
 
-  // Close modal function
-  const closeModal = () => {
-    if (modal && modalContent) {
-      modalContent.classList.remove('scale-100', 'opacity-100');
-      modalContent.classList.add('scale-95', 'opacity-0');
+    // Open modal on card click
+    card?.addEventListener('click', (e) => {
+      // Don't open modal if clicking on the external link in footer
+      const target = e.target;
+      if (target && target.closest && target.closest('.btn-press')) {
+        return;
+      }
       
-      setTimeout(() => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        // Restore original overflow
-        document.body.style.overflow = originalBodyOverflow;
+      if (modal && modalContent && closeBtn) {
+        // Store trigger element for focus restoration
+        triggerElement = card;
         
-        // Restore focus to trigger element
-        if (triggerElement) {
-          triggerElement.focus();
+        // Store original overflow
+        originalBodyOverflow = document.body.style.overflow;
+        
+        // Move modal to body to ensure it's not constrained by parent containers
+        if (!originalParent) {
+          originalParent = modal.parentElement;
         }
-      }, 300);
-    }
-  };
-
-  // Close button - handle both click and keyboard
-  closeBtn?.addEventListener('click', closeModal);
-  closeBtn?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      closeModal();
-    }
-  });
-
-  // Close on overlay click
-  modal?.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-
-  // Close on escape key - only for this modal
-  const handleEscape = (e) => {
-    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
-      closeModal();
-    }
-  };
-  
-  document.addEventListener('keydown', handleEscape);
-  
-  // Cleanup: Remove event listener when component is removed
-  // This prevents memory leaks in SPAs
-  if (typeof window !== 'undefined' && window.addEventListener) {
-    window.addEventListener('beforeunload', () => {
-      document.removeEventListener('keydown', handleEscape);
+        document.body.appendChild(modal);
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        
+        // Trigger animation using requestAnimationFrame
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            modalContent.classList.remove('scale-95', 'opacity-0');
+            modalContent.classList.add('scale-100', 'opacity-100');
+          });
+        });
+        
+        // Focus the close button for accessibility
+        closeBtn.focus();
+      }
     });
+
+    // Close modal function
+    const closeModal = () => {
+      if (modal && modalContent) {
+        modalContent.classList.remove('scale-100', 'opacity-100');
+        modalContent.classList.add('scale-95', 'opacity-0');
+        
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          // Restore original overflow
+          document.body.style.overflow = originalBodyOverflow;
+          
+          // Restore focus to trigger element
+          if (triggerElement) {
+            triggerElement.focus();
+          }
+        }, 300);
+      }
+    };
+
+    // Close button - handle both click and keyboard
+    closeBtn?.addEventListener('click', closeModal);
+    closeBtn?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        closeModal();
+      }
+    });
+
+    // Close on overlay click
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close on escape key - only for this modal
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    };
+    
+    document.addEventListener('keydown', handleEscape);
+    
+    // Cleanup: Remove event listener when component is removed
+    // This prevents memory leaks in SPAs
+    if (typeof window !== 'undefined' && window.addEventListener) {
+      window.addEventListener('beforeunload', () => {
+        document.removeEventListener('keydown', handleEscape);
+      });
+    }
   }
 </script>
 
