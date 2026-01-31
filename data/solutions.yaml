@@ -47,6 +47,7 @@ solutions:
 - name: Desktop-Kubernetes
   category: Desktop
   url: https://github.com/aceeric/desktop-kubernetes
+  icon_url: https://github.com/aceeric/desktop-kubernetes/raw/main/resources/desktop-kubernetes-no-text.jpg
   license: Apache 2.0
   open_source: true
   references:
@@ -151,7 +152,7 @@ solutions:
 - name: microk8s
   category: Desktop
   url: https://github.com/canonical/microk8s
-  icon_url: https://assets.ubuntu.com/v1/28e0ebb7-Microk8s_SnapStore_icon.svg
+  icon_url: https://ubuntu.com/wp-content/uploads/305a/microk8s-sticker.png
   publisher: Canonical
   license: Apache 2.0
   open_source: true
@@ -209,6 +210,7 @@ solutions:
 - name: mykube
   category: Desktop
   url: https://github.com/guyst16/mykube
+  icon_url: https://user-images.githubusercontent.com/100173467/202854244-a0b4d1c7-27a5-45f0-a2cb-b93615993c11.png
   license: Apache 2.0
   open_source: true
   based_on:
