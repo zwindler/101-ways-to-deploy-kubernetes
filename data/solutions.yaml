@@ -693,7 +693,7 @@ solutions:
 - name: EKS
   category: Managed
   url: https://aws.amazon.com/fr/eks/
-  icon_url: https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg
+  icon_url: https://icon.icepanel.io/AWS/svg/Containers/EKS-Cloud.svg
   publisher: AWS
   license: cloud
   references:
@@ -1142,7 +1142,7 @@ solutions:
 - name: EKS Anywhere
   category: Selfhosted
   url: https://github.com/aws/eks-anywhere
-  icon_url: https://anywhere.eks.amazonaws.com/img/logo-eks-a.svg
+  icon_url: https://icon.icepanel.io/AWS/svg/Containers/EKS-Cloud.svg
   publisher: AWS
   license: Apache 2.0
   open_source: true
