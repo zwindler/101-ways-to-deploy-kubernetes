@@ -932,7 +932,7 @@ solutions:
 - name: k0rdent
   category: ManagementPlatform
   url: https://github.com/k0rdent/kcm
-  icon_url: https://www.mirantis.com/wp-content/themes/mirantis-sage/dist/images/logo.svg
+  icon_url: https://avatars.githubusercontent.com/u/190840887?s=200&v=4
   publisher: Mirantis
   license: Apache 2.0
   open_source: true
