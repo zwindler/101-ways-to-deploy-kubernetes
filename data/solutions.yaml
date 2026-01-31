@@ -280,6 +280,7 @@ solutions:
 - name: Alvistack Ansible
   category: IaC
   url: https://github.com/alvistack/ansible-collection-kubernetes
+  icon_url: https://avatars.githubusercontent.com/u/26567351?s=200&v=4
   publisher: Alvistack
   license: Apache 2.0
   open_source: true
@@ -288,6 +289,7 @@ solutions:
 - name: Alvistack Vagrant-kubernetes
   category: IaC
   url: https://github.com/alvistack/vagrant-kubernetes
+  icon_url: https://avatars.githubusercontent.com/u/26567351?s=200&v=4
   publisher: Alvistack
   license: Apache 2.0
   open_source: true
@@ -318,6 +320,7 @@ solutions:
 - name: Cybozu Kubernetes Engine (CKE)
   category: IaC
   url: https://github.com/cybozu-go/cke
+  icon_url: https://avatars.githubusercontent.com/u/17453711?s=200&v=4
   publisher: Cybozu
   license: Apache 2.0
   open_source: true
@@ -345,6 +348,7 @@ solutions:
 - name: Kubeasz (Chinese documentation only)
   category: IaC
   url: https://github.com/easzlab/kubeasz
+  icon_url: https://github.com/easzlab/kubeasz/raw/master/docs/pics/kubeasz.svg
   publisher: EaszLab
   license: MIT
   open_source: true
