@@ -632,6 +632,7 @@ solutions:
 - name: Alibaba Cloud Container Service for Kubernetes (ACK)
   category: Managed
   url: https://www.alibabacloud.com/fr/product/kubernetes
+  icon_url: https://img.alicdn.com/imgextra/i1/O1CN01cCnF8H1IZcgvDqmWf_!!6000000000906-55-tps-512-512.svg
   publisher: Alibaba Cloud
   license: cloud
 - name: Civo
@@ -718,6 +719,7 @@ solutions:
 - name: IBM Cloud (IKS)
   category: Managed
   url: https://www.ibm.com/cloud/container-service/
+  icon_url: https://www.ibm.com/brand/experience-guides/developer/b1db1ae501d522a1a4b49613fe07c9f1/01_8-bar-positive.svg
   publisher: IBM Cloud
   license: cloud
   references:
@@ -732,11 +734,13 @@ solutions:
 - name: IONOS Kubernetes Service
   category: Managed
   url: https://cloud.ionos.com/managed/kubernetes
+  icon_url: https://www.ionos.com/resources/images/logo-ionos.svg
   publisher: IONOS
   license: cloud
 - name: Kapsule
   category: Managed
   url: https://www.scaleway.com/en/kubernetes-kapsule/
+  icon_url: https://www.scaleway.com/en/assets/favicon/favicon.svg
   publisher: Scaleway
   license: cloud
   references:
@@ -787,6 +791,7 @@ solutions:
 - name: MKS
   category: Managed
   url: https://www.ovhcloud.com/fr/public-cloud/kubernetes/
+  icon_url: https://www.ovhcloud.com/sites/default/files/styles/large_feature_image/public/2023-01/K8S-logo.png
   publisher: OVHcloud
   license: cloud
   references:
@@ -802,11 +807,13 @@ solutions:
 - name: Orka
   category: Managed
   url: https://www.macstadium.com/orka
+  icon_url: https://www.macstadium.com/hubfs/macstadium-logo.svg
   publisher: MacStadium
   license: cloud
 - name: Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE)
   category: Managed
   url: https://www.oracle.com/fr/cloud/cloud-native/container-engine-kubernetes/
+  icon_url: https://www.oracle.com/a/ocom/img/rh01-oracle-logo.svg
   publisher: Oracle Cloud Infrastructure
   license: cloud
   references:
@@ -818,6 +825,7 @@ solutions:
 - name: Redhat Openshift cloud
   category: Managed
   url: https://www.redhat.com/fr/technologies/cloud-computing/openshift/openshift-cloud-services
+  icon_url: https://www.redhat.com/rhdc/managed-files/Logo-Red_Hat-OpenShift-A-Standard-RGB.svg
   publisher: Red Hat
   license: cloud
   based_on:
@@ -830,6 +838,7 @@ solutions:
 - name: SKS
   category: Managed
   url: https://community.exoscale.com/documentation/sks/overview/
+  icon_url: https://www.exoscale.com/static/exoscale-logo.svg
   publisher: Exoscale
   license: cloud
   references:
@@ -850,20 +859,24 @@ solutions:
 - name: StarlingX
   category: Managed
   url: https://www.starlingx.io/
+  icon_url: https://www.starlingx.io/images/starlingx-logo.svg
   license: cloud
 - name: Tencent Kubernetes Engine (TKE)
   category: Managed
   url: https://www.tencentcloud.com/products/tke
+  icon_url: https://cloudcache.intl.tencent-cloud.com/cms/backend-cms/8a55158be74e11ee96d65254005e86df.svg
   publisher: Tencent Cloud
   license: cloud
 - name: UpCloud Managed Kubernetes (UKS)
   category: Managed
   url: https://upcloud.com/products/managed-kubernetes
+  icon_url: https://upcloud.com/wp-content/uploads/2023/03/upcloud-logo-black.svg
   publisher: UpCloud
   license: cloud
 - name: VKE
   category: Managed
   url: https://www.vultr.com/kubernetes/
+  icon_url: https://www.vultr.com/dist/img/brand/logo.svg
   publisher: Vultr
   license: cloud
   references:
@@ -874,6 +887,7 @@ solutions:
 - name: Volcengine Kubernetes Engine (VKE)
   category: Managed
   url: https://www.volcengine.com/product/vke
+  icon_url: https://lf3-static.bytednsdoc.com/obj/eden-cn/nuhbpqnulog/volcengine/new_logo.svg
   publisher: ByteDance
   license: cloud
 - name: Gardener
@@ -891,6 +905,7 @@ solutions:
 - name: hypershift
   category: ManagementPlatform
   url: https://github.com/openshift/hypershift
+  icon_url: https://www.redhat.com/rhdc/managed-files/Logo-Red_Hat-OpenShift-A-Standard-RGB.svg
   publisher: Red Hat
   license: Apache 2.0
   open_source: true
@@ -928,6 +943,7 @@ solutions:
 - name: Kubermatic Kubernetes Platform
   category: ManagementPlatform
   url: https://github.com/kubermatic/kubermatic
+  icon_url: https://www.kubermatic.com/images/kubermatic-logo.svg
   publisher: Kubermatic
   license: Apache 2.0
   open_source: true
@@ -968,6 +984,7 @@ solutions:
 - name: Platform9
   category: ManagementPlatform
   url: https://platform9.com/
+  icon_url: https://platform9.com/wp-content/themes/platform9-2023/images/logos/platform9-logo.svg
   publisher: Platform9
   license: proprietary
   open_source: false
@@ -986,6 +1003,7 @@ solutions:
 - name: Rafay
   category: ManagementPlatform
   url: https://rafay.co/
+  icon_url: https://rafay.co/wp-content/uploads/2023/07/rafay-logo.svg
   publisher: Rafay Systems
   license: proprietary
   open_source: false
@@ -1072,6 +1090,7 @@ solutions:
 - name: KwoK
   category: Other
   url: https://github.com/kubernetes-sigs/kwok
+  icon_url: https://raw.githubusercontent.com/kubernetes-sigs/kwok/main/logo/kwok.svg
   license: Apache 2.0
   open_source: true
   references:
@@ -1152,6 +1171,7 @@ solutions:
 - name: k0smotron
   category: Selfhosted
   url: https://github.com/k0sproject/k0smotron
+  icon_url: https://docs.k0smotron.io/stable/img/k0smotron-logo-full-color-light.svg
   publisher: Mirantis
   license: Apache 2.0
   open_source: true
@@ -1280,6 +1300,7 @@ solutions:
 - name: KubeKey
   category: Selfhosted
   url: https://github.com/kubesphere/kubekey
+  icon_url: https://kubesphere.io/images/kubesphere-icon.svg
   publisher: KubeSphere
   license: Apache 2.0
   open_source: true
@@ -1307,6 +1328,7 @@ solutions:
 - name: KubeOne
   category: Selfhosted
   url: https://github.com/kubermatic/kubeone
+  icon_url: https://www.kubermatic.com/images/kubermatic-logo.svg
   publisher: Kubermatic
   license: Apache 2.0
   open_source: true
@@ -1364,6 +1386,7 @@ solutions:
 - name: MKE (Mirantis Kubernetes Engine)
   category: Selfhosted
   url: https://docs.mirantis.com/mke4k/latest/
+  icon_url: https://www.mirantis.com/wp-content/themes/mirantis-sage/dist/images/logo.svg
   publisher: Mirantis
   license: proprietary
   open_source: false
@@ -1372,12 +1395,14 @@ solutions:
 - name: NKP (Nutanix Kubernetes Platform)
   category: Selfhosted
   url: https://www.nutanix.com/products/kubernetes-management-platform
+  icon_url: https://www.nutanix.com/content/dam/nutanix/global/logos/Nutanix_Logo_Positive.svg
   publisher: Nutanix
   license: proprietary
   open_source: false
 - name: OKD (open source openshift)
   category: Selfhosted
   url: https://github.com/okd-project/okd
+  icon_url: https://www.redhat.com/rhdc/managed-files/Logo-Red_Hat-OpenShift-A-Standard-RGB.svg
   publisher: Red Hat
   license: Apache 2.0
   open_source: true
@@ -1406,6 +1431,7 @@ solutions:
 - name: Red Hat Build of Microshift
   category: Selfhosted
   url: https://github.com/openshift/microshift
+  icon_url: https://www.redhat.com/rhdc/managed-files/Logo-Red_Hat-OpenShift-A-Standard-RGB.svg
   publisher: Red Hat
   license: Apache 2.0
   open_source: true
