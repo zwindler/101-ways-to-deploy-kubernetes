@@ -634,13 +634,13 @@ solutions:
 - name: Alibaba Cloud Container Service for Kubernetes (ACK)
   category: Managed
   url: https://www.alibabacloud.com/fr/product/kubernetes
-  icon_url: https://img.alicdn.com/imgextra/i1/O1CN01cCnF8H1IZcgvDqmWf_!!6000000000906-55-tps-512-512.svg
+  icon_url: https://avatars.githubusercontent.com/u/16377432?s=200&v=4
   publisher: Alibaba Cloud
   license: cloud
 - name: Civo
   category: Managed
   url: https://www.civo.com/
-  icon_url: https://www.civo.com/assets/images/civo-logo.svg
+  icon_url: https://www.civo.com/assets-rebrand/logos/civo-black.svg
   publisher: Civo
   license: cloud
   based_on:
@@ -658,7 +658,7 @@ solutions:
 - name: Clever Kubernetes Engine (CKE)
   category: Managed
   url: https://www.clever-cloud.com/product/kubernetes/
-  icon_url: https://www.clever-cloud.com/images/brand-assets/logo.svg
+  icon_url: https://www.clever.cloud/app/themes/Starter/assets/img/brand-assets/logo_on_white.png
   publisher: Clever Cloud
   license: cloud
 - name: CoreWeave Kubernetes Service (CKS)
@@ -905,7 +905,7 @@ solutions:
 - name: Gardener
   category: ManagementPlatform
   url: https://github.com/gardener/gardener
-  icon_url: https://raw.githubusercontent.com/gardener/documentation/master/logo/gardener-large.png
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/gardener.svg
   license: Apache 2.0
   open_source: true
   references:
@@ -935,7 +935,7 @@ solutions:
 - name: Kamaji
   category: ManagementPlatform
   url: https://github.com/clastix/kamaji
-  icon_url: https://raw.githubusercontent.com/clastix/kamaji/master/docs/assets/images/kamaji-logo.png
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kamaji.svg
   publisher: Clastix
   license: Apache 2.0
   open_source: true
@@ -949,7 +949,7 @@ solutions:
 - name: KubeClipper
   category: ManagementPlatform
   url: https://github.com/kubeclipper/kubeclipper
-  icon_url: https://raw.githubusercontent.com/kubeclipper/kubeclipper/master/docs/img/kubeclipper-logo.png
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kube-clipper.svg
   license: Apache 2.0
   open_source: true
   based_on:
@@ -1080,7 +1080,7 @@ solutions:
 - name: Kubernetes the hard way
   category: Other
   url: https://github.com/kelseyhightower/kubernetes-the-hard-way
-  icon_url: https://raw.githubusercontent.com/kelseyhightower/kubernetes-the-hard-way/master/docs/images/kubernetes.png
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubernetes.svg
   license: Apache 2.0
   open_source: true
 - name: Kubernetes the hard way w/ Terraform (GCP)
@@ -1117,7 +1117,7 @@ solutions:
 - name: Play with k8s
   category: Other
   url: https://github.com/play-with-docker/play-with-k8s
-  icon_url: https://raw.githubusercontent.com/play-with-docker/play-with-docker.github.io/master/pwd-logo.png
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/play-with-kubernetes.svg
   license: Apache 2.0
   open_source: true
   references:
@@ -1128,7 +1128,7 @@ solutions:
 - name: Constellation
   category: Selfhosted
   url: https://github.com/edgelesssys/constellation
-  icon_url: https://raw.githubusercontent.com/edgelesssys/constellation/main/docs/static/img/logos/edgeless_logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/constellation.svg
   publisher: Edgeless Systems
   license: AGPL 3.0
   open_source: true
@@ -1309,7 +1309,7 @@ solutions:
 - name: Kubean
   category: Selfhosted
   url: https://github.com/kubean-io/kubean
-  icon_url: https://raw.githubusercontent.com/kubean-io/kubean/main/docs/logo/logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubean.svg
   license: Apache 2.0
   open_source: true
   based_on:
