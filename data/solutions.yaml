@@ -58,7 +58,7 @@ solutions:
 - name: Docker desktop
   category: Desktop
   url: https://www.docker.com/products/docker-desktop/
-  icon_url: https://www.docker.com/wp-content/uploads/2023/04/Docker-Logo-White-RGB_Horizontal-730x189-1.png.webp
+  icon_url: https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png
   publisher: Docker (Mirantis)
   license: proprietary
   open_source: false
@@ -681,13 +681,13 @@ solutions:
 - name: Elastx Private Kubernetes
   category: Managed
   url: https://elastx.se/en/kubernetes/
-  icon_url: https://elastx.se/favicon.ico
+  icon_url: https://elastx.se/wp-content/uploads/2023/09/elastx-logo-black.svg
   publisher: Elastx
   license: cloud
 - name: EKS
   category: Managed
   url: https://aws.amazon.com/fr/eks/
-  icon_url: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+  icon_url: https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg
   publisher: AWS
   license: cloud
   references:
@@ -802,7 +802,7 @@ solutions:
 - name: MKS
   category: Managed
   url: https://www.ovhcloud.com/fr/public-cloud/kubernetes/
-  icon_url: https://www.ovhcloud.com/sites/default/files/styles/large_feature_image/public/2023-01/K8S-logo.png
+  icon_url: https://www.ovhcloud.com/sites/default/files/2022-07/OVHcloud_logo.svg
   publisher: OVHcloud
   license: cloud
   references:
