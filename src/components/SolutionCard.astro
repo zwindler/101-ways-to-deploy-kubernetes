@@ -285,11 +285,27 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
     <div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6 flex items-start justify-between z-10">
       <div class="flex items-start gap-4 flex-1 min-w-0">
         <!-- Logo -->
-        <div
-          class="w-20 h-20 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 flex items-center justify-center text-white font-bold text-3xl flex-shrink-0"
-        >
-          {firstLetter}
-        </div>
+        {solution.icon_url ? (
+          <div 
+            class="w-20 h-20 rounded-lg flex items-center justify-center flex-shrink-0 bg-white dark:bg-gray-700 p-2"
+            data-fallback-letter={firstLetter}
+          >
+            <img 
+              src={solution.icon_url} 
+              alt={`${solution.name} logo`}
+              class="w-full h-full object-contain"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              onerror={`this.style.display='none'; const container = this.parentElement; container.classList.remove('bg-white', 'dark:bg-gray-700', 'p-2'); container.classList.add('bg-gradient-to-br', 'from-blue-500', 'to-blue-600', 'dark:from-blue-600', 'dark:to-blue-700'); const span = document.createElement('span'); span.className = 'text-white font-bold text-3xl'; span.textContent = container.getAttribute('data-fallback-letter'); container.appendChild(span);`}
+            />
+          </div>
+        ) : (
+          <div
+            class="w-20 h-20 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 flex items-center justify-center text-white font-bold text-3xl flex-shrink-0"
+          >
+            {firstLetter}
+          </div>
+        )}
         
         <!-- Name and Category -->
         <div class="flex-1 min-w-0">
