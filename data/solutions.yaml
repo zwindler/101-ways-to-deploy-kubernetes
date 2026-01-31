@@ -676,7 +676,7 @@ solutions:
 - name: DOKS
   category: Managed
   url: https://www.digitalocean.com/products/kubernetes/
-  icon_url: https://www.digitalocean.com/_next/static/media/logo.0e31b913.svg
+  icon_url: https://avatars.githubusercontent.com/u/4650108?s=200&v=4
   publisher: Digital Ocean
   license: cloud
   references:
@@ -687,7 +687,7 @@ solutions:
 - name: Elastx Private Kubernetes
   category: Managed
   url: https://elastx.se/en/kubernetes/
-  icon_url: https://elastx.se/wp-content/uploads/2023/09/elastx-logo-black.svg
+  icon_url: https://elastx.se/assets/logo-elastx__5b56d89da5da2cefc0037aba53644102.png
   publisher: Elastx
   license: cloud
 - name: EKS
