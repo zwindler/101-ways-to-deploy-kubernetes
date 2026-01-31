@@ -255,7 +255,7 @@ solutions:
 - name: Rancher Desktop
   category: Desktop
   url: https://github.com/rancher-sandbox/rancher-desktop
-  icon_url: https://avatars.githubusercontent.com/u/78982867?s=200&v=4
+  icon_url: https://rancherdesktop.io/images/icon-rancher-desktop.svg
   publisher: Rancher
   license: Apache 2.0
   open_source: true
@@ -300,7 +300,7 @@ solutions:
 - name: Crossplane
   category: IaC
   url: https://github.com/crossplane/crossplane
-  icon_url: https://raw.githubusercontent.com/crossplane/crossplane/master/docs/media/banner.png
+  icon_url: https://avatars.githubusercontent.com/u/45158470?s=200&v=4
   license: Apache 2.0
   open_source: true
   references:
@@ -322,7 +322,7 @@ solutions:
 - name: Kube-hetzner
   category: IaC
   url: https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner
-  icon_url: https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner/raw/master/kube-hetzner-logo.png
+  icon_url: https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner/raw/master/.images/kube-hetzner-logo.png
   license: MIT
   open_source: true
   based_on:
@@ -369,7 +369,7 @@ solutions:
 - name: Kubespray
   category: IaC
   url: https://github.com/kubernetes-sigs/kubespray
-  icon_url: https://raw.githubusercontent.com/kubernetes-sigs/kubespray/master/docs/img/kubespray-logo.png
+  icon_url: https://kubespray.io/logo/logo-clear.png
   license: Apache 2.0
   open_source: true
   based_on:
@@ -399,7 +399,7 @@ solutions:
 - name: OpenTofu
   category: IaC
   url: https://github.com/opentofu/opentofu
-  icon_url: https://opentofu.org/img/opentofu-logo.svg
+  icon_url: https://avatars.githubusercontent.com/u/142061836?s=200&v=4
   license: MPL 2.0
   open_source: true
   references:
@@ -440,7 +440,7 @@ solutions:
 - name: Puppet
   category: IaC
   url: https://forge.puppet.com/modules/puppetlabs/kubernetes/readme
-  icon_url: https://www.puppet.com/sites/default/files/2021-08/puppet-logo-amber-black.svg
+  icon_url: https://gravatar.com/avatar/fdd009b7c1ec96e088b389f773e87aec.png?r=pg&s=75&d=404
   publisher: Perforce Software
   license: Apache 2.0
   open_source: true
@@ -495,7 +495,7 @@ solutions:
 - name: vcluster
   category: KubernetesInKubernetes
   url: https://github.com/loft-sh/vcluster
-  icon_url: https://www.vcluster.com/docs/v0.19/media/vcluster-logo-dark.svg
+  icon_url: https://avatars.githubusercontent.com/u/65466868?s=200&v=4
   publisher: loft.sh
   license: Apache 2.0
   open_source: true
@@ -519,7 +519,7 @@ solutions:
 - name: elemental (ex k3os)
   category: KubernetesOS
   url: https://github.com/rancher/elemental
-  icon_url: https://raw.githubusercontent.com/rancher/elemental/main/docs/assets/elemental-logo.svg
+  icon_url: https://elemental.docs.rancher.com/img/logo.svg
   publisher: Rancher
   license: Apache 2.0
   open_source: true
@@ -540,7 +540,7 @@ solutions:
 - name: Kairos Linux
   category: KubernetesOS
   url: https://github.com/kairos-io/kairos
-  icon_url: https://kairos.io/images/kairos-logo.png
+  icon_url: https://user-images.githubusercontent.com/2420543/193010398-72d4ba6e-7efe-4c2e-b7ba-d3a826a55b7d.png
   publisher: Spectro cloud
   license: Apache 2.0
   open_source: true
@@ -573,7 +573,7 @@ solutions:
 - name: RKE
   category: KubernetesOS
   url: https://github.com/rancher/rke
-  icon_url: https://www.suse.com/assets/img/rancher.svg
+  icon_url: https://rke.docs.rancher.com/img/logo-horizontal-rke.svg
   publisher: Rancher
   license: Apache 2.0
   open_source: true
@@ -590,7 +590,7 @@ solutions:
 - name: Talos Linux
   category: KubernetesOS
   url: https://github.com/siderolabs/talos
-  icon_url: https://www.talos.dev/images/logo.svg
+  icon_url: /logos/talos-logo.svg
   publisher: SideroLabs
   license: MPL 2.0
   open_source: true
@@ -623,7 +623,7 @@ solutions:
 - name: AKS
   category: Managed
   url: https://azure.microsoft.com/fr-fr/products/kubernetes-service
-  icon_url: https://azure.microsoft.com/svghandler/kubernetes-service/
+  icon_url: https://blog.aks.azure.com/img/logo.svg
   publisher: Azure
   license: cloud
   references:
