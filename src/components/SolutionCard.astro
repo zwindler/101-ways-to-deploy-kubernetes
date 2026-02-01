@@ -69,7 +69,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
     <!-- Logo Placeholder -->
     {solution.icon_url ? (
       <div 
-        class={`w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0 ${iconBgClasses} p-2`}
+        class={`w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0 ${iconBgClasses}`}
         data-fallback-letter={firstLetter}
       >
         <img 
@@ -78,7 +78,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
           class="w-full h-full object-contain"
           loading="lazy"
           referrerpolicy="no-referrer"
-          onerror={`this.style.display='none'; const container = this.parentElement; container.classList.remove('bg-white', 'dark:bg-gray-700', 'p-2'); container.classList.add('bg-gradient-to-br', 'from-blue-500', 'to-blue-600', 'dark:from-blue-600', 'dark:to-blue-700'); const span = document.createElement('span'); span.className = 'text-white font-bold text-2xl'; span.textContent = container.getAttribute('data-fallback-letter'); container.appendChild(span);`}
+          onerror={`this.style.display='none'; const container = this.parentElement; container.classList.remove('bg-white', 'dark:bg-gray-700'); container.classList.add('bg-gradient-to-br', 'from-blue-500', 'to-blue-600', 'dark:from-blue-600', 'dark:to-blue-700'); const span = document.createElement('span'); span.className = 'text-white font-bold text-2xl'; span.textContent = container.getAttribute('data-fallback-letter'); container.appendChild(span);`}
         />
       </div>
     ) : (
@@ -303,7 +303,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
         <!-- Logo -->
         {solution.icon_url ? (
           <div 
-            class={`w-32 h-32 rounded-lg flex items-center justify-center flex-shrink-0 ${iconBgClasses} p-2`}
+            class={`w-32 h-32 rounded-lg flex items-center justify-center flex-shrink-0 ${iconBgClasses}`}
             data-fallback-letter={firstLetter}
           >
             <img 
@@ -312,7 +312,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
               class="w-full h-full object-contain"
               loading="lazy"
               referrerpolicy="no-referrer"
-              onerror={`this.style.display='none'; const container = this.parentElement; container.classList.remove('bg-white', 'dark:bg-gray-700', 'p-2'); container.classList.add('bg-gradient-to-br', 'from-blue-500', 'to-blue-600', 'dark:from-blue-600', 'dark:to-blue-700'); const span = document.createElement('span'); span.className = 'text-white font-bold text-5xl'; span.textContent = container.getAttribute('data-fallback-letter'); container.appendChild(span);`}
+              onerror={`this.style.display='none'; const container = this.parentElement; container.classList.remove('bg-white', 'dark:bg-gray-700'); container.classList.add('bg-gradient-to-br', 'from-blue-500', 'to-blue-600', 'dark:from-blue-600', 'dark:to-blue-700'); const span = document.createElement('span'); span.className = 'text-white font-bold text-5xl'; span.textContent = container.getAttribute('data-fallback-letter'); container.appendChild(span);`}
             />
           </div>
         ) : (

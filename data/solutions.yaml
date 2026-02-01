@@ -35,7 +35,7 @@ solutions:
   license: Apache 2.0
   open_source: true
   based_on:
-  - OpenShift
+  - Openshift / OKD
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters de production
     language: fr
@@ -204,7 +204,7 @@ solutions:
   license: Apache 2.0
   open_source: true
   based_on:
-  - OpenShift
+  - Openshift / OKD
   abandoned: true
   references:
   - title: Getting Started with Minishift
@@ -863,7 +863,7 @@ solutions:
   publisher: Red Hat
   license: cloud
   based_on:
-  - OpenShift
+  - Openshift / OKD
   references:
   - title: A Practical OpenShift Tutorial for Developers
     language: en
@@ -952,7 +952,7 @@ solutions:
   license: Apache 2.0
   open_source: true
   based_on:
-  - Openshift/OKD
+  - Openshift / OKD
 - name: k0rdent
   category: ManagementPlatform
   url: https://github.com/k0rdent/kcm
@@ -1368,7 +1368,8 @@ solutions:
   license: Apache 2.0
   open_source: true
   based_on:
-  - kubeadm / k3s
+  - kubeadm
+  - k3s
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters de production
     language: fr
@@ -1397,7 +1398,8 @@ solutions:
   license: Apache 2.0
   open_source: true
   based_on:
-  - Kubeadm / ClusterAPI
+  - Kubeadm
+  - ClusterAPI
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters de production
     language: fr
@@ -1471,8 +1473,6 @@ solutions:
   publisher: Red Hat
   license: Apache 2.0
   open_source: true
-  based_on:
-  - OpenShift
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters de production
     language: fr
@@ -1502,7 +1502,7 @@ solutions:
   license: Apache 2.0
   open_source: true
   based_on:
-  - OpenShift
+  - Openshift / OKD
 - name: RKE2
   category: Selfhosted
   url: https://github.com/rancher/rke2
