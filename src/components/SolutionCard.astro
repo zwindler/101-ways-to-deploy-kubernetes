@@ -34,9 +34,11 @@ const abandonedBadgeStyle = "bg-red-100 text-red-800 dark:bg-red-900/30 dark:tex
 // Helper function - Get icon background classes based on icon_background_color
 const getIconBackgroundClasses = (iconBackgroundColor?: 'light' | 'dark') => {
   if (iconBackgroundColor === 'light') {
-    return 'bg-white dark:bg-white';
+    // Force light background in both themes (for dark logos)
+    return '!bg-white';
   } else if (iconBackgroundColor === 'dark') {
-    return 'bg-gray-700 dark:bg-gray-700';
+    // Force dark background in both themes (for light logos)
+    return '!bg-gray-700';
   }
   // Default: follow theme
   return 'bg-white dark:bg-gray-700';
