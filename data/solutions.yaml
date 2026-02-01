@@ -797,7 +797,7 @@ solutions:
 - name: Metal Stack Cloud Kubernetes
   category: Managed
   url: https://www.metalstack.cloud/
-  icon_url: https://metalstack.cloud/images/combination-mark-primary_double-lockup.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/metalstack-cloud.svg
   publisher: Metal Stack
   license: cloud
 - name: MetaKube
@@ -856,7 +856,7 @@ solutions:
 - name: SKS
   category: Managed
   url: https://community.exoscale.com/documentation/sks/overview/
-  icon_url: hhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdMNsYNpjXBRcMrauGVXEIFVHFFDXrBJYy-g&s
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/exoscale-member.svg
   publisher: Exoscale
   license: cloud
   references:
@@ -872,24 +872,24 @@ solutions:
 - name: STACKIT Kubernetes Engine (SKE)
   category: Managed
   url: https://stackit.com/en/products/runtime/stackit-kubernetes-engine
-  icon_url: https://stackit.de/wp-content/themes/stackit/assets/images/stackit-logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/stackit.svg
   publisher: STACKIT
   license: cloud
 - name: StarlingX
   category: Managed
   url: https://www.starlingx.io/
-  icon_url: https://www.starlingx.io/images/starlingx-logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/starlingx.svg
   license: cloud
 - name: Tencent Kubernetes Engine (TKE)
   category: Managed
   url: https://www.tencentcloud.com/products/tke
-  icon_url: https://cloudcache.intl.tencent-cloud.com/cms/backend-cms/8a55158be74e11ee96d65254005e86df.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/tencent-cloud.svg
   publisher: Tencent Cloud
   license: cloud
 - name: UpCloud Managed Kubernetes (UKS)
   category: Managed
   url: https://upcloud.com/products/managed-kubernetes
-  icon_url: https://upcloud.com/wp-content/uploads/2023/03/upcloud-logo-black.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/upcloud.svg
   publisher: UpCloud
   license: cloud
 - name: VKE
@@ -906,7 +906,7 @@ solutions:
 - name: Volcengine Kubernetes Engine (VKE)
   category: Managed
   url: https://www.volcengine.com/product/vke
-  icon_url: https://lf3-static.bytednsdoc.com/obj/eden-cn/nuhbpqnulog/volcengine/new_logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/volcano-engine.svg
   publisher: ByteDance
   license: cloud
 - name: Gardener
@@ -958,7 +958,7 @@ solutions:
 - name: KubeClipper
   category: ManagementPlatform
   url: https://github.com/kubeclipper/kubeclipper
-  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kube-clipper.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubeclipper.svg
   license: Apache 2.0
   open_source: true
   based_on:
@@ -966,7 +966,7 @@ solutions:
 - name: Kubermatic Kubernetes Platform
   category: ManagementPlatform
   url: https://github.com/kubermatic/kubermatic
-  icon_url: https://www.kubermatic.com/images/kubermatic-logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubermatic.svg
   publisher: Kubermatic
   license: Apache 2.0
   open_source: true
@@ -979,7 +979,7 @@ solutions:
 - name: Omni
   category: ManagementPlatform
   url: https://www.siderolabs.com/platform/saas-for-kubernetes/
-  icon_url: https://www.siderolabs.com/images/omni-logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/omni.svg
   publisher: SideroLabs
   license: BUSL 1.1
   open_source: true
@@ -998,7 +998,7 @@ solutions:
 - name: Palette
   category: ManagementPlatform
   url: https://www.spectrocloud.com/product/palette/
-  icon_url: https://www.spectrocloud.com/static/logo-80c60db24b.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/palette.svg
   publisher: Spectro Cloud
   license: proprietary
   open_source: false
@@ -1007,7 +1007,7 @@ solutions:
 - name: Platform9
   category: ManagementPlatform
   url: https://platform9.com/
-  icon_url: https://platform9.com/wp-content/themes/platform9-2023/images/logos/platform9-logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/platform9.svg
   publisher: Platform9
   license: proprietary
   open_source: false
@@ -1019,21 +1019,21 @@ solutions:
 - name: Portainer
   category: ManagementPlatform
   url: https://www.portainer.io/
-  icon_url: https://www.portainer.io/hubfs/portainer-logo-black.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/portainer.svg
   publisher: Portainer.io
   license: Zlib
   open_source: true
 - name: Rafay
   category: ManagementPlatform
   url: https://rafay.co/
-  icon_url: https://rafay.co/wp-content/uploads/2023/07/rafay-logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/rafay.svg
   publisher: Rafay Systems
   license: proprietary
   open_source: false
 - name: Rancher
   category: ManagementPlatform
   url: https://github.com/rancher/rancher
-  icon_url: https://www.suse.com/assets/img/rancher.svg
+  icon_url: https://avatars.githubusercontent.com/u/9343010?s=200&v=4
   publisher: Rancher
   license: Apache 2.0
   open_source: true
@@ -1046,25 +1046,27 @@ solutions:
 - name: Tanzu Kubernetes Grid
   category: ManagementPlatform
   url: https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/index.html
-  icon_url: https://tanzu.vmware.com/content/dam/tanzu/images/icons/vmware-tanzu-icon.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/vmware-tanzu.svg
   publisher: VMware
   license: proprietary
   open_source: false
 - name: Tanzu Mission Control
   category: ManagementPlatform
   url: https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-mission-control/1-4.html
-  icon_url: https://tanzu.vmware.com/content/dam/tanzu/images/icons/vmware-tanzu-icon.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/vmware-tanzu.svg
   publisher: VMware
   license: proprietary
   open_source: false
 - name: By hand, using containers
   category: Other
   url: https://github.com/kubernetes/registry.k8s.io
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubernetes.svg
   license: Apache 2.0
   open_source: true
 - name: By hand, using binaries
   category: Other
   url: https://github.com/kubernetes/kubernetes
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubernetes.svg
   license: Apache 2.0
   open_source: true
   references:
@@ -1080,6 +1082,7 @@ solutions:
 - name: Devops playgrounds
   category: Other
   url: https://labs.iximiuz.com/playgrounds
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubernetes.svg
   license: cloud
   references:
   - title: 'Server-Side Playgrounds Reimagined: Build, Boot, and Network Your Own VMs'
@@ -1095,6 +1098,7 @@ solutions:
 - name: Kubernetes the hard way w/ Terraform (GCP)
   category: Other
   url: https://github.com/aidanSoles/kubernetes-the-hard-way-terraform
+  icon_url: https://avatars.githubusercontent.com/u/142061836?s=200&v=4
   license: Apache 2.0
   open_source: true
   based_on:
@@ -1102,6 +1106,7 @@ solutions:
 - name: Kubernetes the hard way w/ Terraform (AWS)
   category: Other
   url: https://github.com/escarti/kubernetes-the-hard-way-tf-aws
+  icon_url: https://avatars.githubusercontent.com/u/142061836?s=200&v=4
   license: Apache 2.0
   open_source: true
   based_on:
@@ -1154,7 +1159,7 @@ solutions:
 - name: Harvester
   category: Selfhosted
   url: https://github.com/harvester/harvester
-  icon_url: https://docs.harvesterhci.io/v1.3/img/harvester-logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/rancher.svg
   publisher: Rancher
   license: Apache 2.0
   open_source: true
@@ -1171,19 +1176,20 @@ solutions:
 - name: Hepto
   category: Selfhosted
   url: https://forge.tedomum.net/acides/hepto
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubernetes.svg
   license: Apache 2.0
   open_source: true
 - name: Juju
   category: Selfhosted
   url: https://github.com/juju/juju
-  icon_url: https://assets.ubuntu.com/v1/7144ec6d-logo-juju.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/juju.svg
   publisher: Canonical
   license: Apache 2.0
   open_source: true
 - name: k0s
   category: Selfhosted
   url: https://github.com/k0sproject/k0s
-  icon_url: https://docs.k0sproject.io/img/k0s-logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/k0s.svg
   publisher: Mirantis
   license: Apache 2.0
   open_source: true
@@ -1196,7 +1202,7 @@ solutions:
 - name: k0smotron
   category: Selfhosted
   url: https://github.com/k0sproject/k0smotron
-  icon_url: https://docs.k0smotron.io/stable/img/k0smotron-logo-full-color-light.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/k0s.svg
   publisher: Mirantis
   license: Apache 2.0
   open_source: true
@@ -1243,6 +1249,7 @@ solutions:
 - name: k8e - Kubernetes easy engine
   category: Selfhosted
   url: https://github.com/xiaods/k8e
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubernetes.svg
   license: Apache 2.0
   open_source: true
   based_on:
@@ -1259,6 +1266,7 @@ solutions:
 - name: K8S The Easy way
   category: Selfhosted
   url: https://github.com/darxkies/k8s-tew
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubernetes.svg
   license: MIT
   open_source: true
   references:
@@ -1327,7 +1335,7 @@ solutions:
 - name: KubeKey
   category: Selfhosted
   url: https://github.com/kubesphere/kubekey
-  icon_url: https://kubesphere.io/images/kubesphere-icon.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubekey.svg
   publisher: KubeSphere
   license: Apache 2.0
   open_source: true
@@ -1342,6 +1350,7 @@ solutions:
 - name: KubeMarine
   category: Selfhosted
   url: https://github.com/Netcracker/KubeMarine
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubernetes.svg
   license: Apache 2.0
   open_source: true
   based_on:
@@ -1355,7 +1364,7 @@ solutions:
 - name: KubeOne
   category: Selfhosted
   url: https://github.com/kubermatic/kubeone
-  icon_url: https://www.kubermatic.com/images/kubermatic-logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubermatic.svg
   publisher: Kubermatic
   license: Apache 2.0
   open_source: true
@@ -1370,6 +1379,7 @@ solutions:
 - name: KubeSolo
   category: Selfhosted
   url: https://github.com/portainer/kubesolo
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/portainer.svg
   publisher: portainer.io
   license: Apache 2.0
   open_source: true
@@ -1383,7 +1393,7 @@ solutions:
 - name: Kurl
   category: Selfhosted
   url: https://github.com/replicatedhq/kurl
-  icon_url: https://kurl.sh/images/kurl-logo.png
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kurl.svg
   publisher: ReplicatedHQ
   license: Apache 2.0
   open_source: true
@@ -1413,7 +1423,7 @@ solutions:
 - name: MKE (Mirantis Kubernetes Engine)
   category: Selfhosted
   url: https://docs.mirantis.com/mke4k/latest/
-  icon_url: https://www.mirantis.com/wp-content/themes/mirantis-sage/dist/images/logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/mirantis.svg
   publisher: Mirantis
   license: proprietary
   open_source: false
@@ -1422,7 +1432,7 @@ solutions:
 - name: NKP (Nutanix Kubernetes Platform)
   category: Selfhosted
   url: https://www.nutanix.com/products/kubernetes-management-platform
-  icon_url: https://www.nutanix.com/content/dam/nutanix/global/logos/Nutanix_Logo_Positive.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/nutanix.svg
   publisher: Nutanix
   license: proprietary
   open_source: false
@@ -1444,7 +1454,7 @@ solutions:
 - name: OneKE
   category: Selfhosted
   url: https://github.com/OpenNebula/one-apps
-  icon_url: https://opennebula.io/wp-content/uploads/2019/04/img-logo.svg
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/opennebula.svg
   publisher: OpenNebula
   license: Apache 2.0
   open_source: true
@@ -1468,7 +1478,7 @@ solutions:
 - name: RKE2
   category: Selfhosted
   url: https://github.com/rancher/rke2
-  icon_url: https://www.suse.com/assets/img/rancher.svg
+  icon_url: https://avatars.githubusercontent.com/u/9343010?s=200&v=4
   publisher: Rancher
   license: Apache 2.0
   open_source: true
@@ -1487,11 +1497,13 @@ solutions:
 - name: SIGHUP
   category: Selfhosted
   url: https://github.com/sighupio/distribution
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/sighup-distribution.svg
   license: BSD 3-Clause
   open_source: true
 - name: TALM
   category: Selfhosted
   url: https://github.com/cozystack/talm
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubernetes.svg
   publisher: Cozystack
   license: Apache 2.0
   open_source: true
@@ -1500,6 +1512,7 @@ solutions:
 - name: tarook
   category: Selfhosted
   url: https://github.com/alasca-association/tarook
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/tarook.svg
   license: Apache 2.0
   open_source: true
   based_on:
@@ -1507,6 +1520,7 @@ solutions:
 - name: Welkin
   category: Selfhosted
   url: https://github.com/elastisys/welkin
+  icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/welkin.svg
   publisher: Elastisys
   license: Apache 2.0
   open_source: true
