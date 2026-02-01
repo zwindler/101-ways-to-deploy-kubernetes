@@ -32,17 +32,17 @@ const { solution } = Astro.props;
 const abandonedBadgeStyle = "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300";
 
 // Helper function - Get icon background classes based on icon_background_color
-const getIconBackgroundClasses = () => {
-  if (solution.icon_background_color === 'light') {
+const getIconBackgroundClasses = (iconBackgroundColor?: 'light' | 'dark') => {
+  if (iconBackgroundColor === 'light') {
     return 'bg-white dark:bg-white';
-  } else if (solution.icon_background_color === 'dark') {
+  } else if (iconBackgroundColor === 'dark') {
     return 'bg-gray-700 dark:bg-gray-700';
   }
   // Default: follow theme
   return 'bg-white dark:bg-gray-700';
 };
 
-const iconBgClasses = getIconBackgroundClasses();
+const iconBgClasses = getIconBackgroundClasses(solution.icon_background_color);
 
 const isGitHub = solution.url.includes("github.com");
 const referencesCount = solution.references?.length || 0;

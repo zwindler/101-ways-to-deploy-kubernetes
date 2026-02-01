@@ -34,6 +34,7 @@ solution:
   icon_background_color: enum
   # Optional background color for the icon container to ensure visibility in light/dark modes
   # Use this when the icon has transparency and doesn't display correctly in both themes
+  # Allowed values:
   # - light: Always use a light background for this icon (for dark logos)
   # - dark: Always use a dark background for this icon (for light logos)
   # If omitted, the icon background will follow the current theme (light in light mode, dark in dark mode)
