@@ -62,8 +62,17 @@ solution:
   # Example: ["kubeadm", "k3s"], ["Terraform", "OpenTofu"]
   
   tags: array[string]
-  # Tags for filtering and categorization
-  # Example: ["local", "production", "edge", "immutable", "secure", "api-driven"]
+  # Tags for filtering and categorization (2-3 tags recommended)
+  # Available tags by category:
+  # - Environment: local, cloud, on-premise
+  # - Use case: development, production, learning, educational
+  # - Architecture: self-hosted, managed, multi-cluster, multi-tenancy
+  # - Characteristics: lightweight, immutable, secure, enterprise
+  # - Deployment: automation, infrastructure-as-code, container-based, declarative
+  # - Features: multi-cloud, bare-metal, edge, gui, gitops, virtualization
+  # - Platform-specific: openshift, rancher, macos, windows
+  # - Complexity: beginner-friendly, high-availability
+  # Example: ["local", "development", "lightweight"]
   
   cloud_providers: array[string]
   # For IaC/Managed solutions: supported cloud providers
@@ -119,10 +128,9 @@ example_solution:
   open_source: true
   based_on: []
   tags:
-    - "production"
     - "immutable"
-    - "secure"
-    - "api-driven"
+    - "production"
+    - "lightweight"
   # abandoned: false  # Optional - set to true if no longer maintained (default: false)
   references:
     - title: "Kubernetes - 50 solutions pour les postes de développement et les clusters de production"
