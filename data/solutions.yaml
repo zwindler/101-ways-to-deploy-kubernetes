@@ -1655,7 +1655,7 @@ solutions:
 - name: Hepto
   category: Selfhosted
   url: https://forge.tedomum.net/acides/hepto
-  icon_url: https://forge.tedomum.net/uploads/-/system/project/avatar/851/hepto-dark-bg.png
+  icon_url: https://raw.githubusercontent.com/zwindler/101-ways-to-deploy-kubernetes/refs/heads/main/public/logos/hepto-dark-bg.png
   description: Lightweight Kubernetes distribution for edge and IoT deployments
   license: Apache 2.0
   open_source: true
