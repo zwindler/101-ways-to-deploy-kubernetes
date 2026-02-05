@@ -64,9 +64,10 @@ const languageToFlag = (langCode: string): string => {
   }
   
   // Convert country code to flag emoji using regional indicator symbols
-  // A = U+1F1E6, B = U+1F1E7, etc.
+  // Unicode Regional Indicator Symbol Letter A starts at U+1F1E6
+  const REGIONAL_INDICATOR_A = 0x1F1E6;
   const codePoints = [...upperCountryCode].map(char => 
-    0x1F1E6 + char.charCodeAt(0) - 'A'.charCodeAt(0)
+    REGIONAL_INDICATOR_A + char.charCodeAt(0) - 'A'.charCodeAt(0)
   );
   
   return String.fromCodePoint(...codePoints);
