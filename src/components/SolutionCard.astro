@@ -438,31 +438,31 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
         </div>
       )}
 
-      <!-- Tags and Based On (Combined on Same Line) -->
+      <!-- Based On and Tags (Combined on Same Line) -->
       {(solution.tags && solution.tags.length > 0) || (solution.based_on && solution.based_on.length > 0) ? (
         <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-          <!-- Tags (Left Side) -->
-          {solution.tags && solution.tags.length > 0 && (
+          <!-- Based On (Left Side) -->
+          {solution.based_on && solution.based_on.length > 0 && (
             <div class="flex-1 min-w-0">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Tags</h3>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Based On</h3>
               <div class="flex flex-wrap gap-2">
-                {solution.tags.map((tag) => (
-                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium">
-                    {tag}
+                {solution.based_on.map((tech) => (
+                  <span class="px-3 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-lg text-sm font-medium">
+                    {tech}
                   </span>
                 ))}
               </div>
             </div>
           )}
 
-          <!-- Based On (Right Side) -->
-          {solution.based_on && solution.based_on.length > 0 && (
-            <div class="flex-1 min-w-0">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Based On</h3>
+          <!-- Tags (Right Side) -->
+          {solution.tags && solution.tags.length > 0 && (
+            <div class="flex-1 min-w-0 md:text-right">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Tags</h3>
               <div class="flex flex-wrap gap-2 md:justify-end">
-                {solution.based_on.map((tech) => (
-                  <span class="px-3 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-lg text-sm font-medium">
-                    {tech}
+                {solution.tags.map((tag) => (
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium">
+                    {tag}
                   </span>
                 ))}
               </div>
