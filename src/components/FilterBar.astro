@@ -7,6 +7,12 @@ interface Props {
 }
 
 const { categories, cloudProviders } = Astro.props;
+
+// Utility function to format category names with spaces between words
+function formatCategoryName(category: string): string {
+  // Insert space before uppercase letters (except at the start)
+  return category.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
 ---
 
 <div
@@ -14,12 +20,13 @@ const { categories, cloudProviders } = Astro.props;
   class="filter-bar sticky top-0 z-10 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-6"
 >
   <!-- Category filters -->
-  <div class="flex flex-wrap gap-2 mb-3">
+  <div class="flex flex-wrap items-center gap-2 mb-3">
+    <span class="text-sm font-medium text-gray-700 dark:text-gray-300 mr-1">Categories:</span>
     <button class="filter-pill active" data-category="all">All</button>
     {
       categories.map((cat) => (
         <button class="filter-pill" data-category={cat}>
-          {cat}
+          {formatCategoryName(cat)}
         </button>
       ))
     }
