@@ -54,9 +54,10 @@ Each solution should follow this structure:
   based_on:  # Optional - underlying technologies
     - "kubeadm"
     - "k3s"
-  tags:  # Optional - for filtering
+  tags:  # Recommended - 2-3 tags for filtering and categorization
     - "production"
     - "lightweight"
+    - "secure"
   cloud_providers:  # Optional - for Managed/IaC solutions
     - "aws"
     - "gcp"
@@ -101,6 +102,86 @@ If you're unsure about category placement:
 4. **Managed vs Management Platform**:
    - Managed: Service provides the cluster (you're a customer)
    - Management Platform: You install it to manage your own clusters
+
+### Tags
+
+**Each solution should have 2-3 tags** to help users filter and discover solutions. Choose tags that best describe the solution's characteristics and use cases.
+
+#### Available Tags by Category
+
+**Environment:**
+- `local` - Runs on local machine/laptop
+- `cloud` - Cloud-based solution
+- `on-premise` - On-premises deployment
+
+**Use Case:**
+- `development` - For development/testing
+- `production` - Production-ready
+- `learning` - Educational/learning purposes
+- `educational` - Training and tutorials
+
+**Architecture:**
+- `self-hosted` - You host and manage it
+- `managed` - Managed service
+- `multi-cluster` - Manages multiple clusters
+- `multi-tenancy` - Multi-tenant support
+- `virtualization` - Virtual cluster technology
+
+**Characteristics:**
+- `lightweight` - Minimal resource usage
+- `immutable` - Immutable infrastructure
+- `secure` - Enhanced security features
+- `enterprise` - Enterprise-grade features
+- `beginner-friendly` - Easy to get started
+
+**Deployment:**
+- `automation` - Automated deployment
+- `infrastructure-as-code` - IaC-based
+- `container-based` - Runs in containers
+- `declarative` - Declarative configuration
+
+**Features:**
+- `multi-cloud` - Works across cloud providers
+- `bare-metal` - Bare metal deployment
+- `edge` - Edge computing support
+- `gui` - Graphical user interface
+- `gitops` - GitOps workflow support
+
+**Platform-Specific:**
+- `openshift` - OpenShift-based
+- `rancher` - Rancher ecosystem
+- `macos` - macOS support
+- `windows` - Windows support
+
+**Complexity:**
+- `high-availability` - HA features
+
+#### Tag Selection Guidelines
+
+1. **Be specific**: Choose tags that accurately describe the solution
+2. **Stay consistent**: Use existing tags when possible
+3. **Limit quantity**: Stick to 2-3 most relevant tags
+4. **Consider audience**: Think about how users will search/filter
+
+**Examples:**
+
+```yaml
+# Desktop development tool
+- name: kind
+  tags: ["local", "development", "container-based"]
+
+# Production-ready OS
+- name: Talos Linux
+  tags: ["immutable", "production", "lightweight"]
+
+# Managed cloud service
+- name: AKS
+  tags: ["cloud", "managed"]
+
+# Enterprise management platform
+- name: Rancher
+  tags: ["multi-cluster", "enterprise", "rancher"]
+```
 
 ### Reference Types
 
