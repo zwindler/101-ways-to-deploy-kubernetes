@@ -48,11 +48,17 @@ const languageToFlag = (langCode: string): string => {
     'hi': 'in', // Hindi -> India
   };
 
-  const countryCode = languageToCountry[langCode.toLowerCase()] || langCode.toLowerCase();
+  const countryCode = (languageToCountry[langCode.toLowerCase()] || langCode.toLowerCase()).toUpperCase();
+  
+  // Validate country code is exactly 2 characters and contains only A-Z
+  if (countryCode.length !== 2 || !/^[A-Z]{2}$/.test(countryCode)) {
+    // Return the original language code if invalid
+    return langCode;
+  }
   
   // Convert country code to flag emoji using regional indicator symbols
   // A = U+1F1E6, B = U+1F1E7, etc.
-  const codePoints = [...countryCode.toUpperCase()].map(char => 
+  const codePoints = [...countryCode].map(char => 
     0x1F1E6 + char.charCodeAt(0) - 'A'.charCodeAt(0)
   );
   
