@@ -457,7 +457,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
 
           <!-- Based On (Right Side) -->
           {solution.based_on && solution.based_on.length > 0 && (
-            <div class="flex-1 min-w-0 md:text-right">
+            <div class="flex-1 min-w-0">
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Based On</h3>
               <div class="flex flex-wrap gap-2 md:justify-end">
                 {solution.based_on.map((tech) => (
