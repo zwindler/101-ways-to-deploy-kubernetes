@@ -48,17 +48,24 @@ const languageToFlag = (langCode: string): string => {
     'hi': 'in', // Hindi -> India
   };
 
-  const countryCode = (languageToCountry[langCode.toLowerCase()] || langCode.toLowerCase()).toUpperCase();
+  const lowerLangCode = langCode.toLowerCase();
+  const countryCode = languageToCountry[lowerLangCode];
+  
+  // Return original language code if not mapped
+  if (!countryCode) {
+    return langCode;
+  }
+  
+  const upperCountryCode = countryCode.toUpperCase();
   
   // Validate country code is exactly 2 characters and contains only A-Z
-  if (countryCode.length !== 2 || !/^[A-Z]{2}$/.test(countryCode)) {
-    // Return the original language code if invalid
+  if (upperCountryCode.length !== 2 || !/^[A-Z]{2}$/.test(upperCountryCode)) {
     return langCode;
   }
   
   // Convert country code to flag emoji using regional indicator symbols
   // A = U+1F1E6, B = U+1F1E7, etc.
-  const codePoints = [...countryCode].map(char => 
+  const codePoints = [...upperCountryCode].map(char => 
     0x1F1E6 + char.charCodeAt(0) - 'A'.charCodeAt(0)
   );
   
@@ -492,7 +499,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
                       <span class="font-medium text-gray-900 dark:text-white">
                         {ref.title}
                       </span>
-                      <span class="text-base" title={languageToName(ref.language)}>
+                      <span class="text-base" title={languageToName(ref.language)} aria-label={languageToName(ref.language)} role="img">
                         {languageToFlag(ref.language)}
                       </span>
                       <span class="text-xs px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded">
