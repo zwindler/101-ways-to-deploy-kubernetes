@@ -1217,7 +1217,7 @@ solutions:
   category: Other
   url: https://github.com/escarti/kubernetes-the-hard-way-tf-aws
   icon_url: https://avatars.githubusercontent.com/u/142061836?s=200&v=4
-  description: Automated Kubernetes The Hard Way deployment on AWS using Terraform
+  description: Automated Kubernetes The Hard Way deployment on AWS using Terraform / Opentofu
   license: Apache 2.0
   open_source: true
   based_on:
