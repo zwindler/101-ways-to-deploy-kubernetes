@@ -164,13 +164,15 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
       >
         {solution.name}
       </h3>
-      {
-        solution.publisher && (
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            {solution.publisher}
-          </p>
-        )
-      }
+      <div class="min-h-[1.25rem]">
+        {
+          solution.publisher && (
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              {solution.publisher}
+            </p>
+          )
+        }
+      </div>
     </div>
 
     <!-- Badges Container (right side) -->
