@@ -10,7 +10,7 @@ labels: 'new-solution'
 **Name:** 
 **URL:** 
 **Publisher/Project:** 
-**Category:** <!-- Desktop, IaC, Managed, Selfhosted, etc. -->
+**Category:** <!-- Desktop, InfraAsCode, Managed, Selfhosted, etc. -->
 
 ## Description
 

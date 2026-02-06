@@ -12,7 +12,7 @@ solution:
   category: enum
   # The deployment category. Must be one of:
   # - Desktop: Local development tools
-  # - IaC: Infrastructure as Code
+  # - InfraAsCode: Infrastructure as Code
   # - KubernetesInKubernetes: Virtual/nested clusters
   # - KubernetesOS: Immutable OS for K8s
   # - Managed: Cloud managed services
@@ -76,7 +76,7 @@ solution:
   # Example: ["local", "development", "lightweight"]
   
   cloud_providers: array[string]
-  # For IaC/Managed solutions: supported cloud providers
+  # For InfraAsCode/Managed solutions: supported cloud providers
   # Example: ["aws", "gcp", "azure", "hetzner", "digitalocean"]
   
   abandoned: boolean

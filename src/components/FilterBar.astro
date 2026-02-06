@@ -195,7 +195,7 @@ function formatCategoryName(category: string): string {
     const container = document.getElementById('cloud-provider-container');
     if (!container) return;
     
-    const showCloudProvider = filterState.category === 'Managed' || filterState.category === 'IaC';
+    const showCloudProvider = filterState.category === 'Managed' || filterState.category === 'InfraAsCode';
     container.classList.toggle('hidden', !showCloudProvider);
   }
 

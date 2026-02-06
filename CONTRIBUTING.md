@@ -58,7 +58,7 @@ Each solution should follow this structure:
     - "production"
     - "lightweight"
     - "secure"
-  cloud_providers:  # Optional - for Managed/IaC solutions
+  cloud_providers:  # Optional - for Managed/InfraAsCode solutions
     - "aws"
     - "gcp"
   abandoned: true  # Optional - boolean, default: false (false = maintained, true = no longer maintained)
@@ -80,7 +80,7 @@ Each solution should follow this structure:
 | Category | Description |
 |----------|-------------|
 | `Desktop` | Local development tools |
-| `IaC` | Infrastructure as Code tools |
+| `InfraAsCode` | Infrastructure as Code tools |
 | `KubernetesInKubernetes` | Virtual/nested clusters |
 | `KubernetesOS` | Immutable OS for Kubernetes |
 | `Managed` | Cloud managed services |
@@ -96,8 +96,8 @@ If you're unsure about category placement:
 2. **Desktop vs Selfhosted**: 
    - Desktop: Designed for local development, single machine, easy setup
    - Selfhosted: Designed for production, multi-node, requires infrastructure
-3. **IaC vs Tool**: 
-   - IaC: Focuses on infrastructure automation and can work across providers
+3. **InfraAsCode vs Tool**: 
+   - InfraAsCode: Focuses on infrastructure automation and can work across providers
    - Selfhosted: The tool itself manages the cluster lifecycle
 4. **Managed vs Management Platform**:
    - Managed: Service provides the cluster (you're a customer)

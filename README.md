@@ -14,7 +14,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 
 This project catalogs 100+ ways to deploy Kubernetes across different categories:
 - **Desktop** - Local development environments
-- **IaC** - Infrastructure as Code solutions
+- **InfraAsCode** - Infrastructure as Code solutions
 - **Managed** - Cloud provider services
 - **Self-hosted** - On-premises deployments
 - And more...

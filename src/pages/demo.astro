@@ -17,7 +17,7 @@ const allSolutions = data.solutions || [];
 // Extract unique categories from solutions
 const categories = [
   "Desktop",
-  "IaC",
+  "InfraAsCode",
   "KubernetesInKubernetes",
   "KubernetesOS",
   "Managed",
@@ -227,10 +227,10 @@ const tags = [...new Set(allSolutions.flatMap(s => s.tags || []))].sort();
             visible = false;
           }
 
-          // Cloud provider filter (only for Managed/IaC)
+          // Cloud provider filter (only for Managed/InfraAsCode)
           if (
             currentFilterState.cloudProvider &&
-            (currentFilterState.category === "Managed" || currentFilterState.category === "IaC")
+            (currentFilterState.category === "Managed" || currentFilterState.category === "InfraAsCode")
           ) {
             if (!solutionData.cloudProviders.includes(currentFilterState.cloudProvider)) {
               visible = false;

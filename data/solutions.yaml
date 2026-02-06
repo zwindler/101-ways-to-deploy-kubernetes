@@ -377,7 +377,7 @@ solutions:
   - development
   - rancher
 - name: aks-engine
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/Azure/aks-engine
   icon_url: https://azure.microsoft.com/svghandler/kubernetes-service/
   publisher: Azure
@@ -389,7 +389,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: Alvistack Ansible
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/alvistack/ansible-collection-kubernetes
   icon_url: https://avatars.githubusercontent.com/u/26567351?s=200&v=4
   publisher: Alvistack
@@ -402,7 +402,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: Alvistack Vagrant-kubernetes
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/alvistack/vagrant-kubernetes
   icon_url: https://avatars.githubusercontent.com/u/26567351?s=200&v=4
   publisher: Alvistack
@@ -422,7 +422,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: Crossplane
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/crossplane/crossplane
   icon_url: https://avatars.githubusercontent.com/u/45158470?s=200&v=4
   description: Universal control plane for cloud infrastructure and services via Kubernetes
@@ -444,7 +444,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: Cybozu Kubernetes Engine (CKE)
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/cybozu-go/cke
   icon_url: https://avatars.githubusercontent.com/u/17453711?s=200&v=4
   publisher: Cybozu
@@ -455,7 +455,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: Kube-hetzner
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner
   icon_url: https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner/raw/master/.images/kube-hetzner-logo.png
   description: Automated Kubernetes deployment on Hetzner Cloud with Terraform / Opentofu
@@ -480,7 +480,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: Kubeasz (Chinese documentation only)
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/easzlab/kubeasz
   icon_url: https://github.com/easzlab/kubeasz/raw/master/docs/pics/kubeasz.svg
   icon_background_color: light
@@ -492,7 +492,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: Kubernetes ClusterAPI
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/kubernetes-sigs/cluster-api
   icon_url: https://raw.githubusercontent.com/kubernetes-sigs/cluster-api/main/docs/book/src/images/introduction.svg
   description: Declarative Kubernetes-style APIs for cluster lifecycle management
@@ -517,7 +517,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: Kubespray
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/kubernetes-sigs/kubespray
   icon_url: https://kubespray.io/logo/logo-clear.png
   description: Production-ready Kubernetes cluster deployment using Ansible
@@ -553,7 +553,7 @@ solutions:
   - infrastructure-as-code
   - production
 - name: OpenTofu
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/opentofu/opentofu
   icon_url: https://avatars.githubusercontent.com/u/142061836?s=200&v=4
   description: Open-source infrastructure as code tool, fork of Terraform
@@ -578,7 +578,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: Pulumi
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/pulumi/pulumi
   icon_url: https://www.pulumi.com/logos/brand/avatar-on-white.svg
   publisher: Pulumi Services
@@ -605,7 +605,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: Puppet
-  category: IaC
+  category: InfraAsCode
   url: https://forge.puppet.com/modules/puppetlabs/kubernetes/readme
   icon_url: https://gravatar.com/avatar/fdd009b7c1ec96e088b389f773e87aec.png?r=pg&s=75&d=404
   publisher: Perforce Software
@@ -628,7 +628,7 @@ solutions:
   - automation
   - infrastructure-as-code
 - name: typhoon
-  category: IaC
+  category: InfraAsCode
   url: https://github.com/poseidon/typhoon
   icon_url: https://raw.githubusercontent.com/poseidon/typhoon/main/docs/img/typhoon.png
   description: Minimal and free Kubernetes distribution with Terraform / Opentofu
