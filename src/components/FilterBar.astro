@@ -96,12 +96,22 @@ function formatCategoryName(category: string): string {
       </button>
       <div
         id="tags-dropdown-menu"
-        class="hidden absolute top-full left-0 mt-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-20 max-h-64 overflow-y-auto min-w-[200px]"
+        class="hidden absolute top-full left-0 mt-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-20 max-h-64 overflow-hidden min-w-[200px]"
       >
-        <div class="p-2 space-y-1">
+        <!-- Search input -->
+        <div class="p-2 border-b border-gray-300 dark:border-gray-600">
+          <input
+            type="text"
+            id="tags-search-input"
+            placeholder="Search tags..."
+            class="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+        <!-- Tags list -->
+        <div id="tags-list" class="p-2 space-y-1 max-h-48 overflow-y-auto">
           {
             tags.map((tag) => (
-              <label class="flex items-center gap-2 px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-600 rounded cursor-pointer text-sm">
+              <label class="tag-option flex items-center gap-2 px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-600 rounded cursor-pointer text-sm" data-tag-label={tag.toLowerCase()}>
                 <input
                   type="checkbox"
                   data-tag={tag}
@@ -203,7 +213,33 @@ function formatCategoryName(category: string): string {
   function toggleTagsDropdown() {
     const menu = document.getElementById('tags-dropdown-menu');
     if (!menu) return;
+    
+    const isHidden = menu.classList.contains('hidden');
     menu.classList.toggle('hidden');
+    
+    // Focus the search input when opening the dropdown
+    if (isHidden) {
+      const searchInput = document.getElementById('tags-search-input') as HTMLInputElement | null;
+      if (searchInput) {
+        // Small delay to ensure DOM updates complete before focusing
+        setTimeout(() => searchInput.focus(), 100);
+      }
+    }
+  }
+
+  // Filter tags based on search input
+  function filterTags() {
+    const searchInput = document.getElementById('tags-search-input') as HTMLInputElement | null;
+    if (!searchInput) return;
+    
+    const searchTerm = searchInput.value.toLowerCase();
+    const tagOptions = document.querySelectorAll('.tag-option');
+    
+    tagOptions.forEach((option) => {
+      const tagLabel = (option as HTMLElement).getAttribute('data-tag-label') || '';
+      const matches = tagLabel.includes(searchTerm);
+      (option as HTMLElement).style.display = matches ? '' : 'none';
+    });
   }
 
   // Update tags dropdown label
@@ -291,6 +327,16 @@ function formatCategoryName(category: string): string {
       toggleTagsDropdown();
     });
     
+    // Tags search input
+    const tagsSearchInput = document.getElementById('tags-search-input');
+    tagsSearchInput?.addEventListener('input', filterTags);
+    
+    // Prevent dropdown from closing when clicking inside
+    const tagsDropdownMenu = document.getElementById('tags-dropdown-menu');
+    tagsDropdownMenu?.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+    
     // Tags checkboxes
     document.querySelectorAll('input[data-tag]').forEach((cb) => {
       cb.addEventListener('change', () => {
@@ -307,6 +353,12 @@ function formatCategoryName(category: string): string {
         const target = e.target as HTMLElement;
         if (!menu.contains(target) && !button.contains(target)) {
           menu.classList.add('hidden');
+          // Clear search input when closing
+          const searchInput = document.getElementById('tags-search-input') as HTMLInputElement | null;
+          if (searchInput) {
+            searchInput.value = '';
+            filterTags();
+          }
         }
       }
     });
