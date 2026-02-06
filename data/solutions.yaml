@@ -1371,7 +1371,6 @@ solutions:
   description: SaaS platform for managing Kubernetes clusters on any infrastructure
     with Talos Linux
   license: BUSL 1.1
-  open_source: true
   based_on:
   - Talos Linux
   references:
