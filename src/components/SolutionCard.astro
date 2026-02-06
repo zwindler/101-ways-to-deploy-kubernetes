@@ -112,7 +112,23 @@ const getIconBackgroundClasses = (iconBackgroundColor?: 'light' | 'dark') => {
   return 'bg-white dark:bg-gray-700';
 };
 
+// Helper function - Convert license name to TLDR Legal URL
+const licenseToTLDRUrl = (license: string): string | null => {
+  const licenseMap: Record<string, string> = {
+    'Apache 2.0': 'https://www.tldrlegal.com/license/apache-license-2-0-apache-2-0',
+    'MIT': 'https://www.tldrlegal.com/license/mit-license',
+    'MPL 2.0': 'https://www.tldrlegal.com/license/mozilla-public-license-2-0-mpl-2',
+    'AGPL 3.0': 'https://www.tldrlegal.com/license/gnu-affero-general-public-license-v3-agpl-3-0',
+    'BSD 3-Clause': 'https://www.tldrlegal.com/license/bsd-3-clause-license-revised',
+    'BUSL 1.1': 'https://www.tldrlegal.com/license/business-source-license-1-1-busl-1-1',
+    'Zlib': 'https://www.tldrlegal.com/license/zlib-libpng-license-zlib',
+  };
+  
+  return licenseMap[license] || null;
+};
+
 const iconBgClasses = getIconBackgroundClasses(solution.icon_background_color);
+const tldrLegalUrl = solution.license ? licenseToTLDRUrl(solution.license) : null;
 
 const isGitHub = solution.url.includes("github.com");
 const referencesCount = solution.references?.length || 0;
@@ -286,7 +302,19 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               />
             </svg>
-            <span class="truncate">{solution.license}</span>
+            {tldrLegalUrl ? (
+              <a
+                href={tldrLegalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="truncate hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline decoration-dotted underline-offset-2"
+                onclick="event.stopPropagation();"
+              >
+                {solution.license}
+              </a>
+            ) : (
+              <span class="truncate">{solution.license}</span>
+            )}
           </div>
         )
       }
@@ -550,7 +578,18 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
               </svg>
-              <span>License: {solution.license}</span>
+              {tldrLegalUrl ? (
+                <span>License: <a
+                  href={tldrLegalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline decoration-dotted underline-offset-2"
+                >
+                  {solution.license}
+                </a></span>
+              ) : (
+                <span>License: {solution.license}</span>
+              )}
             </div>
           )}
           {solution.open_source && (
