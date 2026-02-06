@@ -189,6 +189,23 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     filterSolutions();
   }) as EventListener);
 
+  // Listen for detailed view changes
+  let cachedCards: NodeListOf<Element> | null = null;
+  window.addEventListener('detailed-view-change', ((e: CustomEvent) => {
+    const isDetailed = e.detail.isDetailed;
+    // Cache cards on first use for better performance
+    if (!cachedCards) {
+      cachedCards = document.querySelectorAll('.solution-card-wrapper');
+    }
+    cachedCards.forEach((card) => {
+      if (isDetailed) {
+        card.classList.add('show-detailed');
+      } else {
+        card.classList.remove('show-detailed');
+      }
+    });
+  }) as EventListener);
+
   // Reset filters button
   document.getElementById('reset-filters')?.addEventListener('click', () => {
     currentSearch = '';

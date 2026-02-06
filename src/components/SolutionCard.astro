@@ -228,7 +228,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
   </div>
 
   <!-- Description Section: min-h-[3rem] reserves space for up to 2 lines of text -->
-  <div class="px-6 pb-4 min-h-[3rem]">
+  <div class="px-6 pb-4 min-h-[3rem] detailed-section">
     {
       solution.description && (
         <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
@@ -239,7 +239,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
   </div>
 
   <!-- Based On Section: min-h-[3.5rem] accommodates label + badge row -->
-  <div class="px-6 pb-4 min-h-[3.5rem]">
+  <div class="px-6 pb-4 min-h-[3.5rem] detailed-section">
     {
       solution.based_on && solution.based_on.length > 0 && (
         <>
@@ -257,7 +257,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
   </div>
 
   <!-- Tags Section: min-h-[3rem] ensures uniform spacing for tag badges -->
-  <div class="px-6 pb-4 min-h-[3rem]">
+  <div class="px-6 pb-4 min-h-[3rem] detailed-section">
     {
       solution.tags && solution.tags.length > 0 && (
         <div class="flex flex-wrap gap-2">
@@ -770,5 +770,15 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
   /* Card click effect */
   .solution-card-wrapper:active {
     transform: scale(0.98);
+  }
+
+  /* Compact mode: hide detailed sections by default */
+  .detailed-section {
+    display: none;
+  }
+
+  /* Detailed mode: show detailed sections */
+  .show-detailed .detailed-section {
+    display: block;
   }
 </style>
