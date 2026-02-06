@@ -210,36 +210,38 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
   </div>
 
   <!-- Description Section -->
-  {
-    solution.description && (
-      <div class="px-6 pb-4">
+  <div class="px-6 pb-4 min-h-[3rem]">
+    {
+      solution.description && (
         <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
           {solution.description}
         </p>
-      </div>
-    )
-  }
+      )
+    }
+  </div>
 
   <!-- Based On Section -->
-  {
-    solution.based_on && solution.based_on.length > 0 && (
-      <div class="px-6 pb-4">
-        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Based on:</p>
-        <div class="flex flex-wrap gap-2">
-          {solution.based_on.map((tech) => (
-            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-medium">
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-    )
-  }
+  <div class="px-6 pb-4 min-h-[3.5rem]">
+    {
+      solution.based_on && solution.based_on.length > 0 && (
+        <>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Based on:</p>
+          <div class="flex flex-wrap gap-2">
+            {solution.based_on.map((tech) => (
+              <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-medium">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </>
+      )
+    }
+  </div>
 
   <!-- Tags Section -->
-  {
-    solution.tags && solution.tags.length > 0 && (
-      <div class="px-6 pb-4">
+  <div class="px-6 pb-4 min-h-[3rem]">
+    {
+      solution.tags && solution.tags.length > 0 && (
         <div class="flex flex-wrap gap-2">
           {visibleTags.map((tag) => (
             <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">
@@ -252,9 +254,9 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
             </span>
           )}
         </div>
-      </div>
-    )
-  }
+      )
+    }
+  </div>
 
   <!-- Spacer to push footer to bottom -->
   <div class="flex-grow"></div>
