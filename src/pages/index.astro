@@ -190,10 +190,14 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
   }) as EventListener);
 
   // Listen for detailed view changes
+  let cachedCards: NodeListOf<Element> | null = null;
   window.addEventListener('detailed-view-change', ((e: CustomEvent) => {
     const isDetailed = e.detail.isDetailed;
-    const cards = document.querySelectorAll('.solution-card-wrapper');
-    cards.forEach((card) => {
+    // Cache cards on first use for better performance
+    if (!cachedCards) {
+      cachedCards = document.querySelectorAll('.solution-card-wrapper');
+    }
+    cachedCards.forEach((card) => {
       if (isDetailed) {
         card.classList.add('show-detailed');
       } else {
