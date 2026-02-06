@@ -90,7 +90,7 @@ solutions:
   icon_url: https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png
   publisher: Docker (Mirantis)
   description: Docker Desktop's built-in Kubernetes cluster for local development
-  license: proprietary
+  license: Proprietary
   open_source: false
   based_on:
   - kubeadm
@@ -316,7 +316,7 @@ solutions:
   icon_url: https://camo.githubusercontent.com/d20582f77f0d485f7ab60b8e5c3116591e0abae14ad12ca91fe8f9d23ca254ff/68747470733a2f2f6f7262737461636b2e6465762f696d672f69636f6e3235362e706e67
   publisher: Orbital Stack
   description: Fast, lightweight container runtime and Kubernetes for macOS
-  license: proprietary
+  license: Proprietary
   open_source: false
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
@@ -838,7 +838,7 @@ solutions:
   icon_url: https://blog.aks.azure.com/img/logo.svg
   publisher: Azure
   description: Managed Kubernetes service on Microsoft Azure
-  license: cloud
+  license: Cloud
   references:
   - title: J'ai testé pour vous AKS, la plateforme Kubernetes managée d'Azure
     language: fr
@@ -853,7 +853,7 @@ solutions:
   icon_url: https://avatars.githubusercontent.com/u/16377432?s=200&v=4
   publisher: Alibaba Cloud
   description: Managed Kubernetes service on Alibaba Cloud
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -863,7 +863,7 @@ solutions:
   icon_url: https://www.civo.com/assets-rebrand/logos/civo-black.svg
   publisher: Civo
   description: Fast and simple managed Kubernetes cloud provider
-  license: cloud
+  license: Cloud
   based_on:
   - k3s or Talos Linux
   references:
@@ -887,7 +887,7 @@ solutions:
   icon_url: https://pbs.twimg.com/profile_images/1456256662684069900/ylfvBLEg_400x400.jpg
   publisher: Clever Cloud
   description: Managed Kubernetes service on Clever Cloud
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -898,7 +898,7 @@ solutions:
   icon_background_color: light
   publisher: CoreWeave
   description: GPU-accelerated managed Kubernetes service
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -908,7 +908,7 @@ solutions:
   icon_url: https://avatars.githubusercontent.com/u/4650108?s=200&v=4
   publisher: Digital Ocean
   description: Managed Kubernetes service on DigitalOcean
-  license: cloud
+  license: Cloud
   references:
   - title: 'Getting Started with Kubernetes on DigitalOcean: A Beginner''s Guide'
     language: en
@@ -924,7 +924,7 @@ solutions:
   icon_background_color: dark
   publisher: Elastx
   description: Private managed Kubernetes service on Elastx cloud
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -934,7 +934,7 @@ solutions:
   icon_url: https://icon.icepanel.io/AWS/svg/Containers/EKS-Cloud.svg
   publisher: AWS
   description: Managed Kubernetes service on Amazon Web Services
-  license: cloud
+  license: Cloud
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
       de production
@@ -952,7 +952,7 @@ solutions:
   icon_background_color: light
   publisher: Gcore
   description: Managed Kubernetes service on Gcore cloud platform
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -962,7 +962,7 @@ solutions:
   icon_url: https://www.gstatic.com/bricks/image/a25e3d67-cda0-4dd2-88c4-49e04c469441.png
   publisher: Google Cloud Platform
   description: Managed Kubernetes service on Google Cloud Platform
-  license: cloud
+  license: Cloud
   references:
   - title: How To Setup Kubernetes Cluster On Google Cloud (GKE)
     language: en
@@ -982,7 +982,7 @@ solutions:
   icon_background_color: dark
   publisher: Gridscale
   description: Managed Kubernetes service on gridscale infrastructure
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -992,7 +992,7 @@ solutions:
   icon_url: https://www.ibm.com/brand/experience-guides/developer/b1db1ae501d522a1a4b49613fe07c9f1/01_8-bar-positive.svg
   publisher: IBM Cloud
   description: Managed Kubernetes service on IBM Cloud
-  license: cloud
+  license: Cloud
   references:
   - title: IBM Kubernetes Service (IKS) - Cluster Creation and App Deployment
     language: en
@@ -1012,7 +1012,7 @@ solutions:
   icon_background_color: dark
   publisher: IONOS
   description: Managed Kubernetes service on IONOS cloud
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -1022,7 +1022,7 @@ solutions:
   icon_url: https://enix.io/fr/technologies/Scaleway-Kapsule.png
   publisher: Scaleway
   description: Managed Kubernetes service on Scaleway
-  license: cloud
+  license: Cloud
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
       de production
@@ -1040,7 +1040,7 @@ solutions:
   publisher: Scaleway
   description: Managed Kubernetes service for multi-cloud deployments (bring your
     own nodes)
-  license: cloud
+  license: Cloud
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
       de production
@@ -1059,7 +1059,7 @@ solutions:
   icon_background_color: light
   publisher: LeafCloud
   description: Sustainable managed Kubernetes service powered by renewable energy
-  license: cloud
+  license: Cloud
   based_on:
   - Gardener
   tags:
@@ -1072,7 +1072,7 @@ solutions:
   icon_background_color: light
   publisher: Linode
   description: Managed Kubernetes service on Linode infrastructure
-  license: cloud
+  license: Cloud
   references:
   - title: Managing clusters with the Linode CLI
     language: en
@@ -1088,7 +1088,7 @@ solutions:
   icon_background_color: light
   publisher: Metal Stack
   description: Managed Kubernetes on bare-metal infrastructure
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -1100,7 +1100,7 @@ solutions:
   icon_background_color: light
   publisher: SysEleven
   description: Managed Kubernetes service built on Kubermatic
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -1110,7 +1110,7 @@ solutions:
   icon_url: https://pbs.twimg.com/profile_images/1580905240341127181/8nyVAd7F_400x400.jpg
   publisher: OVHcloud
   description: Managed Kubernetes service on OVHcloud infrastructure
-  license: cloud
+  license: Cloud
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
       de production
@@ -1131,7 +1131,7 @@ solutions:
   icon_url: https://cdn.prod.website-files.com/687e650a56916806eaaf8f62/68c24991575cbc9ba4d212e6_Orka-Logo-WhiteBellyRegistered.svg
   publisher: MacStadium
   description: Kubernetes-based orchestration platform for macOS build infrastructure
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -1141,7 +1141,7 @@ solutions:
   icon_url: https://raw.githubusercontent.com/zwindler/101-ways-to-deploy-kubernetes/refs/heads/main/public/logos/oracle-logo.svg
   publisher: Oracle Cloud Infrastructure
   description: Managed Kubernetes service on Oracle Cloud
-  license: cloud
+  license: Cloud
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
       de production
@@ -1159,7 +1159,7 @@ solutions:
   icon_background_color: light
   publisher: Red Hat
   description: Managed OpenShift Kubernetes service across multiple clouds
-  license: cloud
+  license: Cloud
   based_on:
   - Openshift / OKD
   references:
@@ -1178,7 +1178,7 @@ solutions:
   icon_background_color: light
   publisher: Exoscale
   description: Managed Kubernetes service on Exoscale cloud
-  license: cloud
+  license: Cloud
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
       de production
@@ -1200,7 +1200,7 @@ solutions:
   icon_background_color: light
   publisher: STACKIT
   description: Managed Kubernetes service on STACKIT cloud
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -1210,7 +1210,7 @@ solutions:
   icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/starlingx.svg
   icon_background_color: light
   description: Edge computing platform with integrated Kubernetes for industrial IoT
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -1222,7 +1222,7 @@ solutions:
   icon_background_color: light
   publisher: Tencent Cloud
   description: Managed Kubernetes service on Tencent Cloud
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -1233,7 +1233,7 @@ solutions:
   icon_background_color: light
   publisher: UpCloud
   description: Managed Kubernetes service on UpCloud
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -1244,7 +1244,7 @@ solutions:
   icon_background_color: dark
   publisher: Vultr
   description: Managed Kubernetes service on Vultr cloud
-  license: cloud
+  license: Cloud
   references:
   - title: Vultr Kubernetes Engine (VKE) Reference Guide
     language: en
@@ -1260,7 +1260,7 @@ solutions:
   icon_background_color: light
   publisher: ByteDance
   description: Managed Kubernetes service on ByteDance's Volcengine cloud
-  license: cloud
+  license: Cloud
   tags:
   - cloud
   - managed
@@ -1395,7 +1395,7 @@ solutions:
   publisher: Spectro Cloud
   description: Kubernetes management platform for multi-cluster environments across
     clouds
-  license: proprietary
+  license: Proprietary
   open_source: false
   based_on:
   - Cluster API
@@ -1408,7 +1408,7 @@ solutions:
   icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/platform9.svg
   publisher: Platform9
   description: Managed Kubernetes service for public and private cloud infrastructure
-  license: proprietary
+  license: Proprietary
   open_source: false
   references:
   - title: Get your First Container Up on Kubernetes Using Platform9 (HackerNoon)
@@ -1435,7 +1435,7 @@ solutions:
   icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/rafay.svg
   publisher: Rafay Systems
   description: Kubernetes Operations Platform for multi-cluster and multi-cloud environments
-  license: proprietary
+  license: Proprietary
   open_source: false
   tags:
   - multi-cluster
@@ -1467,7 +1467,7 @@ solutions:
   icon_url: https://blogs.vmware.com/cloudprovider/wp-content/uploads/sites/78/2021/09/logo-vmware-tanzu-square-Header.png
   publisher: VMware
   description: Enterprise-ready Kubernetes runtime by VMware for multi-cloud
-  license: proprietary
+  license: Proprietary
   open_source: false
   tags:
   - multi-cluster
@@ -1479,7 +1479,7 @@ solutions:
   icon_url: https://blogs.vmware.com/cloudprovider/wp-content/uploads/sites/78/2021/09/logo-vmware-tanzu-square-Header.png
   publisher: VMware
   description: Centralized management platform for Kubernetes clusters across clouds
-  license: proprietary
+  license: Proprietary
   open_source: false
   tags:
   - multi-cluster
@@ -1520,7 +1520,7 @@ solutions:
   url: https://labs.iximiuz.com/playgrounds
   icon_url: https://labs.iximiuz.com/logo.png
   description: Interactive learning environments for practicing DevOps and Kubernetes
-  license: cloud
+  license: Cloud
   references:
   - title: 'Server-Side Playgrounds Reimagined: Build, Boot, and Network Your Own
       VMs'
@@ -2008,7 +2008,7 @@ solutions:
   icon_background_color: light
   publisher: Mirantis
   description: Enterprise Kubernetes platform for production workloads on any infrastructure
-  license: proprietary
+  license: Proprietary
   open_source: false
   based_on:
   - k0s
@@ -2022,7 +2022,7 @@ solutions:
   icon_url: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/nutanix.svg
   publisher: Nutanix
   description: Enterprise Kubernetes platform for Nutanix infrastructure
-  license: proprietary
+  license: Proprietary
   open_source: false
   tags:
   - on-premise
