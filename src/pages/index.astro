@@ -22,18 +22,18 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
 <Layout title="101 Ways to Deploy Kubernetes">
   <main class="min-h-screen bg-gray-50 dark:bg-gray-900">
     <!-- Hero Section -->
-    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 px-4 relative">
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-8 px-4 relative">
       <div class="max-w-6xl mx-auto text-center">
-        <div class="flex justify-between items-start mb-4">
+        <div class="flex justify-between items-start mb-3">
           <div class="flex-1"></div>
           <h1 class="flex-1 text-4xl md:text-5xl font-bold leading-tight">
-            <span class="text-gray-400">(more than)</span> <span class="whitespace-nowrap">101 Ways to Deploy</span><br />Kubernetes
+            <span class="text-gray-400">(more than)</span> 101 Ways<br />to Deploy Kubernetes
           </h1>
           <div class="flex-1 flex justify-end">
             <ThemeToggle />
           </div>
         </div>
-        <p class="text-xl text-blue-100 mb-8">
+        <p class="text-xl text-blue-100 mb-6">
           A comprehensive list of {solutions.length} ways to deploy Kubernetes!
         </p>
         
