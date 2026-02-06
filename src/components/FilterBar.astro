@@ -60,6 +60,16 @@ function formatCategoryName(category: string): string {
       <span>Open Source only</span>
     </label>
 
+    <!-- Detailed view toggle -->
+    <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
+      <input
+        type="checkbox"
+        id="detailed-view-filter"
+        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+      />
+      <span>Detailed view</span>
+    </label>
+
     <!-- Status checkboxes -->
     <div class="flex items-center gap-3">
       <span class="text-sm text-gray-500 dark:text-gray-400">Status:</span>
@@ -314,6 +324,17 @@ function formatCategoryName(category: string): string {
     // Open source checkbox
     const ossCheckbox = document.getElementById('oss-filter');
     ossCheckbox?.addEventListener('change', emitFilterChange);
+    
+    // Detailed view checkbox
+    const detailedViewCheckbox = document.getElementById('detailed-view-filter');
+    detailedViewCheckbox?.addEventListener('change', () => {
+      const isDetailed = (detailedViewCheckbox as HTMLInputElement).checked;
+      const event = new CustomEvent('detailed-view-change', {
+        detail: { isDetailed },
+        bubbles: true,
+      });
+      document.dispatchEvent(event);
+    });
     
     // Status checkboxes
     document.querySelectorAll('[data-status]').forEach((cb) => {
