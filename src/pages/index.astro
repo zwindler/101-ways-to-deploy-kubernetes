@@ -151,7 +151,8 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
       // Tags filter
       if (visible && currentFilters.tags.length > 0) {
         const itemTags = el.dataset.tags?.split(' ') || [];
-        visible = currentFilters.tags.some(tag => itemTags.includes(tag.toLowerCase()));
+        const normalizedFilterTags = currentFilters.tags.map(tag => tag.toLowerCase());
+        visible = normalizedFilterTags.some(tag => itemTags.includes(tag));
       }
 
       el.style.display = visible ? '' : 'none';

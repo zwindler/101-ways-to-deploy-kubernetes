@@ -152,7 +152,7 @@ function formatCategoryName(category: string): string {
       (cb) => (cb as HTMLElement).getAttribute('data-status') || ''
     ).filter(Boolean);
     
-    const tagCheckboxes = document.querySelectorAll('[data-tag]:checked');
+    const tagCheckboxes = document.querySelectorAll('input[data-tag]:checked');
     const tags = Array.from(tagCheckboxes).map(
       (cb) => (cb as HTMLElement).getAttribute('data-tag') || ''
     ).filter(Boolean);
@@ -214,8 +214,6 @@ function formatCategoryName(category: string): string {
     const selectedTags = getFilterState().tags;
     if (selectedTags.length === 0) {
       label.textContent = 'Tags';
-    } else if (selectedTags.length === 1) {
-      label.textContent = `Tags (${selectedTags.length})`;
     } else {
       label.textContent = `Tags (${selectedTags.length})`;
     }
@@ -247,7 +245,7 @@ function formatCategoryName(category: string): string {
     });
     
     // Reset tag checkboxes
-    document.querySelectorAll('[data-tag]').forEach((cb) => {
+    document.querySelectorAll('input[data-tag]').forEach((cb) => {
       const checkbox = cb as HTMLInputElement;
       checkbox.checked = false;
     });
@@ -294,7 +292,7 @@ function formatCategoryName(category: string): string {
     });
     
     // Tags checkboxes
-    document.querySelectorAll('[data-tag]').forEach((cb) => {
+    document.querySelectorAll('input[data-tag]').forEach((cb) => {
       cb.addEventListener('change', () => {
         updateTagsDropdownLabel();
         emitFilterChange();

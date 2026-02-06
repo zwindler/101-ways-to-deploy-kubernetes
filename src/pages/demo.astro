@@ -252,8 +252,9 @@ const tags = [...new Set(allSolutions.flatMap(s => s.tags || []))].sort();
 
           // Tags filter
           if (visible && currentFilterState.tags.length > 0) {
-            const itemTags = solutionData.tags.map((t: string) => t.toLowerCase());
-            if (!currentFilterState.tags.some((tag: string) => itemTags.includes(tag.toLowerCase()))) {
+            const itemTags = (solutionData.tags || []).map((t: string) => t.toLowerCase());
+            const normalizedFilterTags = currentFilterState.tags.map((t: string) => t.toLowerCase());
+            if (!normalizedFilterTags.some((tag: string) => itemTags.includes(tag))) {
               visible = false;
             }
           }
