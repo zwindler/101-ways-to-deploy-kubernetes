@@ -39,6 +39,7 @@ solutions:
   - local
   - development
   - macos
+  stars: 26700
 - name: crc (openshift 4 on a desktop)
   category: Desktop
   url: https://github.com/crc-org/crc
@@ -64,6 +65,7 @@ solutions:
   - local
   - development
   - openshift
+  stars: 1400
 - name: Desktop-Kubernetes
   category: Desktop
   url: https://github.com/aceeric/desktop-kubernetes
@@ -185,9 +187,10 @@ solutions:
   tags:
   - local
   - development
+  stars: 600
 - name: lima-vm
   category: Desktop
-  url: https://github.com/lima-vm/lima/blob/master/examples/k8s.yaml
+  url: https://github.com/lima-vm/lima/blob/master/templates/k8s.yaml
   icon_url: https://raw.githubusercontent.com/lima-vm/lima/master/docs/images/lima-logo-01.svg
   icon_background_color: light
   description: Linux virtual machines with Kubernetes support for macOS
@@ -212,6 +215,7 @@ solutions:
   - local
   - development
   - macos
+  stars: 20200
 - name: microk8s
   category: Desktop
   url: https://github.com/canonical/microk8s
@@ -240,6 +244,7 @@ solutions:
   - local
   - development
   - lightweight
+  stars: 9200
 - name: Minikube
   category: Desktop
   url: https://github.com/kubernetes/minikube
@@ -288,6 +293,7 @@ solutions:
   - local
   - development
   - openshift
+  stars: 2500
 - name: mykube
   category: Desktop
   url: https://github.com/guyst16/mykube
@@ -357,6 +363,7 @@ solutions:
   - local
   - development
   - container-based
+  stars: 7300
 - name: Rancher Desktop
   category: Desktop
   url: https://github.com/rancher-sandbox/rancher-desktop
@@ -379,6 +386,7 @@ solutions:
   - local
   - development
   - rancher
+  stars: 7000
 - name: aks-engine
   category: InfraAsCode
   url: https://github.com/Azure/aks-engine
