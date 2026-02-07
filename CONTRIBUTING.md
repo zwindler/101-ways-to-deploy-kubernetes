@@ -62,6 +62,7 @@ Each solution should follow this structure:
     - "aws"
     - "gcp"
   abandoned: true  # Optional - boolean, default: false (false = maintained, true = no longer maintained)
+  production_ready: true  # Optional - boolean, default: false (true = production-ready, false = development/learning)
   references:  # Optional - external resources
     - title: "Getting Started Guide"
       description: "Step-by-step tutorial"
@@ -181,6 +182,48 @@ If you're unsure about category placement:
 # Enterprise management platform
 - name: Rancher
   tags: ["multi-cluster", "enterprise", "rancher"]
+```
+
+### Production Ready Status
+
+The `production_ready` field indicates whether a solution is considered suitable for production environments. This is an **optional boolean field** that defaults to `false` if omitted.
+
+**When to mark as `production_ready: true`:**
+
+1. **Official website claims**: The solution's website explicitly states it's production-ready or suitable for production use
+2. **Community experience**: The community has demonstrated successful production deployments
+3. **Maturity indicators**:
+   - Stable release versions (not alpha/beta)
+   - Active maintenance and security updates
+   - Production-grade features (HA, security, monitoring)
+   - Enterprise adoption or support options
+
+**Guidelines:**
+
+- **Default to `false`**: If unsure, omit the field or set it to `false`
+- **Development tools**: Most desktop/local tools should be `false` unless explicitly designed for production
+- **Managed services**: Cloud managed services (EKS, AKS, GKE) are typically `true`
+- **Self-hosted solutions**: Evaluate based on maturity, documentation, and community adoption
+- **Be conservative**: It's better to under-promise than over-promise production readiness
+
+**Examples:**
+
+```yaml
+# Production-ready managed service
+- name: Amazon EKS
+  production_ready: true
+
+# Development tool (default false, can be omitted)
+- name: kind
+  production_ready: false  # or omit entirely
+
+# Mature self-hosted solution
+- name: Rancher
+  production_ready: true
+
+# Beta or experimental tool
+- name: experimental-k8s-tool
+  # production_ready: false (default, can be omitted)
 ```
 
 ### Reference Types
