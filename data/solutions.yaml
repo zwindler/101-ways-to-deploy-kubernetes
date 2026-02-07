@@ -121,6 +121,7 @@ solutions:
   open_source: true
   based_on:
   - k3s
+  stars: 5400
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
       de production
@@ -146,6 +147,7 @@ solutions:
   open_source: true
   based_on:
   - kubeadm
+  stars: 13700
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
       de production
@@ -247,6 +249,7 @@ solutions:
   open_source: true
   based_on:
   - kubeadm
+  stars: 29800
   references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
       de production

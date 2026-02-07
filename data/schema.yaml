@@ -84,6 +84,13 @@ solution:
   # - false: Currently maintained (default)
   # - true: No longer maintained
   
+  stars: number
+  # Optional: Number of stars for GitHub/GitLab repositories
+  # This field should be manually updated with the current star count
+  # Display format: compact with star icon (e.g., "⭐ 1.2k")
+  # Example: 1234, 5678
+  # Note: Since this is a static site, star counts must be updated manually
+  
   # ===== STRUCTURED REFERENCES =====
   
   references: array[reference]
@@ -133,6 +140,7 @@ example_solution:
     - "production"
     - "lightweight"
   # abandoned: false  # Optional - set to true if no longer maintained (default: false)
+  # stars: 1234  # Optional - number of GitHub/GitLab stars
   references:
     - title: "Kubernetes - 50 solutions pour les postes de développement et les clusters de production"
       description: "Chapter 38 (Talos Linux)"
