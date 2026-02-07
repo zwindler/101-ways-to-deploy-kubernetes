@@ -1761,7 +1761,7 @@ solutions:
 - name: k8e - Kubernetes easy engine
   category: Selfhosted
   url: https://github.com/xiaods/k8e
-  icon_url: https://blog.zwindler.fr/2025/09/k8e-logo.png
+  icon_url: https://raw.githubusercontent.com/xiaods/k8e/refs/heads/main/docs/assets/k8e-logo.svg
   icon_background_color: light
   description: Simplified Kubernetes distribution for easy deployment
   license: Apache 2.0
