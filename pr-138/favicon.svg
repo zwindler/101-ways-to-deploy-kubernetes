@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .k8s-hex { fill: #326CE5; }
+    </style>
+  </defs>
+  <!-- Hexagon shape inspired by Kubernetes -->
+  <polygon class="k8s-hex" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" stroke="#fff" stroke-width="2"/>
+  <!-- Inner K8s wheel -->
+  <circle cx="50" cy="50" r="15" fill="white"/>
+  <path d="M50 35 L50 45 M50 55 L50 65 M35 50 L45 50 M55 50 L65 50" stroke="#326CE5" stroke-width="3" stroke-linecap="round"/>
+</svg>
