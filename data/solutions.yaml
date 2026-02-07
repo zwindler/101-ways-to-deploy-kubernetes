@@ -562,7 +562,6 @@ solutions:
   tags:
   - automation
   - infrastructure-as-code
-  - production
   production_ready: true
 - name: OpenTofu
   category: InfraAsCode
@@ -1345,7 +1344,6 @@ solutions:
   - multi-cluster
   - enterprise
   - openshift
-  production_ready: true
 - name: k0rdent
   category: ManagementPlatform
   url: https://github.com/k0rdent/kcm
@@ -1361,7 +1359,6 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
-  production_ready: true
 - name: Kamaji
   category: ManagementPlatform
   url: https://github.com/clastix/kamaji
@@ -1395,7 +1392,6 @@ solutions:
   - multi-cluster
   - enterprise
   - gui
-  production_ready: true
 - name: Kubermatic Kubernetes Platform
   category: ManagementPlatform
   url: https://github.com/kubermatic/kubermatic
@@ -1689,7 +1685,6 @@ solutions:
   tags:
   - on-premise
   - self-hosted
-  production_ready: true
 - name: Harvester
   category: Selfhosted
   url: https://github.com/harvester/harvester
@@ -1777,7 +1772,6 @@ solutions:
   tags:
   - on-premise
   - self-hosted
-  production_ready: true
 - name: k3s
   category: Selfhosted
   url: https://github.com/k3s-io/k3s
@@ -1988,7 +1982,6 @@ solutions:
   - on-premise
   - self-hosted
   - bare-metal
-  production_ready: true
 - name: KubeOne
   category: Selfhosted
   url: https://github.com/kubermatic/kubeone
@@ -2011,6 +2004,7 @@ solutions:
   tags:
   - on-premise
   - self-hosted
+  stars: 1500
   production_ready: true
 - name: KubeSolo
   category: Selfhosted
@@ -2051,6 +2045,7 @@ solutions:
   - on-premise
   - self-hosted
   production_ready: true
+  stars: 800
 - name: Magnum
   category: Selfhosted
   url: https://github.com/openstack/magnum
