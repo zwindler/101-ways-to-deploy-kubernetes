@@ -219,30 +219,24 @@ function formatCategoryName(category: string): string {
     if (!clearBtn) return;
     
     const filterState = getFilterState();
-    const hasActiveFilters = 
-      filterState.category !== 'all' ||
-      filterState.cloudProvider !== '' ||
-      filterState.openSourceOnly ||
-      !(filterState.statuses.length === 1 && filterState.statuses[0] === 'active') ||
-      filterState.tags.length > 0;
+    const hasDefaultStatus = filterState.statuses.length === 1 && filterState.statuses[0] === 'active';
     
-    clearBtn.classList.toggle('hidden', !hasActiveFilters);
-    updateMobileFilterBadge(hasActiveFilters);
-  }
-
-  // Update mobile filter badge count
-  function updateMobileFilterBadge(hasActiveFilters: boolean) {
-    const badge = document.getElementById('filter-count-badge');
-    if (!badge) return;
-    
-    const filterState = getFilterState();
     let filterCount = 0;
-    
     if (filterState.category !== 'all') filterCount++;
     if (filterState.cloudProvider !== '') filterCount++;
     if (filterState.openSourceOnly) filterCount++;
-    if (!(filterState.statuses.length === 1 && filterState.statuses[0] === 'active')) filterCount++;
+    if (!hasDefaultStatus) filterCount++;
     if (filterState.tags.length > 0) filterCount++;
+    
+    const hasActiveFilters = filterCount > 0;
+    clearBtn.classList.toggle('hidden', !hasActiveFilters);
+    updateMobileFilterBadge(filterCount);
+  }
+
+  // Update mobile filter badge count
+  function updateMobileFilterBadge(filterCount: number) {
+    const badge = document.getElementById('filter-count-badge');
+    if (!badge) return;
     
     if (filterCount > 0) {
       badge.textContent = filterCount.toString();
@@ -263,10 +257,10 @@ function formatCategoryName(category: string): string {
     
     if (isHidden) {
       content.classList.remove('hidden');
-      chevron.style.transform = 'rotate(180deg)';
+      chevron.classList.add('rotate-180');
     } else {
       content.classList.add('hidden');
-      chevron.style.transform = 'rotate(0deg)';
+      chevron.classList.remove('rotate-180');
     }
   }
 
