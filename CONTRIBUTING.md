@@ -263,7 +263,8 @@ npm run preview
 2. Test locally with `npm run build`
 3. Update descriptions if needed
 4. Submit PR with clear title and description
-5. Wait for review
+5. **Preview Deployment**: When you open a PR, an automatic preview deployment will be created. A comment will be added to your PR with a link to preview your changes live.
+6. Wait for review
 
 ## Questions?
 

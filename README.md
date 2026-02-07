@@ -33,6 +33,10 @@ We welcome contributions of:
 
 All contributions are reviewed and must follow our [schema guidelines](./data/schema.yaml).
 
+### 🔍 PR Previews
+
+When you open a pull request, an automatic preview deployment is created! You'll receive a comment with a link to preview your changes live before they're merged. This helps you and reviewers see exactly how your contributions will look on the website.
+
 ## 💻 Development
 
 To run the website locally:
