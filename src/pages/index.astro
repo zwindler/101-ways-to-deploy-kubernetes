@@ -14,7 +14,8 @@ const data = yaml.load(solutionsFile) as { solutions: any[] };
 const solutions = data.solutions;
 
 // Extract unique categories, cloud providers, and tags for filters
-const categories = [...new Set(solutions.map(s => s.category))].sort();
+// Sort categories by length to optimize space usage in filter pills (shortest first for better packing)
+const categories = [...new Set(solutions.map(s => s.category))].sort((a, b) => a.length - b.length);
 const cloudProviders = [...new Set(solutions.flatMap(s => s.cloud_providers || []))].sort();
 const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
 ---
@@ -29,7 +30,10 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
           <ThemeToggle />
         </div>
         <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-3 px-2">
-          <span class="text-gray-400">(more than)</span> 101 ways<br />to deploy Kubernetes
+          <!-- Mobile title (< 768px) -->
+          <span class="md:hidden">101 ways<br />to deploy k8s</span>
+          <!-- Desktop title (>= 768px) -->
+          <span class="hidden md:inline"><span class="text-gray-400">(more than)</span> 101 ways<br />to deploy Kubernetes</span>
         </h1>
         <p class="text-xl text-blue-100 mb-6 px-2">
           A comprehensive list of {solutions.length} ways to deploy Kubernetes!
