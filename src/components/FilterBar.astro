@@ -20,21 +20,40 @@ function formatCategoryName(category: string): string {
   id="filter-bar"
   class="filter-bar sticky top-0 z-10 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-6"
 >
-  <!-- Category filters -->
-  <div class="flex flex-wrap items-center gap-2 mb-3">
-    <span class="text-sm font-medium text-gray-700 dark:text-gray-300 mr-1">Categories:</span>
-    <button class="filter-pill active" data-category="all">All</button>
-    {
-      categories.map((cat) => (
-        <button class="filter-pill" data-category={cat}>
-          {formatCategoryName(cat)}
-        </button>
-      ))
-    }
-  </div>
+  <!-- Mobile filter toggle button (visible only on mobile) -->
+  <button
+    id="mobile-filter-toggle"
+    class="md:hidden w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-700 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 font-medium hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors mb-3"
+  >
+    <span class="flex items-center gap-2">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+      </svg>
+      <span>Filters</span>
+      <span id="filter-count-badge" class="hidden px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full">0</span>
+    </span>
+    <svg id="mobile-filter-chevron" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
 
-  <!-- Secondary filters row -->
-  <div class="flex flex-wrap items-center gap-4">
+  <!-- Filter content (collapsible on mobile) -->
+  <div id="filter-content" class="hidden md:block">
+    <!-- Category filters -->
+    <div class="flex flex-wrap items-center gap-2 mb-3">
+      <span class="text-sm font-medium text-gray-700 dark:text-gray-300 mr-1">Categories:</span>
+      <button class="filter-pill active" data-category="all">All</button>
+      {
+        categories.map((cat) => (
+          <button class="filter-pill" data-category={cat}>
+            {formatCategoryName(cat)}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Secondary filters row -->
+    <div class="flex flex-wrap items-center gap-4">
     <!-- Cloud provider dropdown -->
     <div id="cloud-provider-container" class="hidden">
       <select
@@ -135,13 +154,14 @@ function formatCategoryName(category: string): string {
       </div>
     </div>
 
-    <!-- Clear button -->
-    <button
-      id="clear-filters"
-      class="text-sm text-blue-600 dark:text-blue-400 hover:underline hidden ml-auto"
-    >
-      Clear all
-    </button>
+      <!-- Clear button -->
+      <button
+        id="clear-filters"
+        class="text-sm text-blue-600 dark:text-blue-400 hover:underline hidden ml-auto"
+      >
+        Clear all
+      </button>
+    </div>
   </div>
 </div>
 
@@ -207,6 +227,47 @@ function formatCategoryName(category: string): string {
       filterState.tags.length > 0;
     
     clearBtn.classList.toggle('hidden', !hasActiveFilters);
+    updateMobileFilterBadge(hasActiveFilters);
+  }
+
+  // Update mobile filter badge count
+  function updateMobileFilterBadge(hasActiveFilters: boolean) {
+    const badge = document.getElementById('filter-count-badge');
+    if (!badge) return;
+    
+    const filterState = getFilterState();
+    let filterCount = 0;
+    
+    if (filterState.category !== 'all') filterCount++;
+    if (filterState.cloudProvider !== '') filterCount++;
+    if (filterState.openSourceOnly) filterCount++;
+    if (!(filterState.statuses.length === 1 && filterState.statuses[0] === 'active')) filterCount++;
+    if (filterState.tags.length > 0) filterCount++;
+    
+    if (filterCount > 0) {
+      badge.textContent = filterCount.toString();
+      badge.classList.remove('hidden');
+    } else {
+      badge.classList.add('hidden');
+    }
+  }
+
+  // Toggle mobile filter visibility
+  function toggleMobileFilters() {
+    const content = document.getElementById('filter-content');
+    const chevron = document.getElementById('mobile-filter-chevron');
+    
+    if (!content || !chevron) return;
+    
+    const isHidden = content.classList.contains('hidden');
+    
+    if (isHidden) {
+      content.classList.remove('hidden');
+      chevron.style.transform = 'rotate(180deg)';
+    } else {
+      content.classList.add('hidden');
+      chevron.style.transform = 'rotate(0deg)';
+    }
   }
 
   // Update cloud provider dropdown visibility
@@ -302,6 +363,10 @@ function formatCategoryName(category: string): string {
 
   // Initialize event listeners
   function initFilterBar() {
+    // Mobile filter toggle
+    const mobileFilterToggle = document.getElementById('mobile-filter-toggle');
+    mobileFilterToggle?.addEventListener('click', toggleMobileFilters);
+    
     // Category pills
     document.querySelectorAll('.filter-pill').forEach((btn) => {
       btn.addEventListener('click', (e) => {
