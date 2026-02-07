@@ -648,6 +648,34 @@ solutions:
   tags:
   - automation
   - infrastructure-as-code
+- name: Terraform
+  category: InfraAsCode
+  url: https://github.com/hashicorp/terraform
+  icon_url: https://avatars.githubusercontent.com/u/761456?s=200&v=4
+  publisher: HashiCorp
+  description: Infrastructure as code tool for building, changing, and versioning infrastructure
+  license: BUSL 1.1
+  open_source: false
+  references:
+  - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
+      de production
+    language: fr
+    url: https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/
+    type: book
+    description: Chapter 33 (Terraform)
+  - title: Deploy a Kubernetes cluster with Terraform
+    language: en
+    url: https://spacelift.io/blog/how-to-provision-kubernetes-cluster-in-aws
+    type: tutorial
+  - title: Terraform Kubernetes Provider
+    language: en
+    url: https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs
+    type: documentation
+  tags:
+  - automation
+  - infrastructure-as-code
+  production_ready: true
+  stars: 47600
 - name: typhoon
   category: InfraAsCode
   url: https://github.com/poseidon/typhoon
