@@ -662,15 +662,11 @@ solutions:
     language: fr
     url: https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/
     type: book
-    description: Chapter 33 (Terraform)
-  - title: Deploy a Kubernetes cluster with Terraform
+    description: Chapter 34 (OpenTofu)
+  - title: How to Provision an AWS EKS Kubernetes Cluster with Terraform (dev.to/spacelift)
     language: en
-    url: https://spacelift.io/blog/how-to-provision-kubernetes-cluster-in-aws
+    url: https://dev.to/spacelift/how-to-provision-an-aws-eks-kubernetes-cluster-with-terraform-step-by-step-1k4c
     type: tutorial
-  - title: Terraform Kubernetes Provider
-    language: en
-    url: https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs
-    type: documentation
   tags:
   - automation
   - infrastructure-as-code
