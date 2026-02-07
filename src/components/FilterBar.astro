@@ -79,6 +79,16 @@ function formatCategoryName(category: string): string {
       <span>Open Source only</span>
     </label>
 
+    <!-- Production ready toggle -->
+    <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
+      <input
+        type="checkbox"
+        id="production-ready-filter"
+        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+      />
+      <span>Production Ready only</span>
+    </label>
+
     <!-- Detailed view toggle -->
     <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
       <input
@@ -172,6 +182,7 @@ function formatCategoryName(category: string): string {
     category: string;
     cloudProvider: string;
     openSourceOnly: boolean;
+    productionReadyOnly: boolean;
     statuses: string[];
     tags: string[];
   }
@@ -187,6 +198,9 @@ function formatCategoryName(category: string): string {
     const ossCheckbox = document.getElementById('oss-filter') as HTMLInputElement | null;
     const openSourceOnly = ossCheckbox?.checked || false;
     
+    const productionReadyCheckbox = document.getElementById('production-ready-filter') as HTMLInputElement | null;
+    const productionReadyOnly = productionReadyCheckbox?.checked || false;
+    
     const statusCheckboxes = document.querySelectorAll('[data-status]:checked');
     const statuses = Array.from(statusCheckboxes).map(
       (cb) => (cb as HTMLElement).getAttribute('data-status') || ''
@@ -197,7 +211,7 @@ function formatCategoryName(category: string): string {
       (cb) => (cb as HTMLElement).getAttribute('data-tag') || ''
     ).filter(Boolean);
     
-    return { category, cloudProvider, openSourceOnly, statuses, tags };
+    return { category, cloudProvider, openSourceOnly, productionReadyOnly, statuses, tags };
   }
 
   // Emit filter change event
@@ -225,6 +239,7 @@ function formatCategoryName(category: string): string {
     if (filterState.category !== 'all') filterCount++;
     if (filterState.cloudProvider !== '') filterCount++;
     if (filterState.openSourceOnly) filterCount++;
+    if (filterState.productionReadyOnly) filterCount++;
     if (!hasDefaultStatus) filterCount++;
     if (filterState.tags.length > 0) filterCount++;
     
@@ -338,6 +353,10 @@ function formatCategoryName(category: string): string {
     const ossCheckbox = document.getElementById('oss-filter') as HTMLInputElement | null;
     if (ossCheckbox) ossCheckbox.checked = false;
     
+    // Reset production ready checkbox
+    const productionReadyCheckbox = document.getElementById('production-ready-filter') as HTMLInputElement | null;
+    if (productionReadyCheckbox) productionReadyCheckbox.checked = false;
+    
     // Reset status checkboxes - only active checked
     document.querySelectorAll('[data-status]').forEach((cb) => {
       const checkbox = cb as HTMLInputElement;
@@ -383,6 +402,10 @@ function formatCategoryName(category: string): string {
     // Open source checkbox
     const ossCheckbox = document.getElementById('oss-filter');
     ossCheckbox?.addEventListener('change', emitFilterChange);
+    
+    // Production ready checkbox
+    const productionReadyCheckbox = document.getElementById('production-ready-filter');
+    productionReadyCheckbox?.addEventListener('change', emitFilterChange);
     
     // Detailed view checkbox
     const detailedViewCheckbox = document.getElementById('detailed-view-filter');

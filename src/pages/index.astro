@@ -66,6 +66,7 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
                data-based-on={solution.based_on?.join(' ').toLowerCase() || ''}
                data-cloud-providers={solution.cloud_providers?.join(' ').toLowerCase() || ''}
                data-open-source={solution.open_source ? 'true' : 'false'}
+               data-production-ready={solution.production_ready ? 'true' : 'false'}
                data-abandoned={solution.abandoned ? 'true' : 'false'}>
             <SolutionCard solution={solution} />
           </div>
@@ -104,6 +105,7 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     category: 'all',
     cloudProvider: '',
     openSourceOnly: false,
+    productionReadyOnly: false,
     statuses: ['active'],
     tags: [] as string[]
   };
@@ -141,6 +143,11 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
       // Open source filter
       if (visible && currentFilters.openSourceOnly) {
         visible = el.dataset.openSource === 'true';
+      }
+
+      // Production ready filter
+      if (visible && currentFilters.productionReadyOnly) {
+        visible = el.dataset.productionReady === 'true';
       }
 
       // Status filter
@@ -215,6 +222,7 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
       category: 'all',
       cloudProvider: '',
       openSourceOnly: false,
+      productionReadyOnly: false,
       statuses: ['active'],
       tags: []
     };
