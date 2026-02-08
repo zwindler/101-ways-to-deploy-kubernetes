@@ -364,7 +364,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
               stroke="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              aria-label="References"
+              aria-label={`${referencesCount} reference${referencesCount === 1 ? '' : 's'}`}
             >
               <path
                 stroke-linecap="round"
