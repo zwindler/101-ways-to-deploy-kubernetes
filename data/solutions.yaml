@@ -387,6 +387,19 @@ solutions:
   - development
   - rancher
   stars: 7000
+- name: vind
+  category: Desktop
+  url: https://github.com/loft-sh/vind
+  publisher: loft.sh
+  description: Run Kubernetes clusters as Docker containers
+  license: Apache 2.0
+  open_source: true
+  based_on:
+  - vcluster
+  tags:
+  - local
+  - development
+  - container-based
 - name: aks-engine
   category: InfraAsCode
   url: https://github.com/Azure/aks-engine
