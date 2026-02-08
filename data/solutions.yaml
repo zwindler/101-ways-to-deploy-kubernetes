@@ -1920,11 +1920,11 @@ solutions:
   - self-hosted
   - production
   production_ready: true
-- name: kubeadm w/ CLI
+- name: kubeadm w
   category: Selfhosted
   url: https://github.com/kubernetes/kubernetes
   icon_url: https://kubernetes.io/images/kubeadm-stacked-color.png
-  description: Bootstrap Kubernetes clusters using kubeadm command-line interface
+  description: Bootstrap Kubernetes clusters using kubeadm command-line interface or declarative config files
   license: Apache 2.0
   open_source: true
   references:
@@ -1934,28 +1934,16 @@ solutions:
     url: https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/
     type: book
     description: Chapter 19 (kubeadm w/ CLI)
-  - title: Installer un cluster Kubernetes sur des VM CentOS
-    language: fr
-    url: https://blog.zwindler.fr/2017/06/07/installer-cluster-kubernetes-vm-centos/
-    type: article
-  tags:
-  - on-premise
-  - self-hosted
-  production_ready: true
-- name: kubeadm w/ ClusterConfiguration
-  category: Selfhosted
-  url: https://github.com/kubernetes/kubernetes
-  icon_url: https://kubernetes.io/images/kubeadm-stacked-color.png
-  description: Deploy Kubernetes using kubeadm with declarative configuration files
-  license: Apache 2.0
-  open_source: true
-  references:
   - title: Kubernetes - 50 solutions pour les postes de développement et les clusters
       de production
     language: fr
     url: https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/
     type: book
     description: Chapter 20 (kubeadm w/ ClusterConfiguration)
+  - title: Installer un cluster Kubernetes sur des VM CentOS
+    language: fr
+    url: https://blog.zwindler.fr/2017/06/07/installer-cluster-kubernetes-vm-centos/
+    type: article
   - title: KubeadmCfg - Introduction à l'API Kubeadm
     language: fr
     url: https://blog.zwindler.fr/2023/12/17/kubeadmcfg-introduction-api-kubeadm/
