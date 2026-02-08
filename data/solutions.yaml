@@ -1920,9 +1920,9 @@ solutions:
   - self-hosted
   - production
   production_ready: true
-- name: kubeadm w
+- name: kubeadm
   category: Selfhosted
-  url: https://github.com/kubernetes/kubernetes
+  url: https://github.com/kubernetes/kubernetes/tree/master/cmd/kubeadm
   icon_url: https://kubernetes.io/images/kubeadm-stacked-color.png
   description: Bootstrap Kubernetes clusters using kubeadm command-line interface or declarative config files
   license: Apache 2.0
@@ -1953,6 +1953,7 @@ solutions:
   - self-hosted
   - declarative
   production_ready: true
+  stars: 120000
 - name: Kubean
   category: Selfhosted
   url: https://github.com/kubean-io/kubean
