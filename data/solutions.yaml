@@ -1596,7 +1596,7 @@ solutions:
 - name: Xen Orchestra
   category: ManagementPlatform
   url: https://github.com/vatesfr/xen-orchestra
-  icon_url: https://avatars.githubusercontent.com/u/38284389
+  icon_url: https://docs.xen-orchestra.com/img/logo.png
   publisher: Vates
   description: Multi-cloud virtualization management platform with Kubernetes deployment
     recipes based on MicroK8s
