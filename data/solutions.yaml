@@ -1600,7 +1600,7 @@ solutions:
   publisher: Vates
   description: Multi-cloud virtualization management platform with Kubernetes deployment
     recipes based on MicroK8s
-  license: AGPL 3.0
+  license: AGPL-3.0
   open_source: true
   based_on:
   - microk8s
