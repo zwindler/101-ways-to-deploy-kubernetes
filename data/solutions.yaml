@@ -413,6 +413,7 @@ solutions:
   tags:
   - automation
   - infrastructure-as-code
+  stars: 500
 - name: Alvistack Ansible
   category: InfraAsCode
   url: https://github.com/alvistack/ansible-collection-kubernetes
@@ -519,6 +520,7 @@ solutions:
   tags:
   - automation
   - infrastructure-as-code
+  stars: 11300
 - name: Kubernetes ClusterAPI
   category: InfraAsCode
   url: https://github.com/kubernetes-sigs/cluster-api
@@ -736,6 +738,7 @@ solutions:
   tags:
   - multi-tenancy
   - virtualization
+  stars: 550
 - name: vcluster
   category: KubernetesInKubernetes
   url: https://github.com/loft-sh/vcluster
@@ -1383,6 +1386,7 @@ solutions:
   - enterprise
   - multi-cloud
   production_ready: true
+  stars: 3300
 - name: hypershift
   category: ManagementPlatform
   url: https://github.com/openshift/hypershift
@@ -1412,6 +1416,7 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
+  stars: 500
 - name: Kamaji
   category: ManagementPlatform
   url: https://github.com/clastix/kamaji
@@ -1432,6 +1437,7 @@ solutions:
   - multi-cluster
   - enterprise
   production_ready: true
+  stars: 1800
 - name: KubeClipper
   category: ManagementPlatform
   url: https://github.com/kubeclipper/kubeclipper
@@ -1465,6 +1471,7 @@ solutions:
   - enterprise
   - multi-cloud
   production_ready: true
+  stars: 1300
 - name: Omni
   category: ManagementPlatform
   url: https://www.siderolabs.com/platform/saas-for-kubernetes/
@@ -1568,6 +1575,7 @@ solutions:
   - enterprise
   - rancher
   production_ready: true
+  stars: 25400
 - name: Tanzu Kubernetes Grid
   category: ManagementPlatform
   url: https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/index.html
@@ -1621,6 +1629,7 @@ solutions:
   - gui
   - virtualization
   production_ready: true
+  stars: 900
 - name: Using containers (manually)
   category: Other
   url: https://github.com/kubernetes/registry.k8s.io
@@ -1726,6 +1735,7 @@ solutions:
   tags:
   - learning
   - educational
+  stars: 3100
 - name: Play with k8s (play with docker)
   category: Other
   url: https://github.com/play-with-docker/play-with-kubernetes.github.io
@@ -1767,6 +1777,7 @@ solutions:
   tags:
   - on-premise
   - self-hosted
+  stars: 2100
 - name: Harvester
   category: Selfhosted
   url: https://github.com/harvester/harvester
@@ -1791,6 +1802,7 @@ solutions:
   - on-premise
   - self-hosted
   production_ready: true
+  stars: 4900
 - name: Hepto
   category: Selfhosted
   url: https://forge.tedomum.net/acides/hepto
@@ -1833,6 +1845,7 @@ solutions:
   - on-premise
   - self-hosted
   production_ready: true
+  stars: 5800
 - name: k0smotron
   category: Selfhosted
   url: https://github.com/k0sproject/k0smotron
@@ -1854,6 +1867,7 @@ solutions:
   tags:
   - on-premise
   - self-hosted
+  stars: 650
 - name: k3s
   category: Selfhosted
   url: https://github.com/k3s-io/k3s
@@ -1879,6 +1893,7 @@ solutions:
   - self-hosted
   - lightweight
   production_ready: true
+  stars: 32200
 - name: k3sup
   category: Selfhosted
   url: https://github.com/alexellis/k3sup
@@ -1898,6 +1913,7 @@ solutions:
   tags:
   - on-premise
   - self-hosted
+  stars: 7100
 - name: k8e - Kubernetes easy engine
   category: Selfhosted
   url: https://github.com/xiaods/k8e
@@ -1962,6 +1978,7 @@ solutions:
   - self-hosted
   - production
   production_ready: true
+  stars: 16600
 - name: kubeadm
   category: Selfhosted
   url: https://github.com/kubernetes/kubernetes/tree/master/cmd/kubeadm
@@ -2009,6 +2026,7 @@ solutions:
   tags:
   - on-premise
   - self-hosted
+  stars: 500
 - name: KubeKey
   category: Selfhosted
   url: https://github.com/kubesphere/kubekey
@@ -2188,6 +2206,7 @@ solutions:
   - self-hosted
   - openshift
   production_ready: true
+  stars: 2000
 - name: OneKE
   category: Selfhosted
   url: https://github.com/OpenNebula/one-apps
@@ -2223,6 +2242,7 @@ solutions:
   - on-premise
   - self-hosted
   - lightweight
+  stars: 800
 - name: RKE2
   category: Selfhosted
   url: https://github.com/rancher/rke2
@@ -2250,6 +2270,7 @@ solutions:
   - self-hosted
   - secure
   production_ready: true
+  stars: 2100
 - name: SIGHUP
   category: Selfhosted
   url: https://github.com/sighupio/distribution
