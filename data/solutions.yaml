@@ -2,7 +2,7 @@ solutions:
 - name: canonical kubernetes (snap)
   category: Desktop
   url: https://github.com/canonical/k8s-snap
-  icon_url: https://assets.ubuntu.com/v1/adac6928-ubuntu.svg
+  icon_url: https://avatars.githubusercontent.com/u/53057619?s=200&v=4
   icon_background_color: light
   publisher: Canonical
   description: Kubernetes distribution packaged as a snap for easy installation on
@@ -1805,7 +1805,7 @@ solutions:
 - name: Charmed Kubernetes
   category: Selfhosted
   url: https://github.com/charmed-kubernetes
-  icon_url: https://avatars.githubusercontent.com/u/42851186?s=200&v=4
+  icon_url: https://avatars.githubusercontent.com/u/53057619?s=200&v=4
   publisher: Canonical
   description: Production-grade Kubernetes distribution by Canonical, deployed and
     managed using Juju charms
