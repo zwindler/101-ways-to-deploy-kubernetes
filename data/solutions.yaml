@@ -1232,6 +1232,7 @@ solutions:
   tags:
   - cloud
   - managed
+  - macos
   production_ready: true
 - name: Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE)
   category: Managed
