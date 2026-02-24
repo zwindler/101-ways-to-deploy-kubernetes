@@ -67,7 +67,8 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
                data-cloud-providers={solution.cloud_providers?.join(' ').toLowerCase() || ''}
                data-open-source={solution.open_source ? 'true' : 'false'}
                data-production-ready={solution.production_ready ? 'true' : 'false'}
-               data-abandoned={solution.abandoned ? 'true' : 'false'}>
+               data-abandoned={solution.abandoned ? 'true' : 'false'}
+               data-stars={solution.stars?.toString() || '0'}>
             <SolutionCard solution={solution} />
           </div>
         ))}
@@ -107,7 +108,8 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     openSourceOnly: false,
     productionReadyOnly: false,
     statuses: ['active'],
-    tags: [] as string[]
+    tags: [] as string[],
+    minStars: 0
   };
 
   function filterSolutions() {
@@ -162,6 +164,12 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
         const itemTags = el.dataset.tags?.split(' ') || [];
         const normalizedFilterTags = currentFilters.tags.map(tag => tag.toLowerCase());
         visible = normalizedFilterTags.some(tag => itemTags.includes(tag));
+      }
+
+      // Stars filter
+      if (visible && currentFilters.minStars > 0) {
+        const itemStars = parseInt(el.dataset.stars || '0', 10);
+        visible = itemStars >= currentFilters.minStars;
       }
 
       el.style.display = visible ? '' : 'none';
@@ -224,7 +232,8 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
       openSourceOnly: false,
       productionReadyOnly: false,
       statuses: ['active'],
-      tags: []
+      tags: [],
+      minStars: 0
     };
     // Dispatch reset events
     window.dispatchEvent(new CustomEvent('filters-reset'));

@@ -69,16 +69,6 @@ function formatCategoryName(category: string): string {
       </select>
     </div>
 
-    <!-- Open source toggle -->
-    <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
-      <input
-        type="checkbox"
-        id="oss-filter"
-        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-      />
-      <span>Open Source only</span>
-    </label>
-
     <!-- Production ready toggle -->
     <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
       <input
@@ -164,6 +154,29 @@ function formatCategoryName(category: string): string {
       </div>
     </div>
 
+    <!-- Open source toggle (placed at the end so stars filter appears without shifting elements) -->
+    <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
+      <input
+        type="checkbox"
+        id="oss-filter"
+        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+      />
+      <span>Open Source only</span>
+    </label>
+
+    <!-- Stars count filter (visible only when Open Source only is checked) -->
+    <div id="stars-filter-container" class="hidden">
+      <select
+        id="stars-filter"
+        class="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+      >
+        <option value="">⭐ Any stars</option>
+        <option value="100">&gt; 100 stars</option>
+        <option value="1000">&gt; 1k stars</option>
+        <option value="10000">&gt; 10k stars</option>
+      </select>
+    </div>
+
       <!-- Clear button -->
       <button
         id="clear-filters"
@@ -185,6 +198,7 @@ function formatCategoryName(category: string): string {
     productionReadyOnly: boolean;
     statuses: string[];
     tags: string[];
+    minStars: number;
   }
 
   // Get filter state
@@ -211,7 +225,10 @@ function formatCategoryName(category: string): string {
       (cb) => (cb as HTMLElement).getAttribute('data-tag') || ''
     ).filter(Boolean);
     
-    return { category, cloudProvider, openSourceOnly, productionReadyOnly, statuses, tags };
+    const starsSelect = document.getElementById('stars-filter') as HTMLSelectElement | null;
+    const minStars = starsSelect?.value ? parseInt(starsSelect.value, 10) : 0;
+    
+    return { category, cloudProvider, openSourceOnly, productionReadyOnly, statuses, tags, minStars };
   }
 
   // Emit filter change event
@@ -224,6 +241,7 @@ function formatCategoryName(category: string): string {
     document.dispatchEvent(event);
     updateClearButtonVisibility();
     updateCloudProviderVisibility();
+    updateStarsFilterVisibility();
     updateTagsDropdownLabel();
   }
 
@@ -242,6 +260,7 @@ function formatCategoryName(category: string): string {
     if (filterState.productionReadyOnly) filterCount++;
     if (!hasDefaultStatus) filterCount++;
     if (filterState.tags.length > 0) filterCount++;
+    if (filterState.minStars > 0) filterCount++;
     
     const hasActiveFilters = filterCount > 0;
     clearBtn.classList.toggle('hidden', !hasActiveFilters);
@@ -287,6 +306,21 @@ function formatCategoryName(category: string): string {
     
     const showCloudProvider = filterState.category === 'Managed' || filterState.category === 'InfraAsCode';
     container.classList.toggle('hidden', !showCloudProvider);
+  }
+
+  // Update stars filter visibility (only shown when open source is checked)
+  function updateStarsFilterVisibility() {
+    const filterState = getFilterState();
+    const container = document.getElementById('stars-filter-container');
+    if (!container) return;
+    
+    container.classList.toggle('hidden', !filterState.openSourceOnly);
+    
+    // Reset stars filter when OSS filter is unchecked
+    if (!filterState.openSourceOnly) {
+      const starsSelect = document.getElementById('stars-filter') as HTMLSelectElement | null;
+      if (starsSelect) starsSelect.value = '';
+    }
   }
 
   // Toggle tags dropdown visibility
@@ -370,6 +404,10 @@ function formatCategoryName(category: string): string {
       checkbox.checked = false;
     });
     
+    // Reset stars filter
+    const starsSelect = document.getElementById('stars-filter') as HTMLSelectElement | null;
+    if (starsSelect) starsSelect.value = '';
+    
     updateTagsDropdownLabel();
     emitFilterChange();
   }
@@ -448,6 +486,10 @@ function formatCategoryName(category: string): string {
       });
     });
     
+    // Stars filter dropdown
+    const starsSelect = document.getElementById('stars-filter');
+    starsSelect?.addEventListener('change', emitFilterChange);
+    
     // Close tags dropdown when clicking outside
     document.addEventListener('click', (e) => {
       const menu = document.getElementById('tags-dropdown-menu');
@@ -473,6 +515,7 @@ function formatCategoryName(category: string): string {
     // Initial state
     updateClearButtonVisibility();
     updateCloudProviderVisibility();
+    updateStarsFilterVisibility();
     updateTagsDropdownLabel();
   }
 
