@@ -19,7 +19,6 @@ solutions:
   tags:
   - local
   - development
-  - beginner-friendly
 - name: colima
   category: Desktop
   url: https://github.com/abiosoft/colima
@@ -64,7 +63,7 @@ solutions:
   tags:
   - local
   - development
-  - openshift
+  - virtualization
   stars: 1400
 - name: Desktop-Kubernetes
   category: Desktop
@@ -111,7 +110,7 @@ solutions:
   tags:
   - local
   - development
-  - container-based
+  - virtualization
 - name: k3d
   category: Desktop
   url: https://github.com/k3d-io/k3d
@@ -294,7 +293,7 @@ solutions:
   tags:
   - local
   - development
-  - openshift
+  - virtualization
   stars: 2500
 - name: mykube
   category: Desktop
@@ -388,7 +387,7 @@ solutions:
   tags:
   - local
   - development
-  - rancher
+  - gui
   stars: 7000
 - name: vind
   category: Desktop
@@ -1267,7 +1266,7 @@ solutions:
   tags:
   - cloud
   - managed
-  - openshift
+  - enterprise
   production_ready: true
 - name: SKS
   category: Managed
@@ -1403,7 +1402,7 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
-  - openshift
+  - multi-tenancy
 - name: k0rdent
   category: ManagementPlatform
   url: https://github.com/k0rdent/kcm
@@ -1576,7 +1575,7 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
-  - rancher
+  - gui
   production_ready: true
   stars: 25400
 - name: Tanzu Kubernetes Grid
@@ -2207,7 +2206,7 @@ solutions:
   tags:
   - on-premise
   - self-hosted
-  - openshift
+  - production
   production_ready: true
   stars: 2000
 - name: OneKE
@@ -2299,7 +2298,7 @@ solutions:
   tags:
   - on-premise
   - self-hosted
-  - openshift
+  - automation
 - name: tarook
   category: Selfhosted
   url: https://gitlab.com/alasca.cloud/tarook/tarook

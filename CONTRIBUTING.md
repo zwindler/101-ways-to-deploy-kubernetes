@@ -149,8 +149,6 @@ If you're unsure about category placement:
 - `gitops` - GitOps workflow support
 
 **Platform-Specific:**
-- `openshift` - OpenShift-based
-- `rancher` - Rancher ecosystem
 - `macos` - macOS support
 - `windows` - Windows support
 
