@@ -85,7 +85,7 @@ solutions:
   tags:
   - local
   - development
-  - production
+  - virtualization
 - name: Docker desktop
   category: Desktop
   url: https://www.docker.com/products/docker-desktop/
@@ -187,6 +187,7 @@ solutions:
   tags:
   - local
   - development
+  - virtualization
   stars: 600
 - name: lima-vm
   category: Desktop
@@ -273,6 +274,7 @@ solutions:
   tags:
   - local
   - development
+  - beginner-friendly
 - name: Minishift
   category: Desktop
   url: https://github.com/minishift/minishift
@@ -306,7 +308,7 @@ solutions:
   tags:
   - local
   - development
-  - lightweight
+  - beginner-friendly
 - name: Oracle Cloud Native Environment
   category: Desktop
   url: https://github.com/oracle-cne/ocne
@@ -319,6 +321,7 @@ solutions:
   tags:
   - local
   - development
+  - enterprise
 - name: Orbstack
   category: Desktop
   url: https://orbstack.dev/
@@ -341,7 +344,7 @@ solutions:
   tags:
   - local
   - development
-  - lightweight
+  - macos
 - name: Podman Desktop
   category: Desktop
   url: https://github.com/podman-desktop/podman-desktop
