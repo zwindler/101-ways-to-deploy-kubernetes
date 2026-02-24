@@ -39,7 +39,7 @@ function formatCategoryName(category: string): string {
 
   <!-- Filter content (collapsible on mobile) -->
   <div id="filter-content" class="hidden md:block">
-    <!-- Category filters -->
+    <!-- Category filters row -->
     <div class="flex flex-wrap items-center gap-2 mb-3">
       <span class="text-sm font-medium text-gray-700 dark:text-gray-300 mr-1">Categories:</span>
       <button class="filter-pill active" data-category="all">All</button>
@@ -69,14 +69,14 @@ function formatCategoryName(category: string): string {
       </select>
     </div>
 
-    <!-- Open source toggle -->
+    <!-- Detailed view toggle -->
     <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
       <input
         type="checkbox"
-        id="oss-filter"
+        id="detailed-view-filter"
         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
       />
-      <span>Open Source only</span>
+      <span>Detailed view</span>
     </label>
 
     <!-- Production ready toggle -->
@@ -89,37 +89,15 @@ function formatCategoryName(category: string): string {
       <span>Production Ready only</span>
     </label>
 
-    <!-- Detailed view toggle -->
-    <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
-      <input
-        type="checkbox"
-        id="detailed-view-filter"
-        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-      />
-      <span>Detailed view</span>
-    </label>
-
-    <!-- Status checkboxes -->
-    <div class="flex items-center gap-3">
-      <span class="text-sm text-gray-500 dark:text-gray-400">Status:</span>
-      <label class="flex items-center gap-1 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
-        <input
-          type="checkbox"
-          checked
-          data-status="active"
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-        />
-        <span>Active</span>
-      </label>
-      <label class="flex items-center gap-1 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
-        <input
-          type="checkbox"
-          data-status="abandoned"
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-        />
-        <span>Abandoned</span>
-      </label>
-    </div>
+    <!-- Status dropdown -->
+    <select
+      id="status-filter"
+      class="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+    >
+      <option value="all">All statuses</option>
+      <option value="active">Active</option>
+      <option value="abandoned">Abandoned</option>
+    </select>
 
     <!-- Tags dropdown -->
     <div class="relative">
@@ -164,6 +142,29 @@ function formatCategoryName(category: string): string {
       </div>
     </div>
 
+    <!-- Open source toggle (placed at the end so stars filter appears without shifting elements) -->
+    <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
+      <input
+        type="checkbox"
+        id="oss-filter"
+        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+      />
+      <span>Open Source only</span>
+    </label>
+
+    <!-- Stars count filter (visible only when Open Source only is checked) -->
+    <div id="stars-filter-container" class="hidden">
+      <select
+        id="stars-filter"
+        class="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+      >
+        <option value="">⭐ Any stars</option>
+        <option value="100">&gt; 100 stars</option>
+        <option value="1000">&gt; 1k stars</option>
+        <option value="10000">&gt; 10k stars</option>
+      </select>
+    </div>
+
       <!-- Clear button -->
       <button
         id="clear-filters"
@@ -183,8 +184,9 @@ function formatCategoryName(category: string): string {
     cloudProvider: string;
     openSourceOnly: boolean;
     productionReadyOnly: boolean;
-    statuses: string[];
+    status: string;
     tags: string[];
+    minStars: number;
   }
 
   // Get filter state
@@ -201,17 +203,18 @@ function formatCategoryName(category: string): string {
     const productionReadyCheckbox = document.getElementById('production-ready-filter') as HTMLInputElement | null;
     const productionReadyOnly = productionReadyCheckbox?.checked || false;
     
-    const statusCheckboxes = document.querySelectorAll('[data-status]:checked');
-    const statuses = Array.from(statusCheckboxes).map(
-      (cb) => (cb as HTMLElement).getAttribute('data-status') || ''
-    ).filter(Boolean);
+    const statusSelect = document.getElementById('status-filter') as HTMLSelectElement | null;
+    const status = statusSelect?.value || 'all';
     
     const tagCheckboxes = document.querySelectorAll('input[data-tag]:checked');
     const tags = Array.from(tagCheckboxes).map(
       (cb) => (cb as HTMLElement).getAttribute('data-tag') || ''
     ).filter(Boolean);
     
-    return { category, cloudProvider, openSourceOnly, productionReadyOnly, statuses, tags };
+    const starsSelect = document.getElementById('stars-filter') as HTMLSelectElement | null;
+    const minStars = starsSelect?.value ? parseInt(starsSelect.value, 10) : 0;
+    
+    return { category, cloudProvider, openSourceOnly, productionReadyOnly, status, tags, minStars };
   }
 
   // Emit filter change event
@@ -224,6 +227,7 @@ function formatCategoryName(category: string): string {
     document.dispatchEvent(event);
     updateClearButtonVisibility();
     updateCloudProviderVisibility();
+    updateStarsFilterVisibility();
     updateTagsDropdownLabel();
   }
 
@@ -233,15 +237,15 @@ function formatCategoryName(category: string): string {
     if (!clearBtn) return;
     
     const filterState = getFilterState();
-    const hasDefaultStatus = filterState.statuses.length === 1 && filterState.statuses[0] === 'active';
     
     let filterCount = 0;
     if (filterState.category !== 'all') filterCount++;
     if (filterState.cloudProvider !== '') filterCount++;
     if (filterState.openSourceOnly) filterCount++;
     if (filterState.productionReadyOnly) filterCount++;
-    if (!hasDefaultStatus) filterCount++;
+    if (filterState.status !== 'all') filterCount++;
     if (filterState.tags.length > 0) filterCount++;
+    if (filterState.minStars > 0) filterCount++;
     
     const hasActiveFilters = filterCount > 0;
     clearBtn.classList.toggle('hidden', !hasActiveFilters);
@@ -287,6 +291,21 @@ function formatCategoryName(category: string): string {
     
     const showCloudProvider = filterState.category === 'Managed' || filterState.category === 'InfraAsCode';
     container.classList.toggle('hidden', !showCloudProvider);
+  }
+
+  // Update stars filter visibility (only shown when open source is checked)
+  function updateStarsFilterVisibility() {
+    const filterState = getFilterState();
+    const container = document.getElementById('stars-filter-container');
+    if (!container) return;
+    
+    container.classList.toggle('hidden', !filterState.openSourceOnly);
+    
+    // Reset stars filter when OSS filter is unchecked
+    if (!filterState.openSourceOnly) {
+      const starsSelect = document.getElementById('stars-filter') as HTMLSelectElement | null;
+      if (starsSelect) starsSelect.value = '';
+    }
   }
 
   // Toggle tags dropdown visibility
@@ -357,18 +376,19 @@ function formatCategoryName(category: string): string {
     const productionReadyCheckbox = document.getElementById('production-ready-filter') as HTMLInputElement | null;
     if (productionReadyCheckbox) productionReadyCheckbox.checked = false;
     
-    // Reset status checkboxes - only active checked
-    document.querySelectorAll('[data-status]').forEach((cb) => {
-      const checkbox = cb as HTMLInputElement;
-      const status = cb.getAttribute('data-status');
-      checkbox.checked = status === 'active';
-    });
+    // Reset status dropdown
+    const statusSelect = document.getElementById('status-filter') as HTMLSelectElement | null;
+    if (statusSelect) statusSelect.value = 'all';
     
     // Reset tag checkboxes
     document.querySelectorAll('input[data-tag]').forEach((cb) => {
       const checkbox = cb as HTMLInputElement;
       checkbox.checked = false;
     });
+    
+    // Reset stars filter
+    const starsSelect = document.getElementById('stars-filter') as HTMLSelectElement | null;
+    if (starsSelect) starsSelect.value = '';
     
     updateTagsDropdownLabel();
     emitFilterChange();
@@ -418,10 +438,9 @@ function formatCategoryName(category: string): string {
       document.dispatchEvent(event);
     });
     
-    // Status checkboxes
-    document.querySelectorAll('[data-status]').forEach((cb) => {
-      cb.addEventListener('change', emitFilterChange);
-    });
+    // Status dropdown
+    const statusSelect = document.getElementById('status-filter');
+    statusSelect?.addEventListener('change', emitFilterChange);
     
     // Tags dropdown button
     const tagsDropdownButton = document.getElementById('tags-dropdown-button');
@@ -448,6 +467,10 @@ function formatCategoryName(category: string): string {
       });
     });
     
+    // Stars filter dropdown
+    const starsSelect = document.getElementById('stars-filter');
+    starsSelect?.addEventListener('change', emitFilterChange);
+    
     // Close tags dropdown when clicking outside
     document.addEventListener('click', (e) => {
       const menu = document.getElementById('tags-dropdown-menu');
@@ -473,6 +496,7 @@ function formatCategoryName(category: string): string {
     // Initial state
     updateClearButtonVisibility();
     updateCloudProviderVisibility();
+    updateStarsFilterVisibility();
     updateTagsDropdownLabel();
   }
 
