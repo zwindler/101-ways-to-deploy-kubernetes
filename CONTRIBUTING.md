@@ -113,7 +113,6 @@ If you're unsure about category placement:
 **Environment:**
 - `local` - Runs on local machine/laptop
 - `cloud` - Cloud-based solution
-- `on-premise` - On-premises deployment
 
 **Use Case:**
 - `development` - For development/testing
@@ -149,8 +148,6 @@ If you're unsure about category placement:
 - `gitops` - GitOps workflow support
 
 **Platform-Specific:**
-- `openshift` - OpenShift-based
-- `rancher` - Rancher ecosystem
 - `macos` - macOS support
 - `windows` - Windows support
 
