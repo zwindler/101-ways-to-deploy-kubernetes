@@ -773,7 +773,7 @@ solutions:
     type: article
   tags:
   - multi-tenancy
-  - virtualization
+  - lightweight
   stars: 10900
   production_ready: true
 - name: elemental (ex k3os)
@@ -1421,6 +1421,7 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
+  - automation
   stars: 500
 - name: Kamaji
   category: ManagementPlatform
@@ -1441,6 +1442,7 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
+  - multi-tenancy
   production_ready: true
   stars: 1800
 - name: KubeClipper
@@ -1501,6 +1503,7 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
+  - managed
   production_ready: true
 - name: Palette
   category: ManagementPlatform
@@ -1516,6 +1519,7 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
+  - multi-cloud
   production_ready: true
 - name: Platform9
   category: ManagementPlatform
@@ -1533,6 +1537,7 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
+  - managed
   production_ready: true
 - name: Portainer
   category: ManagementPlatform
@@ -1545,6 +1550,7 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
+  - gui
   production_ready: true
 - name: Rafay
   category: ManagementPlatform
@@ -1605,6 +1611,7 @@ solutions:
   tags:
   - multi-cluster
   - enterprise
+  - multi-cloud
   production_ready: true
 - name: Xen Orchestra
   category: ManagementPlatform
