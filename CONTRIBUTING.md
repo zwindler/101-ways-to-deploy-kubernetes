@@ -113,7 +113,6 @@ If you're unsure about category placement:
 **Environment:**
 - `local` - Runs on local machine/laptop
 - `cloud` - Cloud-based solution
-- `on-premise` - On-premises deployment
 
 **Use Case:**
 - `development` - For development/testing

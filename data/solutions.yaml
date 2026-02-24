@@ -1766,7 +1766,6 @@ solutions:
   open_source: true
   abandoned: true
   tags:
-  - on-premise
   - self-hosted
   - secure
 - name: EKS Anywhere
@@ -1780,8 +1779,8 @@ solutions:
   based_on:
   - EKS
   tags:
-  - on-premise
   - self-hosted
+  - production
   stars: 2100
 - name: Harvester
   category: Selfhosted
@@ -1804,8 +1803,8 @@ solutions:
     url: https://blog.zwindler.fr/2023/01/24/test-rancher-labs-harvester-hci/
     type: article
   tags:
-  - on-premise
   - self-hosted
+  - virtualization
   production_ready: true
   stars: 4900
 - name: Hepto
@@ -1816,9 +1815,9 @@ solutions:
   license: Apache 2.0
   open_source: true
   tags:
-  - on-premise
   - self-hosted
   - lightweight
+  - edge
 - name: Charmed Kubernetes
   category: Selfhosted
   url: https://github.com/charmed-kubernetes
@@ -1829,8 +1828,8 @@ solutions:
   license: Apache 2.0
   open_source: true
   tags:
-  - on-premise
   - self-hosted
+  - automation
 - name: k0s
   category: Selfhosted
   url: https://github.com/k0sproject/k0s
@@ -1847,8 +1846,8 @@ solutions:
     type: book
     description: Chapter 23 (k0s)
   tags:
-  - on-premise
   - self-hosted
+  - lightweight
   production_ready: true
   stars: 5800
 - name: k0smotron
@@ -1870,8 +1869,8 @@ solutions:
     type: book
     description: Chapter 41 (k0smotron)
   tags:
-  - on-premise
   - self-hosted
+  - multi-cluster
   stars: 650
 - name: k3s
   category: Selfhosted
@@ -1894,9 +1893,9 @@ solutions:
     url: https://blog.zwindler.fr/2023/09/01/k3s-et-cilium-rapide-et-facile/
     type: article
   tags:
-  - on-premise
   - self-hosted
   - lightweight
+  - edge
   production_ready: true
   stars: 32200
 - name: k3sup
@@ -1916,8 +1915,8 @@ solutions:
     type: book
     description: Chapter 22 (k3sup)
   tags:
-  - on-premise
   - self-hosted
+  - automation
   stars: 7100
 - name: k8e - Kubernetes easy engine
   category: Selfhosted
@@ -1939,7 +1938,6 @@ solutions:
     url: https://blog.zwindler.fr/en/2025/09/19/i-tested-for-you-k8e-kubernetes-easy-engine/
     type: tutorial
   tags:
-  - on-premise
   - self-hosted
   - beginner-friendly
 - name: K8S The Easy way
@@ -1959,8 +1957,8 @@ solutions:
     url: https://blog.zwindler.fr/en/2025/05/26/i-tested-for-you-k8s-the-easier-way-k8s-tew/
     type: tutorial
   tags:
-  - on-premise
   - self-hosted
+  - beginner-friendly
 - name: Kops
   category: Selfhosted
   url: https://github.com/kubernetes/kops
@@ -1979,7 +1977,6 @@ solutions:
     type: book
     description: Chapter 24 (Kops)
   tags:
-  - on-premise
   - self-hosted
   - production
   production_ready: true
@@ -2013,7 +2010,6 @@ solutions:
     url: https://blog.zwindler.fr/2023/12/17/kubeadmcfg-introduction-api-kubeadm/
     type: article
   tags:
-  - on-premise
   - self-hosted
   - declarative
   production_ready: true
@@ -2029,8 +2025,8 @@ solutions:
   based_on:
   - Kubespray
   tags:
-  - on-premise
   - self-hosted
+  - automation
   stars: 500
 - name: KubeKey
   category: Selfhosted
@@ -2052,7 +2048,6 @@ solutions:
     type: book
     description: Chapter 26 (KubeKey)
   tags:
-  - on-premise
   - self-hosted
   - beginner-friendly
   production_ready: true
@@ -2075,7 +2070,6 @@ solutions:
     type: book
     description: Chapter 28 (KubeMarine)
   tags:
-  - on-premise
   - self-hosted
   - bare-metal
 - name: KubeOne
@@ -2098,8 +2092,8 @@ solutions:
     type: book
     description: Chapter 25 (KubeOne)
   tags:
-  - on-premise
   - self-hosted
+  - automation
   stars: 1500
   production_ready: true
 - name: KubeSolo
@@ -2118,8 +2112,8 @@ solutions:
     url: https://www.virtualizationhowto.com/2025/06/kubesolo-new-kubernetes-edge-distro-by-portainer/
     type: article
   tags:
-  - on-premise
   - self-hosted
+  - edge
 - name: Kurl
   category: Selfhosted
   url: https://github.com/replicatedhq/kurl
@@ -2138,8 +2132,8 @@ solutions:
     type: book
     description: Chapter 27 (Kurl)
   tags:
-  - on-premise
   - self-hosted
+  - automation
   production_ready: true
   stars: 800
 - name: Magnum
@@ -2161,8 +2155,8 @@ solutions:
     type: book
     description: Chapter 31 (Magnum)
   tags:
-  - on-premise
   - self-hosted
+  - automation
 - name: MKE (Mirantis Kubernetes Engine)
   category: Selfhosted
   url: https://docs.mirantis.com/mke4k/latest/
@@ -2175,7 +2169,6 @@ solutions:
   based_on:
   - k0s
   tags:
-  - on-premise
   - self-hosted
   - production
   production_ready: true
@@ -2188,7 +2181,6 @@ solutions:
   license: Proprietary
   open_source: false
   tags:
-  - on-premise
   - self-hosted
   - enterprise
 - name: OKD (open source openshift)
@@ -2207,7 +2199,6 @@ solutions:
     type: book
     description: Chapter 30 (OKD)
   tags:
-  - on-premise
   - self-hosted
   - production
   production_ready: true
@@ -2231,8 +2222,8 @@ solutions:
     type: book
     description: Chapter 29 (OneKE)
   tags:
-  - on-premise
   - self-hosted
+  - automation
 - name: Red Hat Build of Microshift
   category: Selfhosted
   url: https://github.com/openshift/microshift
@@ -2244,9 +2235,9 @@ solutions:
   based_on:
   - Openshift / OKD
   tags:
-  - on-premise
   - self-hosted
   - lightweight
+  - edge
   stars: 800
 - name: RKE2
   category: Selfhosted
@@ -2271,7 +2262,6 @@ solutions:
     url: https://christalks.dev/post/installing-kubernetes-rancher-with-rke2-helm-and-cert-manager-6e2e39c5
     type: article
   tags:
-  - on-premise
   - self-hosted
   - secure
   production_ready: true
@@ -2285,7 +2275,6 @@ solutions:
   license: BSD 3-Clause
   open_source: true
   tags:
-  - on-premise
   - self-hosted
   - secure
 - name: TALM
@@ -2299,7 +2288,6 @@ solutions:
   based_on:
   - Talos Linux
   tags:
-  - on-premise
   - self-hosted
   - automation
 - name: tarook
@@ -2312,5 +2300,5 @@ solutions:
   based_on:
   - Terraform / Opentofu
   tags:
-  - on-premise
   - self-hosted
+  - infrastructure-as-code
