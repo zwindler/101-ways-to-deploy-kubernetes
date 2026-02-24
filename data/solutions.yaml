@@ -111,6 +111,7 @@ solutions:
   - local
   - development
   - virtualization
+  - gui
 - name: k3d
   category: Desktop
   url: https://github.com/k3d-io/k3d
@@ -344,6 +345,7 @@ solutions:
   - local
   - development
   - macos
+  - gui
 - name: Podman Desktop
   category: Desktop
   url: https://github.com/podman-desktop/podman-desktop
@@ -365,6 +367,7 @@ solutions:
   - local
   - development
   - container-based
+  - gui
   stars: 7300
 - name: Rancher Desktop
   category: Desktop
