@@ -39,7 +39,7 @@ function formatCategoryName(category: string): string {
 
   <!-- Filter content (collapsible on mobile) -->
   <div id="filter-content" class="hidden md:block">
-    <!-- Category filters -->
+    <!-- Category filters row (with Tags dropdown right-aligned) -->
     <div class="flex flex-wrap items-center gap-2 mb-3">
       <span class="text-sm font-medium text-gray-700 dark:text-gray-300 mr-1">Categories:</span>
       <button class="filter-pill active" data-category="all">All</button>
@@ -50,6 +50,49 @@ function formatCategoryName(category: string): string {
           </button>
         ))
       }
+
+      <!-- Tags dropdown (right-aligned in the categories row) -->
+      <div class="relative ml-auto">
+        <button
+          id="tags-dropdown-button"
+          type="button"
+          class="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors flex items-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-600"
+        >
+          <span id="tags-dropdown-label">Tags</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div
+          id="tags-dropdown-menu"
+          class="hidden absolute top-full right-0 mt-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-20 max-h-64 overflow-hidden min-w-[200px]"
+        >
+          <!-- Search input -->
+          <div class="p-2 border-b border-gray-300 dark:border-gray-600">
+            <input
+              type="text"
+              id="tags-search-input"
+              placeholder="Search tags..."
+              class="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+          <!-- Tags list -->
+          <div id="tags-list" class="p-2 space-y-1 max-h-48 overflow-y-auto">
+            {
+              tags.map((tag) => (
+                <label class="tag-option flex items-center gap-2 px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-600 rounded cursor-pointer text-sm" data-tag-label={tag.toLowerCase()}>
+                  <input
+                    type="checkbox"
+                    data-tag={tag}
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                  <span class="text-gray-700 dark:text-gray-300">{tag}</span>
+                </label>
+              ))
+            }
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Secondary filters row -->
@@ -69,16 +112,6 @@ function formatCategoryName(category: string): string {
       </select>
     </div>
 
-    <!-- Production ready toggle -->
-    <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
-      <input
-        type="checkbox"
-        id="production-ready-filter"
-        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-      />
-      <span>Production Ready only</span>
-    </label>
-
     <!-- Detailed view toggle -->
     <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
       <input
@@ -87,6 +120,16 @@ function formatCategoryName(category: string): string {
         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
       />
       <span>Detailed view</span>
+    </label>
+
+    <!-- Production ready toggle -->
+    <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-700 dark:text-gray-300">
+      <input
+        type="checkbox"
+        id="production-ready-filter"
+        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+      />
+      <span>Production Ready only</span>
     </label>
 
     <!-- Status checkboxes -->
@@ -109,49 +152,6 @@ function formatCategoryName(category: string): string {
         />
         <span>Abandoned</span>
       </label>
-    </div>
-
-    <!-- Tags dropdown -->
-    <div class="relative">
-      <button
-        id="tags-dropdown-button"
-        type="button"
-        class="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors flex items-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-600"
-      >
-        <span id="tags-dropdown-label">Tags</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      <div
-        id="tags-dropdown-menu"
-        class="hidden absolute top-full left-0 mt-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-20 max-h-64 overflow-hidden min-w-[200px]"
-      >
-        <!-- Search input -->
-        <div class="p-2 border-b border-gray-300 dark:border-gray-600">
-          <input
-            type="text"
-            id="tags-search-input"
-            placeholder="Search tags..."
-            class="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          />
-        </div>
-        <!-- Tags list -->
-        <div id="tags-list" class="p-2 space-y-1 max-h-48 overflow-y-auto">
-          {
-            tags.map((tag) => (
-              <label class="tag-option flex items-center gap-2 px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-600 rounded cursor-pointer text-sm" data-tag-label={tag.toLowerCase()}>
-                <input
-                  type="checkbox"
-                  data-tag={tag}
-                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <span class="text-gray-700 dark:text-gray-300">{tag}</span>
-              </label>
-            ))
-          }
-        </div>
-      </div>
     </div>
 
     <!-- Open source toggle (placed at the end so stars filter appears without shifting elements) -->
