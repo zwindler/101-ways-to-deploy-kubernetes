@@ -107,7 +107,7 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     cloudProvider: '',
     openSourceOnly: false,
     productionReadyOnly: false,
-    statuses: ['active'],
+    status: 'all',
     tags: [] as string[],
     minStars: 0
   };
@@ -153,10 +153,10 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
       }
 
       // Status filter
-      if (visible && currentFilters.statuses.length > 0) {
+      if (visible && currentFilters.status !== 'all') {
         const isAbandoned = el.dataset.abandoned === 'true';
         const itemStatus = isAbandoned ? 'abandoned' : 'active';
-        visible = currentFilters.statuses.includes(itemStatus);
+        visible = itemStatus === currentFilters.status;
       }
 
       // Tags filter
@@ -231,7 +231,7 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
       cloudProvider: '',
       openSourceOnly: false,
       productionReadyOnly: false,
-      statuses: ['active'],
+      status: 'all',
       tags: [],
       minStars: 0
     };
