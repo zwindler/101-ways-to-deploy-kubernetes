@@ -2310,3 +2310,18 @@ solutions:
   tags:
   - self-hosted
   - infrastructure-as-code
+- name: kubeaver
+  category: Selfhosted
+  url: https://github.com/eb-k8s/kubeaver
+  icon_url: https://avatars.githubusercontent.com/eb-k8s?s=200&v=4
+  publisher: eb-k8s
+  description: Offline Kubernetes cluster deployment tool with a graphical user interface, based on Kubespray and Ansible
+  license: Apache 2.0
+  open_source: true
+  based_on:
+  - Kubespray
+  tags:
+  - self-hosted
+  - gui
+  - high-availability
+  production_ready: true
