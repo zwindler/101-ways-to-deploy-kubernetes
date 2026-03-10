@@ -1764,6 +1764,21 @@ solutions:
   tags:
   - learning
   - educational
+- name: boot-to-talos
+  category: Selfhosted
+  url: https://github.com/cozystack/boot-to-talos
+  icon_url: https://avatars.githubusercontent.com/u/202342215?s=200&v=4
+  publisher: Cozystack
+  description: Converts any existing OS to Talos Linux completely from userspace,
+    without external dependencies except the Talos installer image
+  license: Apache 2.0
+  open_source: true
+  based_on:
+  - Talos Linux
+  tags:
+  - self-hosted
+  - bare-metal
+  - automation
 - name: Constellation
   category: Selfhosted
   url: https://github.com/edgelesssys/constellation
