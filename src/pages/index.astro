@@ -4,13 +4,14 @@ import SearchBar from '../components/SearchBar.astro';
 import FilterBar from '../components/FilterBar.astro';
 import SolutionCard from '../components/SolutionCard.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import type { Solution } from '../types';
 import yaml from 'js-yaml';
 import fs from 'fs';
 import path from 'path';
 
 // Load solutions data
 const solutionsFile = fs.readFileSync(path.join(process.cwd(), 'data/solutions.yaml'), 'utf8');
-const data = yaml.load(solutionsFile) as { solutions: any[] };
+const data = yaml.load(solutionsFile) as { solutions: Solution[] };
 const solutions = data.solutions;
 
 // Extract unique categories, cloud providers, and tags for filters
@@ -309,15 +310,15 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
 </script>
 
 <script>
-  // Staggered fade-in animation for solution cards on page load
+  // Staggered fade-in animation for solution cards on page load (Issue #24: avoids forced reflow)
   document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.solution-item');
-    cards.forEach((card, index) => {
-      const el = card as HTMLElement;
-      // Only animate first 15 cards for better performance with large lists
-      if (index < 15) {
-        el.style.opacity = '0';
-        el.style.animation = `fadeInUp 0.5s ease-out ${index * 50}ms forwards`;
+    // Batch all DOM writes in a single rAF to avoid layout thrashing
+    requestAnimationFrame(() => {
+      const limit = Math.min(cards.length, 15);
+      for (let i = 0; i < limit; i++) {
+        const el = cards[i] as HTMLElement;
+        el.style.cssText = `opacity:0;animation:fadeInUp 0.5s ease-out ${i * 50}ms forwards`;
       }
     });
   });
@@ -410,8 +411,7 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     if (s.icon_url) {
       logoHtml = `
         <div class="w-32 h-32 rounded-lg flex items-center justify-center flex-shrink-0 ${e(s.iconBgClasses)}" data-fallback-letter="${e(s.firstLetter)}">
-          <img src="${e(s.icon_url)}" alt="${e(s.name)} logo" class="w-full h-full object-contain" referrerpolicy="no-referrer"
-            onerror="this.style.display='none'; var c=this.parentElement; c.classList.remove('bg-white','dark:bg-gray-700'); c.classList.add('bg-gradient-to-br','from-blue-500','to-blue-600','dark:from-blue-600','dark:to-blue-700'); var sp=document.createElement('span'); sp.className='text-white font-bold text-5xl'; sp.textContent=c.getAttribute('data-fallback-letter'); c.appendChild(sp);" />
+          <img src="${e(s.icon_url)}" alt="${e(s.name)} logo" class="icon-img w-full h-full object-contain" width="128" height="128" decoding="async" referrerpolicy="no-referrer" />
         </div>`;
     } else {
       logoHtml = `
@@ -531,6 +531,7 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
   let activeModalContent: HTMLElement | null = null;
   let triggerCard: HTMLElement | null = null;
   let savedBodyOverflow = '';
+  let focusTrapHandler: ((e: KeyboardEvent) => void) | null = null;
 
   function openModal(cardId: string, card: HTMLElement) {
     const data = getSolutionData(cardId);
@@ -577,10 +578,39 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     // Focus close button
     const closeBtn = overlay.querySelector<HTMLButtonElement>('.modal-close');
     closeBtn?.focus();
+
+    // Set up focus trap (Issue #14)
+    focusTrapHandler = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab' || !activeModalContent) return;
+      const focusable = activeModalContent.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', focusTrapHandler);
   }
 
   function closeModal() {
     if (!activeModal || !activeModalContent) return;
+
+    // Remove focus trap
+    if (focusTrapHandler) {
+      document.removeEventListener('keydown', focusTrapHandler);
+      focusTrapHandler = null;
+    }
 
     activeModalContent.classList.remove('scale-100', 'opacity-100');
     activeModalContent.classList.add('scale-95', 'opacity-0');
@@ -622,10 +652,41 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     }
   });
 
+  // ---- Keyboard support for cards (Issue #13) ----
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const target = e.target as HTMLElement;
+    const card = target.closest<HTMLElement>('.solution-card-wrapper');
+    if (card) {
+      e.preventDefault(); // Prevent scroll on Space
+      const cardId = card.dataset.cardId;
+      if (cardId) openModal(cardId, card);
+    }
+  });
+
   // ---- Escape key ----
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && activeModal) {
       closeModal();
     }
   });
+
+  // ---- Icon image error fallback (Issue #3) ----
+  // Delegated handler replaces inline onerror attributes on <img> elements.
+  // Uses capture phase so the error is caught before it bubbles.
+  document.addEventListener('error', (e) => {
+    const img = e.target as HTMLElement;
+    if (!(img instanceof HTMLImageElement) || !img.classList.contains('icon-img')) return;
+    img.style.display = 'none';
+    const container = img.parentElement;
+    if (!container) return;
+    container.classList.remove('bg-white', 'dark:bg-gray-700');
+    container.classList.add('bg-gradient-to-br', 'from-blue-500', 'to-blue-600', 'dark:from-blue-600', 'dark:to-blue-700');
+    const span = document.createElement('span');
+    // Card icons use text-3xl, modal icons use text-5xl
+    const isModal = container.closest('.modal-content');
+    span.className = `text-white font-bold ${isModal ? 'text-5xl' : 'text-3xl'}`;
+    span.textContent = container.getAttribute('data-fallback-letter');
+    container.appendChild(span);
+  }, true);
 </script>

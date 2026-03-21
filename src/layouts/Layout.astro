@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { title, description = "A comprehensive list of ways to deploy Kubernetes" } = Astro.props;
+const siteUrl = 'https://zwindler.github.io/101-ways-to-deploy-kubernetes/';
 ---
 
 <!doctype html>
@@ -15,13 +16,17 @@ const { title, description = "A comprehensive list of ways to deploy Kubernetes"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={`${siteUrl}favicon.svg`} />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="f3f6ab95-2024-43a1-83f3-2d9df66996c8"></script>
     <!-- Prevent flash of wrong theme -->

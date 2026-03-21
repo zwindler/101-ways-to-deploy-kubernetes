@@ -2,56 +2,57 @@
 
 **Date:** 2026-03-11
 **Scope:** Code quality, performance, SEO, accessibility, UX, and build/DX review (content excluded)
+**Last updated:** 2026-03-21
 
 ---
 
 ## Code Quality & Architecture
 
-### 1. Dead/duplicate demo page
+### 1. ~~Dead/duplicate demo page~~ DONE
 
 **File:** `src/pages/demo.astro`
 
-The demo page is a leftover development page with its own parallel filtering logic, hardcoded categories, and a `<script id="solutions-data">` approach that duplicates the main page's architecture differently. It gets deployed to production as `/demo`.
+~~The demo page is a leftover development page with its own parallel filtering logic, hardcoded categories, and a `<script id="solutions-data">` approach that duplicates the main page's architecture differently. It gets deployed to production as `/demo`.~~
 
-**Recommendation:** Remove it or exclude it from builds.
-
----
-
-### 2. Duplicated inline `<script>` per card (major)
-
-**File:** `src/components/SolutionCard.astro:706`
-
-The component uses `define:vars` to inject a unique `cardId` per card, meaning the entire modal init script (~115 lines) is **duplicated inline for every single solution** (~100+ times in the output HTML). With 100+ solutions, that's ~11,500 lines of near-identical JS in the HTML.
-
-**Recommendation:** Use a single delegated event listener on the document that reads `data-card-id` from the clicked element.
+**Resolved:** Removed `src/pages/demo.astro` entirely. Build now produces a single page (`/index.html`) instead of two.
 
 ---
 
-### 3. Inline `onerror` handlers in `<img>` tags
+### 2. ~~Duplicated inline `<script>` per card (major)~~ DONE
 
-**File:** `src/components/SolutionCard.astro:179`, `src/components/SolutionCard.astro:470`
+**File:** `src/components/SolutionCard.astro`
 
-Large JS strings are embedded in `onerror` attributes. This is fragile, hard to maintain, and could conflict with Content Security Policy (CSP).
+~~The component uses `define:vars` to inject a unique `cardId` per card, meaning the entire modal init script (~115 lines) is **duplicated inline for every single solution** (~100+ times in the output HTML). With 100+ solutions, that's ~11,500 lines of near-identical JS in the HTML.~~
 
-**Recommendation:** Move the fallback logic to a shared JS function.
+**Resolved:** Replaced the per-card `<script define:vars>` with a single delegated event listener in `index.astro` that reads `data-card-id` from the clicked element. Solution data is stored as lightweight `<script type="application/json">` blocks per card. The ~115-line modal init script is now a single shared module.
 
 ---
 
-### 4. Typed data loading
+### 3. ~~Inline `onerror` handlers in `<img>` tags~~ DONE
+
+**File:** `src/components/SolutionCard.astro:179`
+
+~~Large JS strings are embedded in `onerror` attributes. This is fragile, hard to maintain, and could conflict with Content Security Policy (CSP).~~
+
+**Resolved:** Removed all inline `onerror` attributes from `<img>` tags in both the card template and modal builder. Replaced with a single delegated `error` event listener (capture phase) in `index.astro` that detects `img.icon-img` elements and applies the letter-fallback. CSP-compatible and centrally maintainable.
+
+---
+
+### 4. ~~Typed data loading~~ DONE
 
 **File:** `src/pages/index.astro:13`
 
-The YAML data is cast as `{ solutions: any[] }`. A Props interface in `SolutionCard.astro` already defines the shape.
+~~The YAML data is cast as `{ solutions: any[] }`. A Props interface in `SolutionCard.astro` already defines the shape.~~
 
-**Recommendation:** Extract a shared `Solution` type in a `src/types.ts` file and use it everywhere instead of `any[]`.
+**Resolved:** Created `src/types.ts` with shared `Solution` and `Reference` interfaces. `index.astro` now uses `Solution[]` instead of `any[]`. `SolutionCard.astro` imports from the shared type file instead of defining its own inline interface.
 
 ---
 
 ### 5. `fs.readFileSync` for data loading
 
-**Files:** `src/pages/index.astro`, `src/pages/demo.astro`
+**Files:** `src/pages/index.astro`
 
-Both pages use `fs.readFileSync` + `js-yaml` to load data at build time. Astro supports content collections and Vite plugins for importing YAML directly.
+The page uses `fs.readFileSync` + `js-yaml` to load data at build time. Astro supports content collections and Vite plugins for importing YAML directly.
 
 **Recommendation:** Use Astro content collections or a Vite YAML plugin for cleaner, type-safe data loading.
 
@@ -59,23 +60,23 @@ Both pages use `fs.readFileSync` + `js-yaml` to load data at build time. Astro s
 
 ## Performance
 
-### 6. All 100+ modals rendered in HTML
+### 6. ~~All 100+ modals rendered in HTML~~ DONE
 
-**File:** `src/components/SolutionCard.astro:446-704`
+**File:** `src/components/SolutionCard.astro`
 
-Each `SolutionCard` renders a full modal (`<div id="modal-...">`) in the initial HTML, even though 99% will never be opened. This results in a massive DOM size for a static page.
+~~Each `SolutionCard` renders a full modal (`<div id="modal-...">`) in the initial HTML, even though 99% will never be opened. This results in a massive DOM size for a static page.~~
 
-**Recommendation:** Render modals lazily -- create the DOM on click from a `<template>` element or from data attributes.
+**Resolved:** Modals are now rendered lazily on click. The modal HTML is built client-side from JSON data stored in `<script type="application/json">` blocks. A singleton overlay element is reused across all cards. Zero modal DOM nodes exist on initial page load.
 
 ---
 
-### 7. External images with no fallback dimensions
+### 7. ~~External images with no fallback dimensions~~ DONE
 
-**File:** `src/components/SolutionCard.astro:174`, `src/components/SolutionCard.astro:465`
+**File:** `src/components/SolutionCard.astro:174`
 
-Every card loads an `icon_url` from random external domains (GitHub avatars, CDNs, etc.) with no `width`/`height` attributes. This causes layout shifts (CLS) and provides no size hints for the browser.
+~~Every card loads an `icon_url` from random external domains (GitHub avatars, CDNs, etc.) with no `width`/`height` attributes. This causes layout shifts (CLS) and provides no size hints for the browser.~~
 
-**Recommendation:** Add explicit `width`/`height` attributes or use `aspect-ratio` in CSS.
+**Resolved:** Added explicit `width="80" height="80"` (card) and `width="128" height="128"` (modal) attributes to all icon `<img>` tags. Also added `decoding="async"` alongside the existing `loading="lazy"` for better rendering performance.
 
 ---
 
@@ -89,77 +90,77 @@ External images are loaded as-is (many are large PNGs/SVGs). There is no resizin
 
 ---
 
-### 9. Google Fonts loaded synchronously
+### 9. ~~Google Fonts loaded synchronously~~ DONE
 
-**File:** `src/layouts/Layout.astro:24`
+**File:** `src/layouts/Layout.astro`
 
-Inter is loaded from Google Fonts via a render-blocking `<link>`. While `display=swap` is used in the URL, the CSS file itself is still render-blocking.
+~~Inter is loaded from Google Fonts via a render-blocking `<link>`. While `display=swap` is used in the URL, the CSS file itself is still render-blocking.~~
 
-**Recommendation:** Self-host the font or use `<link rel="preload" as="style">` to avoid the render-blocking chain.
+**Resolved:** Google Fonts dependency removed. Inter is now self-hosted under `public/fonts/` with a local `@font-face` declaration using `font-display: swap`. This eliminates the render-blocking CSS request to `fonts.googleapis.com` and the subsequent font download from `fonts.gstatic.com`, removing a 3-hop critical request chain (750ms+ savings per PageSpeed Insights).
 
 ---
 
 ## SEO & Accessibility
 
-### 10. Favicon path ignores `base`
+### 10. ~~Favicon path ignores `base`~~ DONE
 
 **File:** `src/layouts/Layout.astro:21`
 
-The favicon is hardcoded as `href="/favicon.svg"` but the site is deployed under `/101-ways-to-deploy-kubernetes/`. This means the favicon won't load in production.
+~~The favicon is hardcoded as `href="/favicon.svg"` but the site is deployed under `/101-ways-to-deploy-kubernetes/`. This means the favicon won't load in production.~~
 
-**Recommendation:** Use `import.meta.env.BASE_URL` or a relative path.
+**Resolved:** Changed to use `import.meta.env.BASE_URL` prefix so the favicon resolves correctly under any base path.
 
 ---
 
-### 11. Missing `og:image` and `og:url` meta tags
+### 11. ~~Missing `og:image` and `og:url` meta tags~~ DONE
 
 **File:** `src/layouts/Layout.astro`
 
-The layout has `og:title` and `og:description` but no `og:image` or `og:url`, which are important for social media previews (Twitter, LinkedIn, Slack, etc.).
+~~The layout has `og:title` and `og:description` but no `og:image` or `og:url`, which are important for social media previews (Twitter, LinkedIn, Slack, etc.).~~
 
-**Recommendation:** Add `og:image` (with a preview screenshot or banner) and `og:url` meta tags.
+**Resolved:** Added `og:url` and `og:image` meta tags to `Layout.astro`. The site URL is derived from the known GitHub Pages deployment URL. Note: `og:image` currently points to the SVG favicon; for richer social previews, a dedicated PNG/JPG banner image could be added later.
 
 ---
 
-### 12. Missing `twitter:card` meta tags
+### 12. ~~Missing `twitter:card` meta tags~~ DONE
 
 **File:** `src/layouts/Layout.astro`
 
-No Twitter Card metadata is present.
+~~No Twitter Card metadata is present.~~
 
-**Recommendation:** Add `twitter:card`, `twitter:title`, and `twitter:description` meta tags.
+**Resolved:** Added `twitter:card` (summary), `twitter:title`, and `twitter:description` meta tags to `Layout.astro`.
 
 ---
 
-### 13. Cards are clickable divs, not semantic elements
+### 13. ~~Cards are clickable divs, not semantic elements~~ DONE
 
 **File:** `src/components/SolutionCard.astro:162`
 
-The card has `cursor-pointer` on a `<div>` but uses JS click handlers for modal opening. Screen readers won't announce these as interactive elements.
+~~The card has `cursor-pointer` on a `<div>` but uses JS click handlers for modal opening. Screen readers won't announce these as interactive elements.~~
 
-**Recommendation:** Add `role="button"` and `tabindex="0"` at minimum. Also handle `keydown` for Enter and Space keys. Alternatively, wrap cards in a `<button>` or `<a>` element.
+**Resolved:** Added `role="button"`, `tabindex="0"`, and `aria-label` to each card wrapper div. Added a delegated `keydown` handler in `index.astro` that opens the modal on Enter or Space key press. Cards are now fully keyboard-navigable and screen-reader-accessible.
 
 ---
 
-### 14. Modal focus trap missing
+### 14. ~~Modal focus trap missing~~ DONE
 
-**File:** `src/components/SolutionCard.astro:764`
+**File:** `src/pages/index.astro` (modal manager script)
 
-When a modal opens, focus moves to the close button, but there is no focus trap. Users can tab out of the modal into the page behind it.
+~~When a modal opens, focus moves to the close button, but there is no focus trap. Users can tab out of the modal into the page behind it.~~
 
-**Recommendation:** Implement a focus trap so keyboard users remain within the modal while it's open.
+**Resolved:** Implemented a focus trap in the modal manager. When a modal opens, a `keydown` listener traps Tab/Shift+Tab within the modal's focusable elements (links, buttons, inputs). The trap is removed when the modal closes. Keyboard users can no longer accidentally tab into the page behind the modal.
 
 ---
 
 ## UX & Functionality
 
-### 15. No URL-based filter state
+### 15. ~~No URL-based filter state~~ DONE
 
-**File:** `src/pages/index.astro:103-113`
+**File:** `src/pages/index.astro`
 
-Filters and search are entirely in JS memory. Refreshing the page or sharing a link loses the filter state.
+~~Filters and search are entirely in JS memory. Refreshing the page or sharing a link loses the filter state.~~
 
-**Recommendation:** Encode filters in URL query parameters (e.g., `?category=Desktop&oss=true&q=k3s`) so users can bookmark and share filtered views.
+**Resolved:** Filters and search are now serialized to URL query parameters (e.g., `?q=k3s&category=Desktop&oss=1`). URL is updated via `history.replaceState` on every change. On page load, state is restored from URL params via a `filters-restore` event that syncs SearchBar and FilterBar UI. Users can now bookmark and share filtered views.
 
 ---
 
@@ -241,25 +242,39 @@ The build script is `"build": "astro check && astro build"`. Running type checki
 
 ---
 
+## PageSpeed Insights (2026-03-21)
+
+### 24. ~~Forced layout reflow (44ms)~~ DONE
+
+**Source:** PageSpeed "Avoid forced reflow" audit
+
+~~JavaScript is reading geometric properties (e.g., `offsetWidth`, `scrollHeight`) after DOM mutations, causing a synchronous layout recalculation. PageSpeed attributes 44ms to "[non attributed]" forced reflow.~~
+
+**Resolved:** Refactored the staggered card animation to batch all DOM writes inside a single `requestAnimationFrame` callback and use `style.cssText` for atomic property assignment. This eliminates the per-card read-write interleaving that caused layout thrashing.
+
+---
+
 ## Priority Summary
 
-| Priority | # | Issue | Impact |
-|----------|---|-------|--------|
-| **High** | 2 | Inline script per card (~100x duplication) | Page size, parse time |
-| **High** | 6 | All modals in DOM at load | DOM size, memory |
-| **High** | 15 | No URL-based filter state | UX, shareability |
-| **High** | 10 | Favicon path ignores `base` | Broken in production |
-| **Medium** | 1 | Remove/exclude demo page | Clean deployment |
-| **Medium** | 4 | Extract shared types, stop using `any` | Maintainability |
-| **Medium** | 20 | Add YAML validation to CI | Data quality |
-| **Medium** | 13-14 | Accessibility (card roles, focus trap) | A11y compliance |
-| **Medium** | 3 | Inline `onerror` handlers | Maintainability, CSP |
-| **Medium** | 7 | Images missing dimensions | CLS / performance |
-| **Medium** | 11-12 | Missing OG/Twitter meta tags | Social sharing |
-| **Low** | 16 | Add sort options | UX polish |
-| **Low** | 17 | Show category counts in filter pills | UX polish |
-| **Low** | 19 | Highlight search matches | UX polish |
-| **Low** | 21 | Add linting/formatting | DX for contributors |
-| **Low** | 5 | Use content collections for data | DX, type safety |
-| **Low** | 8-9 | Image optimization, font loading | Performance polish |
-| **Low** | 22-23 | Dependency audit, split build/check | DX, build speed |
+| Priority | # | Issue | Status | Impact |
+|----------|---|-------|--------|--------|
+| **High** | 2 | Inline script per card (~100x duplication) | DONE | Page size, parse time |
+| **High** | 6 | All modals in DOM at load | DONE | DOM size, memory |
+| **High** | 15 | No URL-based filter state | DONE | UX, shareability |
+| **High** | 10 | Favicon path ignores `base` | DONE | Broken in production |
+| **High** | 9 | Google Fonts render-blocking (750ms) | DONE | LCP, critical chain |
+| **Medium** | 1 | Remove/exclude demo page | DONE | Clean deployment |
+| **Medium** | 4 | Extract shared types, stop using `any` | DONE | Maintainability |
+| **Medium** | 3 | Inline `onerror` handlers | DONE | Maintainability, CSP |
+| **Medium** | 7 | Images missing dimensions | DONE | CLS / performance |
+| **Medium** | 13-14 | Accessibility (card roles, focus trap) | DONE | A11y compliance |
+| **Medium** | 11-12 | Missing OG/Twitter meta tags | DONE | Social sharing |
+| **Medium** | 24 | Forced layout reflow (44ms) | DONE | Runtime performance |
+| **Medium** | 20 | Add YAML validation to CI | - | Data quality |
+| **Low** | 16 | Add sort options | - | UX polish |
+| **Low** | 17 | Show category counts in filter pills | - | UX polish |
+| **Low** | 19 | Highlight search matches | - | UX polish |
+| **Low** | 21 | Add linting/formatting | - | DX for contributors |
+| **Low** | 5 | Use content collections for data | - | DX, type safety |
+| **Low** | 8 | Image optimization | - | Performance polish |
+| **Low** | 22-23 | Dependency audit, split build/check | - | DX, build speed |

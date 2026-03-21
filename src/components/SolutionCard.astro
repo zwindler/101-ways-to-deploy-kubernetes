@@ -1,31 +1,9 @@
 ---
 // SolutionCard.astro - A reusable component to display Kubernetes deployment solutions
+import type { Solution, Reference } from '../types';
 
 interface Props {
-  solution: {
-    name: string;
-    category: string;
-    url: string;
-    icon_url?: string;
-    icon_background_color?: 'light' | 'dark';
-    publisher?: string;
-    description?: string;
-    license?: string;
-    open_source?: boolean;
-    based_on?: string[];
-    tags?: string[];
-    cloud_providers?: string[];
-    abandoned?: boolean;
-    production_ready?: boolean;
-    stars?: number;
-    references?: {
-      title: string;
-      description?: string;
-      language: string;
-      url: string;
-      type: string;
-    }[];
-  };
+  solution: Solution;
 }
 
 const { solution } = Astro.props;
@@ -93,6 +71,9 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
 <div
   class="solution-card-wrapper hover-lift bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer"
   data-card-id={cardId}
+  role="button"
+  tabindex="0"
+  aria-label={`View details for ${solution.name}`}
 >
   <!-- Header Section -->
   <div class="p-6 flex items-start gap-4 relative">
@@ -105,10 +86,12 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
         <img 
           src={solution.icon_url} 
           alt={`${solution.name} logo`}
-          class="w-full h-full object-contain"
+          class="icon-img w-full h-full object-contain"
+          width="80"
+          height="80"
           loading="lazy"
+          decoding="async"
           referrerpolicy="no-referrer"
-          onerror={`this.style.display='none'; const container = this.parentElement; container.classList.remove('bg-white', 'dark:bg-gray-700'); container.classList.add('bg-gradient-to-br', 'from-blue-500', 'to-blue-600', 'dark:from-blue-600', 'dark:to-blue-700'); const span = document.createElement('span'); span.className = 'text-white font-bold text-3xl'; span.textContent = container.getAttribute('data-fallback-letter'); container.appendChild(span);`}
         />
       </div>
     ) : (
@@ -397,7 +380,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
     abandoned: solution.abandoned || false,
     production_ready: solution.production_ready || false,
     stars: solution.stars || null,
-    references: (solution.references || []).map((ref: { title: string; description?: string; language: string; url: string; type: string }) => ({
+    references: (solution.references || []).map((ref: Reference) => ({
       title: ref.title,
       description: ref.description || null,
       language: ref.language,
