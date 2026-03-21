@@ -48,18 +48,18 @@ jobs:
             const prNumber = context.issue.number;
             const previewUrl = `https://zwindler.github.io/101-ways-to-deploy-kubernetes/pr-${prNumber}/`;
             const commentBody = `## 🚀 Preview Deployment\n\nYour preview deployment is ready!\n\n**Preview URL:** ${previewUrl}\n\n---\n*This preview will be automatically updated when you push new commits.*`;
-            
+
             // Find existing preview comment
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: prNumber,
             });
-            
+
             const existingComment = comments.find(comment => 
               comment.user.type === 'Bot' && comment.body.includes('Preview Deployment')
             );
-            
+
             if (existingComment) {
               // Update existing comment
               await github.rest.issues.updateComment({
@@ -106,7 +106,7 @@ jobs:
           script: |
             const prNumber = context.issue.number;
             const commentBody = `## 🧹 Preview Cleanup\n\nThe preview deployment for this PR has been removed.`;
-            
+
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,

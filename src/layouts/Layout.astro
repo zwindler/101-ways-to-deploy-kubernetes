@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "A comprehensive list of ways to deploy Kubernetes" } = Astro.props;
+const { title, description = 'A comprehensive list of ways to deploy Kubernetes' } = Astro.props;
 const siteUrl = 'https://zwindler.github.io/101-ways-to-deploy-kubernetes/';
 ---
 
@@ -28,10 +28,14 @@ const siteUrl = 'https://zwindler.github.io/101-ways-to-deploy-kubernetes/';
     <meta name="twitter:description" content={description} />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     <title>{title}</title>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="f3f6ab95-2024-43a1-83f3-2d9df66996c8"></script>
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="f3f6ab95-2024-43a1-83f3-2d9df66996c8"></script>
     <!-- Prevent flash of wrong theme -->
     <script is:inline>
-      const theme = localStorage.getItem('theme') || 
+      const theme =
+        localStorage.getItem('theme') ||
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');

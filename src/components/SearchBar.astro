@@ -5,7 +5,7 @@ interface Props {
   placeholder?: string;
 }
 
-const { placeholder = "Search solutions..." } = Astro.props;
+const { placeholder = 'Search solutions...' } = Astro.props;
 ---
 
 <div class="search-container w-full max-w-2xl mx-auto mb-6">
@@ -13,10 +13,14 @@ const { placeholder = "Search solutions..." } = Astro.props;
     <!-- Search icon -->
     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
       <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
       </svg>
     </div>
-    
+
     <!-- Input -->
     <input
       type="text"
@@ -26,7 +30,7 @@ const { placeholder = "Search solutions..." } = Astro.props;
       aria-label="Search solutions"
       class="search-input w-full pl-12 pr-12 py-3 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-shadow"
     />
-    
+
     <!-- Clear button -->
     <button
       id="search-clear"
@@ -34,7 +38,11 @@ const { placeholder = "Search solutions..." } = Astro.props;
       aria-label="Clear search"
     >
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
   </div>
@@ -43,48 +51,52 @@ const { placeholder = "Search solutions..." } = Astro.props;
 <script>
   const searchInput = document.getElementById('search-input') as HTMLInputElement;
   const clearButton = document.getElementById('search-clear');
-  
+
   let debounceTimer: ReturnType<typeof setTimeout>;
-  
+
   searchInput?.addEventListener('input', (e) => {
     const query = (e.target as HTMLInputElement).value.trim().toLowerCase();
-    
+
     // Show/hide clear button
     if (clearButton) {
       clearButton.classList.toggle('hidden', query.length === 0);
     }
-    
+
     // Debounce the search
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       // Dispatch custom event with search query
-      window.dispatchEvent(new CustomEvent('search-change', {
-        detail: { query }
-      }));
+      window.dispatchEvent(
+        new CustomEvent('search-change', {
+          detail: { query },
+        }),
+      );
     }, 150);
   });
-  
+
   clearButton?.addEventListener('click', () => {
     if (searchInput) {
       searchInput.value = '';
       searchInput.focus();
       clearButton.classList.add('hidden');
-      window.dispatchEvent(new CustomEvent('search-change', {
-        detail: { query: '' }
-      }));
+      window.dispatchEvent(
+        new CustomEvent('search-change', {
+          detail: { query: '' },
+        }),
+      );
     }
   });
-  
+
   // Keyboard shortcut: "/" to focus search
   document.addEventListener('keydown', (e) => {
     const activeElement = document.activeElement;
-    const isInputFocused = activeElement && (
-      activeElement.tagName === 'INPUT' ||
-      activeElement.tagName === 'TEXTAREA' ||
-      activeElement.tagName === 'SELECT' ||
-      (activeElement as HTMLElement).isContentEditable
-    );
-    
+    const isInputFocused =
+      activeElement &&
+      (activeElement.tagName === 'INPUT' ||
+        activeElement.tagName === 'TEXTAREA' ||
+        activeElement.tagName === 'SELECT' ||
+        (activeElement as HTMLElement).isContentEditable);
+
     if (e.key === '/' && !isInputFocused) {
       e.preventDefault();
       searchInput?.focus();
@@ -93,7 +105,7 @@ const { placeholder = "Search solutions..." } = Astro.props;
       searchInput?.blur();
     }
   });
-  
+
   // Listen for filters-reset event to clear the search input
   window.addEventListener('filters-reset', () => {
     if (searchInput) {

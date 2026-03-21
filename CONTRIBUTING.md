@@ -43,61 +43,62 @@ This repository is a comprehensive list of **ways to deploy Kubernetes clusters*
 Each solution should follow this structure:
 
 ```yaml
-- name: "Solution Name"  # REQUIRED
-  category: "Desktop"  # REQUIRED - See categories below
-  url: "https://github.com/org/repo"  # REQUIRED
-  icon_url: "https://example.com/logo.svg"  # Optional - URL to icon/logo
-  publisher: "Company Name"  # Optional
-  description: "Short description of the solution"  # Optional
-  license: "Apache 2.0"  # Optional - See license types below
-  open_source: true  # Optional - true or false
-  based_on:  # Optional - underlying technologies
-    - "kubeadm"
-    - "k3s"
-  tags:  # Recommended - 2-3 tags for filtering and categorization
-    - "production"
-    - "lightweight"
-    - "secure"
-  cloud_providers:  # Optional - for Managed/InfraAsCode solutions
-    - "aws"
-    - "gcp"
-  abandoned: true  # Optional - boolean, default: false (false = maintained, true = no longer maintained)
-  production_ready: true  # Optional - boolean, default: false (true = production-ready, false = development/learning)
-  references:  # Optional - external resources
-    - title: "Getting Started Guide"
-      description: "Step-by-step tutorial"
-      language: "en"
-      url: "https://example.com/guide"
-      type: "tutorial"
+- name: 'Solution Name' # REQUIRED
+  category: 'Desktop' # REQUIRED - See categories below
+  url: 'https://github.com/org/repo' # REQUIRED
+  icon_url: 'https://example.com/logo.svg' # Optional - URL to icon/logo
+  publisher: 'Company Name' # Optional
+  description: 'Short description of the solution' # Optional
+  license: 'Apache 2.0' # Optional - See license types below
+  open_source: true # Optional - true or false
+  based_on: # Optional - underlying technologies
+    - 'kubeadm'
+    - 'k3s'
+  tags: # Recommended - 2-3 tags for filtering and categorization
+    - 'production'
+    - 'lightweight'
+    - 'secure'
+  cloud_providers: # Optional - for Managed/InfraAsCode solutions
+    - 'aws'
+    - 'gcp'
+  abandoned: true # Optional - boolean, default: false (false = maintained, true = no longer maintained)
+  production_ready: true # Optional - boolean, default: false (true = production-ready, false = development/learning)
+  references: # Optional - external resources
+    - title: 'Getting Started Guide'
+      description: 'Step-by-step tutorial'
+      language: 'en'
+      url: 'https://example.com/guide'
+      type: 'tutorial'
 ```
 
 **License Types:**
+
 - Open source: `Apache 2.0`, `MIT`, `MPL 2.0`, `AGPL 3.0`, `BSD 3-Clause`, `BUSL 1.1`, `Zlib`
 - Proprietary: `proprietary`
 - Cloud managed services: `cloud`
 
 ### Categories
 
-| Category | Description |
-|----------|-------------|
-| `Desktop` | Local development tools |
-| `InfraAsCode` | Infrastructure as Code tools |
-| `KubernetesInKubernetes` | Virtual/nested clusters |
-| `KubernetesOS` | Immutable OS for Kubernetes |
-| `Managed` | Cloud managed services |
-| `ManagementPlatform` | Multi-cluster platforms |
-| `Other` | Playgrounds, education |
-| `Selfhosted` | On-premise deployment tools |
+| Category                 | Description                  |
+| ------------------------ | ---------------------------- |
+| `Desktop`                | Local development tools      |
+| `InfraAsCode`            | Infrastructure as Code tools |
+| `KubernetesInKubernetes` | Virtual/nested clusters      |
+| `KubernetesOS`           | Immutable OS for Kubernetes  |
+| `Managed`                | Cloud managed services       |
+| `ManagementPlatform`     | Multi-cluster platforms      |
+| `Other`                  | Playgrounds, education       |
+| `Selfhosted`             | On-premise deployment tools  |
 
 #### Choosing the Right Category
 
 If you're unsure about category placement:
 
 1. **Primary function wins**: If a tool does multiple things, categorize by its primary use case
-2. **Desktop vs Selfhosted**: 
+2. **Desktop vs Selfhosted**:
    - Desktop: Designed for local development, single machine, easy setup
    - Selfhosted: Designed for production, multi-node, requires infrastructure
-3. **InfraAsCode vs Tool**: 
+3. **InfraAsCode vs Tool**:
    - InfraAsCode: Focuses on infrastructure automation and can work across providers
    - Selfhosted: The tool itself manages the cluster lifecycle
 4. **Managed vs Management Platform**:
@@ -111,16 +112,19 @@ If you're unsure about category placement:
 #### Available Tags by Category
 
 **Environment:**
+
 - `local` - Runs on local machine/laptop
 - `cloud` - Cloud-based solution
 
 **Use Case:**
+
 - `development` - For development/testing
 - `production` - Production-ready
 - `learning` - Educational/learning purposes
 - `educational` - Training and tutorials
 
 **Architecture:**
+
 - `self-hosted` - You host and manage it
 - `managed` - Managed service
 - `multi-cluster` - Manages multiple clusters
@@ -128,6 +132,7 @@ If you're unsure about category placement:
 - `virtualization` - Virtual cluster technology
 
 **Characteristics:**
+
 - `lightweight` - Minimal resource usage
 - `immutable` - Immutable infrastructure
 - `secure` - Enhanced security features
@@ -135,12 +140,14 @@ If you're unsure about category placement:
 - `beginner-friendly` - Easy to get started
 
 **Deployment:**
+
 - `automation` - Automated deployment
 - `infrastructure-as-code` - IaC-based
 - `container-based` - Runs in containers
 - `declarative` - Declarative configuration
 
 **Features:**
+
 - `multi-cloud` - Works across cloud providers
 - `bare-metal` - Bare metal deployment
 - `edge` - Edge computing support
@@ -148,10 +155,12 @@ If you're unsure about category placement:
 - `gitops` - GitOps workflow support
 
 **Platform-Specific:**
+
 - `macos` - macOS support
 - `windows` - Windows support
 
 **Complexity:**
+
 - `high-availability` - HA features
 
 #### Tag Selection Guidelines
@@ -166,19 +175,19 @@ If you're unsure about category placement:
 ```yaml
 # Desktop development tool
 - name: kind
-  tags: ["local", "development", "container-based"]
+  tags: ['local', 'development', 'container-based']
 
 # Production-ready OS
 - name: Talos Linux
-  tags: ["immutable", "production", "lightweight"]
+  tags: ['immutable', 'production', 'lightweight']
 
 # Managed cloud service
 - name: AKS
-  tags: ["cloud", "managed"]
+  tags: ['cloud', 'managed']
 
 # Enterprise management platform
 - name: Rancher
-  tags: ["multi-cluster", "enterprise", "rancher"]
+  tags: ['multi-cluster', 'enterprise', 'rancher']
 ```
 
 ### Production Ready Status
@@ -212,7 +221,7 @@ The `production_ready` field indicates whether a solution is considered suitable
 
 # Development tool (default false, can be omitted)
 - name: kind
-  production_ready: false  # or omit entirely
+  production_ready: false # or omit entirely
 
 # Mature self-hosted solution
 - name: Rancher
@@ -225,14 +234,14 @@ The `production_ready` field indicates whether a solution is considered suitable
 
 ### Reference Types
 
-| Type | Description |
-|------|-------------|
-| `article` | Blog post or news article |
-| `book` | Book or book chapter |
-| `video` | YouTube, conference talk recording |
-| `tutorial` | Step-by-step guide |
-| `documentation` | Official docs |
-| `talk` | Conference presentation slides |
+| Type            | Description                        |
+| --------------- | ---------------------------------- |
+| `article`       | Blog post or news article          |
+| `book`          | Book or book chapter               |
+| `video`         | YouTube, conference talk recording |
+| `tutorial`      | Step-by-step guide                 |
+| `documentation` | Official docs                      |
+| `talk`          | Conference presentation slides     |
 
 ### Languages (ISO 639-1)
 
@@ -243,6 +252,7 @@ Use standard ISO 639-1 two-letter language codes for references.
 ## Development Setup
 
 ### Prerequisites
+
 - Node.js 20+
 - npm
 
@@ -285,6 +295,7 @@ npm run preview
 ## Guidelines
 
 ### Do's
+
 - ✅ Add solutions you have personal experience with
 - ✅ Include references to tutorials or documentation
 - ✅ Mark abandoned projects appropriately with `abandoned: true`
@@ -292,6 +303,7 @@ npm run preview
 - ✅ Test your changes locally before submitting
 
 ### Don'ts
+
 - ❌ Add duplicate solutions
 - ❌ Add solutions without a working URL
 - ❌ Add promotional content

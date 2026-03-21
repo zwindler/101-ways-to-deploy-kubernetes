@@ -48,13 +48,13 @@
 
 ---
 
-### 5. `fs.readFileSync` for data loading
+### 5. ~~`fs.readFileSync` for data loading~~ DONE
 
 **Files:** `src/pages/index.astro`
 
-The page uses `fs.readFileSync` + `js-yaml` to load data at build time. Astro supports content collections and Vite plugins for importing YAML directly.
+~~The page uses `fs.readFileSync` + `js-yaml` to load data at build time. Astro supports content collections and Vite plugins for importing YAML directly.~~
 
-**Recommendation:** Use Astro content collections or a Vite YAML plugin for cleaner, type-safe data loading.
+**Resolved:** Installed `@rollup/plugin-yaml` and configured it as a Vite plugin in `astro.config.mjs`. `index.astro` now uses `import solutionsData from '../../data/solutions.yaml'` instead of `fs.readFileSync` + `js-yaml`. Added `src/env.d.ts` with a `.yaml` module type declaration for TypeScript support. Moved `js-yaml` and `@types/js-yaml` to `devDependencies` (only used by the validation script now).
 
 ---
 
@@ -164,21 +164,21 @@ External images are loaded as-is (many are large PNGs/SVGs). There is no resizin
 
 ---
 
-### 16. No sort option
+### 16. ~~No sort option~~ CANCELLED
 
-There is no way to sort solutions (by name, stars, category, etc.).
+~~There is no way to sort solutions (by name, stars, category, etc.).~~
 
-**Recommendation:** Add a sort dropdown with options like "Name (A-Z)", "Stars (high to low)", "Category", etc.
+**Cancelled:** User decided this is not valuable for the current use case.
 
 ---
 
-### 17. Category count not shown
+### 17. ~~Category count not shown~~ CANCELLED
 
 **File:** `src/components/FilterBar.astro:45-52`
 
-The filter pills just show the category name (e.g., "Desktop", "Managed"). Users have no sense of how many solutions exist in each category.
+~~The filter pills just show the category name (e.g., "Desktop", "Managed"). Users have no sense of how many solutions exist in each category.~~
 
-**Recommendation:** Show counts alongside category names, e.g., "Desktop (18)", "Managed (25)".
+**Cancelled:** User decided this would bloat the display, especially on mobile.
 
 ---
 
@@ -192,33 +192,33 @@ On mobile, `filter-content` is `hidden` by default. Users might not realize filt
 
 ---
 
-### 19. Search doesn't highlight matches
+### 19. ~~Search doesn't highlight matches~~ DONE
 
 **File:** `src/pages/index.astro:124-133`
 
-When searching, matching cards are shown/hidden but the matching text isn't highlighted, making it hard to see why a particular card matched.
+~~When searching, matching cards are shown/hidden but the matching text isn't highlighted, making it hard to see why a particular card matched.~~
 
-**Recommendation:** Highlight the matching text within visible cards when a search query is active.
+**Resolved:** Added search match highlighting with `<mark>` tags in card `<h3>` headings. Original text is stored in `data-original-text` for clean restoration when the search is cleared. The highlight uses case-insensitive regex matching.
 
 ---
 
 ## Build & Developer Experience
 
-### 20. No YAML validation in CI
+### 20. ~~No YAML validation in CI~~ DONE
 
 **File:** `.github/workflows/ci.yml`
 
-The CI pipeline only runs `npm run build`. There is a `data/schema.yaml` that documents the data structure, but no actual validation step runs against `solutions.yaml`.
+~~The CI pipeline only runs `npm run build`. There is a `data/schema.yaml` that documents the data structure, but no actual validation step runs against `solutions.yaml`.~~
 
-**Recommendation:** Add a schema validation step (e.g., with `ajv`, a JSON Schema validator, or a simple Node.js script) to catch data errors in PRs.
+**Resolved:** Created `scripts/validate-solutions.mjs` — a comprehensive validation script that checks all 123 solutions against the schema (required fields, enum values, types, duplicate detection, reference structure). Added `npm run validate` script and integrated it into the CI workflow before the build step.
 
 ---
 
-### 21. No lint/format tooling
+### 21. ~~No lint/format tooling~~ DONE
 
-No ESLint, Prettier, or any code formatting is configured. For a collaborative open-source project, this leads to inconsistent code style in contributions.
+~~No ESLint, Prettier, or any code formatting is configured. For a collaborative open-source project, this leads to inconsistent code style in contributions.~~
 
-**Recommendation:** Add Prettier and optionally ESLint with Astro plugin. Add a format check step to CI.
+**Resolved:** Installed Prettier with `prettier-plugin-astro`. Added `.prettierrc` config (semicolons, single quotes, trailing commas, 100 char width) and `.prettierignore`. Added `npm run format` and `npm run format:check` scripts. Integrated `format:check` into the CI workflow. All project files formatted consistently.
 
 ---
 
@@ -256,25 +256,26 @@ The build script is `"build": "astro check && astro build"`. Running type checki
 
 ## Priority Summary
 
-| Priority | # | Issue | Status | Impact |
-|----------|---|-------|--------|--------|
-| **High** | 2 | Inline script per card (~100x duplication) | DONE | Page size, parse time |
-| **High** | 6 | All modals in DOM at load | DONE | DOM size, memory |
-| **High** | 15 | No URL-based filter state | DONE | UX, shareability |
-| **High** | 10 | Favicon path ignores `base` | DONE | Broken in production |
-| **High** | 9 | Google Fonts render-blocking (750ms) | DONE | LCP, critical chain |
-| **Medium** | 1 | Remove/exclude demo page | DONE | Clean deployment |
-| **Medium** | 4 | Extract shared types, stop using `any` | DONE | Maintainability |
-| **Medium** | 3 | Inline `onerror` handlers | DONE | Maintainability, CSP |
-| **Medium** | 7 | Images missing dimensions | DONE | CLS / performance |
-| **Medium** | 13-14 | Accessibility (card roles, focus trap) | DONE | A11y compliance |
-| **Medium** | 11-12 | Missing OG/Twitter meta tags | DONE | Social sharing |
-| **Medium** | 24 | Forced layout reflow (44ms) | DONE | Runtime performance |
-| **Medium** | 20 | Add YAML validation to CI | - | Data quality |
-| **Low** | 16 | Add sort options | - | UX polish |
-| **Low** | 17 | Show category counts in filter pills | - | UX polish |
-| **Low** | 19 | Highlight search matches | - | UX polish |
-| **Low** | 21 | Add linting/formatting | - | DX for contributors |
-| **Low** | 5 | Use content collections for data | - | DX, type safety |
-| **Low** | 8 | Image optimization | - | Performance polish |
-| **Low** | 22-23 | Dependency audit, split build/check | - | DX, build speed |
+| Priority   | #     | Issue                                      | Status    | Impact                |
+| ---------- | ----- | ------------------------------------------ | --------- | --------------------- |
+| **High**   | 2     | Inline script per card (~100x duplication) | DONE      | Page size, parse time |
+| **High**   | 6     | All modals in DOM at load                  | DONE      | DOM size, memory      |
+| **High**   | 15    | No URL-based filter state                  | DONE      | UX, shareability      |
+| **High**   | 10    | Favicon path ignores `base`                | DONE      | Broken in production  |
+| **High**   | 9     | Google Fonts render-blocking (750ms)       | DONE      | LCP, critical chain   |
+| **Medium** | 1     | Remove/exclude demo page                   | DONE      | Clean deployment      |
+| **Medium** | 4     | Extract shared types, stop using `any`     | DONE      | Maintainability       |
+| **Medium** | 3     | Inline `onerror` handlers                  | DONE      | Maintainability, CSP  |
+| **Medium** | 7     | Images missing dimensions                  | DONE      | CLS / performance     |
+| **Medium** | 13-14 | Accessibility (card roles, focus trap)     | DONE      | A11y compliance       |
+| **Medium** | 11-12 | Missing OG/Twitter meta tags               | DONE      | Social sharing        |
+| **Medium** | 24    | Forced layout reflow (44ms)                | DONE      | Runtime performance   |
+| **Medium** | 20    | Add YAML validation to CI                  | DONE      | Data quality          |
+| **Low**    | 5     | Use Vite YAML plugin for data loading      | DONE      | DX, type safety       |
+| **Low**    | 19    | Highlight search matches                   | DONE      | UX polish             |
+| **Low**    | 21    | Add linting/formatting                     | DONE      | DX for contributors   |
+| **Low**    | 16    | Add sort options                           | CANCELLED | UX polish             |
+| **Low**    | 17    | Show category counts in filter pills       | CANCELLED | UX polish             |
+| **Low**    | 8     | Image optimization                         | -         | Performance polish    |
+| **Low**    | 18    | Mobile filter visibility hint              | -         | UX polish             |
+| **Low**    | 22-23 | Dependency audit, split build/check        | -         | DX, build speed       |

@@ -9,7 +9,7 @@ interface Props {
 const { solution } = Astro.props;
 
 // Helper variables - Abandoned badge styling
-const abandonedBadgeStyle = "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300";
+const abandonedBadgeStyle = 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300';
 
 // Helper function - Get icon background classes based on icon_background_color
 const getIconBackgroundClasses = (iconBackgroundColor?: 'light' | 'dark') => {
@@ -28,14 +28,14 @@ const getIconBackgroundClasses = (iconBackgroundColor?: 'light' | 'dark') => {
 const licenseToTLDRUrl = (license: string): string | null => {
   const licenseMap: Record<string, string> = {
     'Apache 2.0': 'https://www.tldrlegal.com/license/apache-license-2-0-apache-2-0',
-    'MIT': 'https://www.tldrlegal.com/license/mit-license',
+    MIT: 'https://www.tldrlegal.com/license/mit-license',
     'MPL 2.0': 'https://www.tldrlegal.com/license/mozilla-public-license-2-0-mpl-2',
     'AGPL 3.0': 'https://www.tldrlegal.com/license/gnu-affero-general-public-license-v3-agpl-3-0',
     'BSD 3-Clause': 'https://www.tldrlegal.com/license/bsd-3-clause-license-revised',
     'BUSL 1.1': 'https://www.tldrlegal.com/license/business-source-license-1-1-busl-1-1',
-    'Zlib': 'https://www.tldrlegal.com/license/zlib-libpng-license-zlib',
+    Zlib: 'https://www.tldrlegal.com/license/zlib-libpng-license-zlib',
   };
-  
+
   return licenseMap[license] || null;
 };
 
@@ -54,7 +54,7 @@ const formatStars = (stars: number): string => {
   return stars.toString();
 };
 
-const isGitHub = solution.url.includes("github.com");
+const isGitHub = solution.url.includes('github.com');
 const referencesCount = solution.references?.length || 0;
 
 // Get first letter for logo placeholder
@@ -78,29 +78,29 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
   <!-- Header Section -->
   <div class="p-6 flex items-start gap-4 relative">
     <!-- Logo Placeholder -->
-    {solution.icon_url ? (
-      <div 
-        class={`w-20 h-20 rounded-lg flex items-center justify-center flex-shrink-0 ${iconBgClasses}`}
-        data-fallback-letter={firstLetter}
-      >
-        <img 
-          src={solution.icon_url} 
-          alt={`${solution.name} logo`}
-          class="icon-img w-full h-full object-contain"
-          width="80"
-          height="80"
-          loading="lazy"
-          decoding="async"
-          referrerpolicy="no-referrer"
-        />
-      </div>
-    ) : (
-      <div
-        class="w-20 h-20 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 flex items-center justify-center text-white font-bold text-3xl flex-shrink-0"
-      >
-        {firstLetter}
-      </div>
-    )}
+    {
+      solution.icon_url ? (
+        <div
+          class={`w-20 h-20 rounded-lg flex items-center justify-center flex-shrink-0 ${iconBgClasses}`}
+          data-fallback-letter={firstLetter}
+        >
+          <img
+            src={solution.icon_url}
+            alt={`${solution.name} logo`}
+            class="icon-img w-full h-full object-contain"
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+            referrerpolicy="no-referrer"
+          />
+        </div>
+      ) : (
+        <div class="w-20 h-20 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 flex items-center justify-center text-white font-bold text-3xl flex-shrink-0">
+          {firstLetter}
+        </div>
+      )
+    }
 
     <!-- Name and Publisher -->
     <div class="flex-1 min-w-0">
@@ -112,9 +112,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
       <div class="min-h-[1.25rem]">
         {
           solution.publisher && (
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {solution.publisher}
-            </p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">{solution.publisher}</p>
           )
         }
       </div>
@@ -125,9 +123,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
       <!-- Abandoned Badge (only if abandoned) -->
       {
         solution.abandoned && (
-          <div
-            class={`px-3 py-1 rounded-full text-xs font-medium ${abandonedBadgeStyle}`}
-          >
+          <div class={`px-3 py-1 rounded-full text-xs font-medium ${abandonedBadgeStyle}`}>
             Abandoned
           </div>
         )
@@ -181,9 +177,7 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
   <div class="px-6 pb-4 min-h-[3rem] detailed-section">
     {
       solution.description && (
-        <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
-          {solution.description}
-        </p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">{solution.description}</p>
       )
     }
   </div>
@@ -296,16 +290,17 @@ const cardId = `card-${solution.url.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}
       <!-- Stars Count -->
       {
         solution.stars && (
-          <div class="flex items-center gap-1.5 text-yellow-600 dark:text-yellow-400" title={`${solution.stars.toLocaleString()} stars`}>
+          <div
+            class="flex items-center gap-1.5 text-yellow-600 dark:text-yellow-400"
+            title={`${solution.stars.toLocaleString()} stars`}
+          >
             <svg
               class="w-4 h-4"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-              />
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
             <span class="font-medium">{formatStars(solution.stars)}</span>
           </div>

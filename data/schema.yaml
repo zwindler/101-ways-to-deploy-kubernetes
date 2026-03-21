@@ -4,11 +4,11 @@
 # Each solution follows this structure:
 solution:
   # ===== REQUIRED FIELDS =====
-  
+
   name: string
   # The name of the solution
   # Example: "Talos Linux", "k3s", "Minikube"
-  
+
   category: enum
   # The deployment category. Must be one of:
   # - Desktop: Local development tools
@@ -19,18 +19,18 @@ solution:
   # - ManagementPlatform: Multi-cluster platforms
   # - Other: Playgrounds, education
   # - Selfhosted: On-premise deployment
-  
+
   url: string
   # Main link (GitHub repository or official website)
   # Example: "https://github.com/siderolabs/talos"
-  
+
   # ===== OPTIONAL FIELDS =====
-  
+
   icon_url: string
   # URL to an external icon/logo image (PNG, SVG, JPEG)
   # Example: "https://example.com/logo.svg"
   # Note: Only use URLs from trusted sources (official websites, CDNs, reputable image hosts)
-  
+
   icon_background_color: enum
   # Optional background color for the icon container to ensure visibility in light/dark modes
   # Use this when the icon has transparency and doesn't display correctly in both themes
@@ -38,30 +38,30 @@ solution:
   # - light: Always use a light background for this icon (for dark logos)
   # - dark: Always use a dark background for this icon (for light logos)
   # If omitted, the icon background will follow the current theme (light in light mode, dark in dark mode)
-  
+
   publisher: string
   # Publisher, company, or project organization
   # Example: "Rancher", "AWS", "Canonical", "SideroLabs"
-  
+
   description: string
   # Short description of the solution
   # Example: "Secure, immutable, and minimal Linux OS designed for Kubernetes"
-  
+
   license: string
   # License type
   # - For open source: "Apache 2.0", "MIT", "MPL 2.0", "AGPL 3.0", "BSD 3-Clause", "Zlib"
   # - For non-OSI source-available: "BUSL 1.1", "SSPL"
   # - For proprietary: "Proprietary"
   # - For managed cloud services: "Cloud"
-  
+
   open_source: boolean
   # true for open source, false for proprietary / non-OSI source-available
   # Omit for cloud managed services
-  
+
   based_on: array[string]
   # Underlying technologies or tools the solution is based on
   # Example: ["kubeadm", "k3s"], ["Terraform", "OpenTofu"]
-  
+
   tags: array[string]
   # Tags for filtering and categorization (2-3 tags recommended)
   # Available tags by category:
@@ -74,51 +74,51 @@ solution:
   # - Platform-specific: openshift, rancher, macos, windows
   # - Complexity: beginner-friendly, high-availability
   # Example: ["local", "development", "lightweight"]
-  
+
   cloud_providers: array[string]
   # For InfraAsCode/Managed solutions: supported cloud providers
   # Example: ["aws", "gcp", "azure", "hetzner", "digitalocean"]
-  
+
   abandoned: boolean
   # Whether the solution is no longer maintained (default: false if omitted)
   # - false: Currently maintained (default)
   # - true: No longer maintained
-  
+
   production_ready: boolean
   # Whether the solution is considered production-ready (default: false if omitted)
   # - false: Not production-ready, suitable for development/learning (default)
   # - true: Production-ready, suitable for production environments
   # Determined by: official website claims, community experience, and maturity level
-  
+
   stars: number
   # Optional: Number of stars for GitHub/GitLab repositories
   # This field should be manually updated with the current star count
   # Display format: compact with star icon (e.g., "⭐ 1.2k")
   # Example: 1234, 5678
   # Note: Since this is a static site, star counts must be updated manually
-  
+
   # ===== STRUCTURED REFERENCES =====
-  
+
   references: array[reference]
   # Array of external references (articles, tutorials, documentation)
-  
+
   reference:
     title: string
     # Article/resource title
     # Example: "Getting Started with Talos Linux"
-    
+
     description: string
     # Optional short description
     # Example: "Step-by-step installation guide"
-    
+
     language: enum
     # Language code. Must be one of:
     # en, fr, de, es, zh, ja, pt, ko, it, ru, nl, pl, tr, ar, hi
-    
+
     url: string
     # Link to the resource
     # Example: "https://thenewstack.io/set-up-talos-linux-on-your-machine/"
-    
+
     type: enum
     # Resource type. Must be one of:
     # - article: Blog post or news article
@@ -131,36 +131,36 @@ solution:
 # ===== EXAMPLE SOLUTION ENTRY =====
 
 example_solution:
-  name: "Talos Linux"
-  category: "KubernetesOS"
-  publisher: "SideroLabs"
-  url: "https://github.com/siderolabs/talos"
-  icon_url: "https://www.talos.dev/images/logo.svg"
+  name: 'Talos Linux'
+  category: 'KubernetesOS'
+  publisher: 'SideroLabs'
+  url: 'https://github.com/siderolabs/talos'
+  icon_url: 'https://www.talos.dev/images/logo.svg'
   # icon_background_color: "dark"  # Optional - use "light" or "dark" to force a specific background
-  description: "Secure, immutable, and minimal Linux OS designed for Kubernetes"
-  license: "MPL 2.0"
+  description: 'Secure, immutable, and minimal Linux OS designed for Kubernetes'
+  license: 'MPL 2.0'
   open_source: true
   based_on: []
   tags:
-    - "immutable"
-    - "production"
-    - "lightweight"
+    - 'immutable'
+    - 'production'
+    - 'lightweight'
   # abandoned: false  # Optional - set to true if no longer maintained (default: false)
   # production_ready: true  # Optional - set to true if suitable for production (default: false)
   # stars: 1234  # Optional - number of GitHub/GitLab stars
   references:
-    - title: "Kubernetes - 50 solutions pour les postes de développement et les clusters de production"
-      description: "Chapter 38 (Talos Linux)"
-      language: "fr"
-      url: "https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/"
-      type: "book"
-    - title: "Talos Linux"
-      description: "Introduction complète à Talos Linux"
-      language: "fr"
-      url: "https://une-tasse-de.cafe/blog/talos/"
-      type: "article"
-    - title: "Set Up Talos Linux on Your Machine"
-      description: "Step-by-step guide to install Talos locally"
-      language: "en"
-      url: "https://thenewstack.io/set-up-talos-linux-on-your-machine/"
-      type: "tutorial"
+    - title: 'Kubernetes - 50 solutions pour les postes de développement et les clusters de production'
+      description: 'Chapter 38 (Talos Linux)'
+      language: 'fr'
+      url: 'https://www.eyrolles.com/Informatique/Livre/kubernetes-9782416022647/'
+      type: 'book'
+    - title: 'Talos Linux'
+      description: 'Introduction complète à Talos Linux'
+      language: 'fr'
+      url: 'https://une-tasse-de.cafe/blog/talos/'
+      type: 'article'
+    - title: 'Set Up Talos Linux on Your Machine'
+      description: 'Step-by-step guide to install Talos locally'
+      language: 'en'
+      url: 'https://thenewstack.io/set-up-talos-linux-on-your-machine/'
+      type: 'tutorial'

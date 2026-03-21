@@ -5,20 +5,18 @@ import FilterBar from '../components/FilterBar.astro';
 import SolutionCard from '../components/SolutionCard.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import type { Solution } from '../types';
-import yaml from 'js-yaml';
-import fs from 'fs';
-import path from 'path';
+import solutionsData from '../../data/solutions.yaml';
 
 // Load solutions data
-const solutionsFile = fs.readFileSync(path.join(process.cwd(), 'data/solutions.yaml'), 'utf8');
-const data = yaml.load(solutionsFile) as { solutions: Solution[] };
-const solutions = data.solutions;
+const solutions = (solutionsData as { solutions: Solution[] }).solutions;
 
 // Extract unique categories, cloud providers, and tags for filters
 // Sort categories by length to optimize space usage in filter pills (shortest first for better packing)
-const categories = [...new Set(solutions.map(s => s.category))].sort((a, b) => a.length - b.length);
-const cloudProviders = [...new Set(solutions.flatMap(s => s.cloud_providers || []))].sort();
-const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
+const categories = [...new Set(solutions.map((s) => s.category))].sort(
+  (a, b) => a.length - b.length,
+);
+const cloudProviders = [...new Set(solutions.flatMap((s) => s.cloud_providers || []))].sort();
+const tags = [...new Set(solutions.flatMap((s) => s.tags || []))].sort();
 ---
 
 <Layout title="101 Ways to Deploy Kubernetes">
@@ -34,47 +32,53 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
           <!-- Mobile title (< 768px) -->
           <span class="md:hidden">101 ways<br />to deploy k8s</span>
           <!-- Desktop title (>= 768px) -->
-          <span class="hidden md:inline"><span class="text-gray-400">(more than)</span> 101 ways<br />to deploy Kubernetes</span>
+          <span class="hidden md:inline"
+            ><span class="text-gray-400">(more than)</span> 101 ways<br />to deploy Kubernetes</span
+          >
         </h1>
         <p class="text-xl text-blue-100 mb-6 px-2">
           A comprehensive list of {solutions.length} ways to deploy Kubernetes!
         </p>
-        
+
         <!-- Search Bar -->
         <SearchBar />
       </div>
     </header>
-    
+
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 py-8">
       <!-- Filter Bar -->
       <FilterBar categories={categories} cloudProviders={cloudProviders} tags={tags} />
-      
+
       <!-- Results count -->
       <div class="mb-6 text-gray-600 dark:text-gray-400">
         <span id="results-count">{solutions.length}</span> solutions
       </div>
-      
+
       <!-- Solutions Grid -->
       <div id="solutions-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {solutions.map((solution) => (
-          <div class="solution-item" 
-               data-category={solution.category}
-               data-name={solution.name.toLowerCase()}
-               data-publisher={solution.publisher?.toLowerCase() || ''}
-               data-description={solution.description?.toLowerCase() || ''}
-               data-tags={solution.tags?.join(' ').toLowerCase() || ''}
-               data-based-on={solution.based_on?.join(' ').toLowerCase() || ''}
-               data-cloud-providers={solution.cloud_providers?.join(' ').toLowerCase() || ''}
-               data-open-source={solution.open_source ? 'true' : 'false'}
-               data-production-ready={solution.production_ready ? 'true' : 'false'}
-               data-abandoned={solution.abandoned ? 'true' : 'false'}
-               data-stars={solution.stars?.toString() || '0'}>
-            <SolutionCard solution={solution} />
-          </div>
-        ))}
+        {
+          solutions.map((solution) => (
+            <div
+              class="solution-item"
+              data-category={solution.category}
+              data-name={solution.name.toLowerCase()}
+              data-publisher={solution.publisher?.toLowerCase() || ''}
+              data-description={solution.description?.toLowerCase() || ''}
+              data-tags={solution.tags?.join(' ').toLowerCase() || ''}
+              data-based-on={solution.based_on?.join(' ').toLowerCase() || ''}
+              data-cloud-providers={solution.cloud_providers?.join(' ').toLowerCase() || ''}
+              data-open-source={solution.open_source ? 'true' : 'false'}
+              data-production-ready={solution.production_ready ? 'true' : 'false'}
+              data-abandoned={solution.abandoned ? 'true' : 'false'}
+              data-stars={solution.stars?.toString() || '0'}
+            >
+              <SolutionCard solution={solution} />
+            </div>
+          ))
+        }
       </div>
-      
+
       <!-- No results message -->
       <div id="no-results" class="hidden text-center py-12">
         <p class="text-gray-500 dark:text-gray-400 text-lg">
@@ -85,16 +89,21 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
         </button>
       </div>
     </div>
-    
+
     <!-- Footer -->
     <footer class="bg-gray-100 dark:bg-gray-800 py-8 mt-12">
       <div class="max-w-6xl mx-auto px-4 text-center text-gray-600 dark:text-gray-400">
         <p>
-          Created by <a href="https://github.com/zwindler" class="text-blue-600 hover:underline">@zwindler</a>
+          Created by <a href="https://github.com/zwindler" class="text-blue-600 hover:underline"
+            >@zwindler</a
+          >
         </p>
         <p class="mt-2 text-sm">
-          Licensed under CC BY-SA 4.0 • 
-          <a href="https://github.com/zwindler/101-ways-to-deploy-kubernetes" class="hover:underline">Contribute on GitHub</a>
+          Licensed under CC BY-SA 4.0 •
+          <a
+            href="https://github.com/zwindler/101-ways-to-deploy-kubernetes"
+            class="hover:underline">Contribute on GitHub</a
+          >
         </p>
       </div>
     </footer>
@@ -114,7 +123,7 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     productionReadyOnly: false,
     status: 'all',
     tags: [] as string[],
-    minStars: 0
+    minStars: 0,
   };
 
   // ---- URL <-> State serialization ----
@@ -132,7 +141,10 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     return params;
   }
 
-  function paramsToState(params: URLSearchParams): { search: string; filters: typeof defaultFilters } {
+  function paramsToState(params: URLSearchParams): {
+    search: string;
+    filters: typeof defaultFilters;
+  } {
     return {
       search: params.get('q') || '',
       filters: {
@@ -143,7 +155,7 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
         status: params.get('status') || 'all',
         tags: params.get('tags') ? params.get('tags')!.split(',').filter(Boolean) : [],
         minStars: params.get('stars') ? parseInt(params.get('stars')!, 10) : 0,
-      }
+      },
     };
   }
 
@@ -159,6 +171,40 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
   const initialState = paramsToState(new URLSearchParams(window.location.search));
   let currentSearch = initialState.search;
   let currentFilters = { ...initialState.filters };
+
+  // ---- Search highlight (Issue #19) ----
+
+  function highlightSearchMatches(query: string) {
+    const cards = document.querySelectorAll('.solution-card-wrapper');
+    cards.forEach((card) => {
+      const heading = card.querySelector('h3');
+      if (!heading) return;
+
+      // Store original text on first encounter
+      if (!heading.hasAttribute('data-original-text')) {
+        heading.setAttribute('data-original-text', heading.textContent || '');
+      }
+      const original = heading.getAttribute('data-original-text') || '';
+
+      if (!query) {
+        // Restore original text (remove any <mark> wrappers)
+        heading.textContent = original;
+        return;
+      }
+
+      // Escape regex special chars in query
+      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escaped})`, 'gi');
+      if (regex.test(original)) {
+        heading.innerHTML = original.replace(
+          regex,
+          '<mark class="bg-yellow-200 dark:bg-yellow-700 dark:text-white rounded px-0.5">$1</mark>',
+        );
+      } else {
+        heading.textContent = original;
+      }
+    });
+  }
 
   // ---- Filtering logic ----
 
@@ -212,8 +258,8 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
       // Tags filter
       if (visible && currentFilters.tags.length > 0) {
         const itemTags = el.dataset.tags?.split(' ') || [];
-        const normalizedFilterTags = currentFilters.tags.map(tag => tag.toLowerCase());
-        visible = normalizedFilterTags.some(tag => itemTags.includes(tag));
+        const normalizedFilterTags = currentFilters.tags.map((tag) => tag.toLowerCase());
+        visible = normalizedFilterTags.some((tag) => itemTags.includes(tag));
       }
 
       // Stars filter
@@ -225,6 +271,9 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
       el.style.display = visible ? '' : 'none';
       if (visible) visibleCount++;
     });
+
+    // Highlight matching text in visible card names (Issue #19)
+    highlightSearchMatches(currentSearch);
 
     // Update count
     const countEl = document.getElementById('results-count');
@@ -239,9 +288,11 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     }
 
     // Dispatch count update for SearchBar
-    window.dispatchEvent(new CustomEvent('solutions-count-update', {
-      detail: { count: visibleCount }
-    }));
+    window.dispatchEvent(
+      new CustomEvent('solutions-count-update', {
+        detail: { count: visibleCount },
+      }),
+    );
 
     // Sync URL
     pushStateToUrl(currentSearch, currentFilters);
@@ -294,12 +345,14 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     }
 
     // Tell FilterBar and SearchBar to restore their UI from this state
-    window.dispatchEvent(new CustomEvent('filters-restore', {
-      detail: {
-        search: currentSearch,
-        filters: currentFilters,
-      }
-    }));
+    window.dispatchEvent(
+      new CustomEvent('filters-restore', {
+        detail: {
+          search: currentSearch,
+          filters: currentFilters,
+        },
+      }),
+    );
 
     filterSolutions();
   }
@@ -332,25 +385,46 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
 
   // Language code to flag emoji mapping
   const languageToCountry: Record<string, string> = {
-    'en': 'GB', 'fr': 'FR', 'de': 'DE', 'es': 'ES', 'zh': 'CN',
-    'ja': 'JP', 'pt': 'PT', 'ko': 'KR', 'it': 'IT', 'ru': 'RU',
-    'nl': 'NL', 'pl': 'PL', 'tr': 'TR', 'ar': 'SA', 'hi': 'IN',
+    en: 'GB',
+    fr: 'FR',
+    de: 'DE',
+    es: 'ES',
+    zh: 'CN',
+    ja: 'JP',
+    pt: 'PT',
+    ko: 'KR',
+    it: 'IT',
+    ru: 'RU',
+    nl: 'NL',
+    pl: 'PL',
+    tr: 'TR',
+    ar: 'SA',
+    hi: 'IN',
   };
 
   const languageNames: Record<string, string> = {
-    'en': 'English', 'fr': 'French', 'de': 'German', 'es': 'Spanish',
-    'zh': 'Chinese', 'ja': 'Japanese', 'pt': 'Portuguese', 'ko': 'Korean',
-    'it': 'Italian', 'ru': 'Russian', 'nl': 'Dutch', 'pl': 'Polish',
-    'tr': 'Turkish', 'ar': 'Arabic', 'hi': 'Hindi',
+    en: 'English',
+    fr: 'French',
+    de: 'German',
+    es: 'Spanish',
+    zh: 'Chinese',
+    ja: 'Japanese',
+    pt: 'Portuguese',
+    ko: 'Korean',
+    it: 'Italian',
+    ru: 'Russian',
+    nl: 'Dutch',
+    pl: 'Polish',
+    tr: 'Turkish',
+    ar: 'Arabic',
+    hi: 'Hindi',
   };
 
   function languageToFlag(langCode: string): string {
     const cc = languageToCountry[langCode.toLowerCase()];
     if (!cc) return langCode;
-    const REGIONAL_A = 0x1F1E6;
-    return String.fromCodePoint(
-      ...([...cc].map(c => REGIONAL_A + c.charCodeAt(0) - 65))
-    );
+    const REGIONAL_A = 0x1f1e6;
+    return String.fromCodePoint(...[...cc].map((c) => REGIONAL_A + c.charCodeAt(0) - 65));
   }
 
   function languageToName(langCode: string): string {
@@ -380,7 +454,13 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     abandoned: boolean;
     production_ready: boolean;
     stars: number | null;
-    references: { title: string; description: string | null; language: string; url: string; type: string }[];
+    references: {
+      title: string;
+      description: string | null;
+      language: string;
+      url: string;
+      type: string;
+    }[];
     firstLetter: string;
     isGitHub: boolean;
     iconBgClasses: string;
@@ -431,28 +511,35 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
       : '';
 
     // Based On
-    const basedOnHtml = s.based_on.length > 0
-      ? `<div class="flex-1 min-w-0"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Based On</h3><div class="flex flex-wrap gap-2">${s.based_on.map(t => `<span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium">${e(t)}</span>`).join('')}</div></div>`
-      : '';
+    const basedOnHtml =
+      s.based_on.length > 0
+        ? `<div class="flex-1 min-w-0"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Based On</h3><div class="flex flex-wrap gap-2">${s.based_on.map((t) => `<span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium">${e(t)}</span>`).join('')}</div></div>`
+        : '';
 
     // Tags
-    const tagsHtml = s.tags.length > 0
-      ? `<div class="flex-1 min-w-0 md:text-right"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Tags</h3><div class="flex flex-wrap gap-2 md:justify-end">${s.tags.map(t => `<span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium">${e(t)}</span>`).join('')}</div></div>`
-      : '';
+    const tagsHtml =
+      s.tags.length > 0
+        ? `<div class="flex-1 min-w-0 md:text-right"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Tags</h3><div class="flex flex-wrap gap-2 md:justify-end">${s.tags.map((t) => `<span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium">${e(t)}</span>`).join('')}</div></div>`
+        : '';
 
     // Combined based-on + tags row
-    const basedOnTagsHtml = (basedOnHtml || tagsHtml)
-      ? `<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">${basedOnHtml}${tagsHtml}</div>`
-      : '';
+    const basedOnTagsHtml =
+      basedOnHtml || tagsHtml
+        ? `<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">${basedOnHtml}${tagsHtml}</div>`
+        : '';
 
     // Cloud providers
-    const cloudHtml = s.cloud_providers.length > 0
-      ? `<div><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Cloud Providers</h3><div class="flex flex-wrap gap-2">${s.cloud_providers.map(p => `<span class="px-3 py-2 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-300 rounded-lg text-sm font-medium">${e(p)}</span>`).join('')}</div></div>`
-      : '';
+    const cloudHtml =
+      s.cloud_providers.length > 0
+        ? `<div><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Cloud Providers</h3><div class="flex flex-wrap gap-2">${s.cloud_providers.map((p) => `<span class="px-3 py-2 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-300 rounded-lg text-sm font-medium">${e(p)}</span>`).join('')}</div></div>`
+        : '';
 
     // References
-    const refsHtml = s.references.length > 0
-      ? `<div><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">References (${s.references.length})</h3><div class="space-y-3">${s.references.map(ref => `
+    const refsHtml =
+      s.references.length > 0
+        ? `<div><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">References (${s.references.length})</h3><div class="space-y-3">${s.references
+            .map(
+              (ref) => `
           <a href="${e(ref.url)}" target="_blank" rel="noopener noreferrer" class="block p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400">
             <div class="flex items-start justify-between gap-3">
               <div class="flex-1 min-w-0">
@@ -465,8 +552,10 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
               </div>
               <svg class="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
             </div>
-          </a>`).join('')}</div></div>`
-      : '';
+          </a>`,
+            )
+            .join('')}</div></div>`
+        : '';
 
     // Additional info badges
     const licenseInfoHtml = s.license
@@ -542,7 +631,8 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     if (!overlay) {
       overlay = document.createElement('div');
       overlay.id = 'modal-overlay';
-      overlay.className = 'modal-overlay fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center p-4';
+      overlay.className =
+        'modal-overlay fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center p-4';
       overlay.style.cssText = 'backdrop-filter: blur(8px); z-index: 9999;';
       overlay.setAttribute('role', 'dialog');
       overlay.setAttribute('aria-modal', 'true');
@@ -583,7 +673,7 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
     focusTrapHandler = (e: KeyboardEvent) => {
       if (e.key !== 'Tab' || !activeModalContent) return;
       const focusable = activeModalContent.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
       );
       if (focusable.length === 0) return;
       const first = focusable[0];
@@ -674,19 +764,29 @@ const tags = [...new Set(solutions.flatMap(s => s.tags || []))].sort();
   // ---- Icon image error fallback (Issue #3) ----
   // Delegated handler replaces inline onerror attributes on <img> elements.
   // Uses capture phase so the error is caught before it bubbles.
-  document.addEventListener('error', (e) => {
-    const img = e.target as HTMLElement;
-    if (!(img instanceof HTMLImageElement) || !img.classList.contains('icon-img')) return;
-    img.style.display = 'none';
-    const container = img.parentElement;
-    if (!container) return;
-    container.classList.remove('bg-white', 'dark:bg-gray-700');
-    container.classList.add('bg-gradient-to-br', 'from-blue-500', 'to-blue-600', 'dark:from-blue-600', 'dark:to-blue-700');
-    const span = document.createElement('span');
-    // Card icons use text-3xl, modal icons use text-5xl
-    const isModal = container.closest('.modal-content');
-    span.className = `text-white font-bold ${isModal ? 'text-5xl' : 'text-3xl'}`;
-    span.textContent = container.getAttribute('data-fallback-letter');
-    container.appendChild(span);
-  }, true);
+  document.addEventListener(
+    'error',
+    (e) => {
+      const img = e.target as HTMLElement;
+      if (!(img instanceof HTMLImageElement) || !img.classList.contains('icon-img')) return;
+      img.style.display = 'none';
+      const container = img.parentElement;
+      if (!container) return;
+      container.classList.remove('bg-white', 'dark:bg-gray-700');
+      container.classList.add(
+        'bg-gradient-to-br',
+        'from-blue-500',
+        'to-blue-600',
+        'dark:from-blue-600',
+        'dark:to-blue-700',
+      );
+      const span = document.createElement('span');
+      // Card icons use text-3xl, modal icons use text-5xl
+      const isModal = container.closest('.modal-content');
+      span.className = `text-white font-bold ${isModal ? 'text-5xl' : 'text-3xl'}`;
+      span.textContent = container.getAttribute('data-fallback-letter');
+      container.appendChild(span);
+    },
+    true,
+  );
 </script>

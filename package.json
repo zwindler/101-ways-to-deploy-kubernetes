@@ -7,19 +7,25 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "validate": "node scripts/validate-solutions.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/tailwind": "^5.1.2",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/js-yaml": "^4.0.9",
     "astro": "^5.0.5",
-    "js-yaml": "^4.1.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"
   },
   "devDependencies": {
-    "@types/node": "^25.1.0"
+    "@rollup/plugin-yaml": "^4.1.2",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.1.0",
+    "js-yaml": "^4.1.1",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

@@ -7,9 +7,9 @@ labels: 'new-solution'
 
 ## Solution Details
 
-**Name:** 
-**URL:** 
-**Publisher/Project:** 
+**Name:**
+**URL:**
+**Publisher/Project:**
 **Category:** <!-- Desktop, InfraAsCode, Managed, Selfhosted, etc. -->
 
 ## Description
@@ -18,7 +18,7 @@ labels: 'new-solution'
 
 ## Additional Information
 
-- **License:** 
+- **License:**
 - **Open Source:** Yes/No
 - **Based on:** <!-- e.g., kubeadm, k3s -->
 - **Status:** <!-- active, deprecated, abandoned -->

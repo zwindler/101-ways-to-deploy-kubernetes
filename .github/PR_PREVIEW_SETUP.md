@@ -5,11 +5,13 @@ This repository uses automated PR preview deployments to allow contributors and 
 ## How It Works
 
 When a pull request is opened or updated:
+
 1. The `preview.yml` workflow builds the Astro site with a PR-specific base path
 2. The built site is deployed to the `gh-pages` branch under `pr-{number}/` directory
 3. A comment is posted on the PR with the preview URL: `https://zwindler.github.io/101-ways-to-deploy-kubernetes/pr-{number}/`
 
 When a pull request is closed:
+
 1. The preview directory is removed from the `gh-pages` branch
 2. A cleanup notification comment is posted
 
@@ -38,6 +40,7 @@ GitHub Actions provides built-in security for workflows triggered by first-time 
 - **Repository collaborators**: Workflows run automatically without approval
 
 This means:
+
 - ✅ Malicious actors cannot automatically run workflows through PRs
 - ✅ Maintainers review all workflows from new contributors before they run
 - ✅ Trusted contributors don't face delays after initial approval
@@ -45,11 +48,13 @@ This means:
 ### What Gets Approved
 
 When you approve a workflow for a first-time contributor, you're approving:
+
 - The workflow code in the PR
 - The build and deployment process
 - Any scripts or commands that will run
 
 **Best Practice**: Always review the PR changes before approving workflows, especially:
+
 - Changes to workflow files (`.github/workflows/`)
 - Changes to build scripts (`package.json`, build configs)
 - New dependencies that could execute code during build
@@ -57,6 +62,7 @@ When you approve a workflow for a first-time contributor, you're approving:
 ### Preview Deployment Security
 
 PR previews are safe because:
+
 - They only deploy static HTML/CSS/JS files (no server-side code execution)
 - They're isolated in subdirectories (`pr-{number}/`)
 - They don't have access to production data or secrets
@@ -92,6 +98,7 @@ PR previews are safe because:
 ### Cleanup didn't work
 
 If a preview directory isn't removed when a PR closes:
+
 1. Manually delete it from the gh-pages branch
 2. Check the workflow logs for errors
 3. Ensure the cleanup job has proper permissions
@@ -109,7 +116,7 @@ If a preview directory isn't removed when a PR closes:
 
 - Triggers on PR open, update, or close events
 - Builds with custom base path `/101-ways-to-deploy-kubernetes/pr-{number}`
-- Deploys to `pr-{number}/` subdirectory on `gh-pages` branch  
+- Deploys to `pr-{number}/` subdirectory on `gh-pages` branch
 - Uses `keep_files: true` to preserve other previews and main site
 - Posts/updates comment with preview URL
 - Cleans up preview on PR close

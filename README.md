@@ -15,6 +15,7 @@ This repository is based on the original work [@zwindler](https://github.com/zwi
 ## 📚 About
 
 This project catalogs 100+ ways to deploy Kubernetes across different categories:
+
 - **Desktop** - Local development environments
 - **InfraAsCode** - Infrastructure as Code solutions
 - **Managed** - Cloud provider services
@@ -28,6 +29,7 @@ All data is maintained in [`data/solutions.yaml`](./data/solutions.yaml) and pow
 Want to add a solution or improve the site? Check out our [Contributing Guidelines](CONTRIBUTING.md)!
 
 We welcome contributions of:
+
 - **New Kubernetes deployment solutions** - Add tools you've used or discovered
 - **References and documentation** - Share tutorials, articles, and guides
 - **Updates to existing entries** - Fix outdated information or broken links

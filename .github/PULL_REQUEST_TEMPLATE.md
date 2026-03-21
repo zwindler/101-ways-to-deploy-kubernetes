@@ -1,6 +1,6 @@
 ## Description
 
-<!-- 
+<!--
 Describe your changes here:
 - For new solutions: Explain why it belongs and what category it fits
 - For updates: Describe what's being fixed or improved
