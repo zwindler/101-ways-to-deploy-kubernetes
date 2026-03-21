@@ -491,7 +491,7 @@ const tags = [...new Set(solutions.flatMap((s) => s.tags || []))].sort();
     if (s.icon_url) {
       logoHtml = `
         <div class="w-32 h-32 rounded-lg flex items-center justify-center flex-shrink-0 ${e(s.iconBgClasses)}" data-fallback-letter="${e(s.firstLetter)}">
-          <img src="${e(s.icon_url)}" alt="${e(s.name)} logo" class="icon-img w-full h-full object-contain" width="128" height="128" decoding="async" referrerpolicy="no-referrer" />
+          <img src="${e(s.icon_url)}" alt="${e(s.name)} logo" class="icon-img w-full h-full object-contain" width="128" height="128" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" />
         </div>`;
     } else {
       logoHtml = `

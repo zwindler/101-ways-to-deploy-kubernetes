@@ -145,6 +145,12 @@ html.dark {
   @apply -translate-y-1 shadow-xl;
 }
 
+/* Off-screen rendering optimization for solution cards */
+.solution-item {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
+}
+
 /* Button press effect */
 .btn-press {
   @apply transition-transform duration-100 active:scale-95;

@@ -80,13 +80,13 @@
 
 ---
 
-### 8. No image optimization
+### 8. ~~No image optimization~~ DONE
 
 **File:** `data/solutions.yaml` (all `icon_url` entries)
 
-External images are loaded as-is (many are large PNGs/SVGs). There is no resizing, format conversion, or proxying.
+~~External images are loaded as-is (many are large PNGs/SVGs). There is no resizing, format conversion, or proxying.~~
 
-**Recommendation:** Consider proxying and optimizing images at build time, or at minimum set appropriate `width`/`height` constraints and add `decoding="async"` alongside the existing `loading="lazy"`.
+**Resolved:** Added `fetchpriority="low"` to all icon `<img>` tags (card and modal) since icons are not LCP candidates. Added `content-visibility: auto` with `contain-intrinsic-size` on `.solution-item` elements for off-screen rendering optimization. Created an optional `scripts/optimize-icons.mjs` script (`npm run optimize-icons`) that downloads external icons to `public/icons/` for local caching. Full build-time image proxying was not implemented as it adds network dependencies and complexity to the build pipeline.
 
 ---
 
@@ -182,13 +182,13 @@ External images are loaded as-is (many are large PNGs/SVGs). There is no resizin
 
 ---
 
-### 18. Mobile: filter content hidden by default with no visual cue
+### 18. ~~Mobile: filter content hidden by default with no visual cue~~ DONE
 
 **File:** `src/components/FilterBar.astro:41`
 
-On mobile, `filter-content` is `hidden` by default. Users might not realize filters exist. The filter count badge helps, but it only appears after filtering.
+~~On mobile, `filter-content` is `hidden` by default. Users might not realize filters exist. The filter count badge helps, but it only appears after filtering.~~
 
-**Recommendation:** Add a subtle visual indicator or hint that filters are available, or show the most important filter (category) by default on mobile.
+**Resolved:** Added a pulsing "— tap to refine" hint text next to the "Filters" label in the mobile toggle button. The hint uses Tailwind's `animate-pulse` for subtle attention-drawing and is removed on first interaction (when the user taps the filter toggle).
 
 ---
 
@@ -222,23 +222,23 @@ On mobile, `filter-content` is `hidden` by default. Users might not realize filt
 
 ---
 
-### 22. Outdated dependency versions
+### 22. ~~Outdated dependency versions~~ DONE
 
 **File:** `package.json`
 
-`astro: ^5.0.5` is used but the Tailwind integration `@astrojs/tailwind: ^5.1.2` is for the older Tailwind CSS v3 approach. Astro 5 works better with the newer integration patterns.
+~~`astro: ^5.0.5` is used but the Tailwind integration `@astrojs/tailwind: ^5.1.2` is for the older Tailwind CSS v3 approach. Astro 5 works better with the newer integration patterns.~~
 
-**Recommendation:** Audit and update dependencies. Check compatibility between Astro 5 and the Tailwind integration version.
+**Resolved:** Updated all dependencies to latest within their semver ranges: `astro` 5.0.5 -> 5.18.1, `@astrojs/check` 0.9.4 -> 0.9.8, `@types/node` 25.1.0 -> 25.5.0. Fixed 4 npm audit vulnerabilities (devalue, h3, rollup, svgo). Major version upgrades (Astro 6, Tailwind 4, @astrojs/tailwind 6) were intentionally skipped — they require dedicated migration work. Moved `js-yaml`, `@types/js-yaml`, and `@rollup/plugin-yaml` to `devDependencies`.
 
 ---
 
-### 23. `astro check` in build step
+### 23. ~~`astro check` in build step~~ DONE
 
 **File:** `package.json:8`
 
-The build script is `"build": "astro check && astro build"`. Running type checking on every build is fine for CI but slows down local development.
+~~The build script is `"build": "astro check && astro build"`. Running type checking on every build is fine for CI but slows down local development.~~
 
-**Recommendation:** Separate the scripts: `"build": "astro build"` and `"check": "astro check"`. Update CI to run both explicitly.
+**Resolved:** Split into separate scripts: `"build": "astro build"` and `"check": "astro check"`. CI workflow updated to run `npm run check` as a separate step before `npm run build`. Local `npm run build` is now faster since it skips type checking.
 
 ---
 
@@ -276,6 +276,6 @@ The build script is `"build": "astro check && astro build"`. Running type checki
 | **Low**    | 21    | Add linting/formatting                     | DONE      | DX for contributors   |
 | **Low**    | 16    | Add sort options                           | CANCELLED | UX polish             |
 | **Low**    | 17    | Show category counts in filter pills       | CANCELLED | UX polish             |
-| **Low**    | 8     | Image optimization                         | -         | Performance polish    |
-| **Low**    | 18    | Mobile filter visibility hint              | -         | UX polish             |
-| **Low**    | 22-23 | Dependency audit, split build/check        | -         | DX, build speed       |
+| **Low**    | 8     | Image optimization                         | DONE      | Performance polish    |
+| **Low**    | 18    | Mobile filter visibility hint              | DONE      | UX polish             |
+| **Low**    | 22-23 | Dependency audit, split build/check        | DONE      | DX, build speed       |

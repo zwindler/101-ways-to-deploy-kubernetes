@@ -35,6 +35,9 @@ function formatCategoryName(category: string): string {
         ></path>
       </svg>
       <span>Filters</span>
+      <span id="filter-hint" class="text-xs text-gray-500 dark:text-gray-400 animate-pulse"
+        >— tap to refine</span
+      >
       <span
         id="filter-count-badge"
         class="hidden px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full">0</span
@@ -300,6 +303,10 @@ function formatCategoryName(category: string): string {
     const chevron = document.getElementById('mobile-filter-chevron');
 
     if (!content || !chevron) return;
+
+    // Remove the hint on first interaction
+    const hint = document.getElementById('filter-hint');
+    if (hint) hint.remove();
 
     const isHidden = content.classList.contains('hidden');
 

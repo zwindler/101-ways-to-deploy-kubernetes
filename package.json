@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
+    "check": "astro check",
     "preview": "astro preview",
     "validate": "node scripts/validate-solutions.mjs",
+    "optimize-icons": "node scripts/optimize-icons.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "astro": "astro"
