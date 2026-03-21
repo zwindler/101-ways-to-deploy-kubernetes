@@ -103,4 +103,15 @@ const { placeholder = "Search solutions..." } = Astro.props;
       }
     }
   });
+
+  // Listen for filters-restore event to set search from URL params
+  window.addEventListener('filters-restore', ((e: CustomEvent) => {
+    const query = e.detail?.search || '';
+    if (searchInput && query) {
+      searchInput.value = query;
+      if (clearButton) {
+        clearButton.classList.toggle('hidden', query.length === 0);
+      }
+    }
+  }) as EventListener);
 </script>

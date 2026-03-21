@@ -505,6 +505,66 @@ function formatCategoryName(category: string): string {
     clearAllFilters();
   });
 
+  // Listen for filters-restore event to set UI from URL params
+  window.addEventListener('filters-restore', ((e: CustomEvent) => {
+    const f = e.detail?.filters;
+    if (!f) return;
+
+    // Restore category pill
+    if (f.category) {
+      document.querySelectorAll('.filter-pill').forEach((btn) => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-category') === f.category) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    // Restore cloud provider
+    if (f.cloudProvider) {
+      const cp = document.getElementById('cloud-provider-filter') as HTMLSelectElement | null;
+      if (cp) cp.value = f.cloudProvider;
+    }
+
+    // Restore OSS checkbox
+    if (f.openSourceOnly) {
+      const oss = document.getElementById('oss-filter') as HTMLInputElement | null;
+      if (oss) oss.checked = true;
+    }
+
+    // Restore production ready checkbox
+    if (f.productionReadyOnly) {
+      const prod = document.getElementById('production-ready-filter') as HTMLInputElement | null;
+      if (prod) prod.checked = true;
+    }
+
+    // Restore status
+    if (f.status && f.status !== 'all') {
+      const st = document.getElementById('status-filter') as HTMLSelectElement | null;
+      if (st) st.value = f.status;
+    }
+
+    // Restore tags
+    if (f.tags && f.tags.length > 0) {
+      f.tags.forEach((tag: string) => {
+        const cb = document.querySelector(`input[data-tag="${tag}"]`) as HTMLInputElement | null;
+        if (cb) cb.checked = true;
+      });
+    }
+
+    // Restore stars
+    if (f.minStars && f.minStars > 0) {
+      const stars = document.getElementById('stars-filter') as HTMLSelectElement | null;
+      if (stars) stars.value = f.minStars.toString();
+    }
+
+    // Update all dependent UI
+    updateClearButtonVisibility();
+    updateCloudProviderVisibility();
+    updateStarsFilterVisibility();
+    updateTagsDropdownLabel();
+  }) as EventListener);
+
   // Run on page load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initFilterBar);
