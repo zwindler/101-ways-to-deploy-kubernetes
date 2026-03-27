@@ -2330,7 +2330,7 @@ solutions:
   - name: talhelper
     category: Selfhosted
     url: https://github.com/budimanjojo/talhelper
-    icon_url: https://avatars.githubusercontent.com/u/13122516?v=4
+    icon_url: https://budimanjojo.github.io/talhelper/latest/img/logo.svg
     publisher: budimanjojo
     description: CLI tool to help create Talos clusters in a GitOps way by generating
       machine configs from a single YAML config file
