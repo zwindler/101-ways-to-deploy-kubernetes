@@ -2327,6 +2327,22 @@ solutions:
     tags:
       - self-hosted
       - automation
+  - name: talhelper
+    category: Selfhosted
+    url: https://github.com/budimanjojo/talhelper
+    icon_url: https://budimanjojo.github.io/talhelper/latest/img/logo.svg
+    publisher: budimanjojo
+    description: CLI tool to help create Talos clusters in a GitOps way by generating
+      machine configs from a single YAML config file
+    license: BSD 3-Clause
+    open_source: true
+    based_on:
+      - Talos Linux
+    tags:
+      - self-hosted
+      - automation
+      - gitops
+    production_ready: true
   - name: TALM
     category: Selfhosted
     url: https://github.com/cozystack/talm
