@@ -2303,7 +2303,7 @@ solutions:
   - name: TOPF
     category: Selfhosted
     url: https://github.com/postfinance/topf
-    icon_url: https://avatars.githubusercontent.com/u/13379794?s=200&v=4
+    icon_url: https://avatars.githubusercontent.com/u/34368733?s=200&v=4
     publisher: PostFinance
     description: Talos Orchestrator by PostFinance - manages Talos-based Kubernetes clusters, providing bootstrapping, reset, and configuration apply functionality
     license: MIT
