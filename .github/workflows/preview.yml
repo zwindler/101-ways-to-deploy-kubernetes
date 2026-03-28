@@ -13,7 +13,7 @@ permissions:
 jobs:
   deploy-preview:
     name: Deploy PR Preview
-    if: github.event.action != 'closed'
+    if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
 
       - name: Install dependencies
@@ -78,15 +78,57 @@ jobs:
               });
             }
 
+  skip-fork-preview:
+    name: Skip Preview for Fork PR
+    if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment PR about skipped preview
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.issue.number;
+            const commentBody = `## 🔒 Preview Deployment Skipped\n\nPreview deployment is not available for pull requests from forked repositories for security reasons.\n\n---\n*Only pull requests from branches within this repository can trigger preview deployments.*`;
+
+            // Find existing preview comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+            });
+
+            const existingComment = comments.find(comment =>
+              comment.user.type === 'Bot' && comment.body.includes('Preview Deployment')
+            );
+
+            if (existingComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existingComment.id,
+                body: commentBody,
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: commentBody,
+              });
+            }
+
   cleanup-preview:
     name: Cleanup PR Preview
-    if: github.event.action == 'closed'
+    if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
+          persist-credentials: true
 
       - name: Remove PR preview directory
         run: |
@@ -95,7 +137,7 @@ jobs:
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git rm -rf pr-${{ github.event.pull_request.number }}
             git commit -m "Clean up preview for PR #${{ github.event.pull_request.number }}"
-            git push
+            git push origin gh-pages
           else
             echo "Preview directory not found, nothing to clean up"
           fi
