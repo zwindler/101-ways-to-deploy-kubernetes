@@ -10,6 +10,7 @@ const { placeholder = 'Search solutions...' } = Astro.props;
 
 <div class="search-container w-full max-w-2xl mx-auto mb-6">
   <div class="relative">
+    <label for="search-input" class="sr-only">Search solutions</label>
     <!-- Search icon -->
     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
       <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -23,7 +24,7 @@ const { placeholder = 'Search solutions...' } = Astro.props;
 
     <!-- Input -->
     <input
-      type="text"
+      type="search"
       id="search-input"
       placeholder={placeholder}
       autocomplete="off"
