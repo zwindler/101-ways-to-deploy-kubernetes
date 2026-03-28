@@ -169,11 +169,10 @@ html.dark {
   @apply -translate-y-1 shadow-xl;
 }
 
-/* Off-screen rendering optimization for solution cards */
-.solution-item {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 320px;
-}
+/* Note: content-visibility: auto was removed because it applies CSS paint
+   containment (contain: paint), which clips descendants to the element's
+   border box. This caused cards to be visually clipped when lifted upward
+   on hover via translateY(-4px). */
 
 /* Button press effect */
 .btn-press {
