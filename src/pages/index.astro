@@ -375,7 +375,8 @@ const tags = [...new Set(solutions.flatMap((s) => s.tags || []))].sort();
       const limit = Math.min(cards.length, 15);
       for (let i = 0; i < limit; i++) {
         const el = cards[i] as HTMLElement;
-        el.style.cssText = `opacity:0;animation:fadeInUp 0.5s ease-out ${i * 50}ms forwards`;
+        el.style.opacity = '0';
+        el.style.animation = `fadeInUp 0.5s ease-out ${i * 50}ms forwards`;
       }
     });
   });
