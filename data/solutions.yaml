@@ -2389,6 +2389,21 @@ solutions:
       - self-hosted
       - automation
     stars: 200
+  - name: talstomize
+    category: Selfhosted
+    url: https://github.com/mirceanton/talstomize
+    icon_url: https://avatars.githubusercontent.com/u/176404304?s=200&v=4
+    publisher: mirceanton
+    description: Like kustomize, but for Talos!
+    license: MIT
+    open_source: true
+    based_on:
+      - Talos Linux
+    tags:
+      - self-hosted
+      - automation
+      - gitops
+    stars: 14
   - name: tarook
     category: Selfhosted
     url: https://gitlab.com/alasca.cloud/tarook/tarook
