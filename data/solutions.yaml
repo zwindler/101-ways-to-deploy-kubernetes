@@ -309,8 +309,7 @@ solutions:
   - name: Orbstack
     category: Desktop
     url: https://orbstack.dev/
-    icon_url: >-
-      https://camo.githubusercontent.com/d20582f77f0d485f7ab60b8e5c3116591e0abae14ad12ca91fe8f9d23ca254ff/68747470733a2f2f6f7262737461636b2e6465762f696d672f69636f6e3235362e706e67
+    icon_url: https://camo.githubusercontent.com/d20582f77f0d485f7ab60b8e5c3116591e0abae14ad12ca91fe8f9d23ca254ff/68747470733a2f2f6f7262737461636b2e6465762f696d672f69636f6e3235362e706e67
     publisher: Orbital Stack
     description: Fast, lightweight container runtime and Kubernetes for macOS
     license: Proprietary
@@ -448,8 +447,7 @@ solutions:
         description: Chapter 37 (Crossplane)
       - title: Step-by-step guide to working with Crossplane and Kubernetes
         language: en
-        url: >-
-          https://www.techtarget.com/searchitoperations/tutorial/Step-by-step-guide-to-working-with-Crossplane-and-Kubernetes
+        url: https://www.techtarget.com/searchitoperations/tutorial/Step-by-step-guide-to-working-with-Crossplane-and-Kubernetes
         type: tutorial
     tags:
       - automation
@@ -816,8 +814,7 @@ solutions:
     category: KubernetesOS
     url: https://github.com/koob-foo/koob-os
     icon_url: https://avatars.githubusercontent.com/u/249196368?s=200&v=4
-    description: Minimal, immutable Kubernetes OS built from scratch with a custom
-      Go-based init system, UKI, and UEFI Secure Boot support
+    description: Minimal, immutable Kubernetes OS built from scratch with a custom Go-based init system, UKI, and UEFI Secure Boot support
     license: Apache 2.0
     open_source: true
     tags:
@@ -850,8 +847,7 @@ solutions:
   - name: Talos Linux
     category: KubernetesOS
     url: https://github.com/siderolabs/talos
-    icon_url: >-
-      https://raw.githubusercontent.com/zwindler/101-ways-to-deploy-kubernetes/refs/heads/main/public/logos/talos-logo.svg
+    icon_url: https://raw.githubusercontent.com/zwindler/101-ways-to-deploy-kubernetes/refs/heads/main/public/logos/talos-logo.svg
     publisher: SideroLabs
     description: Secure, immutable, and minimal Linux OS designed for Kubernetes
     license: MPL 2.0
@@ -963,8 +959,7 @@ solutions:
   - name: CoreWeave Kubernetes Service (CKS)
     category: Managed
     url: https://www.coreweave.com/products/coreweave-kubernetes-service
-    icon_url: >-
-      https://raw.githubusercontent.com/zwindler/101-ways-to-deploy-kubernetes/refs/heads/main/public/logos/coreweave-logo.svg
+    icon_url: https://raw.githubusercontent.com/zwindler/101-ways-to-deploy-kubernetes/refs/heads/main/public/logos/coreweave-logo.svg
     icon_background_color: light
     publisher: CoreWeave
     description: GPU-accelerated managed Kubernetes service
@@ -1154,8 +1149,7 @@ solutions:
     references:
       - title: Managing clusters with the Linode CLI
         language: en
-        url: >-
-          https://notes.kodekloud.com/docs/Linode-Kubernetes-Engine/Working-with-Linode/Managing-clusters-with-the-Linode-CLI
+        url: https://notes.kodekloud.com/docs/Linode-Kubernetes-Engine/Working-with-Linode/Managing-clusters-with-the-Linode-CLI
         type: article
     tags:
       - cloud
@@ -1164,8 +1158,7 @@ solutions:
   - name: MetaKube
     category: Managed
     url: https://www.syseleven.de/en/
-    icon_url: >-
-      https://www.syseleven.de/wp-content/uploads/2026/01/secunet_syseleven_Logo_RGB_SchwarzRot_by-secunet_fuer-Website.png
+    icon_url: https://www.syseleven.de/wp-content/uploads/2026/01/secunet_syseleven_Logo_RGB_SchwarzRot_by-secunet_fuer-Website.png
     icon_background_color: light
     publisher: SysEleven
     description: Managed Kubernetes service built on Kubermatic
@@ -1211,8 +1204,7 @@ solutions:
   - name: Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE)
     category: Managed
     url: https://www.oracle.com/fr/cloud/cloud-native/container-engine-kubernetes/
-    icon_url: >-
-      https://raw.githubusercontent.com/zwindler/101-ways-to-deploy-kubernetes/refs/heads/main/public/logos/oracle-logo.svg
+    icon_url: https://raw.githubusercontent.com/zwindler/101-ways-to-deploy-kubernetes/refs/heads/main/public/logos/oracle-logo.svg
     publisher: Oracle Cloud Infrastructure
     description: Managed Kubernetes service on Oracle Cloud
     license: Cloud
@@ -1229,8 +1221,7 @@ solutions:
   - name: Orka
     category: Managed
     url: https://www.macstadium.com/orka
-    icon_url: >-
-      https://cdn.prod.website-files.com/687e650a56916806eaaf8f62/68c24991575cbc9ba4d212e6_Orka-Logo-WhiteBellyRegistered.svg
+    icon_url: https://cdn.prod.website-files.com/687e650a56916806eaaf8f62/68c24991575cbc9ba4d212e6_Orka-Logo-WhiteBellyRegistered.svg
     publisher: MacStadium
     description: Kubernetes-based orchestration platform for macOS build infrastructure
     license: Cloud
@@ -1430,6 +1421,31 @@ solutions:
       - multi-tenancy
     production_ready: true
     stars: 1800
+  - name: kMetal
+    category: ManagementPlatform
+    url: https://kmetal.clastix.io/
+    icon_url: https://avatars.githubusercontent.com/u/39170129?s=200&v=4
+    icon_background_color: light
+    publisher: Clastix
+    description: Enterprise bare-metal Kubernetes platform with hosted control planes, embedded tenant isolation, fleet management, and secure GPU pooling
+    license: Proprietary
+    open_source: false
+    based_on:
+      - Kamaji
+      - Cluster API
+      - Kairos
+    references:
+      - title: Introducing kMetal 1.0 – for Helping Enterprises Control & Scale Kubernetes More Efficiently
+        language: en
+        url: https://clastix.io/post/introducing-k-metal-1-0-for-helping-enterprises-control-and-scale-kubernetes-more-efficiently/
+        type: article
+        description: Clastix launch post for kMetal 1.0
+    tags:
+      - multi-cluster
+      - enterprise
+      - multi-tenancy
+      - bare-metal
+    production_ready: true
   - name: KubeClipper
     category: ManagementPlatform
     url: https://github.com/kubeclipper/kubeclipper
@@ -1513,8 +1529,7 @@ solutions:
     references:
       - title: Get your First Container Up on Kubernetes Using Platform9 (HackerNoon)
         language: en
-        url: >-
-          https://hackernoon.com/get-your-first-container-up-on-kubernetes-using-the-free-version-of-platform9-managed-kubernetes-p65u32u9
+        url: https://hackernoon.com/get-your-first-container-up-on-kubernetes-using-the-free-version-of-platform9-managed-kubernetes-p65u32u9
         type: article
     tags:
       - multi-cluster
@@ -1539,10 +1554,7 @@ solutions:
     url: https://github.com/Qovery/engine
     icon_url: https://avatars.githubusercontent.com/u/55960755?s=200&v=4
     publisher: Qovery
-    description: >-
-      Kubernetes management platform for provisioning and operating clusters
-      across AWS EKS, GCP GKE, Azure AKS, Scaleway, and bring-your-own clusters
-      with automated upgrades, fleet dashboard, and AI-assisted operations
+    description: Kubernetes management platform for provisioning and operating clusters across AWS EKS, GCP GKE, Azure AKS, Scaleway, and bring-your-own clusters with automated upgrades, fleet dashboard, and AI-assisted operations
     license: GPL-3.0-only
     open_source: true
     tags:
@@ -1763,9 +1775,7 @@ solutions:
     url: https://github.com/cozystack/boot-to-talos
     icon_url: https://avatars.githubusercontent.com/u/202342215?s=200&v=4
     publisher: Cozystack
-    description: >-
-      Converts any existing OS to Talos Linux completely from userspace, without external dependencies except the Talos
-      installer image
+    description: Converts any existing OS to Talos Linux completely from userspace, without external dependencies except the Talos installer image
     license: Apache 2.0
     open_source: true
     based_on:
@@ -1838,8 +1848,7 @@ solutions:
   - name: Hepto
     category: Selfhosted
     url: https://forge.tedomum.net/acides/hepto
-    icon_url: >-
-      https://raw.githubusercontent.com/zwindler/101-ways-to-deploy-kubernetes/refs/heads/main/public/logos/hepto-dark-bg.png
+    icon_url: https://raw.githubusercontent.com/zwindler/101-ways-to-deploy-kubernetes/refs/heads/main/public/logos/hepto-dark-bg.png
     description: Lightweight Kubernetes distribution for edge and IoT deployments
     license: Apache 2.0
     open_source: true
@@ -2053,8 +2062,7 @@ solutions:
   - name: kubeaver
     category: Selfhosted
     url: https://github.com/eb-k8s/kubeaver
-    icon_url: >-
-      https://raw.githubusercontent.com/eb-k8s/kubeaver/ffde08bb89b9dcdb558a5de86e04284f747793c7/docs/imgs/logo_without_k.svg
+    icon_url: https://raw.githubusercontent.com/eb-k8s/kubeaver/ffde08bb89b9dcdb558a5de86e04284f747793c7/docs/imgs/logo_without_k.svg
     publisher: eb-k8s
     description: Offline Kubernetes cluster deployment tool with a graphical user interface, based on Kubespray and Ansible
     license: Apache 2.0
@@ -2271,8 +2279,7 @@ solutions:
   - name: RKE2
     category: Selfhosted
     url: https://github.com/rancher/rke2
-    icon_url: >-
-      https://camo.githubusercontent.com/f851837d7a0298bf0c62820028221ba52dbe3fb00d97e37ebee465b31ed6edd9/68747470733a2f2f646f63732e726b65322e696f2f696d672f6c6f676f2d686f72697a6f6e74616c2d726b65322e737667
+    icon_url: https://camo.githubusercontent.com/f851837d7a0298bf0c62820028221ba52dbe3fb00d97e37ebee465b31ed6edd9/68747470733a2f2f646f63732e726b65322e696f2f696d672f6c6f676f2d686f72697a6f6e74616c2d726b65322e737667
     icon_background_color: light
     publisher: Rancher
     description: Kubernetes distribution focused on security and compliance for government use
@@ -2311,9 +2318,7 @@ solutions:
     url: https://github.com/budimanjojo/talhelper
     icon_url: https://budimanjojo.github.io/talhelper/latest/img/logo.svg
     publisher: budimanjojo
-    description: >-
-      CLI tool to help create Talos clusters in a GitOps way by generating machine configs from a single YAML config
-      file
+    description: CLI tool to help create Talos clusters in a GitOps way by generating machine configs from a single YAML config file
     license: BSD 3-Clause
     open_source: true
     based_on:
@@ -2380,9 +2385,7 @@ solutions:
     url: https://github.com/postfinance/topf
     icon_url: https://avatars.githubusercontent.com/u/34368733?s=200&v=4
     publisher: PostFinance
-    description: >-
-      Talos Orchestrator by PostFinance - manages Talos-based Kubernetes clusters, providing bootstrapping, reset, and
-      configuration apply functionality
+    description: Talos Orchestrator by PostFinance - manages Talos-based Kubernetes clusters, providing bootstrapping, reset, and configuration apply functionality
     license: MIT
     open_source: true
     based_on:
