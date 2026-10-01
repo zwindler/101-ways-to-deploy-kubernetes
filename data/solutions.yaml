@@ -37,7 +37,7 @@ solutions:
       - local
       - development
       - macos
-    stars: 31000
+    stars: 31100
   - name: crc (openshift 4 on a desktop)
     category: Desktop
     url: https://github.com/crc-org/crc
@@ -620,7 +620,7 @@ solutions:
     tags:
       - automation
       - infrastructure-as-code
-    stars: 25700
+    stars: 25800
     production_ready: true
   - name: Puppet
     category: InfraAsCode
@@ -2072,7 +2072,7 @@ solutions:
       - self-hosted
       - declarative
     production_ready: true
-    stars: 128100
+    stars: 128200
   - name: Kubean
     category: Selfhosted
     url: https://github.com/kubean-io/kubean
@@ -2358,7 +2358,7 @@ solutions:
       - self-hosted
       - multi-tenancy
       - virtualization
-    stars: 78
+    stars: 79
   - name: talhelper
     category: Selfhosted
     url: https://github.com/budimanjojo/talhelper
@@ -2431,7 +2431,7 @@ solutions:
       - self-hosted
       - automation
       - gitops
-    stars: 32
+    stars: 33
   - name: tarook
     category: Selfhosted
     url: https://gitlab.com/alasca.cloud/tarook/tarook
