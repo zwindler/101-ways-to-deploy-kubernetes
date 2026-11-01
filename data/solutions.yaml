@@ -17,7 +17,7 @@ solutions:
     tags:
       - local
       - development
-    stars: 110
+    stars: 120
   - name: colima
     category: Desktop
     url: https://github.com/abiosoft/colima
@@ -37,7 +37,7 @@ solutions:
       - local
       - development
       - macos
-    stars: 31000
+    stars: 31500
   - name: crc (openshift 4 on a desktop)
     category: Desktop
     url: https://github.com/crc-org/crc
@@ -141,7 +141,7 @@ solutions:
     open_source: true
     based_on:
       - kubeadm
-    stars: 15500
+    stars: 15600
     references:
       - title: Kubernetes - 50 solutions pour les postes de développement et les clusters de production
         language: fr
@@ -205,7 +205,7 @@ solutions:
       - local
       - development
       - macos
-    stars: 22000
+    stars: 22200
   - name: microk8s
     category: Desktop
     url: https://github.com/canonical/microk8s
@@ -351,7 +351,7 @@ solutions:
       - development
       - container-based
       - gui
-    stars: 8000
+    stars: 8100
   - name: Rancher Desktop
     category: Desktop
     url: https://github.com/rancher-sandbox/rancher-desktop
@@ -454,7 +454,7 @@ solutions:
     tags:
       - automation
       - infrastructure-as-code
-    stars: 12100
+    stars: 12200
     production_ready: true
   - name: Cybozu Kubernetes Engine (CKE)
     category: InfraAsCode
@@ -594,7 +594,7 @@ solutions:
       - automation
       - infrastructure-as-code
     production_ready: true
-    stars: 30300
+    stars: 30700
   - name: Pulumi
     category: InfraAsCode
     url: https://github.com/pulumi/pulumi
@@ -620,7 +620,7 @@ solutions:
     tags:
       - automation
       - infrastructure-as-code
-    stars: 25700
+    stars: 25800
     production_ready: true
   - name: Puppet
     category: InfraAsCode
@@ -666,7 +666,7 @@ solutions:
       - automation
       - infrastructure-as-code
     production_ready: true
-    stars: 49800
+    stars: 50300
   - name: typhoon
     category: InfraAsCode
     url: https://github.com/poseidon/typhoon
@@ -715,7 +715,7 @@ solutions:
     tags:
       - multi-tenancy
       - virtualization
-    stars: 910
+    stars: 920
   - name: vcluster
     category: KubernetesInKubernetes
     url: https://github.com/loft-sh/vcluster
@@ -745,7 +745,7 @@ solutions:
     tags:
       - multi-tenancy
       - lightweight
-    stars: 11300
+    stars: 11400
     production_ready: true
   - name: Corium
     category: KubernetesOS
@@ -761,7 +761,7 @@ solutions:
       - immutable
       - bare-metal
       - gitops
-    stars: 10
+    stars: 13
   - name: elemental (ex k3os)
     category: KubernetesOS
     url: https://github.com/rancher/elemental
@@ -827,7 +827,7 @@ solutions:
       - immutable
       - production
       - edge
-    stars: 1800
+    stars: 1900
     production_ready: true
   - name: koob OS
     category: KubernetesOS
@@ -902,7 +902,7 @@ solutions:
       - production
       - lightweight
     production_ready: true
-    stars: 11300
+    stars: 11400
   - name: AKS
     category: Managed
     url: https://azure.microsoft.com/fr-fr/products/kubernetes-service
@@ -1401,7 +1401,7 @@ solutions:
       - multi-cluster
       - enterprise
       - multi-tenancy
-    stars: 540
+    stars: 550
   - name: k0rdent
     category: ManagementPlatform
     url: https://github.com/k0rdent/kcm
@@ -1440,7 +1440,7 @@ solutions:
       - enterprise
       - multi-tenancy
     production_ready: true
-    stars: 2000
+    stars: 2100
   - name: kMetal
     category: ManagementPlatform
     url: https://kmetal.clastix.io/
@@ -1621,7 +1621,7 @@ solutions:
       - enterprise
       - gui
     production_ready: true
-    stars: 25900
+    stars: 26000
   - name: Tanzu Kubernetes Grid
     category: ManagementPlatform
     url: https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/index.html
@@ -1674,7 +1674,7 @@ solutions:
       - gui
       - virtualization
     production_ready: true
-    stars: 990
+    stars: 1000
   - name: Devops playgrounds
     category: Other
     url: https://labs.iximiuz.com/playgrounds
@@ -1721,7 +1721,7 @@ solutions:
     tags:
       - learning
       - educational
-    stars: 360
+    stars: 370
   - name: The hard way (Kelsey hightower)
     category: Other
     url: https://github.com/kelseyhightower/kubernetes-the-hard-way
@@ -1732,7 +1732,7 @@ solutions:
     tags:
       - learning
       - educational
-    stars: 50300
+    stars: 50600
   - name: The hard way w/ Terraform (AWS)
     category: Other
     url: https://github.com/escarti/kubernetes-the-hard-way-tf-aws
@@ -1763,7 +1763,7 @@ solutions:
     tags:
       - learning
       - educational
-    stars: 94
+    stars: 95
   - name: Using binaries (manually)
     category: Other
     url: https://github.com/kubernetes/kubernetes
@@ -1913,7 +1913,7 @@ solutions:
       - self-hosted
       - lightweight
     production_ready: true
-    stars: 6500
+    stars: 6600
   - name: k0smotron
     category: Selfhosted
     url: https://github.com/k0sproject/k0smotron
@@ -1934,7 +1934,7 @@ solutions:
     tags:
       - self-hosted
       - multi-cluster
-    stars: 750
+    stars: 760
   - name: k3s
     category: Selfhosted
     url: https://github.com/k3s-io/k3s
@@ -1958,7 +1958,7 @@ solutions:
       - lightweight
       - edge
     production_ready: true
-    stars: 34100
+    stars: 34300
   - name: k3sup
     category: Selfhosted
     url: https://github.com/alexellis/k3sup
@@ -2000,7 +2000,7 @@ solutions:
     tags:
       - self-hosted
       - beginner-friendly
-    stars: 500
+    stars: 510
   - name: K8S The Easy way
     category: Selfhosted
     url: https://github.com/darxkies/k8s-tew
@@ -2072,7 +2072,7 @@ solutions:
       - self-hosted
       - declarative
     production_ready: true
-    stars: 128100
+    stars: 128800
   - name: Kubean
     category: Selfhosted
     url: https://github.com/kubean-io/kubean
@@ -2086,7 +2086,7 @@ solutions:
     tags:
       - self-hosted
       - automation
-    stars: 530
+    stars: 540
   - name: kubeaver
     category: Selfhosted
     url: https://github.com/eb-k8s/kubeaver
@@ -2186,7 +2186,7 @@ solutions:
     tags:
       - self-hosted
       - edge
-    stars: 590
+    stars: 610
   - name: Kurl
     category: Selfhosted
     url: https://github.com/replicatedhq/kurl
@@ -2345,7 +2345,7 @@ solutions:
     tags:
       - self-hosted
       - secure
-    stars: 210
+    stars: 220
   - name: Superphenix
     category: Selfhosted
     url: https://github.com/super-phenix/superphenix
@@ -2358,7 +2358,7 @@ solutions:
       - self-hosted
       - multi-tenancy
       - virtualization
-    stars: 78
+    stars: 110
   - name: talhelper
     category: Selfhosted
     url: https://github.com/budimanjojo/talhelper
@@ -2388,7 +2388,7 @@ solutions:
     tags:
       - self-hosted
       - automation
-    stars: 490
+    stars: 500
   - name: taloprox
     category: Selfhosted
     url: https://github.com/jpetazzo/taloprox
@@ -2431,7 +2431,7 @@ solutions:
       - self-hosted
       - automation
       - gitops
-    stars: 32
+    stars: 39
   - name: tarook
     category: Selfhosted
     url: https://gitlab.com/alasca.cloud/tarook/tarook
@@ -2458,4 +2458,4 @@ solutions:
       - self-hosted
       - automation
     production_ready: true
-    stars: 170
+    stars: 200
