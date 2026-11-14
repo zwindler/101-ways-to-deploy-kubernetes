@@ -938,6 +938,21 @@ solutions:
       - lightweight
     production_ready: true
     stars: 11300
+  - name: Vates Kube OS
+    category: KubernetesOS
+    url: https://github.com/vatesfr/vates-kube-os
+    icon_url: https://avatars.githubusercontent.com/u/2064170?s=200&v=4
+    publisher: Vates
+    description: Experimental immutable Kubernetes node OS built from source, used as the node image by the Vates Cluster API providers for XCP-ng
+    license: Apache 2.0
+    open_source: true
+    based_on:
+      - kubeadm
+    tags:
+      - immutable
+      - virtualization
+      - declarative
+    stars: 9
   - name: AKS
     category: Managed
     url: https://azure.microsoft.com/fr-fr/products/kubernetes-service
