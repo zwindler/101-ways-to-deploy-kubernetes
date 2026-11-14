@@ -1722,6 +1722,21 @@ solutions:
       - learning
       - educational
     stars: 360
+  - name: tabernetes
+    category: Other
+    url: https://github.com/jkroepke/tabernetes
+    icon_url: https://avatars.githubusercontent.com/u/1560587?s=200&v=4
+    description: Real Kubernetes control plane compiled to WebAssembly running in a browser tab, with each tab joining the cluster as a node
+    license: MIT
+    open_source: true
+    references:
+      - title: Tabernetes - Kubernetes in your browser tab
+        language: en
+        url: https://jkroepke.de/tabernetes/
+        type: documentation
+    tags:
+      - learning
+      - educational
   - name: The hard way (Kelsey hightower)
     category: Other
     url: https://github.com/kelseyhightower/kubernetes-the-hard-way
