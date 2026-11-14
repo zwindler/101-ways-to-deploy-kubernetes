@@ -747,6 +747,27 @@ solutions:
       - lightweight
     stars: 11300
     production_ready: true
+  - name: Bluefin Server
+    category: KubernetesOS
+    url: https://github.com/projectbluefin/server
+    icon_url: https://avatars.githubusercontent.com/u/136393846?s=200&v=4
+    publisher: Project Bluefin
+    description: Immutable image-based server OS composed from freedesktop-sdk, with kubeadm and k0s homelab profiles for deploying Kubernetes clusters
+    license: Apache 2.0
+    open_source: true
+    based_on:
+      - kubeadm
+      - k0s
+    references:
+      - title: Bluefin Server documentation
+        language: en
+        url: https://docs.projectbluefin.io/server/
+        type: documentation
+    tags:
+      - immutable
+      - bare-metal
+      - declarative
+    stars: 58
   - name: Corium
     category: KubernetesOS
     url: https://github.com/Corium-OS/Corium
