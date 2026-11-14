@@ -1737,6 +1737,7 @@ solutions:
     tags:
       - learning
       - educational
+    stars: 2
   - name: The hard way (Kelsey hightower)
     category: Other
     url: https://github.com/kelseyhightower/kubernetes-the-hard-way
