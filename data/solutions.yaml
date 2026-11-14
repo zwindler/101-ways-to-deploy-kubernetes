@@ -582,6 +582,7 @@ solutions:
       - local
       - development
       - macos
+    stars: 14
   - name: OpenTofu
     category: InfraAsCode
     url: https://github.com/opentofu/opentofu
