@@ -767,6 +767,7 @@ solutions:
       - immutable
       - bare-metal
       - declarative
+    stars: 58
   - name: Corium
     category: KubernetesOS
     url: https://github.com/Corium-OS/Corium
