@@ -917,6 +917,7 @@ solutions:
       - immutable
       - virtualization
       - declarative
+    stars: 9
   - name: AKS
     category: Managed
     url: https://azure.microsoft.com/fr-fr/products/kubernetes-service
